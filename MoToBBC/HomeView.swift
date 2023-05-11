@@ -21,10 +21,14 @@ struct HomeView: View {
                 // タブのラベル部分のビュー
              
             }
+        joinview(whereis: "", detail: "", title: "", dateStrig: "", how: "")
+            .tabItem{
+                Image(systemName: "figure.wave")
+            }
         // --- ここまで ---
         // --- ここから ---
         // タブ内に表示するビュー
-        Mypageview(usersname:"kkiiki")
+        Mypageview(whereis: "", detail: "", title: "", dateStrig: "", how: "")
             .tabItem {
                 // タブのラベル部分のビュー
                   Image(systemName:"person.crop.circle.fill")

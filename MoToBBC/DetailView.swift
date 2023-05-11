@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 
 struct detail: View {
+    
     @State var messa = "参加する！"
     @ObservedObject private var viewModel = ViewModel()
    
@@ -19,21 +20,22 @@ struct detail: View {
     @State var pp:Int = 0
     @State var uid:String = ""
     @State var documentId = ""
-    let id:String
+    
    
+    let eventid:String
     let  whereis:String
     let detail:String
     let title:String
     let dateString:String
     let how:String
-    init(whereis:String,detail:String,title:String,dateStrig:String,how:String,id:String){
-        
+    init(eventid:String,whereis:String,detail:String,title:String,dateStrig:String,how:String){
+        self.eventid = eventid
         self.whereis = whereis
         self.detail = detail
         self.title = title
         self.dateString = dateStrig
         self.how = how
-        self.id = id
+     
     }
   
     var body: some View {
@@ -46,15 +48,15 @@ struct detail: View {
             HStack{
                 Text("出発地：" + whereis)}
             Text("開催予定日：" + dateString)
-            
+            Text(eventid)
             
             Text("現在の参加予定" + String(pp) + "人").foregroundColor(.green)
-            Spacer(minLength: 30)
-            Text(detail)
-            
+            Spacer()
+           
+            Text(String(eventid))
             Text(messa).onTapGesture {
+                self.viewModel.addattend(eventid: self.eventid)
                 
-//                self.viewModel.addDocument2(pp:pp,documentId:documentId)
                 self.isgo.toggle()
                 if isgo == true{
                    messa = "参加した！"
@@ -62,6 +64,7 @@ struct detail: View {
                 }
             }
         }.onAppear(){self.viewModel.fetchData()
+            
            
           
         }
@@ -71,5 +74,5 @@ struct detail: View {
 
 struct detail_Previews: PreviewProvider {
     static var previews: some View {
-        detail(whereis: "三重県",detail:"dfdf", title:"誰でもツーリング", dateStrig:"2004年12月24日", how: "11",id:"")}
+        detail(eventid:"っっっっっl",whereis: "三重県",detail:"dfdf", title:"誰でもツーリング", dateStrig:"2004年12月24日", how: "11")}
 }

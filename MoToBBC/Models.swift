@@ -17,11 +17,16 @@ struct User:Identifiable{
     
 }
 
+struct Item: Codable, Identifiable {
+    
+    var id: String?
+    var strings: [String]
+}
 
 
 struct Events:Identifiable{
     let id: String = UUID().uuidString
-    let eventid:String
+    let eventid :String
     let userid:String
     let title:String
     let  whereis:String
@@ -43,7 +48,6 @@ struct AttendEvents{
 
 struct Datamodel:Identifiable{
     var id: String = UUID().uuidString
-    
     var title:String
     var how: String
     var whereis: String

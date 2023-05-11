@@ -11,41 +11,47 @@ struct Mypageview: View {
     
     @ObservedObject private var viewModel = ViewModel()
     
-    let  usersname:String
-    init(viewModel: ViewModel = ViewModel(), usersname: String) {
-        self.viewModel = viewModel
-        self.usersname = usersname
+    let  whereis:String
+    let detail:String
+    let title:String
+    let dateString:String
+    let how:String
+    init(whereis:String,detail:String,title:String,dateStrig:String,how:String){
+        self.whereis = whereis
+        self.detail = detail
+        self.title = title
+        self.dateString = dateStrig
+        self.how = how
+        
     }
-   
-    
     
     var body: some View {
         VStack{
-            Text(usersname)
+            
             NavigationView{
-//                List(viewModel.datamodel){datas in
-//                NavigationLink(destination: detail(textname: datas.textname, whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how,id:datas.id)
-//                               , label: {
-//                    row(textname: datas.textname, whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how)
-//                })
-//            }
-        }
-            
-        }.onAppear(){
-            self.viewModel.getUser()
-            print(viewModel)
-            
-            
-            
+                List(viewModel.datamodel){datas in
+                    NavigationLink(destination:MoToBBC.detail(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how)                               , label: {
+                        row(whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how)
+                    })
+                }
+              
+                
+            }.onAppear(){
+                self.viewModel.getUser()
+                print(viewModel)
+                
+                
+                
+                
+            }
         }
     }
-    }
-        
-            
+    
+}
 
 
 struct Mypageview_Previews: PreviewProvider {
     static var previews: some View {
-        Mypageview(usersname: "tekisuto")
+        Mypageview(whereis: "", detail:"", title: "", dateStrig: "", how: "")
     }
 }

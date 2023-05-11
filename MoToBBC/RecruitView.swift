@@ -13,10 +13,12 @@ struct RecruitView: View {
     @ObservedObject private var viewModel = ViewModel()
     @State var userid:String = ""
     @State var eventid:String = ""
+    @State var username:String = ""
     @State private var whereis:String = ""
     @State private var detail:String = ""
     @State private var title:String = ""
     @State private var how:String = ""
+    @State private var participants:String = ""
     
     var body: some View{
         
@@ -29,7 +31,8 @@ struct RecruitView: View {
         
         
         
-        Button(action: {self.viewModel.addDocumentprofile(userid:userid,eventid:eventid,title: title, detail: detail, whereis: whereis, how: how, selectionDate:selectionDate)
+        Button(action: {self.viewModel.addDocument(title:title,detail:detail,whereis:whereis,how:how,selectionDate:selectionDate,eventid:eventid,userid:userid,username: username,participants:participants)
+            self.viewModel.addattendfirst(eventid: eventid)
             self.presentation.wrappedValue.dismiss()
         }, label: {Text("投稿")})
         

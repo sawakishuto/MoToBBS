@@ -9,6 +9,8 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 class ViewModel: ObservableObject{
+    var arrayData: [String] = []
+    
     let dataDesctiption:String
     let user = Auth.auth().currentUser
     @Published var datamodel = [Events]()
@@ -31,8 +33,8 @@ class ViewModel: ObservableObject{
                 let data = queryDocumentSnapshot.data()
                 //                print(data)
                 //                let id = data["id"] as? String ?? ""
-                let userid = data["userid"] as? String ?? ""
                 let eventid = data["eventid"] as? String ?? ""
+                let userid = data["userid"] as? String ?? ""
                 let title = data["title"] as? String ?? ""
                 let whereis = data["whereis"] as? String ?? ""
                 let detail = data["detail"] as? String ?? ""
@@ -40,7 +42,7 @@ class ViewModel: ObservableObject{
                 let participants = data["participants"] as? String ?? ""
                 
                 let dateEvent = (data["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
-                return Events(eventid: eventid, userid: userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
+                return Events(eventid:eventid,userid: userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
             }
         }
         
@@ -59,8 +61,8 @@ class ViewModel: ObservableObject{
             self.datamodel = datas.map{(queryDocumentSnapshot)->Events in
                 
                 //                let id = data["id"] as? String ?? ""
-                let userid = datas["userid"] as? String ?? ""
                 let eventid = datas["eventid"] as? String ?? ""
+                let userid = datas["userid"] as? String ?? ""
                 let title = datas["title"] as? String ?? ""
                 let whereis = datas["whereis"] as? String ?? ""
                 let detail = datas["detail"] as? String ?? ""
@@ -79,39 +81,96 @@ class ViewModel: ObservableObject{
             "bikename":bikename
         ])
     }
-    
-    func addDocument(title:String,detail:String,whereis:String,how:String,selectionDate:Date,eventid:String,participants:String,userid:String){
-        db.collection("Event").document(user!.uid).setData( [
-            "username":db.collection("User").document(user!.uid),
-            "detail":detail,
-            "title":title,
-            "how":how,
-            "whereis":whereis,
-            "selectionDate":selectionDate,
-            "eventid":db.collection("User").document(user!.uid),
-            "userid":db.collection("User").document(user!.uid),
-            "participants":participants
-        ]){
-            err in
-            if let err = err {
-                print("err")
-            }else{
-                print("success")
+    func addattend(eventid:String){
+        let event:[String: Any] = [
+            "eventid": FieldValue.arrayUnion([
+                eventid
+            ])
+        ]
+
+        db.collection("Attend").document(user!.uid).updateData(event) { error in
+            if let error = error {
+                print("Error updating document: \(error)")
+            } else {
+                print("Document successfully updated!")
             }
         }
     }
-    func addDocumentprofile(usersname:String,bikename:String,usercomment:String,textname:String,title:String,detail:String,whereis:String,how:String,selectionDate:Date){
-        db.collection("users").document(user!.uid).setData( [
-            "usersname":usersname,
-            "bikename":bikename,
-            "usercomment":usercomment,
-            "textname":textname,
-            "detail":detail,
-            "title":title,
-            "how":how,
-            "whereis":whereis,
-            "selectionDate":selectionDate
-        ]){
+   func addattendfirst(eventid:String){
+       let documentID = db.collection("User").document(user!.uid).documentID
+        let event:[String: Any] = [
+            "eventid": FieldValue.arrayUnion([
+                documentID
+            ])
+        ]
+
+        db.collection("Attend").document(user!.uid).setData(event) { error in
+            if let error = error {
+                print("Error updating document: \(error)")
+            } else {
+                print("Document successfully updated!")
+            }
+            
+        }
+    }
+    func fetchJoinedData(completion: @escaping ([Events]) -> Void) {
+        db.collection("Attend").document(user!.uid).getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                if let array = data?["eventid"] as? [String] {
+                    // 配列データを取得する
+                    var events: [Events] = []
+                    let group = DispatchGroup()
+                    
+                    for attend in array {
+                        group.enter()
+                        self.db.collection("Event").whereField("eventid", isEqualTo: attend).getDocuments { (querySnapshot, error) in
+                            if let error = error {
+                                print("Error getting documents: \(error)")
+                            } else {
+                                guard let documents = querySnapshot?.documents else { return }
+
+                                // ドキュメントのデータを処理する
+                                for document in documents {
+                                    let data = document.data()
+                                    let eventid = data["eventid"] as? String ?? ""
+                                    let userid = data["userid"] as? String ?? ""
+                                    let title = data["title"] as? String ?? ""
+                                    let whereis = data["whereis"] as? String ?? ""
+                                    let detail = data["detail"] as? String ?? ""
+                                    let how = data["how"] as? String ?? ""
+                                    let participants = data["participants"] as? String ?? ""
+                                    let dateEvent = (data["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
+
+                                    let event = Events(eventid:eventid, userid:userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
+                                    events.append(event)
+                                }
+                            }
+                            group.leave()
+                        }
+                    }
+                    print(events)
+                    group.notify(queue: .main) {
+                        completion(events)
+                    }
+                }
+            }
+        }
+    }
+    func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, eventid: String,userid:String,username:String, participants: String) {
+        let documentID = db.collection("User").document(user!.uid).documentID
+        db.collection("Event").document(user!.uid).setData([
+            "username":documentID,
+            "detail": detail,
+            "title": title,
+            "how": how,
+            "whereis": whereis,
+            "selectionDate": selectionDate,
+            "eventid": documentID, // ドキュメントIDを保存する
+            "userid": documentID,
+            "participants": participants
+        ])
+    {
             err in
             if let err = err {
                 print("err")
