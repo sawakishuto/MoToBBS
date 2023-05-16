@@ -32,7 +32,7 @@ struct RecruitView: View {
         
         
         Button(action: {self.viewModel.addDocument(title:title,detail:detail,whereis:whereis,how:how,selectionDate:selectionDate,eventid:eventid,userid:userid,username: username,participants:participants)
-            self.viewModel.addattendfirst(eventid: eventid)
+
             self.presentation.wrappedValue.dismiss()
         }, label: {Text("投稿")})
         

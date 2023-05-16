@@ -10,9 +10,9 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class LoginViewModel :ObservableObject{
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
     func adduser(usersname:String,bikename:String,usercomment:String,userid:String){
-        let user = Auth.auth().currentUser
-        let db = Firestore.firestore()
         db.collection("User").document(user!.uid).setData([
             "userid":db.collection("User").document(user!.uid),
             "usersname":usersname,
@@ -20,6 +20,23 @@ class LoginViewModel :ObservableObject{
             "bikename":bikename
         ])
     }
+    func addattendfirst(eventid:String){
+        let documentID = db.collection("User").document(user!.uid).documentID
+         let event:[String: Any] = [
+             "eventid": FieldValue.arrayUnion([
+                 documentID
+             ])
+         ]
+
+         db.collection("Attend").document(user!.uid).setData(event) { error in
+             if let error = error {
+                 print("Error updating document: \(error)")
+             } else {
+                 print("Document successfully updated!")
+             }
+             
+         }
+     }
 
 }
 

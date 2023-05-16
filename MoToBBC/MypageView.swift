@@ -30,7 +30,7 @@ struct Mypageview: View {
             
             NavigationView{
                 List(viewModel.datamodel){datas in
-                    NavigationLink(destination:MoToBBC.detail(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how)                               , label: {
+                    NavigationLink(destination:MoToBBC.MytoringView(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how)                               , label: {
                         row(whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how)
                     })
                 }

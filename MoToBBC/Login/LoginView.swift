@@ -7,6 +7,7 @@ struct LoginView: View {
     @State public var bikename:String = ""
     @State public var usercomment:String = ""
     @State var logingo = true
+    @State var eventid:String = ""
     @State var loginshow = false
     @State var allview = false
     @State var userid:String = ""
@@ -48,6 +49,7 @@ struct LoginView: View {
                                 Text("ログインする")
                             })
                         Text("新規登録").onTapGesture {
+                        
                             logingo = false
                         }}
                 }
@@ -85,6 +87,7 @@ struct LoginView: View {
                                     Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
                                     }
                                     viewModel.adduser(usersname: usersname, bikename: bikename, usercomment: usercomment,userid: userid)
+                                    self.viewModel.addattendfirst(eventid: eventid)
                                     allview = true
                                     
                                 }

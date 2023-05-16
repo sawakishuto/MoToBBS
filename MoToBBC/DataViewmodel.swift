@@ -87,7 +87,7 @@ class ViewModel: ObservableObject{
                 eventid
             ])
         ]
-
+        
         db.collection("Attend").document(user!.uid).updateData(event) { error in
             if let error = error {
                 print("Error updating document: \(error)")
@@ -96,23 +96,7 @@ class ViewModel: ObservableObject{
             }
         }
     }
-   func addattendfirst(eventid:String){
-       let documentID = db.collection("User").document(user!.uid).documentID
-        let event:[String: Any] = [
-            "eventid": FieldValue.arrayUnion([
-                documentID
-            ])
-        ]
-
-        db.collection("Attend").document(user!.uid).setData(event) { error in
-            if let error = error {
-                print("Error updating document: \(error)")
-            } else {
-                print("Document successfully updated!")
-            }
-            
-        }
-    }
+    
     func fetchJoinedData(completion: @escaping ([Events]) -> Void) {
         db.collection("Attend").document(user!.uid).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -129,7 +113,7 @@ class ViewModel: ObservableObject{
                                 print("Error getting documents: \(error)")
                             } else {
                                 guard let documents = querySnapshot?.documents else { return }
-
+                                
                                 // ドキュメントのデータを処理する
                                 for document in documents {
                                     let data = document.data()
@@ -141,7 +125,7 @@ class ViewModel: ObservableObject{
                                     let how = data["how"] as? String ?? ""
                                     let participants = data["participants"] as? String ?? ""
                                     let dateEvent = (data["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
-
+                                    
                                     let event = Events(eventid:eventid, userid:userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
                                     events.append(event)
                                 }
@@ -170,7 +154,7 @@ class ViewModel: ObservableObject{
             "userid": documentID,
             "participants": participants
         ])
-    {
+        {
             err in
             if let err = err {
                 print("err")
@@ -179,5 +163,34 @@ class ViewModel: ObservableObject{
             }
         }
     }
-}
+        
+        func deleteDocument() {
+            let db = Firestore.firestore()
+            let docRef = db.collection("Event").document(user!.uid)
+            
+            docRef.delete { (error) in
+                if let error = error {
+                    print("Error removing document: \(error)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+        }
+    func deleteEvent(eventid: String) {
+       
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("Attend").document(user!.uid)
+        
+        docRef.updateData([
+            "eventid": FieldValue.arrayRemove([eventid])
+        ]) { (error) in
+            if let error = error {
+                print("Error removing event id from array: \(error.localizedDescription)")
+            } else {
+                print("Event id successfully removed from array.")
+            }
+        }
+    }
 
+}

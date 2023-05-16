@@ -21,7 +21,9 @@ struct HomeView: View {
                 // タブのラベル部分のビュー
              
             }
-        joinview(whereis: "", detail: "", title: "", dateStrig: "", how: "")
+        joinview(eventid:"",
+                 
+                 whereis: "", detail: "", title: "", dateStrig: "", how: "")
             .tabItem{
                 Image(systemName: "figure.wave")
             }
