@@ -1,3 +1,9 @@
+
+//  joinview.swift
+//  MoToBBC
+//
+//  Created by 澤木柊斗 on 2023/04/27.
+//
 //
 //  joinview.swift
 //  MoToBBC
@@ -8,49 +14,36 @@
 import SwiftUI
 
 struct joinview: View {
+    
     @ObservedObject private var viewModel = ViewModel()
     @State var events: [Events] = []
-    let eventid:String
-    let  whereis:String
-    let detail:String
-    let title:String
-    let dateString:String
-    let how:String
-    init(eventid:String,whereis:String,detail:String,title:String,dateStrig:String,how:String){
-        self.eventid = eventid
-        self.whereis = whereis
-        self.detail = detail
-        self.title = title
-        self.dateString = dateStrig
-        self.how = how}
     
     var body: some View {
         NavigationView {
-                  List(events, id: \.eventid) { event in
-                      Text(event.title)
-                      Text("開催場所:" + event.whereis)
-                      Text("詳細:" + event.detail)
-                      Text(event.how + "人程度募集")
-                      Text("開催予定日"+event.dateString)
-                      
-                      Text("ツーリング終了").onTapGesture {
-                          print(eventid)
-                          self.viewModel.deleteEvent(eventid: event.eventid)
-                      }
-                  }
-                  .navigationTitle("参加予定のイベント")
-                  .onAppear {
-                      self.viewModel.fetchJoinedData { (events) in
-                          self.events = events
-                      }
-                  }
-              }
-          }
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 70) {
+                    ForEach(events, id: \.eventid) { event in
+                        VStack(alignment: .leading) {
+                            JoinListView_Card(eventid: event.eventid, whereis: event.whereis, detail: event.detail, title: event.title, dateStrig: event.dateString, how: event.how)
+                        }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing:0
+                                            ))
+                        .frame(width: 350, height: 600) // カードのサイズを設定
+                    }
+                }
+                .padding()
+            }
+            .background(Color.white)
+            .navigationTitle("参加予定のイベント")
+            .onAppear {
+                self.viewModel.fetchJoinedData { (events) in
+                    self.events = events
+                }
+            }
+        }
     }
-
-
+}
 struct joinview_Previews: PreviewProvider {
     static var previews: some View {
-        joinview(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "")
+        joinview()
     }
 }

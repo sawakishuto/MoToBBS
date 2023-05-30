@@ -24,21 +24,52 @@ struct RecruitView: View {
         
        
         TextField("タイトル",text:$title).textFieldStyle(RoundedBorderTextFieldStyle())
-        TextField("詳細",text:$detail).textFieldStyle(RoundedBorderTextFieldStyle())
-        TextField("開催地（大体）", text:$whereis).textFieldStyle(RoundedBorderTextFieldStyle())
-        TextField("募集人数",text:$how).textFieldStyle(RoundedBorderTextFieldStyle())
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.red,lineWidth: 2))
+      
+        TextField("募集人数(数字のみ)",text:$how).textFieldStyle(RoundedBorderTextFieldStyle())
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.red,lineWidth: 2))
         DatePicker("日時を選択", selection: $selectionDate)
-        
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.red,lineWidth: 2))
+            .frame(height: 30)
+        TextField   ("詳細:ツーリングルート,募集条件,問い合わせ先情報（Twitter,Instagram）",text:$detail, axis: .vertical
+            )
+        .lineLimit(1...7)
+        .frame(minHeight: 190)
+       
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.red,lineWidth: 2))
+        TextField("出発地点（集合場所など）", text:$whereis).textFieldStyle(RoundedBorderTextFieldStyle())
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.red,lineWidth: 2))
+      
         
         
         Button(action: {self.viewModel.addDocument(title:title,detail:detail,whereis:whereis,how:how,selectionDate:selectionDate,eventid:eventid,userid:userid,username: username,participants:participants)
+            
 
             self.presentation.wrappedValue.dismiss()
-        }, label: {Text("投稿")})
+        }, label: {Text("投稿")}).buttonStyle(AnimationButtonStyle())
         
         
     }
     }
+
+struct AnimationButtonStyle : ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(.black)
+            .padding()
+           
+            .overlay(RoundedRectangle(cornerRadius: 15)
+                .stroke(Color.black))
+            .background(configuration.isPressed ? Color.red : Color.white )
+            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+            .animation(.easeOut(duration: 0.01), value: configuration.isPressed)
+    }
+}
 
 struct RecruitView_Previews: PreviewProvider {
     static var previews: some View {

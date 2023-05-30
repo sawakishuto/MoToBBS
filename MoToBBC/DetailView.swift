@@ -28,6 +28,7 @@ struct detail: View {
     let title:String
     let dateString:String
     let how:String
+    
     init(eventid:String,whereis:String,detail:String,title:String,dateStrig:String,how:String){
         self.eventid = eventid
         self.whereis = whereis
@@ -40,26 +41,43 @@ struct detail: View {
   
     var body: some View {
         
-        VStack{
+        ZStack{
+            VStack{
+                ScrollView{
             Spacer()
                 Text(title).font(.title).fontWeight(.bold)
             Spacer()
             
-            HStack{
-                Text("出発地：" + whereis)}
-            Text("開催予定日：" + dateString)
-            Text(eventid)
-            
-            Text("現在の参加予定" + String(pp) + "人").foregroundColor(.green)
+                    VStack(alignment:.leading){
+                        Text("出発地：" + whereis).frame(height: 20)
+                        Divider().background(Color.red)
+                        Text("開催予定日：" + dateString)
+                            .frame(height: 20)
+                        Divider().background(Color.red)
+                        
+                        
+                        Text("現在の参加予定" + String(pp) + "人")
+                            .foregroundColor(.green)
+                            .frame(height: 20)
+                        Divider().background(Color.red)
+                        
+                        Text("詳細:" + detail)
+                    }.padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing:0
+                                        ))
+                }
             Spacer()
-           
-            Text(String(eventid))
-            Text(messa).onTapGesture {
+                Text(messa)
+                    .fontWeight(.bold)
+                    .frame(width: 190,height: 60)
+                    .background(Capsule().fill(Color.gray))                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                    .padding(EdgeInsets(top: 0, leading: 18, bottom: 20, trailing: 0))
+                    .onTapGesture {
                 self.viewModel.addattend(eventid: self.eventid)
                 
                 self.isgo.toggle()
                 if isgo == true{
-                   messa = "参加した！"
+                    messa = "エントリー完了"
+                }
 
                 }
             }

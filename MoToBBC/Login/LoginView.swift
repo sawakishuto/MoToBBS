@@ -24,10 +24,14 @@ struct LoginView: View {
                         // メールアドレス
                         TextField("メールアドレスを入力してください",text: $mail)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red,lineWidth: 2))
                             .padding()
                         // パスワード
                         SecureField("パスワードを入力してください",text:$password)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red,lineWidth: 2))
                             .padding()
                       
                         // 認証
@@ -60,20 +64,30 @@ struct LoginView: View {
                         
                         TextField("メールアドレスを入力してください",text: $mail)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red,lineWidth: 2))
                             .padding()
                         
                         // パスワード
                         SecureField("パスワードを入力してください",text:$password)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red,lineWidth: 2))
                             .padding()
                         TextField("氏名を入力してください",text: $usersname)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red,lineWidth: 2))
                             .padding()
                         TextField("載っているバイクの車種を入力してください",text:$bikename)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red,lineWidth: 2))
                             .padding()
-                        TextField("一言",text: $usercomment)
+                        TextField("Twitterユーザーネーム(例:@MoToBBC1234)",text: $usercomment)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red,lineWidth: 2))
                             .padding()
                         
                         // 認証

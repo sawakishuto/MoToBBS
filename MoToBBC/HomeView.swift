@@ -9,6 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject private var viewModel = ViewModel()
+    init() {
+      UITabBar.appearance().unselectedItemTintColor = .white
+        UITabBar.appearance().backgroundColor = .red
+    }
     var body: some View {
     TabView {
         // --- ここから ---
@@ -21,20 +25,19 @@ struct HomeView: View {
                 // タブのラベル部分のビュー
              
             }
-        joinview(eventid:"",
-                 
-                 whereis: "", detail: "", title: "", dateStrig: "", how: "")
+        joinview()
             .tabItem{
                 Image(systemName: "figure.wave")
             }
         // --- ここまで ---
         // --- ここから ---
         // タブ内に表示するビュー
-        Mypageview(whereis: "", detail: "", title: "", dateStrig: "", how: "")
+        Mypageview(whereis: "", detail: "", title: "", dateStrig: "", how: "",username: "",usercomment: "",bikename: "")
             .tabItem {
                 // タブのラベル部分のビュー
-                  Image(systemName:"person.crop.circle.fill")
-            }            }
+                Image(systemName:"person.crop.circle.fill")
+            }            }.accentColor(Color.black)
+            
     }
 }
 

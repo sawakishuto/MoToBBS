@@ -12,33 +12,74 @@ struct textandview: View {
     
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
- 
+    
     var body: some View {
-        VStack{
-            NavigationView{
-                List(viewModel.datamodel){data in
-                    NavigationLink(destination: detail(eventid:data.eventid, whereis: data.whereis, detail: data.detail, title: data.title, dateStrig: data.dateString, how: data.how)
-                                   , label: {
-                        row(whereis: data.whereis, detail: data.detail, title: data.title, dateStrig:data.dateString, how: data.how)
-                    })
+        ZStack(alignment:.bottomTrailing ){
+            VStack{
+                ZStack(alignment:.top){
+                    
+            Text("MoToBBC").frame(width:420,alignment: .leading)
+                    
+                    
                 }
-                  }
-                            .ignoresSafeArea()
+                .padding(EdgeInsets(top: 60, leading: 40, bottom: 0, trailing: 0))
+                .background(.red)
+                .foregroundColor(.white)
+                .font(.title)
+                .fontWeight(.bold)
+                .zIndex(10)
+                .edgesIgnoringSafeArea(.bottom)
+                
+                
+                
+                NavigationView{
+                    List(viewModel.datamodel){data in
+                        NavigationLink(destination: detail(eventid:data.eventid, whereis: data.whereis, detail: data.detail, title: data.title, dateStrig: data.dateString, how: data.how)
+                                       , label: {
+                            row(whereis: data.whereis, detail: data.detail, title: data.title, dateStrig:data.dateString, how: data.how)
+                        })
+                    }.listRowInsets(EdgeInsets())
+                    .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
+                    .background(Color.white)
+                    .padding(EdgeInsets(top: 0, leading: 18, bottom: 10, trailing:0))
+                    .edgesIgnoringSafeArea(.top)
+                    
+                    // 背景色を透明に設定
+                   
+                }.edgesIgnoringSafeArea(.top)
+                 
+            }
                 //            .navigationBarTitle("現在募集中の掲示板")
-                Button("募集"){
+                Button(action: {
                     self.showsheet.toggle()
-                }.sheet(isPresented:$showsheet){
+                }, label: {
+                    Image(systemName: "square.and.pencil")
+                        .foregroundColor(  Color(red: 30, green: 10 / 255, blue: 10 / 255))
+                    
+                        .frame(width: 100,height: 60)
+                        .font(.title)
+                        .background(Circle().fill(  Color(red: 90, green: 90 , blue: 90)))
+                        .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                        
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 20.0))
+                           
+                    
+                        
+                    
+                })
+                .sheet(isPresented: $showsheet) {
                     RecruitView()
                 }
-                
-            }
-            .onAppear() {
-                self.viewModel.fetchData()
-                
-            }
-            
-        }
+        }.edgesIgnoringSafeArea(.top)
+        
+        .onAppear() {
+                        self.viewModel.fetchData()
+                }
+
     }
+    
+}
+    
 
 
 

@@ -10,15 +10,15 @@ import FirebaseFirestore
 import FirebaseAuth
 class ViewModel: ObservableObject{
     var arrayData: [String] = []
-    
+    @Published var datamodeluser = [Usersinfo]()
     let dataDesctiption:String
     let user = Auth.auth().currentUser
     @Published var datamodel = [Events]()
-    
+  
     private var db = Firestore.firestore()
     @Published var documentId : String?
     init(){self.dataDesctiption = "今日は"}
-    
+
     func fetchData() {
         db.collection("Event").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents
@@ -49,31 +49,38 @@ class ViewModel: ObservableObject{
         
         
     }
-    func getUser(){
+    func getUser() {
+        self.datamodeluser.removeAll()        // データベースクエリを実行する前に、既にデータがロードされている場合は処理を中断する
+        guard self.datamodeluser.isEmpty else {
+            return
+        }
+        
         db.collection("Event").document(user!.uid).getDocument { (_snapshot, error) in
             if let error = error {
                 fatalError("\(error)")
                 print("だめでした")
             }
-            guard let datas = _snapshot?.data()
-                    
-            else { return }
-            self.datamodel = datas.map{(queryDocumentSnapshot)->Events in
-                
-                //                let id = data["id"] as? String ?? ""
-                let eventid = datas["eventid"] as? String ?? ""
-                let userid = datas["userid"] as? String ?? ""
-                let title = datas["title"] as? String ?? ""
-                let whereis = datas["whereis"] as? String ?? ""
-                let detail = datas["detail"] as? String ?? ""
-                let how = datas["how"] as? String ?? ""
-                let participants = datas["participants"] as? String ?? ""
-                let dateEvent = (datas["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
-                
-                return Events(eventid:eventid, userid:userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
+            
+            guard let datas = _snapshot?.data() else {
+                return
             }
+            
+            let eventid = datas["eventid"] as? String ?? ""
+            let userid = datas["userid"] as? String ?? ""
+            let title = datas["title"] as? String ?? ""
+            let whereis = datas["whereis"] as? String ?? ""
+            let detail = datas["detail"] as? String ?? ""
+            let how = datas["how"] as? String ?? ""
+            let participants = datas["participants"] as? String ?? ""
+            let dateEvent = (datas["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
+            
+            let user = Usersinfo(eventid: eventid, userid: userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
+            
+            self.datamodeluser.append(user)
         }
     }
+
+    
     func adduser(username:String,bikename:String,usercomment:String){
         db.collection("User").document(user!.uid).setData([
             "username":username,
@@ -96,6 +103,7 @@ class ViewModel: ObservableObject{
             }
         }
     }
+    
     
     func fetchJoinedData(completion: @escaping ([Events]) -> Void) {
         db.collection("Attend").document(user!.uid).getDocument { (document, error) in
