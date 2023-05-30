@@ -13,7 +13,7 @@ import Firebase
 import FirebaseAuth
 
 struct MytoringView: View {
-    
+    @State private var userInfoArray: [[String]] = []
     @State var messa = "ツーリング終了！"
     @ObservedObject private var viewModel = ViewModel()
    
@@ -46,14 +46,22 @@ struct MytoringView: View {
                 Text(title).font(.title).fontWeight(.bold)
             Spacer()
             
-                Text("出発地:" + whereis)
-            Divider().background(Color.red)
+               
+           
             Text("開催予定日:" + dateString)
    
             Divider().background(Color.red)
-            Text("現在の参加予定:" + String(pp) + "人").foregroundColor(.green)
-            Divider().background(Color.red)
+            
+                Text("出発地:" + whereis)
             Text("詳細:" + detail)
+                Text("参加予定者").foregroundColor(.red)
+                .fontWeight(.bold)
+            List(userInfoArray, id: \.self) { userInfo in
+                Text("名前: \(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
+                    }.listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
+                .background(Color.white)
+                .frame(height: 300)
+                   
            
             
             Text(messa)
@@ -63,19 +71,26 @@ struct MytoringView: View {
                 self.viewModel.deleteDocument()
                                 self.isgo.toggle()
                 if isgo == true{
+                    self.viewModel.AttendListclear(eventid: self.eventid)
                    self.viewModel.getUser()
                    messa = "お疲れ様でした！"
                     
                 }
             }
         }.onAppear(){
+            
+            self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
+                self.userInfoArray = userInfoArray
+            }
+            
             self.viewModel.getUser()
+        }
             
            
           
         }
         }
-    }
+    
     
 
 struct MytoringView_Previews: PreviewProvider {

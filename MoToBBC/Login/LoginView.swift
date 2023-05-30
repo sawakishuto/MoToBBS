@@ -50,7 +50,7 @@ struct LoginView: View {
                                     }
                                 }
                             }, label:{
-                                Text("ログインする")
+                                Text("ログイン")
                             })
                         Text("新規登録").onTapGesture {
                         
@@ -73,6 +73,7 @@ struct LoginView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.red,lineWidth: 2))
+                            .keyboardType(.numberPad)
                             .padding()
                         TextField("氏名を入力してください",text: $usersname)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -84,7 +85,7 @@ struct LoginView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.red,lineWidth: 2))
                             .padding()
-                        TextField("Twitterユーザーネーム(例:@MoToBBC1234)",text: $usercomment)
+                        TextField("性別(男性、女性、その他)",text: $usercomment)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.red,lineWidth: 2))
@@ -106,9 +107,10 @@ struct LoginView: View {
                                     
                                 }
                             }, label:{
-                                Text("新規会員登録する")
+                                Text("新規会員登録")
                             }
                         )
+                        Button(action: {logingo = true}, label:{ Text("ログイン")})
                     }
                 }
             }

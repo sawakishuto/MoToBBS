@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct JoinListView_Card: View {
+    @State private var userInfoArray: [[String]] = []
     @State private var isShowSelect = false
     @ObservedObject private var viewModel = ViewModel()
     @State var events: [Events] = []
@@ -44,17 +45,28 @@ struct JoinListView_Card: View {
                         
                         Text("出発地点:" + whereis)
                         
-                        Divider()
+                        Divider().background(Color.red)
+                           
                         Text("開催日時:" + dateString + "頃")
-                        Divider()
+                        Divider().background(Color.red)
                         
                         
                         
                         Text("募集人数:" + how + "人程度")
-                        Divider()
-                        Text(detail)}
+                        Divider().background(Color.red)
+                        Text(detail)
+                        Text("参加予定者").foregroundColor(.red) .fontWeight(.bold)
+                        List(userInfoArray, id: \.self) { userInfo in
+                            Text("名前: \(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
+                                }.listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
+                            .background(Color.white)
+                            .frame(height: 200)
+                            .padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing:0
+                                                ))
+
+                    }
                     
-                }.frame(width:350,height:500)
+                }.frame(width:350,height:600)
                     .padding()
                     .background(.white)
                     .cornerRadius(18)
@@ -97,6 +109,9 @@ alertmessage = "ツーリングを終了します。お疲れ様でした。"
                         self.events = events
                                         }
                 }
+        }.onAppear(){ self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
+            self.userInfoArray = userInfoArray
+        }
         }
 
         .alert(isPresented: $isShowSelect){

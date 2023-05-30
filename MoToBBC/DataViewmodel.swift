@@ -10,14 +10,53 @@ import FirebaseFirestore
 import FirebaseAuth
 class ViewModel: ObservableObject{
     var arrayData: [String] = []
+    
+    @Published var Eventidinfo = [Eventidmodel]()
     @Published var datamodeluser = [Usersinfo]()
+    @Published var userInfo = [User]()
     let dataDesctiption:String
     let user = Auth.auth().currentUser
     @Published var datamodel = [Events]()
-  
+    
     private var db = Firestore.firestore()
     @Published var documentId : String?
     init(){self.dataDesctiption = "今日は"}
+    func AttendListclear(eventid:String){
+        let docRef = db.collection("AttendList").document(eventid)
+            
+            docRef.delete { error in
+                if let error = error {
+                    print("ドキュメントの削除エラー：\(error.localizedDescription)")
+                } else {
+                    print("ドキュメントが正常に削除されました。")
+                }
+            }
+        }
+    
+    func fetchUserInfoFromAttendList(documentinfo: String, completion: @escaping ([[String]]) -> Void) {
+        let attendListRef = db.collection("AttendList").document(documentinfo)
+        
+        attendListRef.getDocument { (snapshot, error) in
+            guard let data = snapshot?.data(),
+                  let attendList = data["attendList"] as? [[String: Any]] else {
+                completion([])
+                return
+            }
+            
+            var userInfoArray: [[String]] = []
+            
+            for userInfo in attendList {
+                if let username = userInfo["username"] as? String,
+                   let usercomment = userInfo["usercomment"] as? String,
+                   let bikename = userInfo["bikename"] as? String {
+                    let userInfoArrayElement = [username, usercomment, bikename]
+                    userInfoArray.append(userInfoArrayElement)
+                }
+            }
+            
+            completion(userInfoArray)
+        }
+    }
 
     func fetchData() {
         db.collection("Event").addSnapshotListener { (querySnapshot, error) in
@@ -77,9 +116,92 @@ class ViewModel: ObservableObject{
             let user = Usersinfo(eventid: eventid, userid: userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
             
             self.datamodeluser.append(user)
+            
         }
     }
-
+    func GetUserInfoAndSet(userid: String, username: String, usercomment: String, bikename: String,documentinfo: String){ // db.collection("User").document(user!.uid)からユーザーデータを取得
+        db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
+            if let userError = userError {
+                fatalError("\(userError)")
+            }
+            
+            guard let userData = userSnapshot?.data() else {
+                return
+            }
+            
+            let username = userData["usersname"] as? String ?? ""
+            let usercomment = userData["usercomment"] as? String ?? ""
+            let bikename = userData["bikename"] as? String ?? ""
+            
+            let user = User(userid: "user!.uid", username: username, usercomment: usercomment, bikename: bikename)
+            
+            // AttendListドキュメントにアクセス
+            let attendListRef = self.db.collection("AttendList").document(documentinfo)
+            
+            attendListRef.getDocument { (attendListSnapshot, attendListError) in
+                if let attendListError = attendListError {
+                    fatalError("\(attendListError)")
+                }
+                
+                if let attendListData = attendListSnapshot?.data() {
+                    // documentinfoドキュメントが存在する場合
+                    if var existingAttendList = attendListData["attendList"] as? [[String: Any]] {
+                        // attendListフィールドが既に存在する場合、userInfoを追加する
+                        existingAttendList.append([
+                            "userid": "",
+                            "username": user.username,
+                            "usercomment": user.usercomment,
+                            "bikename": user.bikename
+                        ])
+                        
+                        // 更新されたattendListをdocumentinfoドキュメントに保存する
+                        attendListRef.updateData(["attendList": existingAttendList]) { error in
+                            if let error = error {
+                                print("更新エラー: \(error)")
+                            } else {
+                                print("attendListが更新されました")
+                            }
+                        }
+                    } else {
+                        // attendListフィールドが存在しない場合、新たに作成してuserInfoを格納する
+                        let newAttendList = [[
+                            "userid": "",
+                            "username": user.username,
+                            "usercomment": user.usercomment,
+                            "bikename": user.bikename
+                        ]]
+                        
+                        attendListRef.updateData(["attendList": newAttendList]) { error in
+                            if let error = error {
+                                print("作成エラー: \(error)")
+                            } else {
+                                print("attendListが作成されました")
+                            }
+                        }
+                    }
+                } else {
+                    // documentinfoドキュメントが存在しない場合、新たに作成してuserInfoを格納する
+                    let newAttendList = [[
+                        "userid": "",
+                        "username": user.username,
+                        "usercomment": user.usercomment,
+                        "bikename": user.bikename
+                    ]]
+                    
+                    attendListRef.setData(["attendList": newAttendList]) { error in
+                        if let error = error {
+                            print("作成エラー: \(error)")
+                        } else {
+                            print("attendListが作成されました")
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    
     
     func adduser(username:String,bikename:String,usercomment:String){
         db.collection("User").document(user!.uid).setData([
@@ -149,28 +271,29 @@ class ViewModel: ObservableObject{
             }
         }
     }
-    func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, eventid: String,userid:String,username:String, participants: String) {
-        let documentID = db.collection("User").document(user!.uid).documentID
-        db.collection("Event").document(user!.uid).setData([
-            "username":documentID,
-            "detail": detail,
-            "title": title,
-            "how": how,
-            "whereis": whereis,
-            "selectionDate": selectionDate,
-            "eventid": documentID, // ドキュメントIDを保存する
-            "userid": documentID,
-            "participants": participants
-        ])
-        {
-            err in
-            if let err = err {
-                print("err")
-            }else{
-                print("success")
+
+        func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, eventid: String,userid:String,username:String, participants: String) {
+            let documentID = db.collection("User").document(user!.uid).documentID
+            db.collection("Event").document(user!.uid).setData([
+                "username":documentID,
+                "detail": detail,
+                "title": title,
+                "how": how,
+                "whereis": whereis,
+                "selectionDate": selectionDate,
+                "eventid": documentID, // ドキュメントIDを保存する
+                "userid": documentID,
+                "participants": participants
+            ])
+            {
+                err in
+                if let err = err {
+                    print("err")
+                }else{
+                    print("success")
+                }
             }
         }
-    }
         
         func deleteDocument() {
             let db = Firestore.firestore()
@@ -184,21 +307,22 @@ class ViewModel: ObservableObject{
                 }
             }
         }
-    func deleteEvent(eventid: String) {
-       
-        
-        let db = Firestore.firestore()
-        let docRef = db.collection("Attend").document(user!.uid)
-        
-        docRef.updateData([
-            "eventid": FieldValue.arrayRemove([eventid])
-        ]) { (error) in
-            if let error = error {
-                print("Error removing event id from array: \(error.localizedDescription)")
-            } else {
-                print("Event id successfully removed from array.")
+        func deleteEvent(eventid: String) {
+            
+            
+            let db = Firestore.firestore()
+            let docRef = db.collection("Attend").document(user!.uid)
+            
+            docRef.updateData([
+                "eventid": FieldValue.arrayRemove([eventid])
+            ]) { (error) in
+                if let error = error {
+                    print("Error removing event id from array: \(error.localizedDescription)")
+                } else {
+                    print("Event id successfully removed from array.")
+                }
             }
         }
+        
     }
 
-}

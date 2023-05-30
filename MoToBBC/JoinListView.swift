@@ -33,7 +33,6 @@ struct joinview: View {
                 .padding()
             }
             .background(Color.white)
-            .navigationTitle("参加予定のイベント")
             .onAppear {
                 self.viewModel.fetchJoinedData { (events) in
                     self.events = events

@@ -77,3 +77,7 @@ struct Datamodel:Identifiable{
         return formatter.string(from: dateEvent)
     }
 }
+struct Eventidmodel:Identifiable{
+    var id:String = UUID().uuidString
+    var eventid:String
+}
