@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseCore
 
 struct textandview: View {
-    
+    @State var bikename:String = ""
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
     
@@ -23,7 +23,8 @@ struct textandview: View {
                     
                 }
                 .padding(EdgeInsets(top: 60, leading: 40, bottom: 0, trailing: 0))
-                .background(.red)
+                .background(Color(red: 0.9, green: 0
+                                  , blue: 0))
                 .foregroundColor(.white)
                 .font(.title)
                 .fontWeight(.bold)
@@ -41,7 +42,7 @@ struct textandview: View {
                     }.listRowInsets(EdgeInsets())
                     .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                     .background(Color.white)
-                    .padding(EdgeInsets(top: 0, leading: 18, bottom: 10, trailing:0))
+                    .padding(EdgeInsets(top: 0, leading: 23, bottom: 10, trailing:0))
                     .edgesIgnoringSafeArea(.top)
                     
                     // 背景色を透明に設定

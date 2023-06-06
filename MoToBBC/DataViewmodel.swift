@@ -14,6 +14,7 @@ class ViewModel: ObservableObject{
     @Published var Eventidinfo = [Eventidmodel]()
     @Published var datamodeluser = [Usersinfo]()
     @Published var userInfo = [User]()
+    @Published var userInfo2 = [User]()
     let dataDesctiption:String
     let user = Auth.auth().currentUser
     @Published var datamodel = [Events]()
@@ -119,6 +120,24 @@ class ViewModel: ObservableObject{
             
         }
     }
+    func fetchUserinfo( completion: @escaping (String, String, String) -> Void) {
+        db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
+            if let userError = userError {
+                fatalError("\(userError)")
+            }
+            
+            guard let userData = userSnapshot?.data() else {
+                return
+            }
+            
+            let fetchusername = userData["usersname"] as? String ?? ""
+            let fetchusercomment = userData["usercomment"] as? String ?? ""
+            let fetchbikename = userData["bikename"] as? String ?? ""
+            
+            completion(fetchusername, fetchusercomment, fetchbikename)
+        }
+    }
+
     func GetUserInfoAndSet(userid: String, username: String, usercomment: String, bikename: String,documentinfo: String){ // db.collection("User").document(user!.uid)からユーザーデータを取得
         db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
             if let userError = userError {
@@ -149,7 +168,7 @@ class ViewModel: ObservableObject{
                         // attendListフィールドが既に存在する場合、userInfoを追加する
                         existingAttendList.append([
                             "userid": "",
-                            "username": user.username,
+                            "username":"\( user.username)",
                             "usercomment": user.usercomment,
                             "bikename": user.bikename
                         ])
@@ -200,7 +219,87 @@ class ViewModel: ObservableObject{
         }
         
     }
-    
+    func GetUserInfoAndSet2(userid: String, username: String, usercomment: String, bikename: String){ // db.collection("User").document(user!.uid)からユーザーデータを取得
+        db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
+            if let userError = userError {
+                fatalError("\(userError)")
+            }
+            
+            guard let userData = userSnapshot?.data() else {
+                return
+            }
+            
+            let username = userData["usersname"] as? String ?? ""
+            let usercomment = userData["usercomment"] as? String ?? ""
+            let bikename = userData["bikename"] as? String ?? ""
+            
+            let user = User(userid: "user!.uid", username: username, usercomment: usercomment, bikename: bikename)
+            
+            // AttendListドキュメントにアクセス
+            let attendListRef = self.db.collection("AttendList").document(self.user!.uid)
+            
+            attendListRef.getDocument { (attendListSnapshot, attendListError) in
+                if let attendListError = attendListError {
+                    fatalError("\(attendListError)")
+                }
+                
+                if let attendListData = attendListSnapshot?.data() {
+                    // documentinfoドキュメントが存在する場合
+                    if var existingAttendList = attendListData["attendList"] as? [[String: Any]] {
+                        // attendListフィールドが既に存在する場合、userInfoを追加する
+                        existingAttendList.append([
+                            "userid": "",
+                            "username": "\(user.username)(主催者)",
+                            "usercomment": user.usercomment,
+                            "bikename": user.bikename
+                        ])
+                        
+                        // 更新されたattendListをdocumentinfoドキュメントに保存する
+                        attendListRef.updateData(["attendList": existingAttendList]) { error in
+                            if let error = error {
+                                print("更新エラー: \(error)")
+                            } else {
+                                print("attendListが更新されました")
+                            }
+                        }
+                    } else {
+                        // attendListフィールドが存在しない場合、新たに作成してuserInfoを格納する
+                        let newAttendList = [[
+                            "userid": "",
+                            "username":"\(user.username)(主催者)",
+                            "usercomment": user.usercomment,
+                            "bikename": user.bikename
+                        ]]
+                        
+                        attendListRef.updateData(["attendList": newAttendList]) { error in
+                            if let error = error {
+                                print("作成エラー: \(error)")
+                            } else {
+                                print("attendListが作成されました")
+                            }
+                        }
+                    }
+                } else {
+                    // documentinfoドキュメントが存在しない場合、新たに作成してuserInfoを格納する
+                    let newAttendList = [[
+                        "userid": "",
+                        "username":"\(user.username)(主催者)",
+                        "usercomment": user.usercomment,
+                        "bikename": user.bikename
+                    ]]
+                    
+                    attendListRef.setData(["attendList": newAttendList]) { error in
+                        if let error = error {
+                            print("作成エラー: \(error)")
+                        } else {
+                            print("attendListが作成されました")
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
     
     
     func adduser(username:String,bikename:String,usercomment:String){
@@ -323,6 +422,7 @@ class ViewModel: ObservableObject{
                 }
             }
         }
+    
         
     }
 

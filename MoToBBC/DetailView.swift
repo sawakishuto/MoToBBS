@@ -76,7 +76,7 @@ struct detail: View {
                     Text("参加予定者").foregroundColor(.red)
                         .fontWeight(.bold)
                     List(userInfoArray, id: \.self) { userInfo in
-                        Text("車種: \(userInfo[2])\n性別: \(userInfo[1])　")
+                        Text("\(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
                             }.listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                         .background(Color.white)
                         .frame(height: 200)

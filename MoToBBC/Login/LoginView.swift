@@ -20,107 +20,159 @@ struct LoginView: View {
         if loginshow == false{
             if allview == false{
                 if logingo == true{
-                    VStack(spacing: 30){
+                    ZStack{
+                        LinearGradient(gradient: Gradient(colors: [Color.red,Color(red:0.6,green: 0,blue:0)]), startPoint: .center,endPoint: .bottom)
+                            .ignoresSafeArea()
                         // メールアドレス
-                        TextField("メールアドレスを入力してください",text: $mail)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.red,lineWidth: 2))
-                            .padding()
-                        // パスワード
-                        SecureField("パスワードを入力してください",text:$password)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.red,lineWidth: 2))
-                            .padding()
-                      
-                        // 認証
-                        Button(
-                            action:{
-                                if(self.mail == ""){
-                                    self.errorMessage = "メールアドレスが入力されていません"
-                                } else if(self.password == ""){
-                                    self.errorMessage = "パスワードが入力されていません"
-                                } else {
-                                    Auth.auth().signIn(withEmail: self.mail, password: self.password) { authResult, error in
-                                        if authResult?.user != nil {
-                                            
-                                            allview = true
+                        VStack{
+                            Text("MoToBBC")
+                                .font(.system(size:60))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+                                
+                            TextField(" 　  メールアドレスを入力してください",text: $mail)
+                            
+                            
+                                .frame(height: 60)
+                                .textFieldStyle(PlainTextFieldStyle())
+                            
+                            
+                            
+                                .background(Color.white)
+                                .cornerRadius(10)
+                                .padding()
+                            // パスワード
+                            SecureField("　　パスワードを入力してください",text:$password)
+                                .frame(height: 60)
+                                .textFieldStyle(PlainTextFieldStyle())
+                                .background(Color.white)
+                                .cornerRadius(10)
+                                .padding()
+                            
+                            // 認証
+                            Button(
+                                action:{
+                                    if(self.mail == ""){
+                                        self.errorMessage = " メールアドレスが入力されていません"
+                                    } else if(self.password == ""){
+                                        self.errorMessage = "パスワードが入力されていません"
+                                    } else {
+                                        Auth.auth().signIn(withEmail: self.mail, password: self.password) { authResult, error in
+                                            if authResult?.user != nil {
+                                                allview = true
+                                            }
                                         }
                                     }
+                                }, label:{
+                                    Text("ログイン").frame(width: 200, height: 50)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.black)
+                                        .background(Color(red: 1, green: 1, blue: 1))
+                                        .cornerRadius(10)
+                                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray))
+                                    
+                                })
+                            Text("新規登録")
+                                .foregroundColor(.white)
+                            
+                                .padding(.init(top: 20, leading: 0, bottom: 0, trailing: 0))
+                            
+                                .onTapGesture {
+                                    
+                                    logingo = false
                                 }
-                            }, label:{
-                                Text("ログイン")
-                            })
-                        Text("新規登録").onTapGesture {
-                        
-                            logingo = false
-                        }}
+                            
+                            
+                        }
+                    }
                 }
                 
                 else if(logingo == false){
-                    VStack(spacing: 30){
-                        // メールアドレス
-                        
-                        TextField("メールアドレスを入力してください",text: $mail)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.red,lineWidth: 2))
-                            .padding()
-                        
-                        // パスワード
-                        SecureField("パスワードを入力してください",text:$password)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.red,lineWidth: 2))
-                            .keyboardType(.numberPad)
-                            .padding()
-                        TextField("氏名を入力してください",text: $usersname)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.red,lineWidth: 2))
-                            .padding()
-                        TextField("載っているバイクの車種を入力してください",text:$bikename)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.red,lineWidth: 2))
-                            .padding()
-                        TextField("性別(男性、女性、その他)",text: $usercomment)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.red,lineWidth: 2))
-                            .padding()
-                        
-                        // 認証
-                        Button(
-                            action:{
-                                if(self.mail == ""){
-                                    self.errorMessage = "メールアドレスが入力されていません"
-                                } else if(self.password == ""){
-                                    self.errorMessage = "パスワードが入力されていません"
-                                } else {
-                                    Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
+                    
+                    ZStack{
+                        LinearGradient(gradient: Gradient(colors: [Color.red,Color(red:0.6,green: 0,blue:0)]), startPoint: .center,endPoint: .bottom)
+                            .ignoresSafeArea()
+                        ScrollView{
+                            VStack(spacing: 30){
+                                // メールアドレス
+                                
+                                TextField("　　メールアドレスを入力してください",text: $mail)
+                                    .frame(height: 60)
+                                    .textFieldStyle(PlainTextFieldStyle())
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    .padding()
+                                
+                                // パスワード
+                                SecureField("　　パスワードを入力してください",text:$password)
+                                    .frame(height: 60)
+                                    .textFieldStyle(PlainTextFieldStyle())
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    .keyboardType(.numberPad)
+                                    .padding()
+                                TextField("　　氏名を入力してください",text: $usersname)
+                                    .frame(height: 60)
+                                    .textFieldStyle(PlainTextFieldStyle())
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    .padding()
+                                TextField("　　載っているバイクの車種",text:$bikename)
+                                    .frame(height: 60)
+                                    .textFieldStyle(PlainTextFieldStyle())
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    .padding()
+                                TextField("　　性別(男、女、その他)",text: $usercomment)
+                                    .frame(height: 60)
+                                    .textFieldStyle(PlainTextFieldStyle())
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                
+                                    .padding()
+                                
+                                // 認証
+                                Button(
+                                    action:{
+                                        if(self.mail == ""){
+                                            self.errorMessage = "メールアドレスが入力されていません"
+                                        } else if(self.password == ""){
+                                            self.errorMessage = "パスワードが入力されていません"
+                                        } else {
+                                            Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
+                                            }
+                                            viewModel.adduser(usersname: usersname, bikename: bikename, usercomment: usercomment,userid: userid)
+                                            self.viewModel.addattendfirst(eventid: eventid)
+                                            allview = true
+                                            
+                                        }
+                                    }, label:{
+                                        Text("新規会員登録").frame(width: 200, height: 50) .foregroundColor(.black)
+                                            .fontWeight(.bold)
+                                            .background(Color(.white))
+                                            .cornerRadius(10)
                                     }
-                                    viewModel.adduser(usersname: usersname, bikename: bikename, usercomment: usercomment,userid: userid)
-                                    self.viewModel.addattendfirst(eventid: eventid)
-                                    allview = true
+                                )
+                                Button(action: {logingo = true}, label:{ Text("ログイン")
+                                        .foregroundColor(.white)
+                                        .padding(.init(top: 20, leading: 0, bottom: 0, trailing: 0))
                                     
-                                }
-                            }, label:{
-                                Text("新規会員登録")
+                                })
                             }
-                        )
-                        Button(action: {logingo = true}, label:{ Text("ログイン")})
+                        }
                     }
+                    
                 }
             }
             else if allview == true{
-            HomeView()
+                HomeView()
             }
         }
         
     }
-}
+    }
+
 
 
 

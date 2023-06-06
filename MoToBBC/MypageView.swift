@@ -10,8 +10,13 @@ import SwiftUI
 struct Mypageview: View {
     
     @ObservedObject private var viewModel = ViewModel()
+    @State var fetchusername:String = ""
+    @State var fetchusercomment:String = ""
+    @State var fetchbikename:String = ""
     
-    let username:String
+    
+    let userid:String
+    let  username:String
     let usercomment:String
     let bikename:String
     let  whereis:String
@@ -19,7 +24,7 @@ struct Mypageview: View {
     let title:String
     let dateString:String
     let how:String
-    init(whereis:String,detail:String,title:String,dateStrig:String,how:String,username:String,usercomment:String,bikename:String){
+    init(whereis:String,detail:String,title:String,dateStrig:String,how:String,username:String,usercomment:String,bikename:String,userid:String){
         self.whereis = whereis
         self.detail = detail
         self.title = title
@@ -28,14 +33,31 @@ struct Mypageview: View {
         self.username = username
         self.usercomment = usercomment
         self.bikename = bikename
-        
+        self.userid = userid
     }
     
     var body: some View {
-        
-            VStack{
-                Text("現在募集中のイベント")
+        VStack{
+        HStack{
+            
+                VStack(alignment:.leading,spacing:10){
+                    Text(fetchusername).font(.system(size:30)).fontWeight(.heavy)
+                    HStack{ Text("車種:" + fetchbikename)  .fontWeight(.bold)
+                            .font(.system(size:20))
+                        Text(fetchusercomment) }
+                    .font(.system(size:20))
+                }
+                .foregroundColor(Color(red: 0.8, green: 0
+                                       , blue: 0))
+                
+                
+   
+        }
+            Divider().background(Color.red)
+
+                Text(fetchusername + "が募集中")
                     .fontWeight(.bold)
+                    .font(.system(size: 25))
                 NavigationView{
                     List(viewModel.datamodeluser){datas in
                         NavigationLink(destination:MytoringView(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how)                               , label: {
@@ -53,8 +75,15 @@ struct Mypageview: View {
                 
             }
             .onAppear(){
-                
-                self.viewModel.getUser()
+                // ViewController内の適切な位置に以下のコードを配置
+
+                self.viewModel.fetchUserinfo() {fetchedUsername, fetchedUsercomment, fetchedBikename in
+                    DispatchQueue.main.async {
+                        fetchusername = fetchedUsername
+                                       fetchusercomment = fetchedUsercomment
+                                       fetchbikename = fetchedBikename                    }
+                }
+self.viewModel.getUser()
                 print(viewModel.datamodeluser)
             }
         
@@ -65,6 +94,6 @@ struct Mypageview: View {
 
 struct Mypageview_Previews: PreviewProvider {
     static var previews: some View {
-        Mypageview(whereis: "", detail:"", title: "", dateStrig: "", how: "",username: "",usercomment: "",bikename: "")
+        Mypageview(whereis: "", detail:"", title: "", dateStrig: "", how: "",username: "",usercomment: "",bikename: "",userid: "")
     }
 }
