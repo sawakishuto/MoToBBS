@@ -98,7 +98,6 @@ class ViewModel: ObservableObject{
         db.collection("Event").document(user!.uid).getDocument { (_snapshot, error) in
             if let error = error {
                 fatalError("\(error)")
-                print("だめでした")
             }
             
             guard let datas = _snapshot?.data() else {
@@ -301,14 +300,6 @@ class ViewModel: ObservableObject{
         
     }
     
-    
-    func adduser(username:String,bikename:String,usercomment:String){
-        db.collection("User").document(user!.uid).setData([
-            "username":username,
-            "usercomment":usercomment,
-            "bikename":bikename
-        ])
-    }
     func addattend(eventid:String){
         let event:[String: Any] = [
             "eventid": FieldValue.arrayUnion([
@@ -387,12 +378,20 @@ class ViewModel: ObservableObject{
             {
                 err in
                 if let err = err {
-                    print("err")
+                    print(err)
                 }else{
                     print("success")
                 }
             }
         }
+    func profileset(   bikename:String){
+
+            db.collection("User").document(user!.uid).updateData([
+              
+                "bikename":bikename
+            ])
+        }
+    
         
         func deleteDocument() {
             let db = Firestore.firestore()

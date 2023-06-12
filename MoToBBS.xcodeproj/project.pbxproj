@@ -27,6 +27,8 @@
 		08D1115E29F9783C00561414 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115D29F9783C00561414 /* MypageView.swift */; };
 		08D1116029F98D0100561414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115F29F98D0100561414 /* HomeView.swift */; };
 		08D1116229FA299E00561414 /* JoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1116129FA299E00561414 /* JoinListView.swift */; };
+		08D27C682A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png in Resources */ = {isa = PBXBuildFile; fileRef = 08D27C672A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png */; };
+		08D27C6A2A3225D400BB28BD /* profileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D27C692A3225D400BB28BD /* profileset.swift */; };
 		176C6408057FFA8F67BEBCD0 /* Pods_MoToBBC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB2BCF5FA331F9015A1324B /* Pods_MoToBBC.framework */; };
 		703BBF091E2F1586D60DF48E /* Pods_MoToBBC_MoToBBCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2E3AC6728F3EA6A882F869 /* Pods_MoToBBC_MoToBBCUITests.framework */; };
 		D17581B59D4D1F7CC352D0E0 /* Pods_MoToBBCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3476F7FD167A96AFF9F9E10E /* Pods_MoToBBCTests.framework */; };
@@ -57,10 +59,10 @@
 		0859B86E29F01F1D00A0B928 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0859B87A29F0DC4400A0B928 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
-		086A33DB29EF851200CD78BF /* MoToBBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoToBBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		086A33EB29EF851500CD78BF /* MoToBBCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoToBBCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		086A33DB29EF851200CD78BF /* MoToBBS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoToBBS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		086A33EB29EF851500CD78BF /* MoToBBSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoToBBSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		086A33EF29EF851500CD78BF /* MoToBBCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoToBBCTests.swift; sourceTree = "<group>"; };
-		086A33F529EF851500CD78BF /* MoToBBCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoToBBCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		086A33F529EF851500CD78BF /* MoToBBSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoToBBSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		086A33F929EF851500CD78BF /* MoToBBCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoToBBCUITests.swift; sourceTree = "<group>"; };
 		086A33FB29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoToBBCUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		08AE7F9E29FC09400073D37E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -73,6 +75,9 @@
 		08D1115D29F9783C00561414 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		08D1115F29F98D0100561414 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		08D1116129FA299E00561414 /* JoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListView.swift; sourceTree = "<group>"; };
+		08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MoToBBS-Info.plist"; sourceTree = "<group>"; };
+		08D27C672A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png"; sourceTree = "<group>"; };
+		08D27C692A3225D400BB28BD /* profileset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileset.swift; sourceTree = "<group>"; };
 		1D2E3AC6728F3EA6A882F869 /* Pods_MoToBBC_MoToBBCUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBC_MoToBBCUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3476F7FD167A96AFF9F9E10E /* Pods_MoToBBCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF745AC647BB6F778A7BE6E /* Pods-MoToBBCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBCTests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBCTests/Pods-MoToBBCTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,11 +130,13 @@
 				08D1115B29F91C1400561414 /* RecruitView.swift */,
 				08B494B329F2A78D007EC5DF /* DetailView.swift */,
 				0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */,
+				08D27C692A3225D400BB28BD /* profileset.swift */,
 				08D1115D29F9783C00561414 /* MypageView.swift */,
 				08CA67E42A132187006909B8 /* MytoringView.swift */,
 				08D1115F29F98D0100561414 /* HomeView.swift */,
 				08D1116129FA299E00561414 /* JoinListView.swift */,
 				0859B86C29F01F1D00A0B928 /* Assets.xcassets */,
+				08D27C672A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png */,
 				0859B86D29F01F1D00A0B928 /* Preview Content */,
 			);
 			path = MoToBBC;
@@ -146,6 +153,7 @@
 		086A33D229EF851200CD78BF = {
 			isa = PBXGroup;
 			children = (
+				08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */,
 				0859B86829F01F1D00A0B928 /* MoToBBC */,
 				086A33EE29EF851500CD78BF /* MoToBBCTests */,
 				086A33F829EF851500CD78BF /* MoToBBCUITests */,
@@ -158,9 +166,9 @@
 		086A33DC29EF851200CD78BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				086A33DB29EF851200CD78BF /* MoToBBC.app */,
-				086A33EB29EF851500CD78BF /* MoToBBCTests.xctest */,
-				086A33F529EF851500CD78BF /* MoToBBCUITests.xctest */,
+				086A33DB29EF851200CD78BF /* MoToBBS.app */,
+				086A33EB29EF851500CD78BF /* MoToBBSTests.xctest */,
+				086A33F529EF851500CD78BF /* MoToBBSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,9 +225,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		086A33DA29EF851200CD78BF /* MoToBBC */ = {
+		086A33DA29EF851200CD78BF /* MoToBBS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 086A33FF29EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBC" */;
+			buildConfigurationList = 086A33FF29EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBS" */;
 			buildPhases = (
 				1A9CA1D0522EEA2B5D15540D /* [CP] Check Pods Manifest.lock */,
 				086A33D729EF851200CD78BF /* Sources */,
@@ -231,14 +239,14 @@
 			);
 			dependencies = (
 			);
-			name = MoToBBC;
+			name = MoToBBS;
 			productName = MoToBBC;
-			productReference = 086A33DB29EF851200CD78BF /* MoToBBC.app */;
+			productReference = 086A33DB29EF851200CD78BF /* MoToBBS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		086A33EA29EF851500CD78BF /* MoToBBCTests */ = {
+		086A33EA29EF851500CD78BF /* MoToBBSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 086A340229EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBCTests" */;
+			buildConfigurationList = 086A340229EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBSTests" */;
 			buildPhases = (
 				0B2B599187C157D80A937B4B /* [CP] Check Pods Manifest.lock */,
 				086A33E729EF851500CD78BF /* Sources */,
@@ -250,14 +258,14 @@
 			dependencies = (
 				086A33ED29EF851500CD78BF /* PBXTargetDependency */,
 			);
-			name = MoToBBCTests;
+			name = MoToBBSTests;
 			productName = MoToBBCTests;
-			productReference = 086A33EB29EF851500CD78BF /* MoToBBCTests.xctest */;
+			productReference = 086A33EB29EF851500CD78BF /* MoToBBSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		086A33F429EF851500CD78BF /* MoToBBCUITests */ = {
+		086A33F429EF851500CD78BF /* MoToBBSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 086A340529EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBCUITests" */;
+			buildConfigurationList = 086A340529EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBSUITests" */;
 			buildPhases = (
 				FA6DFDEDBEB79CBADCBEE68A /* [CP] Check Pods Manifest.lock */,
 				086A33F129EF851500CD78BF /* Sources */,
@@ -270,9 +278,9 @@
 			dependencies = (
 				086A33F729EF851500CD78BF /* PBXTargetDependency */,
 			);
-			name = MoToBBCUITests;
+			name = MoToBBSUITests;
 			productName = MoToBBCUITests;
-			productReference = 086A33F529EF851500CD78BF /* MoToBBCUITests.xctest */;
+			productReference = 086A33F529EF851500CD78BF /* MoToBBSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -298,7 +306,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 086A33D629EF851200CD78BF /* Build configuration list for PBXProject "MoToBBC" */;
+			buildConfigurationList = 086A33D629EF851200CD78BF /* Build configuration list for PBXProject "MoToBBS" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -311,9 +319,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				086A33DA29EF851200CD78BF /* MoToBBC */,
-				086A33EA29EF851500CD78BF /* MoToBBCTests */,
-				086A33F429EF851500CD78BF /* MoToBBCUITests */,
+				086A33DA29EF851200CD78BF /* MoToBBS */,
+				086A33EA29EF851500CD78BF /* MoToBBSTests */,
+				086A33F429EF851500CD78BF /* MoToBBSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -325,6 +333,7 @@
 			files = (
 				0859B87529F01F1D00A0B928 /* Preview Assets.xcassets in Resources */,
 				0859B87729F01F1D00A0B928 /* GoogleService-Info.plist in Resources */,
+				08D27C682A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png in Resources */,
 				0859B87429F01F1D00A0B928 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */,
+				08D27C6A2A3225D400BB28BD /* profileset.swift in Sources */,
 				08AE7F9F29FC09400073D37E /* Models.swift in Sources */,
 				08D1115E29F9783C00561414 /* MypageView.swift in Sources */,
 				0859B87329F01F1D00A0B928 /* DataViewmodel.swift in Sources */,
@@ -492,12 +502,12 @@
 /* Begin PBXTargetDependency section */
 		086A33ED29EF851500CD78BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 086A33DA29EF851200CD78BF /* MoToBBC */;
+			target = 086A33DA29EF851200CD78BF /* MoToBBS */;
 			targetProxy = 086A33EC29EF851500CD78BF /* PBXContainerItemProxy */;
 		};
 		086A33F729EF851500CD78BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 086A33DA29EF851200CD78BF /* MoToBBC */;
+			target = 086A33DA29EF851200CD78BF /* MoToBBS */;
 			targetProxy = 086A33F629EF851500CD78BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -629,9 +639,11 @@
 				DEVELOPMENT_TEAM = 5285K4Z956;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MoToBBS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MoToBBS;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -660,9 +672,11 @@
 				DEVELOPMENT_TEAM = 5285K4Z956;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MoToBBS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MoToBBS;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -695,7 +709,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoToBBC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoToBBC";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoToBBS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoToBBS";
 			};
 			name = Debug;
 		};
@@ -715,7 +729,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoToBBC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoToBBC";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoToBBS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoToBBS";
 			};
 			name = Release;
 		};
@@ -758,7 +772,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		086A33D629EF851200CD78BF /* Build configuration list for PBXProject "MoToBBC" */ = {
+		086A33D629EF851200CD78BF /* Build configuration list for PBXProject "MoToBBS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				086A33FD29EF851500CD78BF /* Debug */,
@@ -767,7 +781,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		086A33FF29EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBC" */ = {
+		086A33FF29EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				086A340029EF851500CD78BF /* Debug */,
@@ -776,7 +790,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		086A340229EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBCTests" */ = {
+		086A340229EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				086A340329EF851500CD78BF /* Debug */,
@@ -785,7 +799,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		086A340529EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBCUITests" */ = {
+		086A340529EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				086A340629EF851500CD78BF /* Debug */,

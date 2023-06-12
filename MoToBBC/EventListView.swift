@@ -18,11 +18,11 @@ struct textandview: View {
             VStack{
                 ZStack(alignment:.top){
                     
-            Text("MoToBBC").frame(width:420,alignment: .leading)
+                    Image("Image 1").frame(width:420,height: 0,alignment: .leading).padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
                     
                     
                 }
-                .padding(EdgeInsets(top: 60, leading: 40, bottom: 0, trailing: 0))
+                .padding(EdgeInsets(top: 70, leading: 40, bottom: 0, trailing: 0))
                 .background(Color(red: 0.9, green: 0
                                   , blue: 0))
                 .foregroundColor(.white)

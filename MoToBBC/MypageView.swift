@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Mypageview: View {
-    
+    @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
     @State var fetchusername:String = ""
     @State var fetchusercomment:String = ""
@@ -37,24 +37,35 @@ struct Mypageview: View {
     }
     
     var body: some View {
-        VStack{
-        HStack{
-            
-                VStack(alignment:.leading,spacing:10){
-                    Text(fetchusername).font(.system(size:30)).fontWeight(.heavy)
-                    HStack{ Text("車種:" + fetchbikename)  .fontWeight(.bold)
-                            .font(.system(size:20))
-                        Text(fetchusercomment) }
-                    .font(.system(size:20))
+        ZStack(alignment:.topTrailing){
+            VStack{
+                
+                HStack{
+                    
+                    VStack(alignment:.leading,spacing:10){
+                        Text(fetchusername).font(.system(size:30)).fontWeight(.heavy)
+                        HStack{ Text("車種:" + fetchbikename)  .fontWeight(.bold)
+                                .font(.system(size:20))
+                            Text(fetchusercomment)
+                            
+                        }
+                        .font(.system(size:20))
+                        
+                        
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    
+                        .foregroundColor(Color(red: 0.8, green: 0
+                                               , blue: 0))
+                    
+                    
+                    
                 }
-                .foregroundColor(Color(red: 0.8, green: 0
-                                       , blue: 0))
+                .frame(alignment: .leading)
                 
+                .frame(width: 500)
+                Divider().background(Color.red)
                 
-   
-        }
-            Divider().background(Color.red)
-
                 Text(fetchusername + "が募集中")
                     .fontWeight(.bold)
                     .font(.system(size: 25))
@@ -64,7 +75,7 @@ struct Mypageview: View {
                             row(whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how)
                         })
                     }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:-18))
+                    .padding(EdgeInsets(top: 0, leading: 43, bottom: 0, trailing:-218))
                     .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                     .background(Color.white) // 背景色を透明に設定
                     
@@ -74,22 +85,32 @@ struct Mypageview: View {
                 }.navigationTitle(Text("募集中のイベント"))
                 
             }
+            Button("車種変更")
+            {
+                       self.showsheet.toggle()
+                   }.fontWeight(.bold)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 60))
+                   .sheet(isPresented: $showsheet) {
+                       profileset(username: fetchusername, bikename: fetchbikename)
+                   }
+        }
             .onAppear(){
                 // ViewController内の適切な位置に以下のコードを配置
-
+                
                 self.viewModel.fetchUserinfo() {fetchedUsername, fetchedUsercomment, fetchedBikename in
                     DispatchQueue.main.async {
                         fetchusername = fetchedUsername
-                                       fetchusercomment = fetchedUsercomment
-                                       fetchbikename = fetchedBikename                    }
+                        fetchusercomment = fetchedUsercomment
+                        fetchbikename = fetchedBikename                    }
                 }
-self.viewModel.getUser()
+                self.viewModel.getUser()
                 print(viewModel.datamodeluser)
             }
-        
-        
+            
+            
+        }
     }
-}
+
 
 
 struct Mypageview_Previews: PreviewProvider {

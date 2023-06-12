@@ -25,12 +25,7 @@ struct LoginView: View {
                             .ignoresSafeArea()
                         // メールアドレス
                         VStack{
-                            Text("MoToBBC")
-                                .font(.system(size:60))
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
-                                
+                            Image("image 3").padding(EdgeInsets(top: -200, leading: 0, bottom: 5, trailing: 0))
                             TextField(" 　  メールアドレスを入力してください",text: $mail)
                             
                             
@@ -83,6 +78,7 @@ struct LoginView: View {
                                     logingo = false
                                 }
                             
+                    
                             
                         }
                     }
@@ -96,42 +92,70 @@ struct LoginView: View {
                         ScrollView{
                             VStack(spacing: 30){
                                 // メールアドレス
-                                
-                                TextField("　　メールアドレスを入力してください",text: $mail)
-                                    .frame(height: 60)
-                                    .textFieldStyle(PlainTextFieldStyle())
-                                    .background(Color.white)
-                                    .cornerRadius(10)
-                                    .padding()
-                                
-                                // パスワード
-                                SecureField("　　パスワードを入力してください",text:$password)
-                                    .frame(height: 60)
-                                    .textFieldStyle(PlainTextFieldStyle())
-                                    .background(Color.white)
-                                    .cornerRadius(10)
-                                    .keyboardType(.numberPad)
-                                    .padding()
-                                TextField("　　氏名を入力してください",text: $usersname)
-                                    .frame(height: 60)
-                                    .textFieldStyle(PlainTextFieldStyle())
-                                    .background(Color.white)
-                                    .cornerRadius(10)
-                                    .padding()
-                                TextField("　　載っているバイクの車種",text:$bikename)
-                                    .frame(height: 60)
-                                    .textFieldStyle(PlainTextFieldStyle())
-                                    .background(Color.white)
-                                    .cornerRadius(10)
-                                    .padding()
-                                TextField("　　性別(男、女、その他)",text: $usercomment)
-                                    .frame(height: 60)
-                                    .textFieldStyle(PlainTextFieldStyle())
-                                    .background(Color.white)
-                                    .cornerRadius(10)
-                                
-                                    .padding()
-                                
+                                VStack(alignment: .leading){
+                                    Text("メールアドレス")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.white)
+                                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                    
+                                    TextField("　　メールアドレスを入力してください",text: $mail)
+                                        .frame(height: 60)
+                                        .textFieldStyle(PlainTextFieldStyle())
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                        .padding()
+                                }
+                                VStack(alignment: .leading){
+                                    Text("パスワード")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.white)
+                                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                    // パスワード
+                                    SecureField("　　パスワードを入力してください",text:$password)
+                                        .frame(height: 60)
+                                        .textFieldStyle(PlainTextFieldStyle())
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                        .keyboardType(.numberPad)
+                                        .padding()
+                                }
+                                VStack(alignment: .leading){
+                                    Text("氏名")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.white)
+                                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                    TextField("　　氏名を入力してください",text: $usersname)
+                                        .frame(height: 60)
+                                        .textFieldStyle(PlainTextFieldStyle())
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                        .padding()
+                                }
+                                VStack(alignment: .leading){
+                                    Text("乗っているバイクの車種")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.white)
+                                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                    TextField("　　乗っているバイクの車種",text:$bikename)
+                                        .frame(height: 60)
+                                        .textFieldStyle(PlainTextFieldStyle())
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                        .padding()
+                                }
+                                VStack(alignment: .leading){
+                                    Text("性別")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.white)
+                                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                    TextField("　　性別(男、女、その他)",text: $usercomment)
+                                        .frame(height: 60)
+                                        .textFieldStyle(PlainTextFieldStyle())
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                    
+                                        .padding()
+                                }
                                 // 認証
                                 Button(
                                     action:{
@@ -143,7 +167,7 @@ struct LoginView: View {
                                             Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
                                             }
                                             viewModel.adduser(usersname: usersname, bikename: bikename, usercomment: usercomment,userid: userid)
-                                            self.viewModel.addattendfirst(eventid: eventid)
+                                            
                                             allview = true
                                             
                                         }

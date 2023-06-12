@@ -28,6 +28,7 @@ struct RecruitView: View {
         
         ScrollView{
             VStack{
+                Image("recruit").padding(EdgeInsets(top: -150, leading: 0, bottom: 0, trailing: 0))
                 TextField("タイトル",text:$title)
                     .frame(height: 40).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)

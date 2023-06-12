@@ -62,8 +62,8 @@
             filePath = "MoToBBC/DataViewmodel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
+            startingLineNumber = "365"
+            endingLineNumber = "365"
             landmarkName = "addDocument(title:detail:whereis:how:selectionDate:eventid:userid:username:participants:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -98,6 +98,22 @@
             endingLineNumber = "28"
             landmarkName = "MytoringView"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3A7DF70-DBA9-4F3C-BC8B-2EF16E4CF5C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoToBBC/MytoringView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

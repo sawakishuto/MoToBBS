@@ -43,26 +43,28 @@ struct MytoringView: View {
     var body: some View {
         
         VStack{
+        
                 Text(title).font(.title).fontWeight(.bold)
-            Spacer()
-            
-               
-           
-            Text("開催予定日:" + dateString)
-   
-            Divider().background(Color.red)
-            
+                Spacer()
+                
+                
+                
+                Text("開催予定日:" + dateString)
+                
+                Divider().background(Color.red)
+                
                 Text("出発地:" + whereis)
-            Text("詳細:" + detail)
+                Text("詳細:" + detail)
                 Text("参加予定者").foregroundColor(.red)
-                .fontWeight(.bold)
-            List(userInfoArray, id: \.self) { userInfo in
-                Text("名前: \(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
-                    }.listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
-                .background(Color.white)
-                .frame(height: 300)
-                   
-           
+                    .fontWeight(.bold)
+            VStack{
+                List(userInfoArray, id: \.self) { userInfo in
+                    Text("名前: \(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
+                }.listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
+                    .background(Color.white)
+                    .frame(height: 300)
+            }
+                    .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 0))
             
             Text(messa)
                 .frame(width: 190,height: 60)
@@ -78,7 +80,8 @@ struct MytoringView: View {
                     
                 }
             }
-        }.onAppear(){
+        }
+        .onAppear(){
             
             self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                 self.userInfoArray = userInfoArray
