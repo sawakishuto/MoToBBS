@@ -56,7 +56,9 @@ class ViewModel: ObservableObject{
             }
             
             completion(userInfoArray)
+            
         }
+        
     }
 
     func fetchData() {
@@ -137,7 +139,9 @@ class ViewModel: ObservableObject{
         }
     }
 
-    func GetUserInfoAndSet(userid: String, username: String, usercomment: String, bikename: String,documentinfo: String){ // db.collection("User").document(user!.uid)からユーザーデータを取得
+    func GetUserInfoAndSet(userid: String, username: String, usercomment: String, bikename: String,documentinfo: String){
+        let documentID = db.collection("User").document(user!.uid).documentID
+        // db.collection("User").document(user!.uid)からユーザーデータを取得
         db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
             if let userError = userError {
                 fatalError("\(userError)")
@@ -146,12 +150,13 @@ class ViewModel: ObservableObject{
             guard let userData = userSnapshot?.data() else {
                 return
             }
-            
+            let userid = documentID
             let username = userData["usersname"] as? String ?? ""
             let usercomment = userData["usercomment"] as? String ?? ""
             let bikename = userData["bikename"] as? String ?? ""
             
-            let user = User(userid: "user!.uid", username: username, usercomment: usercomment, bikename: bikename)
+            
+            let user = User(userid: userid, username: username, usercomment: usercomment, bikename: bikename)
             
             // AttendListドキュメントにアクセス
             let attendListRef = self.db.collection("AttendList").document(documentinfo)
@@ -166,7 +171,7 @@ class ViewModel: ObservableObject{
                     if var existingAttendList = attendListData["attendList"] as? [[String: Any]] {
                         // attendListフィールドが既に存在する場合、userInfoを追加する
                         existingAttendList.append([
-                            "userid": "",
+                            "userid": user.userid,
                             "username":"\( user.username)",
                             "usercomment": user.usercomment,
                             "bikename": user.bikename
@@ -183,7 +188,7 @@ class ViewModel: ObservableObject{
                     } else {
                         // attendListフィールドが存在しない場合、新たに作成してuserInfoを格納する
                         let newAttendList = [[
-                            "userid": "",
+                            "userid": user.userid,
                             "username": user.username,
                             "usercomment": user.usercomment,
                             "bikename": user.bikename
@@ -200,7 +205,7 @@ class ViewModel: ObservableObject{
                 } else {
                     // documentinfoドキュメントが存在しない場合、新たに作成してuserInfoを格納する
                     let newAttendList = [[
-                        "userid": "",
+                        "userid": user.userid,
                         "username": user.username,
                         "usercomment": user.usercomment,
                         "bikename": user.bikename
@@ -421,7 +426,49 @@ class ViewModel: ObservableObject{
                 }
             }
         }
-    
+    func findAndDeleteAttendee( documentInfo: String) {
+        let userID = db.collection("User").document(user!.uid).documentID
+        let docRef = db.collection("AttendList").document(documentInfo)
         
+        docRef.getDocument { (document, error) in
+            if let error = error {
+                print("Error getting document: \(error)")
+            } else {
+                if let document = document, document.exists {
+                    if var data = document.data(),
+                       var attendList = data["attendList"] as? [[String: Any]] {
+                        
+                        // 一致するuserIDを持つ要素を検索し、削除する
+                        for (index, attendee) in attendList.enumerated() {
+                            if let attendeeID = attendee["userid"] as? String, attendeeID == userID {
+                                attendList.remove(at: index)
+                                break
+                            }
+                        }
+                        
+                        // 更新されたattendListを含むデータを作成
+                        data["attendList"] = attendList
+                        
+                        // Attendドキュメントを更新する
+                        docRef.setData(data) { error in
+                            if let error = error {
+                                print("Error updating document: \(error)")
+                            } else {
+                                print("Attendee deleted successfully.")
+                            }
+                        }
+                    } else {
+                        // attendListが存在しない場合の処理
+                        print("attendList not found in the document.")
+                    }
+                } else {
+                    // 指定されたドキュメントが存在しない場合の処理
+                    print("Document not found.")
+                }
+            }
+        }
     }
+
+    }
+
 

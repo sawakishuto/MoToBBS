@@ -89,6 +89,7 @@ alerttitle = "ツーリング終了"
 alertmessage = "ツーリングを終了します。お疲れ様でした。"
                     isShowSelect.toggle()
                     self.viewModel.deleteEvent(eventid:eventid)
+                    self.viewModel.findAndDeleteAttendee(documentInfo: eventid)
                     self.viewModel.fetchJoinedData() { (events) in
                                             self.events = events
                                         }
@@ -103,7 +104,7 @@ alertmessage = "ツーリングを終了します。お疲れ様でした。"
                 .onTapGesture {
                     alerttitle = "キャンセル"
                     alertmessage = "ツーリングをキャンセルしました。"
-                    isShowSelect.toggle()
+                    self.viewModel.findAndDeleteAttendee(documentInfo: eventid);                    isShowSelect.toggle()
                     self.viewModel.deleteEvent(eventid:eventid)
                     self.viewModel.fetchJoinedData() { (events) in
                         self.events = events
