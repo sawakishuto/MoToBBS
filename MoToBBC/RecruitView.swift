@@ -29,6 +29,7 @@ struct RecruitView: View {
         ScrollView{
             VStack{
                 Image("recruit").padding(EdgeInsets(top: -150, leading: 0, bottom: 0, trailing: 0))
+                Text("※現在募集している投稿を必ず終了してください").foregroundColor(.red)
                 TextField("タイトル",text:$title)
                     .frame(height: 40).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)

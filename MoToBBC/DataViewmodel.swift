@@ -22,6 +22,7 @@ class ViewModel: ObservableObject{
     private var db = Firestore.firestore()
     @Published var documentId : String?
     init(){self.dataDesctiption = "今日は"}
+//    ツーリング終了ボタン（投稿者側）が押された時に参加者リストを削除
     func AttendListclear(eventid:String){
         let docRef = db.collection("AttendList").document(eventid)
             
@@ -33,7 +34,7 @@ class ViewModel: ObservableObject{
                 }
             }
         }
-    
+//    AttendlistからUser情報を取得
     func fetchUserInfoFromAttendList(documentinfo: String, completion: @escaping ([[String]]) -> Void) {
         let attendListRef = db.collection("AttendList").document(documentinfo)
         
@@ -60,6 +61,7 @@ class ViewModel: ObservableObject{
         }
         
     }
+//    Eventコレクションからデータを取得
 
     func fetchData() {
         db.collection("Event").addSnapshotListener { (querySnapshot, error) in
@@ -91,6 +93,7 @@ class ViewModel: ObservableObject{
         
         
     }
+//    ログインしているユーザがどのようなイベントを募集しているかを取得
     func getUser() {
         self.datamodeluser.removeAll()        // データベースクエリを実行する前に、既にデータがロードされている場合は処理を中断する
         guard self.datamodeluser.isEmpty else {
@@ -121,6 +124,7 @@ class ViewModel: ObservableObject{
             
         }
     }
+//    ログインしているユーザの情報を取得
     func fetchUserinfo( completion: @escaping (String, String, String) -> Void) {
         db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
             if let userError = userError {
@@ -138,7 +142,7 @@ class ViewModel: ObservableObject{
             completion(fetchusername, fetchusercomment, fetchbikename)
         }
     }
-
+//参加するボタンを押した時、押したユーザのUser情報を取得してAttendlistコレクションに情報を格納
     func GetUserInfoAndSet(userid: String, username: String, usercomment: String, bikename: String,documentinfo: String){
         let documentID = db.collection("User").document(user!.uid).documentID
         // db.collection("User").document(user!.uid)からユーザーデータを取得
@@ -223,6 +227,7 @@ class ViewModel: ObservableObject{
         }
         
     }
+//上に同じ関数だが、投稿者は（主催者）という文字を名前に追加して格納する
     func GetUserInfoAndSet2(userid: String, username: String, usercomment: String, bikename: String){ // db.collection("User").document(user!.uid)からユーザーデータを取得
         db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
             if let userError = userError {
@@ -304,7 +309,7 @@ class ViewModel: ObservableObject{
         }
         
     }
-    
+//    自分が参加するボタンを押したイベントを格納
     func addattend(eventid:String){
         let event:[String: Any] = [
             "eventid": FieldValue.arrayUnion([
@@ -321,7 +326,7 @@ class ViewModel: ObservableObject{
         }
     }
     
-    
+//自分が参加する予定のイベントの情報を取得
     func fetchJoinedData(completion: @escaping ([Events]) -> Void) {
         db.collection("Attend").document(user!.uid).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -366,7 +371,7 @@ class ViewModel: ObservableObject{
             }
         }
     }
-
+//自分が投稿したイベント内容を格納
         func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, eventid: String,userid:String,username:String, participants: String) {
             let documentID = db.collection("User").document(user!.uid).documentID
             db.collection("Event").document(user!.uid).setData([
@@ -389,6 +394,7 @@ class ViewModel: ObservableObject{
                 }
             }
         }
+//    バイクの車種変更時の情報更新
     func profileset(   bikename:String){
 
             db.collection("User").document(user!.uid).updateData([
@@ -397,7 +403,7 @@ class ViewModel: ObservableObject{
             ])
         }
     
-        
+//     自分が投稿したイベントを削除
         func deleteDocument() {
             let db = Firestore.firestore()
             let docRef = db.collection("Event").document(user!.uid)
@@ -410,6 +416,7 @@ class ViewModel: ObservableObject{
                 }
             }
         }
+//自分が参加する予定だったイベントのキャンセルまたは終了時、参加予定のイベントリストから削除
         func deleteEvent(eventid: String) {
             
             
@@ -426,6 +433,7 @@ class ViewModel: ObservableObject{
                 }
             }
         }
+//    参加をキャンセルしたときまたは終了時Attendlistから自分のUser情報を削除
     func findAndDeleteAttendee( documentInfo: String) {
         let userID = db.collection("User").document(user!.uid).documentID
         let docRef = db.collection("AttendList").document(documentInfo)

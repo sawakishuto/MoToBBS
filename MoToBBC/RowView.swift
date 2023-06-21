@@ -33,15 +33,16 @@ struct row: View {
                 .fontWeight(.bold)
             Spacer()
         
-              Text("出発地点:" + whereis)
+            Text("出発地点:" + whereis).fontWeight(.bold)
                     
                 Divider().background(Color.red)
-                Text("開催日時:" + dateString + "頃")
+            Text("開催日時:" + dateString + "頃").fontWeight(.bold)
             Divider().background(Color.red)
                 
                 
                
             Text("募集人数:" + how + "人程度")
+                .fontWeight(.bold)
             Divider().background(Color.red)
             Text(detail).frame(width: 350,height: 50)
             
