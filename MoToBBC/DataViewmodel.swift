@@ -11,6 +11,7 @@ import FirebaseAuth
 class ViewModel: ObservableObject{
     var arrayData: [String] = []
     
+    
     @Published var Eventidinfo = [Eventidmodel]()
     @Published var datamodeluser = [Usersinfo]()
     @Published var userInfo = [User]()
