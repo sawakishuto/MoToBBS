@@ -75,6 +75,7 @@ struct Mypageview: View {
                             row(whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how)
                         })
                     }
+                   
                     .padding(EdgeInsets(top: 0, leading: 43, bottom: 0, trailing:-218))
                     .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                     .background(Color.white) // 背景色を透明に設定
@@ -104,7 +105,7 @@ struct Mypageview: View {
                         fetchbikename = fetchedBikename                    }
                 }
                 self.viewModel.getUser()
-                print(viewModel.datamodeluser)
+                
             }
             
             

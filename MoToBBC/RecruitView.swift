@@ -56,7 +56,7 @@ struct RecruitView: View {
                 .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.red,lineWidth: 2))
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                TextField("出発地点（集合場所など）", text:$whereis)
+                TextField("集合場所", text:$whereis)
                     .frame(height: 40).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red,lineWidth: 2))

@@ -57,39 +57,45 @@ struct detail: View {
         
         ZStack{
             VStack{
-                ScrollView{
-            Spacer()
-                Text(title).font(.title).fontWeight(.bold)
-            Spacer()
-            
+
+                    Spacer()
+                    Text(title).font(.title).fontWeight(.bold)
+                    Spacer()
+                    
                     VStack(alignment:.leading){
-                        Text("出発地：" + whereis).frame(height: 20)
+                        ScrollView{
+                        Text("集合場所：" + whereis).frame(height: 20)
+                                 .fontWeight(.bold)
                         Divider().background(Color.red)
+                                .fontWeight(.bold)
                         Text("開催予定日：" + dateString)
                             .frame(height: 20)
+                            .fontWeight(.bold)
                         Divider().background(Color.red)
-                        
+                                .fontWeight(.bold)
                         Text("詳細:" + detail)
                     }.padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing:0
-                                        ))
+                                        ))}
                     Divider().background(Color.red)
                     Text("参加予定者").foregroundColor(.red)
                         .fontWeight(.bold)
-                    List(userInfoArray, id: \.self) { userInfo in
-                        Text("\(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
-                            }.listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
+                List(userInfoArray, id: \.self) { userInfo in
+                    Text("\(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
+                    
+                } .fontWeight(.bold)
+                .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                         .background(Color.white)
-                        .frame(height: 200)
+                        .frame(height: 150)
                         .padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing:0
                                             ))
-                }
+                
             Spacer()
                 
                 
                 Text(messa)
                     .fontWeight(.bold)
                     .frame(width: 190,height: 60)
-                    .background(Capsule().fill(Color.gray))                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                    .background(Capsule().fill(Color.red))                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
                     .padding(EdgeInsets(top: 0, leading: 18, bottom: 20, trailing: 0))
                     .onTapGesture {
                 self.viewModel.addattend(eventid: self.eventid)

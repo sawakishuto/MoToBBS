@@ -47,7 +47,8 @@ struct textandview: View {
                     
                     // 背景色を透明に設定
                    
-                }.edgesIgnoringSafeArea(.top)
+                } 
+                .edgesIgnoringSafeArea(.top)
                  
             }
                 //            .navigationBarTitle("現在募集中の掲示板")
@@ -72,7 +73,7 @@ struct textandview: View {
                     RecruitView()
                 }
         }.edgesIgnoringSafeArea(.top)
-        
+           
         .onAppear() {
                         self.viewModel.fetchData()
                 }

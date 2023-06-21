@@ -41,32 +41,52 @@ struct JoinListView_Card: View {
                     ScrollView{
                         Text(title).font(.title)
                             .fontWeight(.bold)
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0
+                                            ))
                         
                         
-                        Text("出発地点:" + whereis)
-                        
-                        Divider().background(Color.red)
+                        Text("集合場所:" + whereis).frame(height: 30)
+                            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10
+                                            ))
+                            .fontWeight(.bold)
                            
-                        Text("開催日時:" + dateString + "頃")
-                        Divider().background(Color.red)
-                        
+                       
+                           
+                        Text("開催日時:" + dateString + "頃").frame(height: 30)
+                            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10
+                                            ))
+                            .fontWeight(.bold)
+
+                           
                         
                         
                         Text("募集人数:" + how + "人程度")
-                        Divider().background(Color.red)
+                            .frame(height: 30)
+                            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10
+                                            ))
+                            .fontWeight(.bold)
+
+                        
+                           
+                       
                         Text(detail)
+                            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10
+                                            ))
+                        Divider().background(Color.red)
                         Text("参加予定者").foregroundColor(.red) .fontWeight(.bold)
                         List(userInfoArray, id: \.self) { userInfo in
                             Text("名前: \(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
-                                }.listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
+                                }
+                        .fontWeight(.bold)
+                        .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                             .background(Color.white)
                             .frame(height: 200)
                             .padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing:0
                                                 ))
 
-                    }
+                    }.padding(EdgeInsets(top: 20, leading: 0, bottom: 80, trailing: 0))
                     
-                }.frame(width:350,height:600)
+                }.frame(width:330,height:600)
                     .padding()
                     .background(.white)
                     .cornerRadius(18)
@@ -77,7 +97,7 @@ struct JoinListView_Card: View {
             
             Text("ツーリング終了")
                 .zIndex(3)
-                .frame(width: 150,height: 60)
+                .frame(width: 120,height: 50)
                
                 .background(Capsule().fill(  Color(red: 50, green: 10 / 255, blue: 10 / 255)))
                 .shadow(color: .gray, radius: 3, x: 3, y: 3)
@@ -96,7 +116,7 @@ alertmessage = "ツーリングを終了します。お疲れ様でした。"
                 }
             Text("キャンセル")
                 .zIndex(3)
-                .frame(width: 150,height: 60)
+                .frame(width: 120,height: 50)
              
                 .background(Capsule().fill(Color.gray))
                 .shadow(color: .gray, radius: 3, x: 3, y: 3)

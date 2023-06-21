@@ -358,7 +358,7 @@ class ViewModel: ObservableObject{
                             group.leave()
                         }
                     }
-                    print(events)
+                  
                     group.notify(queue: .main) {
                         completion(events)
                     }
