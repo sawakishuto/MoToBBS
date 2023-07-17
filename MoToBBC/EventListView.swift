@@ -10,10 +10,13 @@ import FirebaseCore
 
 struct textandview: View {
     @State var bikename:String = ""
+    @State var goodAlert = false
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
     
     var body: some View {
+        
+        
         ZStack(alignment:.bottomTrailing ){
             VStack{
                 ZStack(alignment:.top){
@@ -53,7 +56,8 @@ struct textandview: View {
             }
                 //            .navigationBarTitle("現在募集中の掲示板")
                 Button(action: {
-                    self.showsheet.toggle()
+                    
+                    self.goodAlert = true
                 }, label: {
                     Image(systemName: "square.and.pencil")
                         .foregroundColor(  Color(red: 30, green: 10 / 255, blue: 10 / 255))
@@ -69,6 +73,19 @@ struct textandview: View {
                         
                     
                 })
+                .alert(isPresented: $goodAlert, content: {
+                    Alert(
+                        title: Text("現在募集中のイベントを終了しましたか？"),
+                        message: Text(""),
+                        primaryButton: .default(Text("はい"),
+                                                action: {showsheet = true
+                                                }),
+                        secondaryButton: .destructive(Text("いいえ"),
+                                                      action: {goodAlert = false})
+                    )
+                    
+                })
+           
                 .sheet(isPresented: $showsheet) {
                     RecruitView()
                 }

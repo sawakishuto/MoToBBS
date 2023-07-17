@@ -475,7 +475,6 @@ class ViewModel: ObservableObject{
             }
         }
     }
-
     }
 
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct Mypageview: View {
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
+    
     @State var fetchusername:String = ""
     @State var fetchusercomment:String = ""
     @State var fetchbikename:String = ""

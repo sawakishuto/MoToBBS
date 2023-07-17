@@ -3,6 +3,7 @@ import FirebaseAuth
 struct LoginView: View {
     @ObservedObject private var viewModel = LoginViewModel()
     @State var showsheet = false
+    @State var showconfine = false
     @State public var usersname:String = ""
     @State public var bikename:String = ""
     @State public var usercomment:String = ""
@@ -15,6 +16,10 @@ struct LoginView: View {
     @State public var password:String = ""
     @State public var errorMessage:String = ""
     @State var profile = false
+    @State var check = false
+    @State  var checkms = false
+    @State var checkname = "checkmark.circle"
+    
     
     var body: some View {
         if loginshow == false{
@@ -157,13 +162,42 @@ struct LoginView: View {
                                         .padding()
                                 }
                                 // 認証
+                                HStack{
+                                    
+                                    Button("利用規約"){
+                                        self.showsheet = true
+                                    }.foregroundColor(.white)
+                                        .sheet(isPresented: $showsheet){  TermsOfService()}
+                                                                        Image(systemName:checkname).onTapGesture {
+                                        self.checkms.toggle()
+                                        self.showconfine.toggle()
+                                        
+                                        if self.checkms == true
+                                        {
+                                            self.checkname = "checkmark.circle.fill"
+                                        }
+                                        else{
+                                            self.checkname = "checkmark.circle"
+                                        }
+                                    }
+                                 
+                                      
+                                    
+                                            
+                                  
+                                    
+                                }
                                 Button(
                                     action:{
                                         if(self.mail == ""){
                                             self.errorMessage = "メールアドレスが入力されていません"
                                         } else if(self.password == ""){
                                             self.errorMessage = "パスワードが入力されていません"
-                                        } else {
+                                        }
+                                        else if (self.showconfine != true){
+                                            errorMessage = "利用規約に同意していません"
+                                        }
+                                        else {
                                             Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
                                             }
                                             viewModel.adduser(usersname: usersname, bikename: bikename, usercomment: usercomment,userid: userid)
@@ -172,11 +206,12 @@ struct LoginView: View {
                                             
                                         }
                                     }, label:{
-                                        Text("新規会員登録").frame(width: 200, height: 50) .foregroundColor(.black)
+                                        Text("新規登録").frame(width: 200, height: 50) .foregroundColor(.black)
                                             .fontWeight(.bold)
                                             .background(Color(.white))
                                             .cornerRadius(10)
                                     }
+                                    
                                 )
                                 Button(action: {logingo = true}, label:{ Text("ログイン")
                                         .foregroundColor(.white)

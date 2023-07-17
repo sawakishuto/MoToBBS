@@ -13,6 +13,8 @@ import Firebase
 import FirebaseAuth
 
 struct MytoringView: View {
+    
+    @State var goodAlert = false
     @State private var showlist = false
     @State private var userInfoArray: [[String]] = []
     @State var messa = "ツーリング終了！"
@@ -77,15 +79,29 @@ struct MytoringView: View {
                     .background(Capsule().fill( Color(red: 50, green: 10 / 255, blue: 10 / 255)))                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 260, trailing: 0))
                     .onTapGesture {
-                        self.viewModel.deleteDocument()
-                        self.isgo.toggle()
-                        if isgo == true{
-                            self.viewModel.AttendListclear(eventid: self.eventid)
-                            self.viewModel.getUser()
-                            messa = "お疲れ様でした！"
-                            
-                        }
+                       
+                        goodAlert.toggle()
                     }
+                    .alert(isPresented: $goodAlert, content: {
+                        Alert(
+                            title: Text("イベントを終了しますか？"),
+                            message: Text(""),
+                            primaryButton: .default(Text("はい"),
+                                                    action: {isgo = true
+                                                        if isgo == true{
+                                                            messa = "お疲れ様でした！"
+                                                            self.viewModel.deleteDocument()
+                                                            self.viewModel.AttendListclear(eventid: self.eventid)
+                                                            self.viewModel.getUser()
+                                                        }
+                                                        
+                                                    }),
+                            secondaryButton: .destructive(Text("いいえ"),
+                                                          action: {isgo = false})
+                        )
+                        
+                    })
+
             }
         
             .onAppear(){

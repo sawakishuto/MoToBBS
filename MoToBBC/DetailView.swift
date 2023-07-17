@@ -12,6 +12,8 @@ import FirebaseAuth
 
 struct detail: View {
     @State private var userInfoArray: [[String]] = []
+    @State var isGood = false
+    @State var goodAlert = false
     @State var messa = "参加する！"
     @ObservedObject private var viewModel = ViewModel()
    
@@ -98,15 +100,34 @@ struct detail: View {
                     .background(Capsule().fill(Color.red))                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
                     .padding(EdgeInsets(top: 0, leading: 18, bottom: 20, trailing: 0))
                     .onTapGesture {
-                self.viewModel.addattend(eventid: self.eventid)
-                        self.viewModel.GetUserInfoAndSet(userid: self.userid, username: self.username, usercomment: self.usercomment, bikename: self.bikename, documentinfo:self.documentinfo )
-                self.isgo.toggle()
-                if isgo == true{
-                    messa = "エントリー完了"
-                }
+               
+                        goodAlert = true
+                
+              
 
                 }
+                    .alert(isPresented: $goodAlert, content: {
+                        Alert(
+                            title: Text("このイベントに参加しますか？"),
+                            message: Text(""),
+                            primaryButton: .default(Text("はい"),
+                                                    action: {isgo = true
+                                                        if isgo == true{
+                                                            messa = "エントリー完了"
+                                                            self.viewModel.addattend(eventid: self.eventid)
+                                                            self.viewModel.GetUserInfoAndSet(userid: self.userid, username: self.username, usercomment: self.usercomment, bikename: self.bikename, documentinfo:self.documentinfo )
+                                                        }
+                                                        
+                                                    }),
+                            secondaryButton: .destructive(Text("いいえ"),
+                                                          action: {isgo = false})
+                        )
+                        
+                    })
+               
             }
+            
+            
         }.onAppear(){
             self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                 self.userInfoArray = userInfoArray
