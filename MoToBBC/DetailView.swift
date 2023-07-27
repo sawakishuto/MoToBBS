@@ -110,17 +110,16 @@ struct detail: View {
                         Alert(
                             title: Text("このイベントに参加しますか？"),
                             message: Text(""),
-                            primaryButton: .default(Text("はい"),
-                                                    action: {isgo = true
-                                                        if isgo == true{
-                                                            messa = "エントリー完了"
-                                                            self.viewModel.addattend(eventid: self.eventid)
-                                                            self.viewModel.GetUserInfoAndSet(userid: self.userid, username: self.username, usercomment: self.usercomment, bikename: self.bikename, documentinfo:self.documentinfo )
-                                                        }
-                                                        
-                                                    }),
-                            secondaryButton: .destructive(Text("いいえ"),
-                                                          action: {isgo = false})
+                            primaryButton: .destructive(Text("いいえ"),
+                                                        action: {isgo = false}), secondaryButton: .default(Text("はい"),
+                                                                                                           action: {isgo = true
+                                                                                                               if isgo == true{
+                                                                                                                   messa = "エントリー完了"
+                                                                                                                   self.viewModel.addattend(eventid: self.eventid)
+                                                                                                                   self.viewModel.GetUserInfoAndSet(userid: self.userid, username: self.username, usercomment: self.usercomment, bikename: self.bikename, documentinfo:self.documentinfo )
+                                                                                                               }
+                                                                                                               
+                                                                                                           })
                         )
                         
                     })

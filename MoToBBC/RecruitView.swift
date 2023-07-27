@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import UIKit
 struct RecruitView: View {
     @State private var selectionDate = Date()
     @Environment(\.presentationMode) var presentation
@@ -22,12 +22,21 @@ struct RecruitView: View {
     @State private var title:String = ""
     @State private var how:String = ""
     @State private var participants:String = ""
+    @State private var image:Image?
+    @State private var imageui:UIImage?
+    @State private var inputImage:UIImage?
+    @State private var showingImagePicker = false
     
+    func loadImage(){
+          guard let inputImage = inputImage else {return}
+          image = Image(uiImage: inputImage)
+      }
     
     var body: some View{
         
         ScrollView{
             VStack{
+              
                 Image("recruit").padding(EdgeInsets(top: -150, leading: 0, bottom: 0, trailing: 0))
                 Text("※できるだけ詳細に記入してください").foregroundColor(.red)
                     .fontWeight(.bold)
@@ -63,6 +72,17 @@ struct RecruitView: View {
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red,lineWidth: 2))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                image?.resizable().scaledToFit()
+                Button {
+                    showingImagePicker = true
+                } label: {
+                    Text("写真を選択")
+                }.sheet(isPresented: $showingImagePicker) {
+                    ImagePicker(image: $inputImage)
+                }//inputImageの変化を監視して変化があればloadImage
+                .onChange(of: inputImage) { newValue in
+                    loadImage()
+                }
                 
                 
                 
@@ -72,6 +92,9 @@ struct RecruitView: View {
                     
                     
                     self.presentation.wrappedValue.dismiss()
+                    // あるイベントIDとImage型の画像を渡してuploadPhotoを実行する
+                    self.viewModel.uploadPhotoAfterConversion(eventid: self.eventid, images:self.image)
+
                 }, label: {Text("投稿")}).buttonStyle(AnimationButtonStyle())
                 
                 
@@ -80,19 +103,20 @@ struct RecruitView: View {
     }
 }
 
-    struct AnimationButtonStyle : ButtonStyle {
-        func makeBody(configuration: Configuration) -> some View {
-            configuration.label
-                .foregroundColor(.black)
-                .padding()
-            
-                .overlay(RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.black))
-                .background(configuration.isPressed ? Color.red : Color.white )
-                .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
-                .animation(.easeOut(duration: 0.01), value: configuration.isPressed)
-        }
+struct AnimationButtonStyle : ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(.black)
+            .padding()
+        
+            .overlay(RoundedRectangle(cornerRadius: 15)
+                .stroke(Color.black))
+            .background(configuration.isPressed ? Color.red : Color.white )
+            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+            .animation(.easeOut(duration: 0.01), value: configuration.isPressed)
     }
+}
+
 
 
 struct RecruitView_Previews: PreviewProvider {

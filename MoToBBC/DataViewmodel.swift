@@ -8,8 +8,13 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
+import SwiftUI
+import UIKit
 class ViewModel: ObservableObject{
+
     var arrayData: [String] = []
+    @Published var images: Image?
     @Published var Eventidinfo = [Eventidmodel]()
     @Published var datamodeluser = [Usersinfo]()
     @Published var userInfo = [User]()
@@ -17,9 +22,10 @@ class ViewModel: ObservableObject{
     let dataDesctiption:String
     let user = Auth.auth().currentUser
     @Published var datamodel = [Events]()
-    
+
     private var db = Firestore.firestore()
     @Published var documentId : String?
+  
     init(){self.dataDesctiption = "今日は"}
 //    ツーリング終了ボタン（投稿者側）が押された時に参加者リストを削除
     func AttendListclear(eventid:String){
@@ -308,6 +314,7 @@ class ViewModel: ObservableObject{
         }
         
     }
+    
 //    自分が参加するボタンを押したイベントを格納
     func addattend(eventid:String){
         let event:[String: Any] = [
@@ -452,11 +459,9 @@ class ViewModel: ObservableObject{
                                 break
                             }
                         }
-                        
-                        // 更新されたattendListを含むデータを作成
+
                         data["attendList"] = attendList
-                        
-                        // Attendドキュメントを更新する
+
                         docRef.setData(data) { error in
                             if let error = error {
                                 print("Error updating document: \(error)")
@@ -465,16 +470,91 @@ class ViewModel: ObservableObject{
                             }
                         }
                     } else {
-                        // attendListが存在しない場合の処理
                         print("attendList not found in the document.")
                     }
                 } else {
-                    // 指定されたドキュメントが存在しない場合の処理
                     print("Document not found.")
                 }
             }
         }
     }
+    
+//写真を保存する関数
+    
+    func uploadPhoto(eventid: String, image: UIImage?) {
+print("保存開始")
+        guard let image = image else {
+            print("UIImageがありません")
+            return
+        }
+
+        // Firestoreに写真をアップロードする処理を実装
+        let storageRef = Storage.storage().reference()
+        let imagesRef = storageRef.child(eventid)
+        let photoRef = imagesRef.child(eventid)
+        print("中間")
+        print(image)
+        if let imageData = image.jpegData(compressionQuality: 0.8) {
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+         
+            print(imageData)
+            photoRef.putData(imageData, metadata: metadata) { (metadata, error) in
+                if let error = error {
+                    print("写真のアップロードに失敗しました: \(error.localizedDescription)")
+                    print(eventid)
+                } else {
+                    
+                    print("写真のアップロードに成功しました")
+                }
+            }
+        }
+        else{
+            print("imageDataが見つからない")
+        }
+    }
+    
+    func convertToUIImage(images: Image?, completion: @escaping (UIImage?) -> Void) {
+        DispatchQueue.global().async {
+            if let images = images {
+                let uiImage = images.asUIImage()
+                DispatchQueue.main.async {
+                    completion(uiImage)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
+        }
     }
 
+    func uploadPhotoAfterConversion(eventid: String, images: Image?) {
+        convertToUIImage(images: images) { uiImage in
+            if let image = uiImage {
+                // convertToUIImageが完了した後にuploadPhotoを実行する
+                self.uploadPhoto(eventid: eventid, image: image)
+            } else {
+                print("UIImageがありません")
+            }
+        }
+    }
 
+    
+    
+}
+extension Image {
+    func asUIImage() -> UIImage {
+        print("カオナシ")
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view
+
+        let targetSize = CGSize(width: view?.bounds.width ?? 300, height: view?.bounds.height ?? 300)
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        print("最終")
+        return renderer.image { _ in
+            view?.drawHierarchy(in: CGRect(origin: .zero, size: targetSize), afterScreenUpdates: true)
+        }
+    }
+}

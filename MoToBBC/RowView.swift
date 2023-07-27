@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct row: View {
  
@@ -28,30 +29,47 @@ struct row: View {
     
     var body: some View {
         VStack{
-            Spacer()
-            Text(title).font(.title)
-                .fontWeight(.bold)
-            Spacer()
-        
-            Text("出発地点:" + whereis).fontWeight(.bold)
+            ZStack{
+                Spacer()
+          
+                    Image("Image").resizable().frame(width: 380,height: 400)
                     
-                Divider().background(Color.red)
-            Text("開催日時:" + dateString + "頃").fontWeight(.bold)
-            Divider().background(Color.red)
+                    Text(title)
+                        .font(.title2)
+                        .foregroundColor(.black)
+                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                        .background(.white)
+                        .cornerRadius(10)                .fontWeight(.bold)
+                        .zIndex(200)
+                        .padding(EdgeInsets(top: 100, leading: 0, bottom: 140, trailing:0))
+        
+                Spacer()
+                VStack{
+                    Text("出発地点:" + whereis).fontWeight(.bold)
+                    
+                    Divider().background(Color.red)
+                    Text("開催日時:" + dateString + "頃").fontWeight(.bold)
+                    Divider().background(Color.red)
+                    
+                    Text(detail).frame(width: 310,height: 50)
+                    
+                }.frame(width: 329,height: 150)
+                  
+                    .padding(EdgeInsets(top: 35, leading: 10, bottom: 10, trailing: 10))
+                                       .zIndex(10)
+                    .background(.white)
+                    .cornerRadius(20)
+                    .padding(EdgeInsets(top: 138, leading: 0, bottom: 0, trailing: 0))
                 
-                
-               
-            Text("募集人数:" + how + "人程度")
-                .fontWeight(.bold)
-            Divider().background(Color.red)
-            Text(detail).frame(width: 350,height: 50)
-            
-        }.frame(width:350,height:300)
+                    .shadow(color: .gray, radius: 15)
+                   
+            }
+        }.frame(width:320,height:300)
             .padding()
             .background(.white)
             .cornerRadius(20)
             .clipped()
-            .shadow(color: .gray.opacity(0.7), radius: 10)
+            .shadow(color: .black.opacity(0.8), radius: 10)
             .overlay(
                 RoundedRectangle(cornerRadius: 20).stroke(Color.red,lineWidth: 4))
         

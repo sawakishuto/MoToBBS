@@ -45,7 +45,7 @@ struct textandview: View {
                     }.listRowInsets(EdgeInsets())
                     .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                     .background(Color.white)
-                    .padding(EdgeInsets(top: 0, leading: 23, bottom: 10, trailing:0))
+                    .padding(EdgeInsets(top: 0, leading: 40, bottom: 10, trailing:0))
                     .edgesIgnoringSafeArea(.top)
                     
                     // 背景色を透明に設定
@@ -77,11 +77,10 @@ struct textandview: View {
                     Alert(
                         title: Text("現在募集中のイベントを終了しましたか？"),
                         message: Text(""),
-                        primaryButton: .default(Text("はい"),
-                                                action: {showsheet = true
-                                                }),
-                        secondaryButton: .destructive(Text("いいえ"),
-                                                      action: {goodAlert = false})
+                        primaryButton: .destructive(Text("いいえ"),
+                                                    action: {goodAlert = false}), secondaryButton: .default(Text("はい"),
+                                                                                                            action: {showsheet = true
+                                                                                                            })
                     )
                     
                 })

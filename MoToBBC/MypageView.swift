@@ -77,7 +77,7 @@ struct Mypageview: View {
                         })
                     }
                    
-                    .padding(EdgeInsets(top: 0, leading: 43, bottom: 0, trailing:-218))
+                    .padding(EdgeInsets(top: 0, leading: 58, bottom: 0, trailing:-218))
                     .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                     .background(Color.white) // 背景色を透明に設定
                     
