@@ -86,21 +86,24 @@ struct MytoringView: View {
                         Alert(
                             title: Text("イベントを終了しますか？"),
                             message: Text(""),
-                            primaryButton: .default(Text("はい"),
-                                                    action: {isgo = true
-                                                        if isgo == true{
-                                                            messa = "お疲れ様でした！"
-                                                            self.viewModel.deleteDocument()
-                                                            self.viewModel.AttendListclear(eventid: self.eventid)
-                                                            self.viewModel.getUser()
-                                                        }
-                                                        
-                                                    }),
-                            secondaryButton: .destructive(Text("いいえ"),
-                                                          action: {isgo = false})
+                            primaryButton:.destructive(Text("いいえ"),
+                                                       action: { isgo = false }) ,
+                            secondaryButton:.default(Text("はい"),
+                                                     action: {
+                                                         isgo = true
+                                                         if isgo == true {
+                                                             messa = "お疲れ様でした！"
+                                                             self.viewModel.deleteImage()
+                                                             self.viewModel.deleteDocument()
+                                                             
+                                                             self.viewModel.AttendListclear(eventid: self.eventid)
+                                                             self.viewModel.getUser()
+                                                         }
+                                                     })
                         )
-                        
                     })
+
+                
 
             }
         

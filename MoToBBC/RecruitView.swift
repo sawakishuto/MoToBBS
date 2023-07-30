@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import FirebaseStorage
 struct RecruitView: View {
     @State private var selectionDate = Date()
     @Environment(\.presentationMode) var presentation
@@ -22,14 +23,15 @@ struct RecruitView: View {
     @State private var title:String = ""
     @State private var how:String = ""
     @State private var participants:String = ""
-    @State private var image:Image?
+    @State private var image:UIImage?
     @State private var imageui:UIImage?
     @State private var inputImage:UIImage?
+
     @State private var showingImagePicker = false
     
     func loadImage(){
-          guard let inputImage = inputImage else {return}
-          image = Image(uiImage: inputImage)
+        guard inputImage != nil else {return}
+         
       }
     
     var body: some View{
@@ -41,38 +43,44 @@ struct RecruitView: View {
                 Text("※できるだけ詳細に記入してください").foregroundColor(.red)
                     .fontWeight(.bold)
                 TextField("タイトル",text:$title)
-                    .frame(height: 40).textFieldStyle(PlainTextFieldStyle())
+                    .frame(width: 370,height: 40).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.red,lineWidth: 2))
+                        .stroke(Color.red,lineWidth: 1))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 
                 TextField("募集人数(数字のみ)",text:$how)
-                    .frame(height: 40).textFieldStyle(PlainTextFieldStyle())
+                    .frame(width: 370,height: 40).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.red,lineWidth: 2))
+                        .stroke(Color.red,lineWidth: 1))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                     .keyboardType(.numberPad)
                 
                 DatePicker("日時を選択", selection: $selectionDate)
-                    .frame(height: 50)
+                    .frame(width: 370,height: 50)
                     .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.red,lineWidth: 2))
+                        .stroke(Color.red,lineWidth: 1))
                     .frame(height: 30)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                
                 TextField   ("詳細:ツーリングルート,募集条件,問い合わせ先情報（Twitter,Instagram）",text:$detail, axis: .vertical
                 )
                 .lineLimit(1...7)
+                .frame(width: 370)
                 .frame(minHeight: 190)
                 
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.red,lineWidth: 2))
+                    .stroke(Color.red,lineWidth: 1))
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 TextField("集合場所", text:$whereis)
-                    .frame(height: 40).textFieldStyle(PlainTextFieldStyle())
+                    .frame(width: 370,height: 40).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.red,lineWidth: 2))
+                        .stroke(Color.red,lineWidth: 1))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                image?.resizable().scaledToFit()
+//                image?.resizable()
+//                    .scaledToFit()
+//                    .cornerRadius(40)
+//                    .frame(width: 370)
+//                    .clipped()
                 Button {
                     showingImagePicker = true
                 } label: {
@@ -82,6 +90,9 @@ struct RecruitView: View {
                 }//inputImageの変化を監視して変化があればloadImage
                 .onChange(of: inputImage) { newValue in
                     loadImage()
+                   print(eventid)
+                   
+//                  imageui =   self.viewModel.convertToUIImage(images: self.image)
                 }
                 
                 
@@ -92,9 +103,8 @@ struct RecruitView: View {
                     
                     
                     self.presentation.wrappedValue.dismiss()
-                    // あるイベントIDとImage型の画像を渡してuploadPhotoを実行する
-                    self.viewModel.uploadPhotoAfterConversion(eventid: self.eventid, images:self.image)
-
+                    self.viewModel.UploadImage(inputImage:self.inputImage)
+//                    self.viewModel.uploadPhoto(eventid: self.eventid,image: imageui)
                 }, label: {Text("投稿")}).buttonStyle(AnimationButtonStyle())
                 
                 
@@ -124,3 +134,4 @@ struct RecruitView_Previews: PreviewProvider {
         RecruitView()
     }
 }
+

@@ -53,9 +53,9 @@ struct row: View {
                     
                     Text(detail).frame(width: 310,height: 50)
                     
-                }.frame(width: 329,height: 150)
+                }.frame(width: 333.5,height: 150)
                   
-                    .padding(EdgeInsets(top: 35, leading: 10, bottom: 10, trailing: 10))
+                    .padding(EdgeInsets(top: 35, leading: 9, bottom: 10, trailing: 10))
                                        .zIndex(10)
                     .background(.white)
                     .cornerRadius(20)
@@ -70,8 +70,7 @@ struct row: View {
             .cornerRadius(20)
             .clipped()
             .shadow(color: .black.opacity(0.8), radius: 10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20).stroke(Color.red,lineWidth: 4))
+            
         
     }
 }

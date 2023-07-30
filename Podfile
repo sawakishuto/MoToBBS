@@ -19,6 +19,7 @@ target 'MoToBBS' do
   pod 'FirebaseAuth'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
+  pod 'Firebase'
 
 end
 

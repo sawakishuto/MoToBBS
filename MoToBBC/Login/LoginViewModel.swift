@@ -14,7 +14,7 @@ class LoginViewModel :ObservableObject{
     let user = Auth.auth().currentUser
     func adduser(usersname:String,bikename:String,usercomment:String,userid:String){
         db.collection("User").document(user!.uid).setData([
-            "userid":db.collection("User").document(user!.uid),
+            "userid":db.collection("User").document(user!.uid).documentID,
             "usersname":usersname,
             "usercomment":usercomment,
             "bikename":bikename
