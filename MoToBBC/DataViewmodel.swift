@@ -552,7 +552,7 @@ class ViewModel: ObservableObject{
                     
                     let imageUI = inputImage
                     
-                    let data = imageUI!.jpegData(compressionQuality: 1.0)! as NSData
+                    let data = imageUI!.jpegData(compressionQuality: 0.25)! as NSData
                     
                     storageref.putData(data as Data, metadata: nil) { (data, error) in
                         if error != nil {
