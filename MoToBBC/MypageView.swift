@@ -10,7 +10,7 @@ import SwiftUI
 struct Mypageview: View {
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
-    
+    @State  var image: UIImage? = nil
     @State var fetchusername:String = ""
     @State var fetchusercomment:String = ""
     @State var fetchbikename:String = ""
@@ -73,7 +73,7 @@ struct Mypageview: View {
                 NavigationView{
                     List(viewModel.datamodeluser){datas in
                         NavigationLink(destination:MytoringView(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how)                               , label: {
-                            row(whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how)
+                            row(whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how,getimages: self.image)
                         })
                     }
                    

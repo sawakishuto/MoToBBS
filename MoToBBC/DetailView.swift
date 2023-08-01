@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 
 struct detail: View {
+    @State  var image: UIImage? = nil
     @State private var userInfoArray: [[String]] = []
     @State var isGood = false
     @State var goodAlert = false
@@ -76,8 +77,19 @@ struct detail: View {
                         Divider().background(Color.red)
                                 .fontWeight(.bold)
                         Text("詳細:" + detail)
+                            if let image = image {
+                                
+                                Image(uiImage:image).resizable(
+                                ).frame(width:330,height: 400)
+                                .cornerRadius(40)
+                                    .padding(EdgeInsets(top:0 , leading: 0, bottom: 0, trailing: 40))
+                            }
                     }.padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing:0
-                                        ))}
+                                        ))
+                        
+                       
+                        
+                    }
                     Divider().background(Color.red)
                     Text("参加予定者").foregroundColor(.red)
                         .fontWeight(.bold)
@@ -133,7 +145,14 @@ struct detail: View {
             }
             self.viewModel.fetchData()
             
-            
+            self.viewModel.getImage { image in
+                if let image = image {
+                    // 取得した画像をStateにセットしてUIに反映する
+                    self.image = image
+                } else {
+                    print("画像の取得に失敗しました")
+                }
+            }
            
           
         }

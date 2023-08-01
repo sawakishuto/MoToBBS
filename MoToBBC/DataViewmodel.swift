@@ -12,7 +12,7 @@ import FirebaseStorage
 import SwiftUI
 import UIKit
 class ViewModel: ObservableObject{
-    @Published var image:UIImage?
+    @Published var image:Image?
     var arrayData: [String] = []
     @Published var images: Image?
     @Published var Eventidinfo = [Eventidmodel]()
@@ -594,5 +594,32 @@ class ViewModel: ObservableObject{
                 print("失敗2")
             }
         }
+    }
+    func getImage(completion: @escaping (UIImage?) -> Void){
+        let documentRef = db.collection("User").document(user!.uid)
+        documentRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let userid = document.data()?["userid"] as? String {
+                    print("\(userid)")
+                    
+                    
+                    let storageref = Storage.storage().reference(forURL:"gs://motobbc-19c0a.appspot.com/" + userid
+                    )
+                    storageref.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                    if let error = error {
+                                        print("画像のダウンロードに失敗しました: \(error.localizedDescription)")
+                                        completion(nil)
+                                    } else if let data = data, let uiImage = UIImage(data: data) {
+                                      let getImage = uiImage
+                                        completion(getImage)
+                                    } else {
+                                        print("画像データが見つかりません")
+                                        completion(nil)
+                                    }
+                                }
+                            }
+                        }
+                    }
+        
     }
 }

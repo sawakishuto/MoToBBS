@@ -7,21 +7,25 @@
 
 import SwiftUI
 import UIKit
+import FirebaseStorage
 
 struct row: View {
- 
+    @State  var image: UIImage? = nil
+    @ObservedObject private var viewModel = ViewModel()
     let  whereis:String
     let detail:String
     let title:String
     let dateString:String
     let how:String
-    init(whereis:String,detail:String,title:String,dateStrig:String,how:String){
-    
+    var getimages:UIImage?
+    init(whereis:String,detail:String,title:String,dateStrig:String,how:String,getimages:UIImage?){
+        
         self.whereis = whereis
         self.detail = detail
         self.title = title
         self.dateString = dateStrig
         self.how = how
+        self.getimages = getimages
     }
     
     
@@ -31,18 +35,22 @@ struct row: View {
         VStack{
             ZStack{
                 Spacer()
-          
-                    Image("Image").resizable().frame(width: 380,height: 400)
+                if let image = image {
                     
-                    Text(title)
-                        .font(.title2)
-                        .foregroundColor(.black)
-                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                        .background(.white)
-                        .cornerRadius(10)                .fontWeight(.bold)
-                        .zIndex(200)
-                        .padding(EdgeInsets(top: 100, leading: 0, bottom: 140, trailing:0))
-        
+                    Image(uiImage:image).resizable() .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+                }
+                else {
+                    Text("画像読み込み中").padding(EdgeInsets(top: 0, leading: 0, bottom: 200, trailing: 0))
+                        }
+                Text(title)
+                    .font(.title2)
+                    .foregroundColor(.black)
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                    .background(.white)
+                    .cornerRadius(10)                .fontWeight(.bold)
+                    .zIndex(200)
+                    .padding(EdgeInsets(top: 100, leading: 0, bottom: 140, trailing:0))
+                
                 Spacer()
                 VStack{
                     Text("出発地点:" + whereis).fontWeight(.bold)
@@ -54,30 +62,39 @@ struct row: View {
                     Text(detail).frame(width: 310,height: 50)
                     
                 }.frame(width: 333.5,height: 150)
-                  
+                
                     .padding(EdgeInsets(top: 35, leading: 9, bottom: 10, trailing: 10))
-                                       .zIndex(10)
+                    .zIndex(10)
                     .background(.white)
                     .cornerRadius(20)
                     .padding(EdgeInsets(top: 138, leading: 0, bottom: 0, trailing: 0))
                 
                     .shadow(color: .gray, radius: 15)
-                   
+                
             }
-        }.frame(width:320,height:300)
+        }.onAppear{
+             self.viewModel.getImage { image in
+                if let image = image {
+                    // 取得した画像をStateにセットしてUIに反映する
+                    self.image = image
+                } else {
+                    print("画像の取得に失敗しました")
+                }
+            }
+        }
+        .frame(width:320,height:300)
             .padding()
             .background(.white)
             .cornerRadius(20)
             .clipped()
             .shadow(color: .black.opacity(0.8), radius: 10)
             
-        
     }
 }
 
 struct row_Previews: PreviewProvider {
     static var previews: some View {
-        row( whereis: "三重県桑名市", detail: "今日は誰でも歓迎ですあああああああああああああああああああああああああああああああああああああああああああ", title: "誰でもツーリング",dateStrig:"Date()", how: "11")
+        row( whereis: "三重県桑名市", detail: "今日は誰でも歓迎ですあああああああああああああああああああああああああああああああああああああああああああ", title: "誰でもツーリング",dateStrig:"Date()", how: "11", getimages: UIImage(named: "Image"))
     }
 }
 

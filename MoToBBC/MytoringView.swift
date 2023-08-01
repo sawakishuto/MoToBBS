@@ -13,7 +13,7 @@ import Firebase
 import FirebaseAuth
 
 struct MytoringView: View {
-    
+    @State  var image: UIImage? = nil
     @State var goodAlert = false
     @State private var showlist = false
     @State private var userInfoArray: [[String]] = []
@@ -58,9 +58,21 @@ struct MytoringView: View {
                 
                 Text("集合場所:" + whereis).fontWeight(.bold)
              
-                    Text("詳細:" + detail).frame(width: 350)}.frame(height: 400,alignment: .bottom
+                    Text("詳細:" + detail).frame(width: 350)
+                    if let image = image {
+                        
+                        Image(uiImage:image).resizable(
+                        ).frame(width:330,height: 400)
+                        .cornerRadius(40)
+                            .padding(EdgeInsets(top:0 , leading: 0, bottom: 0, trailing: 40))
+                    }
+                    else {
+                        Text("画像を読み込んでいます...")
+                            }
+                }.frame(height: 400,alignment: .bottom
                     ).padding(EdgeInsets(top: 160, leading: 20, bottom: 0, trailing: 0))
-                
+           
+
                 VStack{
                     Button("参加予定者一覧")
                         {
@@ -114,6 +126,14 @@ struct MytoringView: View {
                 }
                 
                 self.viewModel.getUser()
+                self.viewModel.getImage { image in
+                    if let image = image {
+                        // 取得した画像をStateにセットしてUIに反映する
+                        self.image = image
+                    } else {
+                        print("画像の取得に失敗しました")
+                    }
+                }
             }
                 
         
