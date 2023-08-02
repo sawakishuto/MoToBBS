@@ -37,7 +37,7 @@ struct row: View {
                 Spacer()
                 if let image = image {
                     
-                    Image(uiImage:image).resizable() .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+                    Image(uiImage:image).resizable() .padding(EdgeInsets(top: 0, leading: 0, bottom: 140, trailing: 0))
                 }
                 else {
                     Text("画像読み込み中").padding(EdgeInsets(top: 0, leading: 0, bottom: 200, trailing: 0))
@@ -88,6 +88,8 @@ struct row: View {
             .cornerRadius(20)
             .clipped()
             .shadow(color: .black.opacity(0.8), radius: 10)
+            .overlay(RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.red,lineWidth: 4))
             
     }
 }

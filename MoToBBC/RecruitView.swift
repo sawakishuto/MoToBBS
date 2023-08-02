@@ -84,7 +84,10 @@ struct RecruitView: View {
                 Button {
                     showingImagePicker = true
                 } label: {
-                    Text("写真を選択")
+                    VStack{
+                        Text("写真を選択").fontWeight(.bold).padding(EdgeInsets(top: 20, leading: 0, bottom: 2, trailing: 0))
+                        Text("横向きの写真をお勧めします").opacity(0.7)
+                    }
                 }.sheet(isPresented: $showingImagePicker) {
                     ImagePicker(image: $inputImage)
                 }//inputImageの変化を監視して変化があればloadImage
