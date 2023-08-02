@@ -73,7 +73,7 @@ struct Mypageview: View {
                 NavigationView{
                     List(viewModel.datamodeluser){datas in
                         NavigationLink(destination:MytoringView(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how)                               , label: {
-                            row(whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how,getimages: self.image)
+                            row(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how,getimages: self.image)
                         })
                     }
                    

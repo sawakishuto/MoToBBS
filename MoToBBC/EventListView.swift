@@ -41,7 +41,7 @@ struct textandview: View {
                     List(viewModel.datamodel){data in
                         NavigationLink(destination: detail( eventid:data.eventid, whereis: data.whereis, detail: data.detail, title: data.title, dateStrig: data.dateString, how: data.how,documentinfo: data.eventid, username: "", usercomment: "", bikename: "", userid: "")
                                        , label: {
-                            row(whereis: data.whereis, detail: data.detail, title: data.title, dateStrig:data.dateString, how: data.how, getimages: self.image)
+                            row(eventid:data.eventid,whereis: data.whereis, detail: data.detail, title: data.title, dateStrig:data.dateString, how: data.how, getimages: self.image)
                         })
                     }.listRowInsets(EdgeInsets())
                     .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
@@ -93,14 +93,7 @@ struct textandview: View {
            
         .onAppear() {
                         self.viewModel.fetchData()
-            self.viewModel.getImage { image in
-                if let image = image {
-                    // 取得した画像をStateにセットしてUIに反映する
-                    self.image = image
-                } else {
-                    print("画像の取得に失敗しました")
-                }
-            }
+     
 
                 }
 

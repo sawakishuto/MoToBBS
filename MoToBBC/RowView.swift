@@ -12,14 +12,15 @@ import FirebaseStorage
 struct row: View {
     @State  var image: UIImage? = nil
     @ObservedObject private var viewModel = ViewModel()
+    let eventid:String
     let  whereis:String
     let detail:String
     let title:String
     let dateString:String
     let how:String
     var getimages:UIImage?
-    init(whereis:String,detail:String,title:String,dateStrig:String,how:String,getimages:UIImage?){
-        
+    init(eventid:String,whereis:String,detail:String,title:String,dateStrig:String,how:String,getimages:UIImage?){
+        self.eventid = eventid
         self.whereis = whereis
         self.detail = detail
         self.title = title
@@ -73,7 +74,7 @@ struct row: View {
                 
             }
         }.onAppear{
-             self.viewModel.getImage { image in
+            self.viewModel.getImage(eventid:self.eventid) { image in
                 if let image = image {
                     // 取得した画像をStateにセットしてUIに反映する
                     self.image = image
@@ -96,7 +97,7 @@ struct row: View {
 
 struct row_Previews: PreviewProvider {
     static var previews: some View {
-        row( whereis: "三重県桑名市", detail: "今日は誰でも歓迎ですあああああああああああああああああああああああああああああああああああああああああああ", title: "誰でもツーリング",dateStrig:"Date()", how: "11", getimages: UIImage(named: "Image"))
+        row(eventid:"" ,whereis: "三重県桑名市", detail: "今日は誰でも歓迎ですあああああああああああああああああああああああああああああああああああああああああああ", title: "誰でもツーリング",dateStrig:"Date()", how: "11", getimages: UIImage(named: "Image"))
     }
 }
 

@@ -82,8 +82,7 @@ struct detail: View {
                                 Image(uiImage:image).resizable(
                                 ).frame(width:330,height: 180)
                                 .cornerRadius(40)
-                                .overlay(RoundedRectangle(cornerRadius: 40)
-                                    .stroke(Color.red,lineWidth: 4))
+                              
                                     .padding(EdgeInsets(top:0 , leading: 0, bottom: 0, trailing: 40))
                             }
                     }.padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing:0
@@ -147,7 +146,7 @@ struct detail: View {
             }
             self.viewModel.fetchData()
             
-            self.viewModel.getImage { image in
+            self.viewModel.getImage(eventid:self.eventid) { image in
                 if let image = image {
                     // 取得した画像をStateにセットしてUIに反映する
                     self.image = image

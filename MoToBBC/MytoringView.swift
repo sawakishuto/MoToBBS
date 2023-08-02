@@ -128,7 +128,7 @@ struct MytoringView: View {
                 }
                 
                 self.viewModel.getUser()
-                self.viewModel.getImage { image in
+                self.viewModel.getImage(eventid:self.eventid) { image in
                     if let image = image {
                         // 取得した画像をStateにセットしてUIに反映する
                         self.image = image
