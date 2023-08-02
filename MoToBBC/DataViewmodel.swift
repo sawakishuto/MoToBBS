@@ -479,65 +479,7 @@ class ViewModel: ObservableObject{
         }
     }
     
-    //写真を保存する関数
-    
-    //    func uploadPhoto(eventid: String,image:UIImage?) {
-    //print("保存開始")
-    //        guard let image = image else {
-    //            print("UIImageがありません")
-    //            return
-    //        }
-    //
-    //        // Firestoreに写真をアップロードする処理を実装
-    //        let storageRef = Storage.storage().reference()
-    //        let imagesRef = storageRef.child(eventid)
-    //        let photoRef = imagesRef.child(eventid)
-    //        print("中間")
-    //        print(image)
-    //        if let imageData = image.jpegData(compressionQuality: 0.8) {
-    //            let metadata = StorageMetadata()
-    //            metadata.contentType = "image/jpeg"
-    //
-    //            print(imageData)
-    //            photoRef.putData(imageData, metadata: metadata) { (metadata, error) in
-    //                if let error = error {
-    //                    print("写真のアップロードに失敗しました: \(error.localizedDescription)")
-    //                    print(eventid)
-    //                } else {
-    //
-    //                    print("写真のアップロードに成功しました")
-    //                }
-    //            }
-    //        }
-    //        else{
-    //            print("imageDataが見つからない")
-    //        }
-    //    }
-    //    func convertToUIImage(images:Image?) -> UIImage? {
-    //        print("ココナッツ")
-    //        if let images = images {
-    //               return images.asUIImage()
-    //           }
-    //           return nil
-    //       }
-    //
-    //}
-    //extension Image {
-    //    func asUIImage() -> UIImage {
-    //        print("カオナシ")
-    //        let controller = UIHostingController(rootView: self)
-    //        let view = controller.view
-    //
-    //        let targetSize = CGSize(width: view?.bounds.width ?? 300, height: view?.bounds.height ?? 300)
-    //
-    //        let renderer = UIGraphicsImageRenderer(size: targetSize)
-    //        print("最終")
-    //        return renderer.image { _ in
-    //            view?.drawHierarchy(in: CGRect(origin: .zero, size: targetSize), afterScreenUpdates: true)
-    //            print("変換完了")
-    //        }
-    //    }
-    //}
+
     func UploadImage(inputImage:UIImage?){
         let documentRef = db.collection("User").document(user!.uid)
         

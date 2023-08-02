@@ -13,6 +13,7 @@ import Firebase
 import FirebaseAuth
 
 struct MytoringView: View {
+    @Environment(\.dismiss) var dismiss
     @State  var image: UIImage? = nil
     @State var goodAlert = false
     @State private var showlist = false
@@ -119,6 +120,20 @@ struct MytoringView: View {
 
                 
 
+            }          .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                                .font(.system(size: 17, weight: .medium))
+                            Text("　戻る")
+                        }
+                        .foregroundColor(.red)
+                    }
+                }
             }
         
             .onAppear(){

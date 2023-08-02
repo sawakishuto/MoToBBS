@@ -84,7 +84,9 @@ struct Mypageview: View {
                     
                     
                     
-                }.navigationTitle(Text("募集中のイベント"))
+                }
+               
+                
                 
             }
             Button("車種変更")

@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 
 struct detail: View {
+    @Environment(\.dismiss) var dismiss
     @State  var image: UIImage? = nil
     @State private var userInfoArray: [[String]] = []
     @State var isGood = false
@@ -141,7 +142,22 @@ struct detail: View {
             }
             
             
-        }.onAppear(){
+        }             .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                                .font(.system(size: 17, weight: .medium))
+                            Text("　戻る")
+                        }
+                        .foregroundColor(.red)
+                    }
+                }
+            }
+        .onAppear(){
             self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                 self.userInfoArray = userInfoArray
             }
