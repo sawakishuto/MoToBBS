@@ -30,7 +30,6 @@
 		08D1115E29F9783C00561414 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115D29F9783C00561414 /* MypageView.swift */; };
 		08D1116029F98D0100561414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115F29F98D0100561414 /* HomeView.swift */; };
 		08D1116229FA299E00561414 /* JoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1116129FA299E00561414 /* JoinListView.swift */; };
-		08D27C682A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png in Resources */ = {isa = PBXBuildFile; fileRef = 08D27C672A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png */; };
 		08D27C6A2A3225D400BB28BD /* profileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D27C692A3225D400BB28BD /* profileset.swift */; };
 		5578853C9E47F96D10DCB15A /* Pods_MoToBBS_MoToBBSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F11189677E65E6A3E930B9 /* Pods_MoToBBS_MoToBBSUITests.framework */; };
 		7EBF198AC25B8ED05008FD74 /* Pods_MoToBBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D31EECE6CB2153F24CA20 /* Pods_MoToBBS.framework */; };
@@ -82,7 +81,6 @@
 		08D1115F29F98D0100561414 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		08D1116129FA299E00561414 /* JoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListView.swift; sourceTree = "<group>"; };
 		08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MoToBBS-Info.plist"; sourceTree = "<group>"; };
-		08D27C672A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png"; sourceTree = "<group>"; };
 		08D27C692A3225D400BB28BD /* profileset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileset.swift; sourceTree = "<group>"; };
 		22F11189677E65E6A3E930B9 /* Pods_MoToBBS_MoToBBSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBS_MoToBBSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EF7E44D0B552526DEA26C3 /* Pods-MoToBBS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS.release.xcconfig"; path = "Target Support Files/Pods-MoToBBS/Pods-MoToBBS.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				08D1115F29F98D0100561414 /* HomeView.swift */,
 				08D1116129FA299E00561414 /* JoinListView.swift */,
 				0859B86C29F01F1D00A0B928 /* Assets.xcassets */,
-				08D27C672A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png */,
 				0859B86D29F01F1D00A0B928 /* Preview Content */,
 			);
 			path = MoToBBC;
@@ -354,7 +351,6 @@
 			files = (
 				0859B87529F01F1D00A0B928 /* Preview Assets.xcassets in Resources */,
 				0859B87729F01F1D00A0B928 /* GoogleService-Info.plist in Resources */,
-				08D27C682A31FECD00BB28BD /* Yellow Black Minimalist Classic Custom Motorcycle Logo (12).png in Resources */,
 				0859B87429F01F1D00A0B928 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

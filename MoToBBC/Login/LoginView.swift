@@ -31,7 +31,7 @@ struct LoginView: View {
                         // メールアドレス
                         VStack{
                             Image("image 3").padding(EdgeInsets(top: -200, leading: 0, bottom: 5, trailing: 0))
-                            TextField(" 　  メールアドレスを入力してください",text: $mail)
+                            TextField(" 　  MoToBBS@gmail.com",text: $mail)
                             
                             
                                 .frame(height: 60)
@@ -43,7 +43,7 @@ struct LoginView: View {
                                 .cornerRadius(10)
                                 .padding()
                             // パスワード
-                            SecureField("　　パスワードを入力してください",text:$password)
+                            SecureField("　　1111",text:$password)
                                 .frame(height: 60)
                                 .textFieldStyle(PlainTextFieldStyle())
                                 .background(Color.white)
@@ -103,7 +103,7 @@ struct LoginView: View {
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
                                     
-                                    TextField("　MotoBBC@gmail.com",text: $mail)
+                                    TextField("　MotoBBS@gmail.com",text: $mail)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
                                         .background(Color.white)

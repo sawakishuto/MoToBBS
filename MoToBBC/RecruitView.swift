@@ -62,7 +62,7 @@ struct RecruitView: View {
                     .frame(height: 30)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 
-                TextField   ("詳細:ツーリングルート,募集条件,問い合わせ先情報（Twitter,Instagram）",text:$detail, axis: .vertical
+                TextField   ("詳細:ルート,募集条件,問い合わせ先情報（メールアドレスなど）",text:$detail, axis: .vertical
                 )
                 .lineLimit(1...7)
                 .frame(width: 370)

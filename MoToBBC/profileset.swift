@@ -22,7 +22,7 @@ struct profileset: View {
            
             VStack{
           Image("setting")
-                TextField("　　変更車種",text:$bikename)
+                TextField("　　変更後車種名",text:$bikename)
                     .frame(width: 370, height: 60).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red,lineWidth: 5))

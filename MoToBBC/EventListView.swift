@@ -43,11 +43,13 @@ struct textandview: View {
                                        , label: {
                             row(eventid:data.eventid,whereis: data.whereis, detail: data.detail, title: data.title, dateStrig:data.dateString, how: data.how, getimages: self.image)
                         })
-                    }.listRowInsets(EdgeInsets())
+                    }
+                    .listRowInsets(EdgeInsets())
                     .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
                     .background(Color.white)
                     .padding(EdgeInsets(top: 0, leading: 40, bottom: 10, trailing:0))
                     .edgesIgnoringSafeArea(.top)
+                    .listRowSeparator(.hidden)
                     
                     // 背景色を透明に設定
                    
