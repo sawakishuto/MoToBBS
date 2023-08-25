@@ -12,7 +12,6 @@ struct ImagePicker:UIViewControllerRepresentable{
     //SwiftUIと繋がるBindingオブジェクト
     @Binding var image:UIImage?
     
-    //Coordinatorでdelegateメソッドを処理して、UIKit側の処理をさせる
     class Coordinator:NSObject,PHPickerViewControllerDelegate{
         var parent:ImagePicker
         

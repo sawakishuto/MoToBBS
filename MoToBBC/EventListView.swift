@@ -57,6 +57,8 @@ struct textandview: View {
                 .navigationBarBackButtonHidden(true)
                 .edgesIgnoringSafeArea(.top)
                  
+            }.refreshable {
+                self.viewModel.fetchData()
             }
                 //            .navigationBarTitle("現在募集中の掲示板")
                 Button(action: {

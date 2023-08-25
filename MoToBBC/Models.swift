@@ -70,7 +70,6 @@ struct Datamodel:Identifiable{
     var whereis: String
     var detail:String
     var dateEvent:Date
-    
     var dateString:String{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年M月d日　H時m分"
