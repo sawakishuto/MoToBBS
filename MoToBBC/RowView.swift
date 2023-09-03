@@ -9,9 +9,7 @@ import SwiftUI
 import UIKit
 import FirebaseStorage
 // swiftlint:disable line_length
-struct RowView: View {
-    @State  var image: UIImage? = nil
-    @ObservedObject private var viewModel = ViewModel()
+struct DisplayContents {
     let eventid: String
     let  whereis: String
     let detail: String
@@ -19,21 +17,11 @@ struct RowView: View {
     let dateString: String
     let how: String
     var getimages: UIImage?
-    init(eventid: String,
-         whereis: String,
-         detail: String,
-         title: String,
-         dateStrig: String,
-         how: String,
-         getimages: UIImage?) {
-        self.eventid = eventid
-        self.whereis = whereis
-        self.detail = detail
-        self.title = title
-        self.dateString = dateStrig
-        self.how = how
-        self.getimages = getimages
-    }
+}
+struct RowView: View {
+    @State  var image: UIImage? = nil
+    @ObservedObject private var viewModel = ViewModel()
+    var contents: DisplayContents
     var body: some View {
         VStack {
             ZStack {
@@ -47,7 +35,7 @@ struct RowView: View {
                     Text("画像読み込み中")
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 200, trailing: 0))
                         }
-                Text(title)
+                Text(contents.title)
                     .font(.title2)
                     .foregroundColor(.black)
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
@@ -59,14 +47,14 @@ struct RowView: View {
 
                 Spacer()
                 VStack {
-                    Text("出発地点:" + whereis)
+                    Text("出発地点:" + contents.whereis)
                         .fontWeight(.bold)
                     Divider().background(Color.red)
-                    Text("開催日時:" + dateString + "頃")
+                    Text("開催日時:" + contents.dateString + "頃")
                         .fontWeight(.bold)
                     Divider()
                         .background(Color.red)
-                    Text(detail)
+                    Text(contents.detail)
                         .frame(width: 310, height: 50)
                 }
                 .frame(width: 333.5, height: 150)
@@ -79,7 +67,7 @@ struct RowView: View {
             }
         }
         .onAppear {
-            self.viewModel.getImage(eventid: self.eventid) { image in
+            self.viewModel.getImage(eventid: contents.eventid) { image in
                 if let image = image {
                     // 取得した画像をStateにセットしてUIに反映する
                     self.image = image
@@ -99,12 +87,11 @@ struct RowView: View {
 }
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        RowView(eventid: "",
-                whereis: "三重県桑名市",
-                detail: "今日は誰でも歓迎ですあああああああああああああああああああああああああああああああああああああああああああ",
-                title: "誰でもツーリング",
-                dateStrig: "Date()",
-                how: "11",
-                getimages: UIImage(named: "Image"))
+        RowView(contents: DisplayContents(eventid: "",
+                                          whereis: "",
+                                          detail: "",
+                                          title: "",
+                                          dateString: "",
+                                          how: ""))
     }
 }
