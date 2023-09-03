@@ -39,8 +39,7 @@ struct textandview: View {
                 
                 NavigationView{
                     List(viewModel.datamodel){data in
-                        NavigationLink(destination: detail( eventid:data.eventid, whereis: data.whereis, detail: data.detail, title: data.title, dateStrig: data.dateString, how: data.how,documentinfo: data.eventid, username: "", usercomment: "", bikename: "", userid: "")
-                                       , label: {
+                        NavigationLink(destination: detail( eventid:data.eventid, whereis: data.whereis, detail: data.detail, title: data.title, dateStrig: data.dateString, how: data.how,documentinfo: data.eventid, username: "", usercomment: "", bikename: "", userid: ""),  label: {
                             row(eventid:data.eventid,whereis: data.whereis, detail: data.detail, title: data.title, dateStrig:data.dateString, how: data.how, getimages: self.image)
                         })
                     }

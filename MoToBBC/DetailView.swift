@@ -157,23 +157,21 @@ struct detail: View {
                     }
                 }
             }
-        .onAppear(){
-            self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
-                self.userInfoArray = userInfoArray
-            }
-            self.viewModel.fetchData()
-            
-            self.viewModel.getImage(eventid:self.eventid) { image in
-                if let image = image {
-                    // 取得した画像をStateにセットしてUIに反映する
-                    self.image = image
-                } else {
-                    print("画像の取得に失敗しました")
+            .onAppear(){
+                self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
+                    self.userInfoArray = userInfoArray
+                }
+                self.viewModel.fetchData()
+
+                self.viewModel.getImage(eventid:self.eventid) { image in
+                    if let image = image {
+                        // 取得した画像をStateにセットしてUIに反映する
+                        self.image = image
+                    } else {
+                        print("画像の取得に失敗しました")
+                    }
                 }
             }
-           
-          
-        }
         }
     }
     
