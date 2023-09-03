@@ -1,5 +1,6 @@
 import SwiftUI
 import FirebaseAuth
+// swiftlint:disable line_length
 struct LoginView: View {
     @ObservedObject private var viewModel = LoginViewModel()
     @State var showsheet = false
@@ -173,8 +174,7 @@ struct LoginView: View {
                                         } else if self.password.isEmpty {
                                             self.errorMessage = "パスワードが入力されていません"
                                         } else if(self.showconfine != true) {
-                                            errorMessage = "利用規約に同意していません"}
-                                        else {
+                                            errorMessage = "利用規約に同意していません"} else {
                                             Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
                                             }
                                             viewModel.adduser(

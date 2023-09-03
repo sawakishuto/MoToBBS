@@ -8,21 +8,21 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-
-class LoginViewModel :ObservableObject{
+// swiftlint:disable identifier_name
+class LoginViewModel: ObservableObject {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
-    func adduser(usersname:String,bikename:String,usercomment:String,userid:String){
+    func adduser(usersname: String, bikename: String, usercomment: String, userid: String) {
         db.collection("User").document(user!.uid).setData([
-            "userid":db.collection("User").document(user!.uid).documentID,
-            "usersname":usersname,
-            "usercomment":usercomment,
-            "bikename":bikename
+            "userid": db.collection("User").document(user!.uid).documentID,
+            "usersname": usersname,
+            "usercomment": usercomment,
+            "bikename": bikename
         ])
     }
-    func addattendfirst(eventid:String){
+    func addattendfirst(eventid: String) {
         let documentID = db.collection("User").document(user!.uid).documentID
-         let event:[String: Any] = [
+         let event: [String: Any] = [
              "eventid": FieldValue.arrayUnion([
                  documentID
              ])
@@ -34,9 +34,6 @@ class LoginViewModel :ObservableObject{
              } else {
                  print("Document successfully updated!")
              }
-             
          }
      }
-
 }
-
