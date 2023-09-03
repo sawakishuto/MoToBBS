@@ -72,14 +72,14 @@ struct Mypageview: View {
                     .font(.system(size: 25))
                 NavigationView {
                     List(viewModel.datamodeluser) {datas in
-                        NavigationLink(destination: MytoringView(eventid: datas.eventid, whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how), label: {
-                            RowView(eventid: datas.eventid,
-                                    whereis: datas.whereis,
-                                    detail: datas.detail,
-                                    title: datas.title,
-                                    dateStrig: datas.dateString,
-                                    how: datas.how,
-                                    getimages: self.image)
+                        NavigationLink(destination:MytoringView(contents: DisplayTouringContents(eventid: "", whereis: "",detail: "",title: "", dateString: "", how: "") ), label: {
+                            RowView(contents: DisplayContents(eventid: "",
+                                                              whereis: "",
+                                                              detail: "",
+                                                              title: "",
+                                                              dateString: "",
+                                                              how: ""))
+
                         })
                     }
                     .padding(EdgeInsets(top: 0, leading: 58, bottom: 0, trailing: -218))

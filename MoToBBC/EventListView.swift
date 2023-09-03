@@ -46,15 +46,13 @@ struct TextAndView: View {
                                 bikename: "",
                                 userid: ""
                             ), label: {
-                            RowView(
-                                eventid: data.eventid,
-                                whereis: data.whereis,
-                                detail: data.detail,
-                                title: data.title,
-                                dateStrig: data.dateString,
-                                how: data.how,
-                                getimages: self.image
-                            )
+                                RowView(contents: DisplayContents(eventid: "",
+                                                                  whereis: "",
+                                                                  detail: "",
+                                                                  title: "",
+                                                                  dateString: "",
+                                                                  how: ""))
+
                         }
                         )
                     }
