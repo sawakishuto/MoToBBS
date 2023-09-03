@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// swiftlint:disable line_length
 struct TermsOfService: View {
     var body: some View {
         ScrollView{

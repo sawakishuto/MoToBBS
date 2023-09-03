@@ -17,7 +17,7 @@ struct HomeView: View {
         TabView {
             // --- ここから ---
             // タブ内に表示するビュー
-            textandview()
+            TextAndView()
             // 実際には Text を使うのではなく、カスタムビューとなる
                 .tabItem {
                     VStack{
@@ -28,7 +28,7 @@ struct HomeView: View {
                     // タブのラベル部分のビュー
                     
                 }
-            joinview()
+            JoinListView()
                 .tabItem{
                     VStack{
                         Image(systemName: "figure.wave")

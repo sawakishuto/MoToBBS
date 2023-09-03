@@ -21,16 +21,16 @@
 		08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */; };
 		08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B329F2A78D007EC5DF /* DetailView.swift */; };
 		08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B529F4E03B007EC5DF /* LoginView.swift */; };
-		08B8E2E02A3B71CD00A0DFA2 /* joinperlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8E2DF2A3B71CD00A0DFA2 /* joinperlist.swift */; };
+		08B8E2E02A3B71CD00A0DFA2 /* JoinPersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */; };
 		08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */; };
 		08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */; };
 		08CA67E52A132187006909B8 /* MytoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E42A132187006909B8 /* MytoringView.swift */; };
-		08CA67E72A2243DB006909B8 /* JoinListView Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E62A2243DB006909B8 /* JoinListView Card.swift */; };
+		08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E62A2243DB006909B8 /* JoinListCard.swift */; };
 		08D1115C29F91C1400561414 /* RecruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115B29F91C1400561414 /* RecruitView.swift */; };
 		08D1115E29F9783C00561414 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115D29F9783C00561414 /* MypageView.swift */; };
 		08D1116029F98D0100561414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115F29F98D0100561414 /* HomeView.swift */; };
 		08D1116229FA299E00561414 /* JoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1116129FA299E00561414 /* JoinListView.swift */; };
-		08D27C6A2A3225D400BB28BD /* profileset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D27C692A3225D400BB28BD /* profileset.swift */; };
+		08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D27C692A3225D400BB28BD /* ProfileSetView.swift */; };
 		5578853C9E47F96D10DCB15A /* Pods_MoToBBS_MoToBBSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F11189677E65E6A3E930B9 /* Pods_MoToBBS_MoToBBSUITests.framework */; };
 		7EBF198AC25B8ED05008FD74 /* Pods_MoToBBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D31EECE6CB2153F24CA20 /* Pods_MoToBBS.framework */; };
 		9A7305D243E2308F712132F8 /* Pods_MoToBBSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48D2BFA045AB71E305C9D03 /* Pods_MoToBBSTests.framework */; };
@@ -71,17 +71,17 @@
 		08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		08B494B329F2A78D007EC5DF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		08B494B529F4E03B007EC5DF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		08B8E2DF2A3B71CD00A0DFA2 /* joinperlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joinperlist.swift; sourceTree = "<group>"; };
+		08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPersonList.swift; sourceTree = "<group>"; };
 		08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
 		08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ImagePicker.swift"; sourceTree = "<group>"; };
 		08CA67E42A132187006909B8 /* MytoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytoringView.swift; sourceTree = "<group>"; };
-		08CA67E62A2243DB006909B8 /* JoinListView Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinListView Card.swift"; sourceTree = "<group>"; };
+		08CA67E62A2243DB006909B8 /* JoinListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListCard.swift; sourceTree = "<group>"; };
 		08D1115B29F91C1400561414 /* RecruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitView.swift; sourceTree = "<group>"; };
 		08D1115D29F9783C00561414 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		08D1115F29F98D0100561414 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		08D1116129FA299E00561414 /* JoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListView.swift; sourceTree = "<group>"; };
 		08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MoToBBS-Info.plist"; sourceTree = "<group>"; };
-		08D27C692A3225D400BB28BD /* profileset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileset.swift; sourceTree = "<group>"; };
+		08D27C692A3225D400BB28BD /* ProfileSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetView.swift; sourceTree = "<group>"; };
 		22F11189677E65E6A3E930B9 /* Pods_MoToBBS_MoToBBSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBS_MoToBBSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EF7E44D0B552526DEA26C3 /* Pods-MoToBBS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS.release.xcconfig"; path = "Target Support Files/Pods-MoToBBS/Pods-MoToBBS.release.xcconfig"; sourceTree = "<group>"; };
 		4CF745AC647BB6F778A7BE6E /* Pods-MoToBBCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBCTests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBCTests/Pods-MoToBBCTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,16 +136,16 @@
 				08AE7F9E29FC09400073D37E /* Models.swift */,
 				0859B87A29F0DC4400A0B928 /* RowView.swift */,
 				08D1115B29F91C1400561414 /* RecruitView.swift */,
-				08CA67E62A2243DB006909B8 /* JoinListView Card.swift */,
+				08CA67E62A2243DB006909B8 /* JoinListCard.swift */,
 				0859B86929F01F1D00A0B928 /* EventListView.swift */,
 				08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */,
 				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
 				0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */,
 				08B494B329F2A78D007EC5DF /* DetailView.swift */,
-				08D27C692A3225D400BB28BD /* profileset.swift */,
+				08D27C692A3225D400BB28BD /* ProfileSetView.swift */,
 				08D1115D29F9783C00561414 /* MypageView.swift */,
 				08CA67E42A132187006909B8 /* MytoringView.swift */,
-				08B8E2DF2A3B71CD00A0DFA2 /* joinperlist.swift */,
+				08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */,
 				08D1115F29F98D0100561414 /* HomeView.swift */,
 				08D1116129FA299E00561414 /* JoinListView.swift */,
 				0859B86C29F01F1D00A0B928 /* Assets.xcassets */,
@@ -499,7 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */,
-				08D27C6A2A3225D400BB28BD /* profileset.swift in Sources */,
+				08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */,
 				08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */,
 				08AE7F9F29FC09400073D37E /* Models.swift in Sources */,
 				08D1115E29F9783C00561414 /* MypageView.swift in Sources */,
@@ -507,7 +507,7 @@
 				0859B87B29F0DC4400A0B928 /* RowView.swift in Sources */,
 				08CA67E52A132187006909B8 /* MytoringView.swift in Sources */,
 				0859B87229F01F1D00A0B928 /* MoToBBCApp.swift in Sources */,
-				08CA67E72A2243DB006909B8 /* JoinListView Card.swift in Sources */,
+				08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */,
 				08D1116029F98D0100561414 /* HomeView.swift in Sources */,
 				08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */,
 				08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */,
@@ -515,7 +515,7 @@
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
 				08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */,
 				0859B87129F01F1D00A0B928 /* EventListView.swift in Sources */,
-				08B8E2E02A3B71CD00A0DFA2 /* joinperlist.swift in Sources */,
+				08B8E2E02A3B71CD00A0DFA2 /* JoinPersonList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

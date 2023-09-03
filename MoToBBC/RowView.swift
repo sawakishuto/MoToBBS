@@ -1,5 +1,5 @@
 //
-//  row.swift
+//  Row.swift
 //  MoToBBC
 //
 //  Created by 澤木柊斗 on 2023/04/20.
@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import FirebaseStorage
 
-struct row: View {
+struct RowView: View {
     @State  var image: UIImage? = nil
     @ObservedObject private var viewModel = ViewModel()
     let eventid:String
@@ -95,9 +95,9 @@ struct row: View {
     }
 }
 
-struct row_Previews: PreviewProvider {
+struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        row(eventid:"" ,whereis: "三重県桑名市", detail: "今日は誰でも歓迎ですあああああああああああああああああああああああああああああああああああああああああああ", title: "誰でもツーリング",dateStrig:"Date()", how: "11", getimages: UIImage(named: "Image"))
+        RowView(eventid:"" ,whereis: "三重県桑名市", detail: "今日は誰でも歓迎ですあああああああああああああああああああああああああああああああああああああああああああ", title: "誰でもツーリング",dateStrig:"Date()", how: "11", getimages: UIImage(named: "Image"))
     }
 }
 

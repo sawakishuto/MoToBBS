@@ -82,7 +82,7 @@ struct MytoringView: View {
                                self.showlist.toggle()
                            }
                            .sheet(isPresented: $showlist) {
-                               joinperlist(eventid: self.eventid, whereis: self.whereis, detail: self.detail, title: self.title, dateStrig: self.dateString, how: self.how)
+                               JoinPersonList(eventid: self.eventid, whereis: self.whereis, detail: self.detail, title: self.title, dateStrig: self.dateString, how: self.how)
                         }
                 }
                     .fontWeight(.bold)

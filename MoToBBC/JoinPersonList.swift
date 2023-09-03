@@ -1,5 +1,5 @@
 //
-//  joinperlist.swift
+//  JoinPersonList.swift
 //  MoToBBS
 //
 //  Created by 澤木柊斗 on 2023/06/16.
@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-struct joinperlist: View {
-    
-    
+struct JoinPersonList: View {
     @State private var userInfoArray: [[String]] = []
     @State var messa = "ツーリング終了！"
     @ObservedObject private var viewModel = ViewModel()
-    
     @State  var datamodel = ViewModel().datamodel
     @State var isgo = false
-    @State var pp:Int = 0
-    @State var uid:String = ""
+    @State var uid: String = ""
     @State var documentId = ""
-    
-    
-    let eventid:String
-    let  whereis:String
-    let detail:String
-    let title:String
-    let dateString:String
-    let how:String
-    init(eventid:String,whereis:String,detail:String,title:String,dateStrig:String,how:String){
+    let eventid: String
+    let  whereis: String
+    let detail: String
+    let title: String
+    let dateString: String
+    let how: String
+    init(eventid: String,
+         whereis: String,
+         detail: String,
+         title: String,
+         dateStrig: String,
+         how: String
+    ) {
         self.eventid = eventid
         self.whereis = whereis
         self.detail = detail
@@ -35,10 +35,8 @@ struct joinperlist: View {
         self.dateString = dateStrig
         self.how = how
     }
-    
-    
     var body: some View {
-        VStack{
+        VStack {
             Text("参加予定者").foregroundColor(.red)
                 .fontWeight(.bold)
                 .font(.title)
@@ -46,21 +44,16 @@ struct joinperlist: View {
             List(userInfoArray, id: \.self) { userInfo in
                 Text("名前: \(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
             }.listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
-        }       .onAppear(){
-            
+        }       .onAppear {
             self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                 self.userInfoArray = userInfoArray
             }
         }
     }
-    
 }
 
-
-
-
-struct joinperlist_Previews: PreviewProvider {
+struct JoinPersonList_Previews: PreviewProvider {
     static var previews: some View {
-        joinperlist(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "")
+        JoinPersonList(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "")
     }
 }

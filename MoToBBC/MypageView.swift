@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Mypageview: View {
+    // swiftlint:disable line_length
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
     @State  var image: UIImage? = nil
@@ -71,7 +72,7 @@ struct Mypageview: View {
                 NavigationView{
                     List(viewModel.datamodeluser){datas in
                         NavigationLink(destination:MytoringView(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how)                               , label: {
-                            row(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how,getimages: self.image)
+                            RowView(eventid:datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig:datas.dateString, how: datas.how,getimages: self.image)
                         })
                     }
                    
@@ -93,7 +94,7 @@ struct Mypageview: View {
                    }.fontWeight(.bold)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 60))
                    .sheet(isPresented: $showsheet) {
-                       profileset(username: fetchusername, bikename: fetchbikename)
+                       ProfileSetView(username: fetchusername, bikename: fetchbikename)
                    }
         }
             .onAppear(){

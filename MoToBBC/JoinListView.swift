@@ -13,7 +13,7 @@
 
 import SwiftUI
 
-struct joinview: View {
+struct JoinListView: View {
     
     @ObservedObject private var viewModel = ViewModel()
     @State var events: [Events] = []
@@ -35,7 +35,7 @@ struct joinview: View {
                     LazyHStack(spacing: 70) {
                         ForEach(events, id: \.eventid) { event in
                             VStack(alignment: .leading) {
-                                JoinListView_Card(eventid: event.eventid, whereis: event.whereis, detail: event.detail, title: event.title, dateStrig: event.dateString, how: event.how)
+                                JoinListCard(eventid: event.eventid, whereis: event.whereis, detail: event.detail, title: event.title, dateStrig: event.dateString, how: event.how)
                             }.padding(EdgeInsets(top: 0, leading: 5
                                             , bottom: 0, trailing:0
                                                 ))
@@ -54,8 +54,8 @@ struct joinview: View {
         }
     }
 }
-struct joinview_Previews: PreviewProvider {
+struct JoinListView_Previews: PreviewProvider {
     static var previews: some View {
-        joinview()
+        JoinListView()
     }
 }
