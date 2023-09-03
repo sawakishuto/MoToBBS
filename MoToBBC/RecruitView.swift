@@ -55,20 +55,17 @@ struct RecruitView: View {
                         .stroke(Color.red,lineWidth: 1))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                     .keyboardType(.numberPad)
-                
                 DatePicker("日時を選択", selection: $selectionDate)
-                    .frame(width: 370,height: 50)
+                    .frame(width: 370, height: 50)
                     .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.red,lineWidth: 1))
+                        .stroke(Color.red, lineWidth: 1))
                     .frame(height: 30)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                
-                TextField   ("詳細:ルート,募集条件,問い合わせ先情報（メールアドレスなど）",text:$detail, axis: .vertical
+                TextField("詳細:ルート,募集条件,問い合わせ先情報（メールアドレスなど）",text:$detail, axis: .vertical
                 )
                 .lineLimit(1...7)
                 .frame(width: 370)
                 .frame(minHeight: 190)
-                
                 .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.red,lineWidth: 1))
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
@@ -91,16 +88,12 @@ struct RecruitView: View {
                     }
                 }.sheet(isPresented: $showingImagePicker) {
                     ImagePicker(image: $inputImage)
-                }//inputImageの変化を監視して変化があればloadImage
+                }// inputImageの変化を監視して変化があればloadImage
                 .onChange(of: inputImage) { newValue in
                     loadImage()
                    print(eventid)
-                   
 //                  imageui =   self.viewModel.convertToUIImage(images: self.image)
                 }
-                
-                
-                
                 Button(action: {self.viewModel.addDocument(title:title,detail:detail,whereis:whereis,how:how,selectionDate:selectionDate,eventid:eventid,userid:userid,username: username,participants:participants)
                     self.viewModel.GetUserInfoAndSet2(userid: userid, username: username, usercomment: usercomment, bikename: bikename)
                     

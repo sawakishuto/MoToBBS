@@ -11,26 +11,25 @@ import FirebaseAuth
 import FirebaseStorage
 import SwiftUI
 import UIKit
-class ViewModel: ObservableObject{
-    @Published var image:Image?
+class ViewModel: ObservableObject {
+    @Published var image: Image?
     var arrayData: [String] = []
     @Published var images: Image?
-    @Published var Eventidinfo = [Eventidmodel]()
+    @Published var eventidinfo = [Eventidmodel]()
     @Published var datamodeluser = [Usersinfo]()
     @Published var userInfo = [User]()
     @Published var userInfo2 = [User]()
-    let dataDesctiption:String
+    let dataDesctiption: String
     let user = Auth.auth().currentUser
     @Published var datamodel = [Events]()
     
     private var db = Firestore.firestore()
-    @Published var documentId : String?
+    @Published var documentId: String?
     
-    init(){self.dataDesctiption = "今日は"}
+    init(){ self.dataDesctiption = "今日は"}
     //    ツーリング終了ボタン（投稿者側）が押された時に参加者リストを削除
-    func AttendListclear(eventid:String){
+    func AttendListclear(eventid: String) {
         let docRef = db.collection("AttendList").document(eventid)
-        
         docRef.delete { error in
             if let error = error {
                 print("ドキュメントの削除エラー：\(error.localizedDescription)")
@@ -42,16 +41,13 @@ class ViewModel: ObservableObject{
     //    AttendlistからUser情報を取得
     func fetchUserInfoFromAttendList(documentinfo: String, completion: @escaping ([[String]]) -> Void) {
         let attendListRef = db.collection("AttendList").document(documentinfo)
-        
         attendListRef.getDocument { (snapshot, error) in
             guard let data = snapshot?.data(),
                   let attendList = data["attendList"] as? [[String: Any]] else {
                 completion([])
                 return
             }
-            
             var userInfoArray: [[String]] = []
-            
             for userInfo in attendList {
                 if let username = userInfo["username"] as? String,
                    let usercomment = userInfo["usercomment"] as? String,
@@ -60,24 +56,17 @@ class ViewModel: ObservableObject{
                     userInfoArray.append(userInfoArrayElement)
                 }
             }
-            
             completion(userInfoArray)
-            
         }
-        
     }
     //    Eventコレクションからデータを取得
-    
     func fetchData() {
         db.collection("Event").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents
-                    
             else {
                 print("No documents")
                 return
             }
-            
-            
             self.datamodel = documents.map{(queryDocumentSnapshot)->Events in
                 let data = queryDocumentSnapshot.data()
                 //                print(data)
@@ -89,14 +78,10 @@ class ViewModel: ObservableObject{
                 let detail = data["detail"] as? String ?? ""
                 let how = data["how"] as? String ?? ""
                 let participants = data["participants"] as? String ?? ""
-                
                 let dateEvent = (data["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
                 return Events(eventid:eventid,userid: userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
             }
         }
-        
-        
-        
     }
     //    ログインしているユーザがどのようなイベントを募集しているかを取得
     func getUser() {
@@ -104,16 +89,13 @@ class ViewModel: ObservableObject{
         guard self.datamodeluser.isEmpty else {
             return
         }
-        
         db.collection("Event").document(user!.uid).getDocument { (_snapshot, error) in
             if let error = error {
                 fatalError("\(error)")
             }
-            
             guard let datas = _snapshot?.data() else {
                 return
             }
-            
             let eventid = datas["eventid"] as? String ?? ""
             let userid = datas["userid"] as? String ?? ""
             let title = datas["title"] as? String ?? ""
@@ -122,11 +104,8 @@ class ViewModel: ObservableObject{
             let how = datas["how"] as? String ?? ""
             let participants = datas["participants"] as? String ?? ""
             let dateEvent = (datas["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
-            
             let user = Usersinfo(eventid: eventid, userid: userid, title: title, whereis: whereis, dateEvent: dateEvent, participants: participants, detail: detail, how: how)
-            
             self.datamodeluser.append(user)
-            
         }
     }
     //    ログインしているユーザの情報を取得
@@ -135,19 +114,16 @@ class ViewModel: ObservableObject{
             if let userError = userError {
                 fatalError("\(userError)")
             }
-            
             guard let userData = userSnapshot?.data() else {
                 return
             }
-            
             let fetchusername = userData["usersname"] as? String ?? ""
             let fetchusercomment = userData["usercomment"] as? String ?? ""
             let fetchbikename = userData["bikename"] as? String ?? ""
-            
             completion(fetchusername, fetchusercomment, fetchbikename)
         }
     }
-    //参加するボタンを押した時、押したユーザのUser情報を取得してAttendlistコレクションに情報を格納
+    // 参加するボタンを押した時、押したユーザのUser情報を取得してAttendlistコレクションに情報を格納
     func GetUserInfoAndSet(userid: String, username: String, usercomment: String, bikename: String,documentinfo: String){
         let documentID = db.collection("User").document(user!.uid).documentID
         // db.collection("User").document(user!.uid)からユーザーデータを取得
@@ -155,7 +131,6 @@ class ViewModel: ObservableObject{
             if let userError = userError {
                 fatalError("\(userError)")
             }
-            
             guard let userData = userSnapshot?.data() else {
                 return
             }
@@ -163,18 +138,13 @@ class ViewModel: ObservableObject{
             let username = userData["usersname"] as? String ?? ""
             let usercomment = userData["usercomment"] as? String ?? ""
             let bikename = userData["bikename"] as? String ?? ""
-            
-            
             let user = User(userid: userid, username: username, usercomment: usercomment, bikename: bikename)
-            
             // AttendListドキュメントにアクセス
             let attendListRef = self.db.collection("AttendList").document(documentinfo)
-            
             attendListRef.getDocument { (attendListSnapshot, attendListError) in
                 if let attendListError = attendListError {
                     fatalError("\(attendListError)")
                 }
-                
                 if let attendListData = attendListSnapshot?.data() {
                     // documentinfoドキュメントが存在する場合
                     if var existingAttendList = attendListData["attendList"] as? [[String: Any]] {
@@ -185,7 +155,6 @@ class ViewModel: ObservableObject{
                             "usercomment": user.usercomment,
                             "bikename": user.bikename
                         ])
-                        
                         // 更新されたattendListをdocumentinfoドキュメントに保存する
                         attendListRef.updateData(["attendList": existingAttendList]) { error in
                             if let error = error {

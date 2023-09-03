@@ -40,9 +40,7 @@ struct Mypageview: View {
     var body: some View {
         ZStack(alignment:.topTrailing){
             VStack{
-                
                 HStack{
-                    
                     VStack(alignment:.leading,spacing:10){
                         Text(fetchusername).font(.system(size:30)).fontWeight(.heavy)
                         HStack{ Text("車種:" + fetchbikename)  .fontWeight(.bold)
