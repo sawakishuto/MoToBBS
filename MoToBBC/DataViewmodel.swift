@@ -369,7 +369,8 @@ class ViewModel: ObservableObject {
             "eventid": documentID,
             "userid": documentID,
             "participants": participants
-        ]) {
+        ])
+          {
             err in
             if let err = err {
                 print(err)
@@ -506,4 +507,5 @@ class ViewModel: ObservableObject {
             }
         }
     }
+
 }

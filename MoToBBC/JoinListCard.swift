@@ -6,15 +6,7 @@
 //
 
 import SwiftUI
-struct JoinDisplayContents {
-    let eventid: String
-    let  whereis: String
-    let detail: String
-    let title: String
-    let dateString: String
-    let how: String
 
-}
 struct JoinListCard: View {
     @State private var userInfoArray: [[String]] = []
     @State private var isShowSelect = false
@@ -22,29 +14,47 @@ struct JoinListCard: View {
     @State var events: [Events] = []
     @State var alerttitle = "タイトル"
     @State var alertmessage = "メッセ"
-    var contents: JoinDisplayContents
+    let eventid: String
+    let  whereis: String
+    let detail: String
+    let title: String
+    let dateString: String
+    let how: String
+    init(eventid: String,
+         whereis: String,
+         detail: String,
+         title: String,
+         dateStrig: String,
+         how: String) {
+        self.eventid = eventid
+        self.whereis = whereis
+        self.detail = detail
+        self.title = title
+        self.dateString = dateStrig
+        self.how = how
 
+    }
     var body: some View {
         ZStack(alignment: .bottom) {
                 VStack {
                     ScrollView {
-                        Text(contents.title)
+                        Text(title)
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
-                        Text("集合場所:" + contents.whereis)
+                        Text("集合場所:" + whereis)
                             .frame(height: 30)
                             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                             .fontWeight(.bold)
-                        Text("開催日時:" + contents.dateString + "頃")
+                        Text("開催日時:" + dateString + "頃")
                             .frame(height: 30)
                             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                             .fontWeight(.bold)
-                        Text("募集人数:" + contents.how + "人程度")
+                        Text("募集人数:" + how + "人程度")
                             .frame(height: 30)
                             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                             .fontWeight(.bold)
-                        Text(contents.detail)
+                        Text(detail)
                             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10 ))
                         Divider()
                             .background(Color.red)
@@ -79,8 +89,8 @@ struct JoinListCard: View {
                     alerttitle = "ツーリング終了"
                     alertmessage = "ツーリングを終了します。お疲れ様でした。"
                     isShowSelect.toggle()
-                    self.viewModel.deleteEvent(eventid: contents.eventid)
-                    self.viewModel.findAndDeleteAttendee(documentInfo: contents.eventid)
+                    self.viewModel.deleteEvent(eventid: eventid)
+                    self.viewModel.findAndDeleteAttendee(documentInfo: eventid)
                     self.viewModel.fetchJoinedData { (events) in
                         self.events = events
                     }
@@ -94,16 +104,16 @@ struct JoinListCard: View {
                 .onTapGesture {
                     alerttitle = "キャンセル"
                     alertmessage = "ツーリングをキャンセルしました。"
-                    self.viewModel.findAndDeleteAttendee(documentInfo: contents.eventid)
+                    self.viewModel.findAndDeleteAttendee(documentInfo: eventid)
                     isShowSelect.toggle()
-                    self.viewModel.deleteEvent(eventid: contents.eventid)
+                    self.viewModel.deleteEvent(eventid: eventid)
                     self.viewModel.fetchJoinedData { (events) in
                         self.events = events
                     }
                 }
         }
         .onAppear {
-            self.viewModel.fetchUserInfoFromAttendList(documentinfo: contents.eventid) { userInfoArray in
+            self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                 self.userInfoArray = userInfoArray
             }
         }
@@ -115,10 +125,12 @@ struct JoinListCard: View {
 
 struct JoinListCard_Previews: PreviewProvider {
     static var previews: some View {
-        JoinListCard(contents: JoinDisplayContents(eventid: "",
-                                                   whereis: "", detail: "",
-                                                   title: "",
-                                                   dateString: "",
-                                                   how: ""))
+        JoinListCard(
+            eventid: "",
+            whereis: "三重県桑名市",
+            detail: "今日は誰でも歓迎ですあああああああああああああああ",
+            title: "誰でもツーリング",
+            dateStrig: "Date()",
+            how: "11")
     }
 }

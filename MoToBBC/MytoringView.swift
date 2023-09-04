@@ -10,14 +10,6 @@ import SwiftUI
 import FirebaseFirestore
 import Firebase
 import FirebaseAuth
-struct DisplayTouringContents {
-    let eventid: String
-    let  whereis: String
-    let detail: String
-    let title: String
-    let dateString: String
-    let how: String
-}
 
 struct MytoringView: View {
     @Environment(\.dismiss) var dismiss
@@ -31,18 +23,36 @@ struct MytoringView: View {
     @State var isgo = false
     @State var uid: String = ""
     @State var documentId = ""
-    var contents: DisplayTouringContents
+    let eventid: String
+    let  whereis: String
+    let detail: String
+    let title: String
+    let dateString: String
+    let how: String
+    init(eventid: String,
+         whereis: String,
+         detail: String,
+         title: String,
+         dateStrig: String,
+         how: String) {
+        self.eventid = eventid
+        self.whereis = whereis
+        self.detail = detail
+        self.title = title
+        self.dateString = dateStrig
+        self.how = how
+    }
     var body: some View {
             VStack {
                 ScrollView {
-                    Text(contents.title)
+                Text(title)
                         .font(.title)
                         .fontWeight(.bold)
                 Spacer()
-                    Text("開催予定日:" + contents.dateString).fontWeight(.bold)
+                    Text("開催予定日:" + dateString).fontWeight(.bold)
                 Divider().background(Color.red)
-                    Text("集合場所:" + contents.whereis).fontWeight(.bold)
-                    Text("詳細:" + contents.detail).frame(width: 350)
+                Text("集合場所:" + whereis).fontWeight(.bold)
+                    Text("詳細:" + detail).frame(width: 350)
                     if let image = image {
                         Image(uiImage: image)
                             .resizable()
@@ -58,12 +68,12 @@ struct MytoringView: View {
                 VStack {
                     Button("参加予定者一覧") {  self.showlist.toggle()}
                            .sheet(isPresented: $showlist) {
-                               JoinPersonList(eventid: contents.eventid,
-                                              whereis: contents.whereis,
-                                              detail: contents.detail,
-                                              title: contents.title,
-                                              dateStrig: contents.dateString,
-                                              how: contents.how)
+                               JoinPersonList(eventid: self.eventid,
+                                              whereis: self.whereis,
+                                              detail: self.detail,
+                                              title: self.title,
+                                              dateStrig: self.dateString,
+                                              how: self.how)
                         }
                 }
                     .fontWeight(.bold)
@@ -79,14 +89,14 @@ struct MytoringView: View {
                             message: Text(""),
                             primaryButton: .destructive(
                                 Text("いいえ"),
-                                action: { isgo = false }),
+                                action: { isgo = false }) ,
                             secondaryButton: .default(Text("はい"), action: {
                                                          isgo = true
                                                          if isgo == true {
                                                              messa = "お疲れ様でした！"
                                                              self.viewModel.deleteImage()
                                                              self.viewModel.deleteDocument()
-                                                             self.viewModel.AttendListclear(eventid: contents.eventid)
+                                                             self.viewModel.AttendListclear(eventid: self.eventid)
                                                              self.viewModel.getUser()
                                                          }
                                                      })
@@ -99,7 +109,7 @@ struct MytoringView: View {
                     Button(action: {
                         dismiss()
                     })
-                     {
+                    {
                         HStack {
                             Image(systemName: "chevron.backward")
                                 .font(.system(size: 17, weight: .medium))
@@ -110,11 +120,11 @@ struct MytoringView: View {
                 }
             }
             .onAppear {
-                self.viewModel.fetchUserInfoFromAttendList(documentinfo: contents.eventid) { userInfoArray in
+                self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                     self.userInfoArray = userInfoArray
                 }
                 self.viewModel.getUser()
-                self.viewModel.getImage(eventid: contents.eventid) { image in
+                self.viewModel.getImage(eventid: self.eventid) { image in
                     if let image = image {
                         // 取得した画像をStateにセットしてUIに反映する
                         self.image = image
@@ -126,11 +136,6 @@ struct MytoringView: View {
 
 struct MytoringView_Previews: PreviewProvider {
     static var previews: some View {
-        MytoringView(contents: DisplayTouringContents(eventid: "",
-                                                      whereis: "",
-                                                      detail: "",
-                                                      title: "",
-                                                      dateString: "",
-                                                      how: "") )
+       MytoringView(eventid: "現在募集中のツーリングはありません", whereis: "1", detail: "", title: "", dateStrig: "", how: "")
     }
 }
