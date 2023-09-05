@@ -60,7 +60,6 @@ struct Detail: View {
     var body: some View {
         ZStack {
             VStack {
-
                 Spacer()
                 Text(title).font(.title).fontWeight(.bold)
                 Spacer()
