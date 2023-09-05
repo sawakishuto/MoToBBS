@@ -17,6 +17,7 @@
 		086A33F029EF851500CD78BF /* MoToBBCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33EF29EF851500CD78BF /* MoToBBCTests.swift */; };
 		086A33FA29EF851500CD78BF /* MoToBBCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33F929EF851500CD78BF /* MoToBBCUITests.swift */; };
 		086A33FC29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33FB29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift */; };
+		089A7F012AA707A500D18D2E /* JoinListSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A7F002AA707A400D18D2E /* JoinListSlide.swift */; };
 		08AE7F9F29FC09400073D37E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7F9E29FC09400073D37E /* Models.swift */; };
 		08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */; };
 		08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B329F2A78D007EC5DF /* DetailView.swift */; };
@@ -67,6 +68,7 @@
 		086A33F529EF851500CD78BF /* MoToBBSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoToBBSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		086A33F929EF851500CD78BF /* MoToBBCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoToBBCUITests.swift; sourceTree = "<group>"; };
 		086A33FB29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoToBBCUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		089A7F002AA707A400D18D2E /* JoinListSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListSlide.swift; sourceTree = "<group>"; };
 		08AE7F9E29FC09400073D37E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		08B494B329F2A78D007EC5DF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -130,24 +132,12 @@
 		0859B86829F01F1D00A0B928 /* MoToBBC */ = {
 			isa = PBXGroup;
 			children = (
-				08AE7FA029FC09C30073D37E /* Login */,
 				0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */,
 				0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */,
-				08AE7F9E29FC09400073D37E /* Models.swift */,
-				0859B87A29F0DC4400A0B928 /* RowView.swift */,
-				08D1115B29F91C1400561414 /* RecruitView.swift */,
-				08CA67E62A2243DB006909B8 /* JoinListCard.swift */,
-				0859B86929F01F1D00A0B928 /* EventListView.swift */,
-				08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */,
-				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
-				0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */,
-				08B494B329F2A78D007EC5DF /* DetailView.swift */,
-				08D27C692A3225D400BB28BD /* ProfileSetView.swift */,
-				08D1115D29F9783C00561414 /* MypageView.swift */,
-				08CA67E42A132187006909B8 /* MytoringView.swift */,
-				08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */,
-				08D1115F29F98D0100561414 /* HomeView.swift */,
-				08D1116129FA299E00561414 /* JoinListView.swift */,
+				089A7EFC2AA7061D00D18D2E /* Models */,
+				089A7EFD2AA7063300D18D2E /* ScreenView */,
+				089A7EFE2AA706C400D18D2E /* ScreenParts */,
+				089A7EFF2AA7077C00D18D2E /* ViewModels */,
 				0859B86C29F01F1D00A0B928 /* Assets.xcassets */,
 				0859B86D29F01F1D00A0B928 /* Preview Content */,
 			);
@@ -202,13 +192,50 @@
 			path = MoToBBCUITests;
 			sourceTree = "<group>";
 		};
-		08AE7FA029FC09C30073D37E /* Login */ = {
+		089A7EFC2AA7061D00D18D2E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				08B494B529F4E03B007EC5DF /* LoginView.swift */,
 				08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */,
+				08AE7F9E29FC09400073D37E /* Models.swift */,
 			);
-			path = Login;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		089A7EFD2AA7063300D18D2E /* ScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
+				08B494B529F4E03B007EC5DF /* LoginView.swift */,
+				08D1115D29F9783C00561414 /* MypageView.swift */,
+				08B494B329F2A78D007EC5DF /* DetailView.swift */,
+				08D1115F29F98D0100561414 /* HomeView.swift */,
+				08D1116129FA299E00561414 /* JoinListView.swift */,
+				08D27C692A3225D400BB28BD /* ProfileSetView.swift */,
+				0859B86929F01F1D00A0B928 /* EventListView.swift */,
+				08D1115B29F91C1400561414 /* RecruitView.swift */,
+			);
+			path = ScreenView;
+			sourceTree = "<group>";
+		};
+		089A7EFE2AA706C400D18D2E /* ScreenParts */ = {
+			isa = PBXGroup;
+			children = (
+				0859B87A29F0DC4400A0B928 /* RowView.swift */,
+				08CA67E62A2243DB006909B8 /* JoinListCard.swift */,
+				08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */,
+				089A7F002AA707A400D18D2E /* JoinListSlide.swift */,
+				08CA67E42A132187006909B8 /* MytoringView.swift */,
+				08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */,
+			);
+			path = ScreenParts;
+			sourceTree = "<group>";
+		};
+		089A7EFF2AA7077C00D18D2E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		AF6B6973B4309CF5112363C5 /* Frameworks */ = {
@@ -498,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				089A7F012AA707A500D18D2E /* JoinListSlide.swift in Sources */,
 				08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */,
 				08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */,
 				08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */,

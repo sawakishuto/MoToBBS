@@ -10,8 +10,11 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject private var viewModel = ViewModel()
     init() {
-      UITabBar.appearance().unselectedItemTintColor = .white
-        UITabBar.appearance().backgroundColor = UIColor(red: 0.9, green: 0, blue: 0, alpha: 1)
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 0.9, green: 0, blue: 0, alpha: 1)
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
     }
     var body: some View {
         TabView {

@@ -105,7 +105,9 @@ struct RecruitView: View {
                     self.viewModel.UploadImage(inputImage: self.inputImage)
 //                    self.viewModel.uploadPhoto(eventid: self.eventid,image: imageui)
                 }, label: {Text("投稿")}).buttonStyle(AnimationButtonStyle())
-            }.padding(EdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0))
+            }
+            .padding(EdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0))
+            .frame(maxWidth: .infinity)
         }
     }
 }
