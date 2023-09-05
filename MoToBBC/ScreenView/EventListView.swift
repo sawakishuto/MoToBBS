@@ -88,6 +88,7 @@ struct TextAndView: View {
         .onAppear { self.viewModel.fetchData()}
     }
 }
+
 extension TextAndView {
     var createPostButton: some View {
         Button(action: {self.goodAlert = true}, label: {
