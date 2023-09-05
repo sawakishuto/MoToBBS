@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject private var viewModel = ViewModel()
     init() {
-            let appearance = UITabBarAppearance()
+        let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 0.9, green: 0, blue: 0, alpha: 1)
             UITabBar.appearance().standardAppearance = appearance

@@ -47,56 +47,63 @@ struct Mypageview: View {
     }
 
     var body: some View {
-        ZStack(alignment: .topTrailing) {
+        NavigationStack{
             VStack {
-                HStack {
-                    VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
                         Text(fetchusername)
                             .font(.system(size: 30))
                             .fontWeight(.heavy)
-                        HStack {
-                            Text("車種:" + fetchbikename)
-                                .fontWeight(.bold)
-                                .font(.system(size: 20))
-                            Text(fetchusercomment)
+                        Spacer()
+                        Button("車種変更") {
+                            self.showsheet.toggle()
                         }
-                        .font(.system(size: 20))
+                        .fontWeight(.bold)
+                        .sheet(isPresented: $showsheet) {
+                            ProfileSetView(username: fetchusername, bikename: fetchbikename)
+                        }
                     }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    .foregroundColor(Color(red: 0.8, green: 0, blue: 0))
+                    HStack {
+                        Text("車種:" + fetchbikename)
+                            .fontWeight(.bold)
+                            .font(.system(size: 20))
+                        Spacer()
+                        Text(fetchusercomment)
+                    }
+                    .font(.system(size: 20))
                 }
-                .frame(alignment: .leading)
-                .frame(width: 500)
-                
-                Divider().background(Color.red)
-
+                .foregroundColor(Color(red: 0.8, green: 0, blue: 0))
+                .padding(.horizontal, 12)
+                Divider()
+                    .background(Color.red)
                 Text(fetchusername + "が募集中")
                     .fontWeight(.bold)
                     .font(.system(size: 25))
-                NavigationView {
-                    List(viewModel.datamodeluser) {datas in
-                        NavigationLink(destination: MytoringView(eventid: datas.eventid,whereis: datas.whereis, detail: datas.detail, title: datas.title, dateStrig: datas.dateString, how: datas.how), label: {
-                            RowView(eventid: datas.eventid,
-                                    whereis: datas.whereis,
-                                    detail: datas.detail,
-                                    title: datas.title,
-                                    dateStrig: datas.dateString,
-                                    how: datas.how,
-                                    getimages: self.image)
+                ScrollView {
+                    ForEach(viewModel.datamodeluser) {datas in
+                        NavigationLink(destination: MytoringView(
+                            eventid: datas.eventid,
+                            whereis: datas.whereis,
+                            detail: datas.detail,
+                            title: datas.title,
+                            dateStrig: datas.dateString,
+                            how: datas.how
+                        ), label: {
+                            RowView(
+                                eventid: datas.eventid,
+                                whereis: datas.whereis,
+                                detail: datas.detail,
+                                title: datas.title,
+                                dateStrig: datas.dateString,
+                                how: datas.how,
+                                getimages: self.image
+                            )
                         })
                     }
-                    .padding(EdgeInsets(top: 0, leading: 58, bottom: 0, trailing: -218))
-                    .listStyle(PlainListStyle()) // リストのスタイルをプレーンに設定
+                    .padding(.top, 30)
+                    .frame(maxWidth: .infinity)
                     .background(Color.white) // 背景色を透明に設定
                 }
-            }
-            Button("車種変更") {
-                self.showsheet.toggle()
-            }
-            .fontWeight(.bold)
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 60))
-            .sheet(isPresented: $showsheet) {
-                ProfileSetView(username: fetchusername, bikename: fetchbikename)
             }
         }
         .onAppear {

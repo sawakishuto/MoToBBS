@@ -17,7 +17,7 @@ struct TextAndView: View {
     @ObservedObject private var viewModel = ViewModel()
     var body: some View {
         ZStack(alignment: .bottomTrailing ) {
-            NavigationView {
+            NavigationStack {
                 VStack(spacing: 0) {
                     ZStack(alignment: .top) {
                         Image("Image 1")
