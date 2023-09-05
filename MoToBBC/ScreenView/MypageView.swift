@@ -67,7 +67,9 @@ struct Mypageview: View {
                 }
                 .frame(alignment: .leading)
                 .frame(width: 500)
+                
                 Divider().background(Color.red)
+
                 Text(fetchusername + "が募集中")
                     .fontWeight(.bold)
                     .font(.system(size: 25))
