@@ -60,11 +60,11 @@ struct MytoringView: View {
                             .cornerRadius(40)
                             .overlay(RoundedRectangle(cornerRadius: 40)
                             .stroke(Color.red, lineWidth: 3))
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 27))
                     } else {Text("画像を読み込んでいます...")}
                 }
                 .frame(height: 400, alignment: .bottom)
-                .padding(EdgeInsets(top: 160, leading: 20, bottom: 0, trailing: 0))
+                .padding(.top, 160)
+                Spacer()
                 VStack {
                     Button("参加予定者一覧") {  self.showlist.toggle()}
                            .sheet(isPresented: $showlist) {
@@ -90,7 +90,7 @@ struct MytoringView: View {
                             message: Text(""),
                             primaryButton: .destructive(
                                 Text("いいえ"),
-                                action: { isgo = false }) ,
+                                action: { isgo = false }),
                             secondaryButton: .default(Text("はい"), action: {
                                                          isgo = true
                                                          if isgo == true {
