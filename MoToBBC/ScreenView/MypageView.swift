@@ -54,7 +54,8 @@ struct Mypageview: View {
                         Text(fetchusername)
                             .font(.system(size: 30))
                             .fontWeight(.heavy)
-                        HStack { Text("車種:" + fetchbikename)
+                        HStack {
+                            Text("車種:" + fetchbikename)
                                 .fontWeight(.bold)
                                 .font(.system(size: 20))
                             Text(fetchusercomment)
