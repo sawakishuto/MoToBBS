@@ -62,8 +62,7 @@ struct MytoringView: View {
                             .stroke(Color.red, lineWidth: 3))
                     } else {Text("画像を読み込んでいます...")}
                 }
-                .frame(height: 400, alignment: .bottom)
-                .padding(.top, 160)
+                .frame(alignment: .bottom)
                 Spacer()
                 VStack {
                     Button("参加予定者一覧") {  self.showlist.toggle()}
@@ -82,7 +81,7 @@ struct MytoringView: View {
                     .frame(width: 190, height: 60)
                     .background(Capsule().fill( Color(red: 50, green: 10 / 255, blue: 10 / 255)))
                     .shadow(color: .gray, radius: 3, x: 3, y: 3)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 260, trailing: 0))
+                    .padding(.bottom, 60)
                     .onTapGesture { goodAlert.toggle() }
                     .alert(isPresented: $goodAlert, content: {
                         Alert(
@@ -99,11 +98,13 @@ struct MytoringView: View {
                                                              self.viewModel.deleteDocument()
                                                              self.viewModel.AttendListclear(eventid: self.eventid)
                                                              self.viewModel.getUser()
+                                                             dismiss()
                                                          }
                                                      })
                         )
                     })
             }
+            .frame(alignment: .bottom)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -114,7 +115,7 @@ struct MytoringView: View {
                         HStack {
                             Image(systemName: "chevron.backward")
                                 .font(.system(size: 17, weight: .medium))
-                            Text("　戻る")
+                            Text("戻る")
                         }
                         .foregroundColor(.red)
                     }
