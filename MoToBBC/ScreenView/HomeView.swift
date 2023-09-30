@@ -20,7 +20,7 @@ struct HomeView: View {
         TabView {
             // --- ここから ---
             // タブ内に表示するビュー
-            TextAndView()
+            EventListView()
             // 実際には Text を使うのではなく、カスタムビューとなる
                 .tabItem {
                     VStack {

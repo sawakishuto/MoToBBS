@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseCore
 
-struct TextAndView: View {
+struct EventListView: View {
     // swiftlint:disable line_length
     @State  var image: UIImage? = nil
     @State var bikename: String = ""
@@ -89,7 +89,7 @@ struct TextAndView: View {
     }
 }
 
-extension TextAndView {
+extension EventListView {
     var createPostButton: some View {
         Button(action: {self.goodAlert = true}, label: {
             Image(systemName: "square.and.pencil")
@@ -103,8 +103,8 @@ extension TextAndView {
     }
 }
 
-struct TextAndView_Previews: PreviewProvider {
+struct EventListView_Previews: PreviewProvider {
     static var previews: some View {
-        TextAndView()
+        EventListView()
     }
 }
