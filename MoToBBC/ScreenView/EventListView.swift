@@ -15,6 +15,7 @@ struct EventListView: View {
     @State var goodAlert = false
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
+    @State private var filterText: String = ""
     var body: some View {
         ZStack(alignment: .bottomTrailing ) {
             NavigationStack {
@@ -32,7 +33,8 @@ struct EventListView: View {
                     .zIndex(10)
                     .edgesIgnoringSafeArea(.bottom)
                     ScrollView {
-                        ForEach(viewModel.datamodel) { data in
+                        ForEach(viewModel.datamodel.filter(filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)
+                        })) { data in
                             NavigationLink(
                                 destination: Detail(
                                     eventid: data.eventid,
