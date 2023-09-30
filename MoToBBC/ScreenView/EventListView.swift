@@ -33,6 +33,14 @@ struct EventListView: View {
                     .zIndex(10)
                     .edgesIgnoringSafeArea(.bottom)
                     ScrollView {
+                       TextField("ワードで検索", text: $filterText)
+                            .frame(width: 300, height: 33)
+                            .padding(.horizontal, 20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray, lineWidth: 3)
+                                        )
+                            .padding(.top, 20)
                         ForEach(viewModel.datamodel.filter(filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)
                         })) { data in
                             NavigationLink(
@@ -63,7 +71,7 @@ struct EventListView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .background(Color.white)
-                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 40, trailing: 0))
+                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
                         .edgesIgnoringSafeArea(.top)
                         // 背景色を透明に設定
                     }
