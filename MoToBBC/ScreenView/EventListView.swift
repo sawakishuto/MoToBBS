@@ -33,13 +33,24 @@ struct EventListView: View {
                     .zIndex(10)
                     .edgesIgnoringSafeArea(.bottom)
                     ScrollView {
-                       TextField("ワードで検索", text: $filterText)
-                            .frame(width: 300, height: 33)
+                        TextField("ワードで検索", text: $filterText)
                             .padding(.horizontal, 20)
+                            .frame(width: 330, height: 33)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.gray, lineWidth: 3)
-                                        )
+                            )
+                            .overlay(content: {
+                                Image(systemName: "xmark.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20)
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 300)
+                                    .onTapGesture {
+                                        filterText = ""
+                                    }
+                            })
                             .padding(.top, 20)
                         ForEach(viewModel.datamodel.filter(filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)
                         })) { data in
@@ -80,7 +91,7 @@ struct EventListView: View {
                 .edgesIgnoringSafeArea(.top)
             }
             .refreshable { self.viewModel.fetchData() }
-                //            .navigationBarTitle("現在募集中の掲示板")
+            //            .navigationBarTitle("現在募集中の掲示板")
             createPostButton
                 .alert(isPresented: $goodAlert, content: {
                     Alert(
@@ -95,7 +106,7 @@ struct EventListView: View {
                     RecruitView()
                 }
         }.edgesIgnoringSafeArea(.top)
-        .onAppear { self.viewModel.fetchData()}
+            .onAppear { self.viewModel.fetchData()}
     }
 }
 
