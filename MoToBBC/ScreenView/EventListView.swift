@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import AudioToolbox
 
 struct EventListView: View {
     // swiftlint:disable line_length
@@ -90,7 +91,8 @@ struct EventListView: View {
                 .navigationBarBackButtonHidden(true)
                 .edgesIgnoringSafeArea(.top)
             }
-            .refreshable { self.viewModel.fetchData() }
+            .refreshable { self.viewModel.fetchData()
+                UINotificationFeedbackGenerator().notificationOccurred(.success)}
             //            .navigationBarTitle("現在募集中の掲示板")
             createPostButton
                 .alert(isPresented: $goodAlert, content: {
