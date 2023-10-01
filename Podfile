@@ -22,7 +22,6 @@ target 'MoToBBS' do
   pod 'Firebase/Storage'
   pod 'Firebase'
   pod 'SwiftLint'
-  
 
 end
 
