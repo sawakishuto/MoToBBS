@@ -34,7 +34,7 @@ struct EventListView: View {
                     .zIndex(10)
                     .edgesIgnoringSafeArea(.bottom)
                     ScrollView {
-                        TextField("ワードで検索", text: $filterText)
+                        TextField("ワードで検索(アメリカン,SS)", text: $filterText)
                             .padding(.horizontal, 20)
                             .frame(width: 330, height: 33)
                             .overlay(
@@ -90,6 +90,7 @@ struct EventListView: View {
                 }
                 .navigationBarBackButtonHidden(true)
                 .edgesIgnoringSafeArea(.top)
+                .zIndex(100)
             }
             .refreshable { self.viewModel.fetchData()
                 UINotificationFeedbackGenerator().notificationOccurred(.success)}

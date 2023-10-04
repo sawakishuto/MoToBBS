@@ -25,6 +25,7 @@
 		08B8E2E02A3B71CD00A0DFA2 /* JoinPersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */; };
 		08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */; };
 		08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */; };
+		08C544702ACCE9F400971E8F /* HanbergerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5446F2ACCE9F400971E8F /* HanbergerMenu.swift */; };
 		08CA67E52A132187006909B8 /* MytoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E42A132187006909B8 /* MytoringView.swift */; };
 		08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E62A2243DB006909B8 /* JoinListCard.swift */; };
 		08D1115C29F91C1400561414 /* RecruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115B29F91C1400561414 /* RecruitView.swift */; };
@@ -76,6 +77,7 @@
 		08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPersonList.swift; sourceTree = "<group>"; };
 		08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
 		08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ImagePicker.swift"; sourceTree = "<group>"; };
+		08C5446F2ACCE9F400971E8F /* HanbergerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanbergerMenu.swift; sourceTree = "<group>"; };
 		08CA67E42A132187006909B8 /* MytoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytoringView.swift; sourceTree = "<group>"; };
 		08CA67E62A2243DB006909B8 /* JoinListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListCard.swift; sourceTree = "<group>"; };
 		08D1115B29F91C1400561414 /* RecruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitView.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				08D1115F29F98D0100561414 /* HomeView.swift */,
 				08D1116129FA299E00561414 /* JoinListView.swift */,
 				0859B86929F01F1D00A0B928 /* EventListView.swift */,
+				08C5446F2ACCE9F400971E8F /* HanbergerMenu.swift */,
 				08D27C692A3225D400BB28BD /* ProfileSetView.swift */,
 				08D1115B29F91C1400561414 /* RecruitView.swift */,
 			);
@@ -538,6 +541,7 @@
 				08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */,
 				08D1116029F98D0100561414 /* HomeView.swift in Sources */,
 				08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */,
+				08C544702ACCE9F400971E8F /* HanbergerMenu.swift in Sources */,
 				08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */,
 				08D1115C29F91C1400561414 /* RecruitView.swift in Sources */,
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
