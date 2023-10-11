@@ -60,28 +60,43 @@ struct Detail: View {
     var body: some View {
         ZStack {
             VStack {
-                Spacer()
-                Text(title).font(.title).fontWeight(.bold)
-                Spacer()
                 VStack(alignment: .leading) {
                     ScrollView {
+                        Text(title).font(.title).fontWeight(.bold)
+                        Rectangle()
+                            .frame(height: 5)
+                            .foregroundColor(Color.red)
+                            .cornerRadius(40)
+                            .opacity(0.5)
+                            .padding(.horizontal, 3)
+                        Spacer()
                         Text("集合場所：" + whereis).frame(height: 20)
                             .fontWeight(.bold)
 
                         Rectangle()
-                          .frame(height: 5)
-                          .foregroundColor(Color.gray)
-                          .opacity(0.5)
+                            .frame(height: 5)
+                            .foregroundColor(Color.red)
+                            .cornerRadius(40)
+                            .opacity(0.5)
+                            .padding(.horizontal, 8)
 
                         Text("開催予定日：" + dateString)
                             .frame(height: 20)
                             .fontWeight(.bold)
                         Rectangle()
-                          .frame(height: 5)
-                          .foregroundColor(Color.gray)
-                          .opacity(0.5)
+                            .frame(height: 5)
+                            .foregroundColor(Color.red)
+                            .cornerRadius(40)
+                            .opacity(0.5)
+                            .padding(.horizontal, 8)
                         Text("詳細:" + detail)
                             .padding(.horizontal, 18)
+                        Rectangle()
+                            .frame(height: 5)
+                            .foregroundColor(Color.red)
+                            .cornerRadius(40)
+                            .opacity(0.5)
+                            .padding(.horizontal, 8)
                         if let image = image {
                             Image(uiImage: image).resizable()
                                 .frame(width: 330, height: 180)
@@ -142,28 +157,28 @@ struct Detail: View {
                 Button(action: { dismiss()})
                 {
                     HStack {
-                            Image(systemName: "chevron.backward")
-                                .font(.system(size: 17, weight: .medium))
-                            Text("戻る")
-                        }
-                        .foregroundColor(.red)
+                        Image(systemName: "chevron.backward")
+                            .font(.system(size: 17, weight: .medium))
+                        Text("戻る")
                     }
+                    .foregroundColor(.red)
                 }
             }
-            .onAppear {
-                self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
-                    self.userInfoArray = userInfoArray
-                }
-                self.viewModel.fetchData()
-                self.viewModel.getImage(eventid: self.eventid) { image in
-                    if let image = image {
-                        // 取得した画像をStateにセットしてUIに反映する
-                        self.image = image
-                    } else {
-                        print("画像の取得に失敗しました")
-                    }
+        }
+        .onAppear {
+            self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
+                self.userInfoArray = userInfoArray
+            }
+            self.viewModel.fetchData()
+            self.viewModel.getImage(eventid: self.eventid) { image in
+                if let image = image {
+                    // 取得した画像をStateにセットしてUIに反映する
+                    self.image = image
+                } else {
+                    print("画像の取得に失敗しました")
                 }
             }
+        }
     }
 }
 struct Detail_Previews: PreviewProvider {
