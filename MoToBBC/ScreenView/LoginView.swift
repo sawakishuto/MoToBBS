@@ -19,7 +19,10 @@ struct LoginView: View {
     @State var profile = false
     @State var check = false
     @State  var checkms = false
+    @State private var errorhandle: Bool = false
     @State var checkname = "checkmark.circle"
+    @State private var mailname: String = " 　  MoToBBS@gmail.com"
+    @State private var passname: String = "　　1111"
     var body: some View {
         if loginshow == false {
             if allview == false {
@@ -37,30 +40,33 @@ struct LoginView: View {
                         // メールアドレス
                         VStack {
                             Image("image 3").padding(EdgeInsets(top: -200, leading: 0, bottom: 5, trailing: 0))
-                            TextField(" 　  MoToBBS@gmail.com", text: $mail)
+                            TextField(mailname, text: $mail)
                                 .frame(height: 60)
                                 .textFieldStyle(PlainTextFieldStyle())
-                                .background(Color.white)
+                                .background(errorhandle ? Color.gray: Color.white)
                                 .cornerRadius(10)
                                 .padding()
                             // パスワード
-                            SecureField("　　1111", text: $password)
+                            SecureField(passname, text: $password)
                                 .frame(height: 60)
                                 .textFieldStyle(PlainTextFieldStyle())
-                                .background(Color.white)
+                                .background(errorhandle ? Color.gray: Color.white)
                                 .cornerRadius(10)
                                 .padding()
                             // 認証
                             Button(
                                 action: {
                                     if self.mail.isEmpty {
-                                        self.errorMessage = " メールアドレスが入力されていません"
+                                        self.mailname = " メールアドレスが入力されていません"
                                     } else if self.password.isEmpty {
-                                        self.errorMessage = "パスワードが入力されていません"
+                                        self.passname = "パスワードが入力されていません"
                                     } else {
                                         Auth.auth().signIn(withEmail: self.mail, password: self.password) { authResult, error in
                                             if authResult?.user != nil {
                                                 allview = true
+                                            } else {
+                                                errorhandle = true
+                                                mailname = "　　　メールアドレスまたはパスワードが違います"
                                             }
                                         }
                                     }
@@ -93,6 +99,7 @@ struct LoginView: View {
                                         .fontWeight(.heavy)
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                    
                                     TextField("　MotoBBS@gmail.com", text: $mail)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
@@ -170,12 +177,13 @@ struct LoginView: View {
                                 Button(
                                     action: {
                                         if self.mail.isEmpty {
-                                            self.errorMessage = "メールアドレスが入力されていません"
+                                            self.mail = "　　　　　メールアドレスが未入力です。"
                                         } else if self.password.isEmpty {
                                             self.errorMessage = "パスワードが入力されていません"
                                         } else if(self.showconfine != true) {
                                             errorMessage = "利用規約に同意していません"} else {
                                             Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
+                                                mail = "エラー"
                                             }
                                             viewModel.adduser(
                                                 usersname: usersname,
