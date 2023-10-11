@@ -81,6 +81,7 @@ struct Detail: View {
                           .foregroundColor(Color.gray)
                           .opacity(0.5)
                         Text("詳細:" + detail)
+                            .padding(.horizontal, 18)
                         if let image = image {
                             Image(uiImage: image).resizable()
                                 .frame(width: 330, height: 180)
