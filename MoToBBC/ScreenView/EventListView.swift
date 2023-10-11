@@ -11,6 +11,7 @@ import AudioToolbox
 
 struct EventListView: View {
     // swiftlint:disable line_length
+    @State var filterLocation: String = ""
     @State  var image: UIImage? = nil
     @State var bikename: String = ""
     @State var goodAlert = false
@@ -53,8 +54,9 @@ struct EventListView: View {
                                     }
                             })
                             .padding(.top, 20)
-                        ForEach(viewModel.datamodel.filter(filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)
-                        })) { data in
+                        ForEach(viewModel.datamodel.filter(
+                             filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)}
+                        )) { data in
                             NavigationLink(
                                 destination: Detail(
                                     eventid: data.eventid,

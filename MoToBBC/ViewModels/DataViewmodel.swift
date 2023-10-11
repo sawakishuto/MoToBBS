@@ -293,9 +293,7 @@ class ViewModel: ObservableObject {
     //    自分が参加するボタンを押したイベントを格納
     func addattend(eventid: String) {
         let event: [String: Any] = [
-            "eventid": FieldValue.arrayUnion([
-                eventid
-            ])
+            "eventid": FieldValue.arrayUnion([eventid])
         ]
         db.collection("Attend").document(user!.uid).updateData(event) { error in
             if let error = error {

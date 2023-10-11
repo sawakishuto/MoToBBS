@@ -56,15 +56,20 @@ struct RecruitView: View {
                         .stroke(Color.red, lineWidth: 1))
                     .frame(height: 30)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                TextField(
-                    "詳細:ルート,募集条件,問い合わせ先情報（メールアドレスなど）", text: $detail, axis: .vertical
-                )
-                .lineLimit(1...7)
-                .frame(width: 370)
-                .frame(minHeight: 190)
-                .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.red, lineWidth: 1))
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                ZStack(alignment: .topLeading) {
+                    TextEditor(text: $detail)
+                        .frame(width: 370)
+                        .frame(minHeight: 190)
+                        .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.red, lineWidth: 1))
+                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        .lineLimit(1...7)
+                    if detail.isEmpty {
+                        Text("詳細(ルート,問い合わせ先など)") .foregroundColor(Color(uiColor: .placeholderText))
+                            .padding(EdgeInsets(top: 20, leading: 4, bottom: 0, trailing: 0))
+                            .allowsHitTesting(false)
+                    }
+                }
                 TextField("集合場所", text: $whereis)
                     .frame(width: 370, height: 40).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)

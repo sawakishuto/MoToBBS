@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HanbergerMenu: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//        Picker("エリアで検索")
+    Text("Hello World")
     }
 }
 
