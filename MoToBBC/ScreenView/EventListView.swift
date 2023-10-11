@@ -35,7 +35,7 @@ struct EventListView: View {
                     .zIndex(10)
                     .edgesIgnoringSafeArea(.bottom)
                     ScrollView {
-                        TextField("ワードで検索(アメリカン,SS)", text: $filterText)
+                        TextField("タイトル検索(アメリカン,SS)", text: $filterText)
                             .padding(.horizontal, 20)
                             .frame(width: 330, height: 33)
                             .overlay(
