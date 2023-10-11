@@ -68,14 +68,18 @@ struct Detail: View {
                         Text("集合場所：" + whereis).frame(height: 20)
                             .fontWeight(.bold)
 
-                        Divider().background(Color.red)
-                            .fontWeight(.bold)
+                        Rectangle()
+                          .frame(height: 5)
+                          .foregroundColor(Color.gray)
+                          .opacity(0.5)
 
                         Text("開催予定日：" + dateString)
                             .frame(height: 20)
                             .fontWeight(.bold)
-                        Divider().background(Color.red)
-                            .fontWeight(.bold)
+                        Rectangle()
+                          .frame(height: 5)
+                          .foregroundColor(Color.gray)
+                          .opacity(0.5)
                         Text("詳細:" + detail)
                         if let image = image {
                             Image(uiImage: image).resizable()
@@ -86,7 +90,7 @@ struct Detail: View {
                         }
                     }
                 }
-                Divider().background(Color.red)
+
                 Text("参加予定者").foregroundColor(.red)
                     .fontWeight(.bold)
                 List(userInfoArray, id: \.self) { userInfo in
