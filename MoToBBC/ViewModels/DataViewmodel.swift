@@ -507,7 +507,7 @@ class ViewModel: ObservableObject {
     }
     func openGoogleMaps(location: String) {
         if let encodingLocation = location.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-           let url = URL(string: "comgooglemaps://?q=\(encodingLocation)") {
+           let url = URL(string: "http://maps.apple.com/?q=\(encodingLocation)") {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             } else {

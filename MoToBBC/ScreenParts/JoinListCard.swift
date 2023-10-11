@@ -42,10 +42,15 @@ struct JoinListCard: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
+                        HStack {
                             Text("集合場所:" + whereis)
                                 .frame(height: 30)
                                 .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                                 .fontWeight(.bold)
+                            Button {self.viewModel.openGoogleMaps(location: whereis)} label: {
+                                Text("Googlemapで開く")
+                            }
+                        }
                         Text("開催日時:" + dateString + "頃")
                             .frame(height: 30)
                             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
