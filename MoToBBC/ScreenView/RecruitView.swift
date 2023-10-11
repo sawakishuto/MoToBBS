@@ -59,11 +59,10 @@ struct RecruitView: View {
                 ZStack(alignment: .topLeading) {
                     TextEditor(text: $detail)
                         .frame(width: 370)
-                        .frame(minHeight: 190)
+                        .frame(height: 190)
                         .overlay(RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.red, lineWidth: 1))
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                        .lineLimit(1...7)
                     if detail.isEmpty {
                         Text("詳細(ルート,問い合わせ先など)") .foregroundColor(Color(uiColor: .placeholderText))
                             .padding(EdgeInsets(top: 20, leading: 4, bottom: 0, trailing: 0))
