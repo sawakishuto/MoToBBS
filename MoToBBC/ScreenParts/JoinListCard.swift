@@ -69,6 +69,7 @@ struct JoinListCard: View {
                                 .frame(height: 30)
                                 .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                                 .fontWeight(.bold)
+                                Spacer()
                                 Button {self.viewModel.openGoogleMaps(location: whereis)} label: {
                                     Image(systemName: "map.circle.fill")
                                         .resizable()
