@@ -73,6 +73,7 @@ struct MytoringView: View {
                                         )
                                 }
                             Text(whereis)
+                            Spacer()
                             Button {self.viewModel.openGoogleMaps(location: whereis)} label: {
                                 Image(systemName: "map.circle.fill")
                                     .resizable()
