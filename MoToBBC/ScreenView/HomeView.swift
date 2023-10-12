@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 // swiftlint:disable line_length
 struct HomeView: View {
     @ObservedObject private var viewModel = ViewModel()
@@ -15,6 +16,8 @@ struct HomeView: View {
         appearance.backgroundColor = UIColor(red: 0.9, green: 0, blue: 0, alpha: 1)
             UITabBar.appearance().standardAppearance = appearance
             UITabBar.appearance().scrollEdgeAppearance = appearance
+        appearance.stackedLayoutAppearance.normal.iconColor = .white // 未選択のアイコンの色
+               appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     var body: some View {
         TabView {
@@ -54,7 +57,7 @@ struct HomeView: View {
                     Image(systemName: "person.crop.circle.fill")
                     Text("マイページ")
                             .foregroundColor(.white)
-                }
+                    }
                 }
                 }.accentColor(Color.black)
         }
