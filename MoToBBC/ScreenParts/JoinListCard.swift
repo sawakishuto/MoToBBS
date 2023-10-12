@@ -47,48 +47,86 @@ struct JoinListCard: View {
                             .cornerRadius(40)
                             .opacity(0.5)
                             .padding(.horizontal, 3)
-                        HStack {
-                            Text("集合場所:" + whereis)
+                        VStack(alignment: .leading) {
+                            HStack {
+                                HStack {
+                                    Capsule()
+                                        .frame(width: 90)
+                                        .overlay {
+                                            Text("集合場所")
+                                                .foregroundStyle(.white)
+                                        }
+                                    Text(whereis)
+                                }
                                 .frame(height: 30)
                                 .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                                 .fontWeight(.bold)
-                            Button {self.viewModel.openGoogleMaps(location: whereis)} label: {
-                                Image(systemName: "map.circle.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 33, alignment: .trailing)
-                                    .padding(.trailing, 10)
+                                Button {self.viewModel.openGoogleMaps(location: whereis)} label: {
+                                    Image(systemName: "map.circle.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 33, alignment: .trailing)
+                                        .padding(.trailing, 10)
+                                }
                             }
+                            Rectangle()
+                                .frame(height: 5)
+                                .foregroundColor(Color.red)
+                                .cornerRadius(40)
+                                .opacity(0.5)
+                                .padding(.horizontal, 3)
+                            HStack {
+                                Capsule()
+                                    .frame(width: 90)
+                                    .overlay { Text("開催日時")
+                                            .foregroundStyle(.white)
+                                    }
+                                Text(dateString + "頃")
+                            }
+                            .frame(height: 30)
+                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                            .fontWeight(.bold)
+
+                            Rectangle()
+                                .frame(height: 5)
+                                .foregroundColor(Color.red)
+                                .cornerRadius(40)
+                                .opacity(0.5)
+                                .padding(.horizontal, 3)
+                            HStack {
+                                HStack {
+                                    Capsule()
+                                        .frame(width: 90)
+                                        .overlay {
+                                            Text("募集人数")
+                                                .foregroundStyle(.white)
+                                        }
+
+                                    Text(how + "人程度")
+                                }
+                                .frame(height: 30)
+                                .fontWeight(.bold)
+                                Rectangle()
+                                    .frame(width: 5, height: 30)
+                                    .foregroundColor(Color.red)
+                                    .cornerRadius(40)
+                                    .opacity(0.5)
+                                    .padding(.horizontal, 3)
+                                Text("現在" + String(userInfoArray.count) + "人")
+                                    .foregroundStyle(.green)
+                                    .fontWeight(.bold)
+                            }
+                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                            Rectangle()
+                                .frame(height: 5)
+                                .foregroundColor(Color.red)
+                                .cornerRadius(40)
+                                .opacity(0.5)
+                                .padding(.horizontal, 43)
+                                .padding(.bottom, 15)
+                            Text(detail)
+                                .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10 ))
                         }
-                        Rectangle()
-                            .frame(height: 5)
-                            .foregroundColor(Color.red)
-                            .cornerRadius(40)
-                            .opacity(0.5)
-                            .padding(.horizontal, 3)
-                        Text("開催日時:" + dateString + "頃")
-                            .frame(height: 30)
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                            .fontWeight(.bold)
-                        Rectangle()
-                            .frame(height: 5)
-                            .foregroundColor(Color.red)
-                            .cornerRadius(40)
-                            .opacity(0.5)
-                            .padding(.horizontal, 3)
-                        Text("募集人数:" + how + "人程度")
-                            .frame(height: 30)
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                            .fontWeight(.bold)
-                        Rectangle()
-                            .frame(height: 5)
-                            .foregroundColor(Color.red)
-                            .cornerRadius(40)
-                            .opacity(0.5)
-                            .padding(.horizontal, 43)
-                            .padding(.bottom, 15)
-                        Text(detail)
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10 ))
                         Divider()
                             .background(Color.red)
                         Text("参加予定者")

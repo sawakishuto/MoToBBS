@@ -90,7 +90,7 @@ struct Detail: View {
                             .opacity(0.5)
                             .padding(.horizontal, 8)
                         HStack {
-                            Text("募集人数：" + how + "人程度")
+                            Text(how + "人程度")
                                 .frame(height: 20)
                                 .fontWeight(.bold)
                             Text("現在" + String(userInfoArray.count) + "人")
