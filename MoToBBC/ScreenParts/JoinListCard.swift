@@ -14,6 +14,14 @@ struct JoinListCard: View {
     @State var events: [Events] = []
     @State var alerttitle = "タイトル"
     @State var alertmessage = "メッセ"
+    var colorState: Color {
+        switch (Int(self.how) ?? 0) - self.userInfoArray.count {
+        case 0 ... 2 :
+            return .red
+        default:
+            return .green
+        }
+    }
     let eventid: String
     let  whereis: String
     let detail: String
@@ -104,7 +112,7 @@ struct JoinListCard: View {
 
                                     Text(how + "人程度")
                                 }
-                                .frame(height: 30)
+                                .frame(width: 170, height: 30)
                                 .fontWeight(.bold)
                                 Rectangle()
                                     .frame(width: 5, height: 30)
@@ -113,7 +121,7 @@ struct JoinListCard: View {
                                     .opacity(0.5)
                                     .padding(.horizontal, 3)
                                 Text("現在" + String(userInfoArray.count) + "人")
-                                    .foregroundStyle(.green)
+                                    .foregroundStyle(colorState)
                                     .fontWeight(.bold)
                             }
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))

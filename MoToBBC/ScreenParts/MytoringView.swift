@@ -23,6 +23,14 @@ struct MytoringView: View {
     @State var isgo = false
     @State var uid: String = ""
     @State var documentId = ""
+    var colorState: Color {
+        switch (Int(self.how) ?? 0) - self.userInfoArray.count {
+        case 0 ... 2 :
+            return .red
+        default:
+            return .green
+        }
+    }
     let eventid: String
     let  whereis: String
     let detail: String
@@ -65,8 +73,15 @@ struct MytoringView: View {
                                         )
                                 }
                             Text(whereis)
+                            Button {self.viewModel.openGoogleMaps(location: whereis)} label: {
+                                Image(systemName: "map.circle.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, alignment: .trailing)
+                                    .padding(.trailing, 10)
+                            }
                         }
-                        .frame(height: 20)
+                        .frame(height: 40)
                         .fontWeight(.bold)
                         Rectangle()
                             .frame(height: 5)
@@ -110,7 +125,7 @@ struct MytoringView: View {
                                 .opacity(0.5)
                                 .padding(.horizontal, 3)
                             Text("現在" + String(userInfoArray.count) + "人")
-                                .foregroundStyle(.green)
+                                .foregroundStyle(colorState)
                                 .fontWeight(.bold)
                         }
                         Rectangle()

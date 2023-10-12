@@ -23,6 +23,14 @@ struct Detail: View {
     @State var isgo = false
     @State var uid: String = ""
     @State var documentId = ""
+    var colorState: Color {
+        switch (Int(self.how) ?? 0) - self.userInfoArray.count {
+        case 0 ... 2 :
+            return .red
+        default:
+            return .green
+        }
+    }
     let username: String
     let usercomment: String
     let bikename: String
@@ -71,11 +79,13 @@ struct Detail: View {
                             .cornerRadius(40)
                             .opacity(0.5)
                             .padding(.horizontal, 3)
+                            .padding(.bottom, 10)
+
                         Spacer()
                         VStack(alignment: .leading, spacing: 5) {
                             HStack {
                                 Capsule()
-                                    .frame(width: 80)
+                                    .frame(width: 80, height: 30)
                                     .overlay {
                                         Text("集合場所")
                                             .foregroundStyle(.white
@@ -85,15 +95,17 @@ struct Detail: View {
                             }
                             .frame(height: 20)
                             .fontWeight(.bold)
+                            .padding(.bottom, 10)
                             Rectangle()
                                 .frame(height: 5)
                                 .foregroundColor(Color.red)
                                 .cornerRadius(40)
                                 .opacity(0.5)
                                 .padding(.horizontal, 8)
+                                .padding(.bottom, 10)
                             HStack {
                                 Capsule()
-                                    .frame(width: 80)
+                                    .frame(width: 80, height: 30)
                                     .overlay {
                                         Text("開催日時")
                                             .foregroundStyle(.white)
@@ -102,16 +114,18 @@ struct Detail: View {
                             }
                             .frame(height: 20)
                             .fontWeight(.bold)
+                            .padding(.bottom, 10)
                             Rectangle()
                                 .frame(height: 5)
                                 .foregroundColor(Color.red)
                                 .cornerRadius(40)
                                 .opacity(0.5)
                                 .padding(.horizontal, 8)
+                                .padding(.bottom, 10)
                             HStack {
                                 HStack {
                                     Capsule()
-                                        .frame(width: 80)
+                                        .frame(width: 80, height: 30)
                                         .overlay {
                                             Text("募集人数")
                                                 .foregroundStyle(.white)
@@ -127,15 +141,17 @@ struct Detail: View {
                                     .opacity(0.5)
                                     .padding(.horizontal, 3)
                                 Text("現在" + String(userInfoArray.count) + "人")
-                                    .foregroundStyle(.green)
+                                    .foregroundStyle(colorState)
                                     .fontWeight(.bold)
                             }
+                            .padding(.bottom, 10)
                             Rectangle()
                                 .frame(height: 5)
                                 .foregroundColor(Color.red)
                                 .cornerRadius(40)
                                 .opacity(0.5)
                                 .padding(.horizontal, 40)
+                                .padding(.bottom, 10)
                         }
                         .padding(.leading, 18)
                         Text("詳細:" + detail)
