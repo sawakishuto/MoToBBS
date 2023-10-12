@@ -47,7 +47,7 @@ struct Mypageview: View {
     }
 
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             VStack {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {

@@ -4,10 +4,10 @@
 <dict>
 	<key>UILaunchScreen</key>
 	<dict>
-		<key>UIImageName</key>
-		<string>imagelunch</string>
 		<key>UIColorName</key>
 		<string>backcolor</string>
+		<key>UIImageName</key>
+		<string>imagelunch</string>
 	</dict>
 </dict>
 </plist>

@@ -16,7 +16,7 @@ struct JoinListCard: View {
     @State var alertmessage = "メッセ"
     var colorState: Color {
         switch (Int(self.how) ?? 0) - self.userInfoArray.count {
-        case 0 ... 2 :
+        case 0 ... 2:
             return .red
         default:
             return .green
