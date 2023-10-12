@@ -90,6 +90,7 @@ struct JoinListCard: View {
                                             .foregroundStyle(.white)
                                     }
                                 Text(dateString + "頃")
+                                    .font(.system(size: 14))
                             }
                             .frame(height: 30)
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
@@ -124,13 +125,13 @@ struct JoinListCard: View {
                                     .foregroundStyle(colorState)
                                     .fontWeight(.bold)
                             }
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
                             Rectangle()
                                 .frame(height: 5)
                                 .foregroundColor(Color.red)
                                 .cornerRadius(40)
                                 .opacity(0.5)
-                                .padding(.horizontal, 43)
+                                .padding(.horizontal, 23)
                                 .padding(.bottom, 15)
                             Text(detail)
                                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10 ))
