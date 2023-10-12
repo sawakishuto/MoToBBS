@@ -60,9 +60,11 @@ struct Detail: View {
     var body: some View {
         ZStack {
             VStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
                     ScrollView {
-                        Text(title).font(.title).fontWeight(.bold)
+                        Text(title).font(.title)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 5)
                         Rectangle()
                             .frame(height: 5)
                             .foregroundColor(Color.red)
@@ -70,39 +72,72 @@ struct Detail: View {
                             .opacity(0.5)
                             .padding(.horizontal, 3)
                         Spacer()
-                        Text("集合場所：" + whereis).frame(height: 20)
-                            .fontWeight(.bold)
-
-                        Rectangle()
-                            .frame(height: 5)
-                            .foregroundColor(Color.red)
-                            .cornerRadius(40)
-                            .opacity(0.5)
-                            .padding(.horizontal, 8)
-
-                        Text("開催予定日：" + dateString)
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Capsule()
+                                    .frame(width: 80)
+                                    .overlay {
+                                        Text("集合場所")
+                                            .foregroundStyle(.white
+                                            )
+                                    }
+                                Text(whereis)
+                            }
                             .frame(height: 20)
                             .fontWeight(.bold)
-                        Rectangle()
-                            .frame(height: 5)
-                            .foregroundColor(Color.red)
-                            .cornerRadius(40)
-                            .opacity(0.5)
-                            .padding(.horizontal, 8)
-                        HStack {
-                            Text(how + "人程度")
+                            Rectangle()
+                                .frame(height: 5)
+                                .foregroundColor(Color.red)
+                                .cornerRadius(40)
+                                .opacity(0.5)
+                                .padding(.horizontal, 8)
+                            HStack {
+                                Capsule()
+                                    .frame(width: 80)
+                                    .overlay {
+                                        Text("開催日時")
+                                            .foregroundStyle(.white)
+                                    }
+                                Text(dateString)
+                            }
+                            .frame(height: 20)
+                            .fontWeight(.bold)
+                            Rectangle()
+                                .frame(height: 5)
+                                .foregroundColor(Color.red)
+                                .cornerRadius(40)
+                                .opacity(0.5)
+                                .padding(.horizontal, 8)
+                            HStack {
+                                HStack {
+                                    Capsule()
+                                        .frame(width: 80)
+                                        .overlay {
+                                            Text("募集人数")
+                                                .foregroundStyle(.white)
+                                        }
+                                    Text(how + "人程度")
+                                }
                                 .frame(height: 20)
                                 .fontWeight(.bold)
-                            Text("現在" + String(userInfoArray.count) + "人")
-                                .foregroundStyle(.green)
-                                .fontWeight(.bold)
+                                Rectangle()
+                                    .frame(width: 5, height: 30)
+                                    .foregroundColor(Color.red)
+                                    .cornerRadius(40)
+                                    .opacity(0.5)
+                                    .padding(.horizontal, 3)
+                                Text("現在" + String(userInfoArray.count) + "人")
+                                    .foregroundStyle(.green)
+                                    .fontWeight(.bold)
+                            }
+                            Rectangle()
+                                .frame(height: 5)
+                                .foregroundColor(Color.red)
+                                .cornerRadius(40)
+                                .opacity(0.5)
+                                .padding(.horizontal, 40)
                         }
-                        Rectangle()
-                            .frame(height: 5)
-                            .foregroundColor(Color.red)
-                            .cornerRadius(40)
-                            .opacity(0.5)
-                            .padding(.horizontal, 8)
+                        .padding(.leading, 18)
                         Text("詳細:" + detail)
                             .padding(.horizontal, 18)
                         Rectangle()
