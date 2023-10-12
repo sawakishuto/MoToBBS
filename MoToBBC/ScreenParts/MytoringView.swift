@@ -43,24 +43,100 @@ struct MytoringView: View {
         self.how = how
     }
     var body: some View {
-            VStack {
+        VStack(spacing: 8) {
                 ScrollView {
-                Text(title)
-                        .font(.title)
+                    Text(title).font(.title)
                         .fontWeight(.bold)
-                Spacer()
-                    Text("開催予定日:" + dateString).fontWeight(.bold)
-                Divider().background(Color.red)
-                Text("集合場所:" + whereis).fontWeight(.bold)
-                    Text("詳細:" + detail).frame(width: 350)
+                        .padding(.horizontal, 5)
+                    Rectangle()
+                        .frame(height: 5)
+                        .foregroundColor(Color.red)
+                        .cornerRadius(40)
+                        .opacity(0.5)
+                        .padding(.horizontal, 3)
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 15) {
+                        HStack {
+                            Capsule()
+                                .frame(width: 80, height: 30)
+                                .overlay {
+                                    Text("集合場所")
+                                        .foregroundStyle(.white
+                                        )
+                                }
+                            Text(whereis)
+                        }
+                        .frame(height: 20)
+                        .fontWeight(.bold)
+                        Rectangle()
+                            .frame(height: 5)
+                            .foregroundColor(Color.red)
+                            .cornerRadius(40)
+                            .opacity(0.5)
+                            .padding(.horizontal, 8)
+                        HStack {
+                            Capsule()
+                                .frame(width: 80, height: 30)
+                                .overlay {
+                                    Text("開催日時")
+                                        .foregroundStyle(.white)
+                                }
+                            Text(dateString)
+                        }
+                        .frame(height: 20)
+                        .fontWeight(.bold)
+                        Rectangle()
+                            .frame(height: 5)
+                            .foregroundColor(Color.red)
+                            .cornerRadius(40)
+                            .opacity(0.5)
+                            .padding(.horizontal, 8)
+                        HStack {
+                            HStack {
+                                Capsule()
+                                    .frame(width: 80, height: 30)
+                                    .overlay {
+                                        Text("募集人数")
+                                            .foregroundStyle(.white)
+                                    }
+                                Text(how + "人程度")
+                            }
+                            .frame(height: 20)
+                            .fontWeight(.bold)
+                            Rectangle()
+                                .frame(width: 5, height: 30)
+                                .foregroundColor(Color.red)
+                                .cornerRadius(40)
+                                .opacity(0.5)
+                                .padding(.horizontal, 3)
+                            Text("現在" + String(userInfoArray.count) + "人")
+                                .foregroundStyle(.green)
+                                .fontWeight(.bold)
+                        }
+                        Rectangle()
+                            .frame(height: 5)
+                            .foregroundColor(Color.red)
+                            .cornerRadius(40)
+                            .opacity(0.5)
+                            .padding(.horizontal, 40)
+                    }
+                    .padding(.leading, 18)
+                    Text("詳細:" + detail)
+                        .padding(.horizontal, 18)
+                    Rectangle()
+                        .frame(height: 5)
+                        .foregroundColor(Color.red)
+                        .cornerRadius(40)
+                        .opacity(0.5)
+                        .padding(.horizontal, 8)
                     if let image = image {
-                        Image(uiImage: image)
-                            .resizable()
+                        Image(uiImage: image).resizable()
                             .frame(width: 330, height: 180)
                             .cornerRadius(40)
                             .overlay(RoundedRectangle(cornerRadius: 40)
-                            .stroke(Color.red, lineWidth: 3))
-                    } else {Text("画像を読み込んでいます...")}
+                                .stroke(Color.red, lineWidth: 3))
+                    }
+                 else {Text("画像を読み込んでいます...")}
                 }
                 .frame(alignment: .bottom)
                 Spacer()

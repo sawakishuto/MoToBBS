@@ -60,7 +60,7 @@ struct Detail: View {
     var body: some View {
         ZStack {
             VStack {
-                VStack(alignment: .leading, spacing: 5) {
+                VStack(alignment: .leading) {
                     ScrollView {
                         Text(title).font(.title)
                             .fontWeight(.bold)
@@ -72,7 +72,7 @@ struct Detail: View {
                             .opacity(0.5)
                             .padding(.horizontal, 3)
                         Spacer()
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 5) {
                             HStack {
                                 Capsule()
                                     .frame(width: 80)
