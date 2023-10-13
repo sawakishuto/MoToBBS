@@ -200,7 +200,7 @@ struct Detail: View {
                                                       action: {isgo = true
                                                           if isgo == true {
                                                               messa = "エントリー完了"
-                                                              self.viewModel.addattend(eventid: self.eventid)
+                                                              self.viewModel.addAttend(eventid: eventid)
                                                               self.viewModel.GetUserInfoAndSet(
                                                                 userid: self.userid,
                                                                 username: self.username,

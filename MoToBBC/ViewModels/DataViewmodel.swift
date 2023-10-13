@@ -291,18 +291,37 @@ class ViewModel: ObservableObject {
         }
     }
     //    自分が参加するボタンを押したイベントを格納
-    func addattend(eventid: String) {
+    func addAttend(eventid: String) {
         let event: [String: Any] = [
             "eventid": FieldValue.arrayUnion([eventid])
         ]
-        db.collection("Attend").document(user!.uid).updateData(event) { error in
+        let userDocRef = db.collection("Attend").document(user!.uid)
+
+        userDocRef.getDocument { (document, error) in
             if let error = error {
-                print("Error updating document: \(error)")
+                print("Error fetching document: \(error)")
+            } else if document!.exists {
+                // UIDに対応するドキュメントが存在する場合、既存のドキュメントを更新
+                userDocRef.updateData(event) { error in
+                    if let error = error {
+                        print("Error updating document: \(error)")
+                    } else {
+                        print("Document successfully updated!")
+                    }
+                }
             } else {
-                print("Document successfully updated!")
+                // UIDに対応するドキュメントが存在しない場合、空のドキュメントを作成
+                userDocRef.setData(event) { error in
+                    if let error = error {
+                        print("Error creating document: \(error)")
+                    } else {
+                        print("Document successfully created!")
+                    }
+                }
             }
         }
     }
+
     // 自分が参加する予定のイベントの情報を取得
     func fetchJoinedData(completion: @escaping ([Events]) -> Void) {
         db.collection("Attend").document(user!.uid).getDocument { (document, error) in

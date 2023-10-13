@@ -1,8 +1,6 @@
 import SwiftUI
 import FirebaseAuth
-import FirebaseFirestore
 // swiftlint:disable line_length
-// swiftlint:disable control_statement
 struct LoginView: View {
     @ObservedObject private var viewModel = LoginViewModel()
     @State var showsheet = false
@@ -23,8 +21,8 @@ struct LoginView: View {
     @State  var checkms = false
     @State private var errorhandle: Bool = false
     @State var checkname = "checkmark.circle"
-    @State private var mailname: String = " MoToBBS@gmail.com"
-    @State private var passname: String = " 123456"
+    @State private var mailname: String = " 　  MoToBBS@gmail.com"
+    @State private var passname: String = "　　1111"
     var body: some View {
         if loginshow == false {
             if allview == false {
@@ -101,7 +99,7 @@ struct LoginView: View {
                                         .fontWeight(.heavy)
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                                    
+
                                     TextField("　MotoBBS@gmail.com", text: $mail)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
@@ -110,12 +108,12 @@ struct LoginView: View {
                                         .padding()
                                 }
                                 VStack(alignment: .leading) {
-                                    Text("パスワード(数字6桁以上)")
+                                    Text("パスワード(数字４桁)")
                                         .fontWeight(.heavy)
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
                                     // パスワード
-                                    SecureField("　1234567", text: $password)
+                                    SecureField("　0000", text: $password)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
                                         .background(Color.white)
@@ -184,27 +182,17 @@ struct LoginView: View {
                                             self.errorMessage = "パスワードが入力されていません"
                                         } else if(self.showconfine != true) {
                                             errorMessage = "利用規約に同意していません"} else {
-                                                Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
-                                                    if let authResult = authResult {
-                                                        print(authResult)
-                                                        print(authResult.user.uid + "😏")
-                                                        if authResult.user.uid != nil {
-                                                            viewModel.adduser(
-                                                                usersname: usersname,
-                                                                bikename: bikename,
-                                                                usercomment: usercomment,
-                                                                userid: userid,
-                                                                users: (authResult.user.uid)
-                                                            )
-                                                            viewModel.addattendfirst()
-                                                        } else {
-                                                            print("UIDがnilです。")
-                                                        }
-                                                    } else if let error = error {
-                                                        print("ユーザーアカウントの作成に失敗しました。エラー: \(error.localizedDescription)")
-                                                    }
-                                                }
-                                            allview = true
+                                            Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
+                                                mail = "エラー"
+                                                viewModel.adduser(
+                                                    usersname: usersname,
+                                                    bikename: bikename,
+                                                    usercomment: usercomment,
+                                                    users: authResult?.user.uid
+                                                )
+
+                                            }
+                                                allview = true
                                         }
                                     }, label: {
                                         Text("新規登録").frame(width: 200, height: 50) .foregroundColor(.black)
