@@ -21,8 +21,11 @@ struct LoginView: View {
     @State  var checkms = false
     @State private var errorhandle: Bool = false
     @State var checkname = "checkmark.circle"
-    @State private var mailname: String = " 　  MoToBBS@gmail.com"
-    @State private var passname: String = "　　1111"
+    @State private var mailname: String = " MoToBBS@gmail.com"
+    @State private var passname: String = " 123456"
+    @State private var male: Bool = false
+    @State private var female: Bool = false
+    @State private var andSoOn: Bool = false
     var body: some View {
         if loginshow == false {
             if allview == false {
@@ -108,12 +111,12 @@ struct LoginView: View {
                                         .padding()
                                 }
                                 VStack(alignment: .leading) {
-                                    Text("パスワード(数字４桁)")
+                                    Text("パスワード(数字6桁以上)")
                                         .fontWeight(.heavy)
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
                                     // パスワード
-                                    SecureField("　0000", text: $password)
+                                    SecureField("　123456", text: $password)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
                                         .background(Color.white)
@@ -145,17 +148,36 @@ struct LoginView: View {
                                         .cornerRadius(10)
                                         .padding()
                                 }
-                                VStack(alignment: .leading) {
-                                    Text("性別")
-                                        .fontWeight(.heavy)
-                                        .foregroundColor(.white)
-                                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                                    TextField("　男　女　その他", text: $usercomment)
-                                        .frame(height: 60)
-                                        .textFieldStyle(PlainTextFieldStyle())
-                                        .background(Color.white)
-                                        .cornerRadius(10)
-                                        .padding()
+                                VStack {
+                                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+                                        Text("男性")
+                                            .foregroundStyle(male ? .black : .white)
+                                            .fontWeight(male ? .black : .regular)
+                                            .onTapGesture {
+                                                male = true
+                                                female = false
+                                                andSoOn = false
+                                                usercomment = "男性"
+                                            }
+                                        Text("女性")
+                                            .foregroundStyle(female ? .black : .white)
+                                            .fontWeight(female ? .black : .regular)
+                                            .onTapGesture {
+                                                male = false
+                                                female = true
+                                                andSoOn = false
+                                                usercomment = "女性"
+                                            }
+                                        Text("その他")
+                                            .foregroundStyle(andSoOn ? .black : .white)
+                                            .fontWeight(andSoOn ? .black : .regular)
+                                            .onTapGesture {
+                                                male = false
+                                                female = false
+                                                andSoOn = true
+                                                usercomment = "その他"
+                                            }
+                                    }
                                 }
                                 // 認証
                                 HStack {
