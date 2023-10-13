@@ -154,7 +154,7 @@ struct Detail: View {
                                 .padding(.bottom, 10)
                         }
                         .padding(.leading, 18)
-                        Text("詳細:" + detail)
+                            Text(detail)
                             .padding(.horizontal, 18)
                         Rectangle()
                             .frame(height: 5)

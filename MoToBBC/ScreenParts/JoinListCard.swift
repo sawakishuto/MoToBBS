@@ -114,7 +114,7 @@ struct JoinListCard: View {
 
                                     Text(how + "人程度")
                                 }
-                                .frame(width: 170, height: 30)
+                                .frame(height: 30)
                                 .fontWeight(.bold)
                                 Rectangle()
                                     .frame(width: 5, height: 30)
@@ -126,7 +126,7 @@ struct JoinListCard: View {
                                     .foregroundStyle(colorState)
                                     .fontWeight(.bold)
                             }
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                            .padding(.leading, 10)
                             Rectangle()
                                 .frame(height: 5)
                                 .foregroundColor(Color.red)
