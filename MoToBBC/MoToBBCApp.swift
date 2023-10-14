@@ -11,7 +11,7 @@ import FirebaseAuth
 class AppDelegate: NSObject, UIApplicationDelegate {
 func application(_ application: UIApplication,
                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-    FirebaseApp.configure()
+
     return true
 }
 }
@@ -20,6 +20,9 @@ func application(_ application: UIApplication,
 struct MoToBBCApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @Environment(\.scenePhase) private var scenePhase
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
          LoginView()
