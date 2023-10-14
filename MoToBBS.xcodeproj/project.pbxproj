@@ -34,9 +34,9 @@
 		08D1116229FA299E00561414 /* JoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1116129FA299E00561414 /* JoinListView.swift */; };
 		08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D27C692A3225D400BB28BD /* ProfileSetView.swift */; };
 		08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7998A2AD65D5E000371AE /* EmptyView.swift */; };
-		5578853C9E47F96D10DCB15A /* Pods_MoToBBS_MoToBBSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F11189677E65E6A3E930B9 /* Pods_MoToBBS_MoToBBSUITests.framework */; };
-		7EBF198AC25B8ED05008FD74 /* Pods_MoToBBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D31EECE6CB2153F24CA20 /* Pods_MoToBBS.framework */; };
-		9A7305D243E2308F712132F8 /* Pods_MoToBBSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48D2BFA045AB71E305C9D03 /* Pods_MoToBBSTests.framework */; };
+		BD2A4B2B98A09E130EDE1661 /* Pods_MoToBBS_MoToBBSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CE08256EC1692F61BD140B /* Pods_MoToBBS_MoToBBSUITests.framework */; };
+		F6F3D54E9EF071D77F70EBD5 /* Pods_MoToBBSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D231E7B7AE37982AE279E2 /* Pods_MoToBBSTests.framework */; };
+		FD847436D25C316F98019305 /* Pods_MoToBBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3126ACA9AFCBB33722DF80B4 /* Pods_MoToBBS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,21 +88,15 @@
 		08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MoToBBS-Info.plist"; sourceTree = "<group>"; };
 		08D27C692A3225D400BB28BD /* ProfileSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetView.swift; sourceTree = "<group>"; };
 		08D7998A2AD65D5E000371AE /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		22F11189677E65E6A3E930B9 /* Pods_MoToBBS_MoToBBSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBS_MoToBBSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32EF7E44D0B552526DEA26C3 /* Pods-MoToBBS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS.release.xcconfig"; path = "Target Support Files/Pods-MoToBBS/Pods-MoToBBS.release.xcconfig"; sourceTree = "<group>"; };
-		4CF745AC647BB6F778A7BE6E /* Pods-MoToBBCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBCTests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBCTests/Pods-MoToBBCTests.debug.xcconfig"; sourceTree = "<group>"; };
-		690A6FF24947FE726A7696A1 /* Pods-MoToBBC-MoToBBCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBC-MoToBBCUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBC-MoToBBCUITests/Pods-MoToBBC-MoToBBCUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		7F73DBCE69B812C3740E7B23 /* Pods-MoToBBSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBSTests.release.xcconfig"; path = "Target Support Files/Pods-MoToBBSTests/Pods-MoToBBSTests.release.xcconfig"; sourceTree = "<group>"; };
-		8632F741320C7B88CB8DCC60 /* Pods-MoToBBC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBC.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBC/Pods-MoToBBC.debug.xcconfig"; sourceTree = "<group>"; };
-		A29F85D79839C4FB21B366BC /* Pods-MoToBBC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBC.release.xcconfig"; path = "Target Support Files/Pods-MoToBBC/Pods-MoToBBC.release.xcconfig"; sourceTree = "<group>"; };
-		AC82088C12B57AD2C5A07F85 /* Pods-MoToBBSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBSTests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBSTests/Pods-MoToBBSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AD7334ED0DFB9A4301C99CA5 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS-MoToBBSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B05BBE4EACD5CEC7F747CDD3 /* Pods-MoToBBS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBS/Pods-MoToBBS.debug.xcconfig"; sourceTree = "<group>"; };
-		C04D31EECE6CB2153F24CA20 /* Pods_MoToBBS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC9DA2332D725683760FBB1D /* Pods-MoToBBCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBCTests.release.xcconfig"; path = "Target Support Files/Pods-MoToBBCTests/Pods-MoToBBCTests.release.xcconfig"; sourceTree = "<group>"; };
-		E48D2BFA045AB71E305C9D03 /* Pods_MoToBBSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F12A8B832BB04E06E7E350CB /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS-MoToBBSUITests.release.xcconfig"; path = "Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		FC4EC8CC952CF72DD452070C /* Pods-MoToBBC-MoToBBCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBC-MoToBBCUITests.release.xcconfig"; path = "Target Support Files/Pods-MoToBBC-MoToBBCUITests/Pods-MoToBBC-MoToBBCUITests.release.xcconfig"; sourceTree = "<group>"; };
+		14C7B25B921AB6FA181C01DC /* Pods-MoToBBSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBSTests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBSTests/Pods-MoToBBSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		28CE08256EC1692F61BD140B /* Pods_MoToBBS_MoToBBSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBS_MoToBBSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3126ACA9AFCBB33722DF80B4 /* Pods_MoToBBS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73D231E7B7AE37982AE279E2 /* Pods_MoToBBSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		842B17AF66C926DC8C29D9E1 /* Pods-MoToBBS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS.release.xcconfig"; path = "Target Support Files/Pods-MoToBBS/Pods-MoToBBS.release.xcconfig"; sourceTree = "<group>"; };
+		9F71183C063D656B9630D0CC /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS-MoToBBSUITests.release.xcconfig"; path = "Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AEBF0E1397D15A6D739F6617 /* Pods-MoToBBS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBS/Pods-MoToBBS.debug.xcconfig"; sourceTree = "<group>"; };
+		B8952A5B44030CFBF463A4A4 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS-MoToBBSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB2B7665AE3613419B7BB94B /* Pods-MoToBBSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBSTests.release.xcconfig"; path = "Target Support Files/Pods-MoToBBSTests/Pods-MoToBBSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EBF198AC25B8ED05008FD74 /* Pods_MoToBBS.framework in Frameworks */,
+				FD847436D25C316F98019305 /* Pods_MoToBBS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A7305D243E2308F712132F8 /* Pods_MoToBBSTests.framework in Frameworks */,
+				F6F3D54E9EF071D77F70EBD5 /* Pods_MoToBBSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5578853C9E47F96D10DCB15A /* Pods_MoToBBS_MoToBBSUITests.framework in Frameworks */,
+				BD2A4B2B98A09E130EDE1661 /* Pods_MoToBBS_MoToBBSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +159,7 @@
 				086A33F829EF851500CD78BF /* MoToBBCUITests */,
 				086A33DC29EF851200CD78BF /* Products */,
 				ED10CFF27EDD7A8A0E2ED731 /* Pods */,
-				AF6B6973B4309CF5112363C5 /* Frameworks */,
+				BAA72F34A1D7577462E88343 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,12 +238,12 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		AF6B6973B4309CF5112363C5 /* Frameworks */ = {
+		BAA72F34A1D7577462E88343 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C04D31EECE6CB2153F24CA20 /* Pods_MoToBBS.framework */,
-				22F11189677E65E6A3E930B9 /* Pods_MoToBBS_MoToBBSUITests.framework */,
-				E48D2BFA045AB71E305C9D03 /* Pods_MoToBBSTests.framework */,
+				3126ACA9AFCBB33722DF80B4 /* Pods_MoToBBS.framework */,
+				28CE08256EC1692F61BD140B /* Pods_MoToBBS_MoToBBSUITests.framework */,
+				73D231E7B7AE37982AE279E2 /* Pods_MoToBBSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -257,18 +251,12 @@
 		ED10CFF27EDD7A8A0E2ED731 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8632F741320C7B88CB8DCC60 /* Pods-MoToBBC.debug.xcconfig */,
-				A29F85D79839C4FB21B366BC /* Pods-MoToBBC.release.xcconfig */,
-				690A6FF24947FE726A7696A1 /* Pods-MoToBBC-MoToBBCUITests.debug.xcconfig */,
-				FC4EC8CC952CF72DD452070C /* Pods-MoToBBC-MoToBBCUITests.release.xcconfig */,
-				4CF745AC647BB6F778A7BE6E /* Pods-MoToBBCTests.debug.xcconfig */,
-				CC9DA2332D725683760FBB1D /* Pods-MoToBBCTests.release.xcconfig */,
-				B05BBE4EACD5CEC7F747CDD3 /* Pods-MoToBBS.debug.xcconfig */,
-				32EF7E44D0B552526DEA26C3 /* Pods-MoToBBS.release.xcconfig */,
-				AD7334ED0DFB9A4301C99CA5 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */,
-				F12A8B832BB04E06E7E350CB /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */,
-				AC82088C12B57AD2C5A07F85 /* Pods-MoToBBSTests.debug.xcconfig */,
-				7F73DBCE69B812C3740E7B23 /* Pods-MoToBBSTests.release.xcconfig */,
+				AEBF0E1397D15A6D739F6617 /* Pods-MoToBBS.debug.xcconfig */,
+				842B17AF66C926DC8C29D9E1 /* Pods-MoToBBS.release.xcconfig */,
+				B8952A5B44030CFBF463A4A4 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */,
+				9F71183C063D656B9630D0CC /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */,
+				14C7B25B921AB6FA181C01DC /* Pods-MoToBBSTests.debug.xcconfig */,
+				CB2B7665AE3613419B7BB94B /* Pods-MoToBBSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -280,12 +268,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 086A33FF29EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBS" */;
 			buildPhases = (
-				1A9CA1D0522EEA2B5D15540D /* [CP] Check Pods Manifest.lock */,
+				3817CABE64AB17DE0AC3459F /* [CP] Check Pods Manifest.lock */,
 				086A33D729EF851200CD78BF /* Sources */,
 				086A33D829EF851200CD78BF /* Frameworks */,
 				086A33D929EF851200CD78BF /* Resources */,
 				089A7EFB2AA46E8B00D18D2E /* ShellScript */,
-				EE23BE75E2D9AA0331B21652 /* [CP] Embed Pods Frameworks */,
+				15DC5E8C200BD925219FD63E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,7 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 086A340229EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBSTests" */;
 			buildPhases = (
-				0B2B599187C157D80A937B4B /* [CP] Check Pods Manifest.lock */,
+				1964F1FFF357532E577B3E5F /* [CP] Check Pods Manifest.lock */,
 				086A33E729EF851500CD78BF /* Sources */,
 				086A33E829EF851500CD78BF /* Frameworks */,
 				086A33E929EF851500CD78BF /* Resources */,
@@ -319,11 +307,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 086A340529EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBSUITests" */;
 			buildPhases = (
-				FA6DFDEDBEB79CBADCBEE68A /* [CP] Check Pods Manifest.lock */,
+				73BF029A54840D237CD1D0E4 /* [CP] Check Pods Manifest.lock */,
 				086A33F129EF851500CD78BF /* Sources */,
 				086A33F229EF851500CD78BF /* Frameworks */,
 				086A33F329EF851500CD78BF /* Resources */,
-				75E2EAC6D487F4963BD1AAAE /* [CP] Embed Pods Frameworks */,
+				D8789D8441DB172BABC8DE97 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -424,7 +412,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		0B2B599187C157D80A937B4B /* [CP] Check Pods Manifest.lock */ = {
+		15DC5E8C200BD925219FD63E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1964F1FFF357532E577B3E5F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -446,7 +451,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1A9CA1D0522EEA2B5D15540D /* [CP] Check Pods Manifest.lock */ = {
+		3817CABE64AB17DE0AC3459F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -468,41 +473,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		75E2EAC6D487F4963BD1AAAE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE23BE75E2D9AA0331B21652 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA6DFDEDBEB79CBADCBEE68A /* [CP] Check Pods Manifest.lock */ = {
+		73BF029A54840D237CD1D0E4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -522,6 +493,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8789D8441DB172BABC8DE97 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -704,7 +692,7 @@
 		};
 		086A340029EF851500CD78BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B05BBE4EACD5CEC7F747CDD3 /* Pods-MoToBBS.debug.xcconfig */;
+			baseConfigurationReference = AEBF0E1397D15A6D739F6617 /* Pods-MoToBBS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -743,7 +731,7 @@
 		};
 		086A340129EF851500CD78BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32EF7E44D0B552526DEA26C3 /* Pods-MoToBBS.release.xcconfig */;
+			baseConfigurationReference = 842B17AF66C926DC8C29D9E1 /* Pods-MoToBBS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -782,17 +770,22 @@
 		};
 		086A340329EF851500CD78BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC82088C12B57AD2C5A07F85 /* Pods-MoToBBSTests.debug.xcconfig */;
+			baseConfigurationReference = 14C7B25B921AB6FA181C01DC /* Pods-MoToBBSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5285K4Z956;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.sample-sample.landmark.MoToBBCTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = MoToBBSApp_distri;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -802,17 +795,22 @@
 		};
 		086A340429EF851500CD78BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F73DBCE69B812C3740E7B23 /* Pods-MoToBBSTests.release.xcconfig */;
+			baseConfigurationReference = CB2B7665AE3613419B7BB94B /* Pods-MoToBBSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5285K4Z956;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.sample-sample.landmark.MoToBBCTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = MoToBBSApp_distri;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -822,15 +820,18 @@
 		};
 		086A340629EF851500CD78BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD7334ED0DFB9A4301C99CA5 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */;
+			baseConfigurationReference = B8952A5B44030CFBF463A4A4 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5285K4Z956;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.sample-sample.landmark.MoToBBCUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -840,15 +841,18 @@
 		};
 		086A340729EF851500CD78BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F12A8B832BB04E06E7E350CB /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */;
+			baseConfigurationReference = 9F71183C063D656B9630D0CC /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5285K4Z956;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.sample-sample.landmark.MoToBBCUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

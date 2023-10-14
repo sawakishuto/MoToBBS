@@ -24,4 +24,3 @@ target 'MoToBBS' do
   pod 'SwiftLint'
 
 end
-
