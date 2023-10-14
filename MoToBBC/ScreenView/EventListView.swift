@@ -18,6 +18,9 @@ struct EventListView: View {
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
     @State private var filterText: String = ""
+    init() {
+        viewModel.fetchData()
+    }
     var body: some View {
         ZStack(alignment: .bottomTrailing ) {
             NavigationStack {
@@ -111,7 +114,6 @@ struct EventListView: View {
                     RecruitView()
                 }
         }.edgesIgnoringSafeArea(.top)
-            .onAppear { self.viewModel.fetchData()}
     }
 }
 

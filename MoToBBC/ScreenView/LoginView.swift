@@ -211,6 +211,7 @@ struct LoginView: View {
                                         } else if(self.showconfine != true) {
                                             errorMessage = "利用規約に同意していません"} else if self.password.count < 6{
                                                     passname = "パスワードが６桁未満です"
+                                                password = ""
                                                 }
                                         else {
                                             Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in

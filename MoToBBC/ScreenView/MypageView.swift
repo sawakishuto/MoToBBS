@@ -44,6 +44,7 @@ struct Mypageview: View {
         self.usercomment = usercomment
         self.bikename = bikename
         self.userid = userid
+        self.viewModel.getUser()
     }
 
     var body: some View {
@@ -83,30 +84,36 @@ struct Mypageview: View {
                 Text(fetchusername + "が募集中")
                     .fontWeight(.bold)
                     .font(.system(size: 25))
-                ScrollView {
-                    ForEach(viewModel.datamodeluser) {datas in
-                        NavigationLink(destination: MytoringView(
-                            eventid: datas.eventid,
-                            whereis: datas.whereis,
-                            detail: datas.detail,
-                            title: datas.title,
-                            dateStrig: datas.dateString,
-                            how: datas.how
-                        ), label: {
-                            RowView(
+                if viewModel.datamodeluser.isEmpty {
+                    Text("現在投稿中のイベントはありません。")
+                        .fontWeight(.black)
+                        .frame(maxHeight: .infinity)
+                } else {
+                    ScrollView {
+                        ForEach(viewModel.datamodeluser) {datas in
+                            NavigationLink(destination: MytoringView(
                                 eventid: datas.eventid,
                                 whereis: datas.whereis,
                                 detail: datas.detail,
                                 title: datas.title,
                                 dateStrig: datas.dateString,
-                                how: datas.how,
-                                getimages: self.image
-                            )
-                        })
+                                how: datas.how
+                            ), label: {
+                                RowView(
+                                    eventid: datas.eventid,
+                                    whereis: datas.whereis,
+                                    detail: datas.detail,
+                                    title: datas.title,
+                                    dateStrig: datas.dateString,
+                                    how: datas.how,
+                                    getimages: self.image
+                                )
+                            })
+                        }
+                        .padding(.top, 30)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.white) // 背景色を透明に設定
                     }
-                    .padding(.top, 30)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.white) // 背景色を透明に設定
                 }
             }
         }
@@ -118,7 +125,6 @@ struct Mypageview: View {
                     fetchusercomment = fetchedUsercomment
                     fetchbikename = fetchedBikename                    }
             }
-            self.viewModel.getUser()
         }
     }
 }
