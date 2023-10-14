@@ -15,6 +15,7 @@ import SwiftUI
 struct JoinListView: View {
     @ObservedObject private var viewModel = ViewModel()
     @State var events: [Events] = []
+    
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
@@ -29,21 +30,28 @@ struct JoinListView: View {
             .fontWeight(.bold)
             .zIndex(10)
             .edgesIgnoringSafeArea(.bottom)
-                JoinListSlide {
+
+            if events.isEmpty {
+                Text("参加予定のイベントはありません。")
+                    .fontWeight(.black)
+                    .frame(maxHeight: .infinity)
+            } else {
+            JoinListSlide {
                 ForEach(events, id: \.eventid) { event in
 
-                        VStack(alignment: .leading) {
-                            JoinListCard(eventid: event.eventid,
-                                         whereis: event.whereis,
-                                         detail: event.detail,
-                                         title: event.title,
-                                         dateStrig: event.dateString,
-                                         how: event.how)
-                        }
-                    // カードのサイズを設定
+                    VStack(alignment: .leading) {
+                        JoinListCard(eventid: event.eventid,
+                                     whereis: event.whereis,
+                                     detail: event.detail,
+                                     title: event.title,
+                                     dateStrig: event.dateString,
+                                     how: event.how)
                     }
+                    // カードのサイズを設定
                 }
-                .background(Color.white)
+            }
+            .background(Color.white)
+        }
         }
         .onAppear {
             self.viewModel.fetchJoinedData { (events) in
