@@ -17,6 +17,18 @@
 		086A33F029EF851500CD78BF /* MoToBBCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33EF29EF851500CD78BF /* MoToBBCTests.swift */; };
 		086A33FA29EF851500CD78BF /* MoToBBCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33F929EF851500CD78BF /* MoToBBCUITests.swift */; };
 		086A33FC29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33FB29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift */; };
+		087CA4102ADAC84600CCB072 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA40F2ADAC84600CCB072 /* FirebaseAppCheck */; };
+		087CA4122ADAC84600CCB072 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA4112ADAC84600CCB072 /* FirebaseAppDistribution-Beta */; };
+		087CA4142ADAC84600CCB072 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA4132ADAC84600CCB072 /* FirebaseAuth */; };
+		087CA4162ADAC84600CCB072 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA4152ADAC84600CCB072 /* FirebaseAuthCombine-Community */; };
+		087CA4182ADAC84600CCB072 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA4172ADAC84600CCB072 /* FirebaseCrashlytics */; };
+		087CA41A2ADAC84600CCB072 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA4192ADAC84600CCB072 /* FirebaseDatabase */; };
+		087CA41C2ADAC84600CCB072 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA41B2ADAC84600CCB072 /* FirebaseDatabaseSwift */; };
+		087CA41E2ADAC84600CCB072 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA41D2ADAC84600CCB072 /* FirebaseFirestore */; };
+		087CA4202ADAC84600CCB072 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA41F2ADAC84600CCB072 /* FirebaseFirestoreCombine-Community */; };
+		087CA4222ADAC84600CCB072 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA4212ADAC84600CCB072 /* FirebaseFirestoreSwift */; };
+		087CA4242ADAC84600CCB072 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA4232ADAC84600CCB072 /* FirebaseStorage */; };
+		087CA4262ADAC84600CCB072 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 087CA4252ADAC84600CCB072 /* FirebaseStorageCombine-Community */; };
 		089A7F012AA707A500D18D2E /* JoinListSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A7F002AA707A400D18D2E /* JoinListSlide.swift */; };
 		08AE7F9F29FC09400073D37E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7F9E29FC09400073D37E /* Models.swift */; };
 		08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */; };
@@ -34,9 +46,6 @@
 		08D1116229FA299E00561414 /* JoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1116129FA299E00561414 /* JoinListView.swift */; };
 		08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D27C692A3225D400BB28BD /* ProfileSetView.swift */; };
 		08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7998A2AD65D5E000371AE /* EmptyView.swift */; };
-		BD2A4B2B98A09E130EDE1661 /* Pods_MoToBBS_MoToBBSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CE08256EC1692F61BD140B /* Pods_MoToBBS_MoToBBSUITests.framework */; };
-		F6F3D54E9EF071D77F70EBD5 /* Pods_MoToBBSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D231E7B7AE37982AE279E2 /* Pods_MoToBBSTests.framework */; };
-		FD847436D25C316F98019305 /* Pods_MoToBBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3126ACA9AFCBB33722DF80B4 /* Pods_MoToBBS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,15 +97,6 @@
 		08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MoToBBS-Info.plist"; sourceTree = "<group>"; };
 		08D27C692A3225D400BB28BD /* ProfileSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetView.swift; sourceTree = "<group>"; };
 		08D7998A2AD65D5E000371AE /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		14C7B25B921AB6FA181C01DC /* Pods-MoToBBSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBSTests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBSTests/Pods-MoToBBSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		28CE08256EC1692F61BD140B /* Pods_MoToBBS_MoToBBSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBS_MoToBBSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3126ACA9AFCBB33722DF80B4 /* Pods_MoToBBS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		73D231E7B7AE37982AE279E2 /* Pods_MoToBBSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoToBBSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		842B17AF66C926DC8C29D9E1 /* Pods-MoToBBS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS.release.xcconfig"; path = "Target Support Files/Pods-MoToBBS/Pods-MoToBBS.release.xcconfig"; sourceTree = "<group>"; };
-		9F71183C063D656B9630D0CC /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS-MoToBBSUITests.release.xcconfig"; path = "Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		AEBF0E1397D15A6D739F6617 /* Pods-MoToBBS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBS/Pods-MoToBBS.debug.xcconfig"; sourceTree = "<group>"; };
-		B8952A5B44030CFBF463A4A4 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBS-MoToBBSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		CB2B7665AE3613419B7BB94B /* Pods-MoToBBSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoToBBSTests.release.xcconfig"; path = "Target Support Files/Pods-MoToBBSTests/Pods-MoToBBSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD847436D25C316F98019305 /* Pods_MoToBBS.framework in Frameworks */,
+				087CA41C2ADAC84600CCB072 /* FirebaseDatabaseSwift in Frameworks */,
+				087CA4102ADAC84600CCB072 /* FirebaseAppCheck in Frameworks */,
+				087CA4262ADAC84600CCB072 /* FirebaseStorageCombine-Community in Frameworks */,
+				087CA4202ADAC84600CCB072 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				087CA4122ADAC84600CCB072 /* FirebaseAppDistribution-Beta in Frameworks */,
+				087CA4242ADAC84600CCB072 /* FirebaseStorage in Frameworks */,
+				087CA4222ADAC84600CCB072 /* FirebaseFirestoreSwift in Frameworks */,
+				087CA4182ADAC84600CCB072 /* FirebaseCrashlytics in Frameworks */,
+				087CA41E2ADAC84600CCB072 /* FirebaseFirestore in Frameworks */,
+				087CA4142ADAC84600CCB072 /* FirebaseAuth in Frameworks */,
+				087CA41A2ADAC84600CCB072 /* FirebaseDatabase in Frameworks */,
+				087CA4162ADAC84600CCB072 /* FirebaseAuthCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6F3D54E9EF071D77F70EBD5 /* Pods_MoToBBSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +130,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD2A4B2B98A09E130EDE1661 /* Pods_MoToBBS_MoToBBSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,8 +167,6 @@
 				086A33EE29EF851500CD78BF /* MoToBBCTests */,
 				086A33F829EF851500CD78BF /* MoToBBCUITests */,
 				086A33DC29EF851200CD78BF /* Products */,
-				ED10CFF27EDD7A8A0E2ED731 /* Pods */,
-				BAA72F34A1D7577462E88343 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,29 +245,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		BAA72F34A1D7577462E88343 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3126ACA9AFCBB33722DF80B4 /* Pods_MoToBBS.framework */,
-				28CE08256EC1692F61BD140B /* Pods_MoToBBS_MoToBBSUITests.framework */,
-				73D231E7B7AE37982AE279E2 /* Pods_MoToBBSTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		ED10CFF27EDD7A8A0E2ED731 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AEBF0E1397D15A6D739F6617 /* Pods-MoToBBS.debug.xcconfig */,
-				842B17AF66C926DC8C29D9E1 /* Pods-MoToBBS.release.xcconfig */,
-				B8952A5B44030CFBF463A4A4 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */,
-				9F71183C063D656B9630D0CC /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */,
-				14C7B25B921AB6FA181C01DC /* Pods-MoToBBSTests.debug.xcconfig */,
-				CB2B7665AE3613419B7BB94B /* Pods-MoToBBSTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,18 +252,30 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 086A33FF29EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBS" */;
 			buildPhases = (
-				3817CABE64AB17DE0AC3459F /* [CP] Check Pods Manifest.lock */,
 				086A33D729EF851200CD78BF /* Sources */,
 				086A33D829EF851200CD78BF /* Frameworks */,
 				086A33D929EF851200CD78BF /* Resources */,
 				089A7EFB2AA46E8B00D18D2E /* ShellScript */,
-				15DC5E8C200BD925219FD63E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MoToBBS;
+			packageProductDependencies = (
+				087CA40F2ADAC84600CCB072 /* FirebaseAppCheck */,
+				087CA4112ADAC84600CCB072 /* FirebaseAppDistribution-Beta */,
+				087CA4132ADAC84600CCB072 /* FirebaseAuth */,
+				087CA4152ADAC84600CCB072 /* FirebaseAuthCombine-Community */,
+				087CA4172ADAC84600CCB072 /* FirebaseCrashlytics */,
+				087CA4192ADAC84600CCB072 /* FirebaseDatabase */,
+				087CA41B2ADAC84600CCB072 /* FirebaseDatabaseSwift */,
+				087CA41D2ADAC84600CCB072 /* FirebaseFirestore */,
+				087CA41F2ADAC84600CCB072 /* FirebaseFirestoreCombine-Community */,
+				087CA4212ADAC84600CCB072 /* FirebaseFirestoreSwift */,
+				087CA4232ADAC84600CCB072 /* FirebaseStorage */,
+				087CA4252ADAC84600CCB072 /* FirebaseStorageCombine-Community */,
+			);
 			productName = MoToBBC;
 			productReference = 086A33DB29EF851200CD78BF /* MoToBBS.app */;
 			productType = "com.apple.product-type.application";
@@ -288,7 +284,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 086A340229EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBSTests" */;
 			buildPhases = (
-				1964F1FFF357532E577B3E5F /* [CP] Check Pods Manifest.lock */,
 				086A33E729EF851500CD78BF /* Sources */,
 				086A33E829EF851500CD78BF /* Frameworks */,
 				086A33E929EF851500CD78BF /* Resources */,
@@ -307,11 +302,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 086A340529EF851500CD78BF /* Build configuration list for PBXNativeTarget "MoToBBSUITests" */;
 			buildPhases = (
-				73BF029A54840D237CD1D0E4 /* [CP] Check Pods Manifest.lock */,
 				086A33F129EF851500CD78BF /* Sources */,
 				086A33F229EF851500CD78BF /* Frameworks */,
 				086A33F329EF851500CD78BF /* Resources */,
-				D8789D8441DB172BABC8DE97 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -355,6 +348,9 @@
 				Base,
 			);
 			mainGroup = 086A33D229EF851200CD78BF;
+			packageReferences = (
+				087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 086A33DC29EF851200CD78BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -411,106 +407,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		15DC5E8C200BD925219FD63E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoToBBS/Pods-MoToBBS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1964F1FFF357532E577B3E5F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoToBBSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3817CABE64AB17DE0AC3459F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoToBBS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		73BF029A54840D237CD1D0E4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoToBBS-MoToBBSUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D8789D8441DB172BABC8DE97 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoToBBS-MoToBBSUITests/Pods-MoToBBS-MoToBBSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -692,7 +588,6 @@
 		};
 		086A340029EF851500CD78BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEBF0E1397D15A6D739F6617 /* Pods-MoToBBS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -731,7 +626,6 @@
 		};
 		086A340129EF851500CD78BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 842B17AF66C926DC8C29D9E1 /* Pods-MoToBBS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -770,7 +664,6 @@
 		};
 		086A340329EF851500CD78BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14C7B25B921AB6FA181C01DC /* Pods-MoToBBSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -795,7 +688,6 @@
 		};
 		086A340429EF851500CD78BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB2B7665AE3613419B7BB94B /* Pods-MoToBBSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -820,7 +712,6 @@
 		};
 		086A340629EF851500CD78BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8952A5B44030CFBF463A4A4 /* Pods-MoToBBS-MoToBBSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -841,7 +732,6 @@
 		};
 		086A340729EF851500CD78BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F71183C063D656B9630D0CC /* Pods-MoToBBS-MoToBBSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -900,6 +790,80 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.16.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		087CA40F2ADAC84600CCB072 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		087CA4112ADAC84600CCB072 /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+		087CA4132ADAC84600CCB072 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		087CA4152ADAC84600CCB072 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		087CA4172ADAC84600CCB072 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		087CA4192ADAC84600CCB072 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		087CA41B2ADAC84600CCB072 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		087CA41D2ADAC84600CCB072 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		087CA41F2ADAC84600CCB072 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		087CA4212ADAC84600CCB072 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		087CA4232ADAC84600CCB072 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		087CA4252ADAC84600CCB072 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 086A33D329EF851200CD78BF /* Project object */;
 }
