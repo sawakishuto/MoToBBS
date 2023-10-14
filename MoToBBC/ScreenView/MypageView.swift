@@ -85,7 +85,7 @@ struct Mypageview: View {
                     .fontWeight(.bold)
                     .font(.system(size: 25))
                 if viewModel.datamodeluser.isEmpty {
-                    Text("現在投稿中のイベントはありません。")
+                    Text("現在募集中のイベントはありません。")
                         .fontWeight(.black)
                         .frame(maxHeight: .infinity)
                 } else {

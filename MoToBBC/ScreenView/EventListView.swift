@@ -57,40 +57,49 @@ struct EventListView: View {
                                     }
                             })
                             .padding(.top, 20)
-                        ForEach(viewModel.datamodel.filter(
-                             filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)}
-                        )) { data in
-                            NavigationLink(
-                                destination: Detail(
-                                    eventid: data.eventid,
-                                    whereis: data.whereis,
-                                    detail: data.detail,
-                                    title: data.title,
-                                    dateStrig: data.dateString,
-                                    how: data.how,
-                                    documentinfo: data.eventid,
-                                    username: "",
-                                    usercomment: "",
-                                    bikename: "",
-                                    userid: ""
-                                ), label: {
-                                    RowView(
+                        if viewModel.datamodel.filter({ data in
+                            filterText.isEmpty ? data.title != "" : data.title.contains(filterText)
+                        }).isEmpty {
+                            Text("投稿が見つかりません")
+                                .fontWeight(.black)
+                                .frame(maxHeight: .infinity)
+                                .frame(maxWidth: .infinity)
+                        } else {
+                            ForEach(viewModel.datamodel.filter(
+                                filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)}
+                            )) { data in
+                                NavigationLink(
+                                    destination: Detail(
                                         eventid: data.eventid,
                                         whereis: data.whereis,
                                         detail: data.detail,
                                         title: data.title,
                                         dateStrig: data.dateString,
                                         how: data.how,
-                                        getimages: self.image
-                                    )
-                                }
-                            )
+                                        documentinfo: data.eventid,
+                                        username: "",
+                                        usercomment: "",
+                                        bikename: "",
+                                        userid: ""
+                                    ), label: {
+                                        RowView(
+                                            eventid: data.eventid,
+                                            whereis: data.whereis,
+                                            detail: data.detail,
+                                            title: data.title,
+                                            dateStrig: data.dateString,
+                                            how: data.how,
+                                            getimages: self.image
+                                        )
+                                    }
+                                )
+                            }
+                            .frame(maxWidth: .infinity)
+                            .background(Color.white)
+                            .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                            .edgesIgnoringSafeArea(.top)
+                            // 背景色を透明に設定
                         }
-                        .frame(maxWidth: .infinity)
-                        .background(Color.white)
-                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
-                        .edgesIgnoringSafeArea(.top)
-                        // 背景色を透明に設定
                     }
                 }
                 .navigationBarBackButtonHidden(true)
