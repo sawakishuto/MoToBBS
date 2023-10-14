@@ -1,0 +1,6 @@
+framework module Pods_MoToBBS {
+  umbrella header "Pods-MoToBBS-umbrella.h"
+
+  export *
+  module * { export * }
+}

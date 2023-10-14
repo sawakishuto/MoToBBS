@@ -812,7 +812,6 @@ PODS:
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.3.1)
   - RecaptchaInterop (100.0.0)
-  - SwiftLint (0.53.0)
 
 DEPENDENCIES:
   - Firebase
@@ -820,7 +819,6 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseAuth
   - FirebaseFirestore
-  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -846,7 +844,6 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - RecaptchaInterop
-    - SwiftLint
 
 SPEC CHECKSUMS:
   abseil: 926fb7a82dc6d2b8e1f2ed7f3a718bce691d1e46
@@ -871,8 +868,7 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
-  SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
 
-PODFILE CHECKSUM: 7740dc69f59479728b2ca887669e715be33272e1
+PODFILE CHECKSUM: 03f30fea082dd391648dd8086aab7c10bd158a2e
 
 COCOAPODS: 1.12.1

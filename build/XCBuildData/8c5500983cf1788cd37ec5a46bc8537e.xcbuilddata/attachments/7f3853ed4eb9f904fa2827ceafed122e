@@ -1,0 +1,5 @@
+ extern const unsigned char Pods_MoToBBSTestsVersionString[];
+ extern const double Pods_MoToBBSTestsVersionNumber;
+
+ const unsigned char Pods_MoToBBSTestsVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:Pods_MoToBBSTests  PROJECT:Pods-1" "\n";
+ const double Pods_MoToBBSTestsVersionNumber __attribute__ ((used)) = (double)1.;
