@@ -46,30 +46,36 @@ struct LoginView: View {
                             TextField(mailname, text: $mail)
                                 .frame(height: 60)
                                 .textFieldStyle(PlainTextFieldStyle())
-                                .background(errorhandle ? Color.gray: Color.white)
+                                .background(errorhandle ? Color(red: 0.8, green: 0.8, blue: 0.8): Color.white)
                                 .cornerRadius(10)
                                 .padding()
                             // パスワード
                             SecureField(passname, text: $password)
                                 .frame(height: 60)
                                 .textFieldStyle(PlainTextFieldStyle())
-                                .background(errorhandle ? Color.gray: Color.white)
+                                .background(errorhandle ? Color(red: 0.8, green: 0.8, blue: 0.8): Color.white)
                                 .cornerRadius(10)
                                 .padding()
                             // 認証
                             Button(
                                 action: {
                                     if self.mail.isEmpty {
+                                        mail = ""
+                                        password = ""
                                         self.mailname = " メールアドレスが入力されていません"
                                     } else if self.password.isEmpty {
-                                        self.passname = "パスワードが入力されていません"
+                                        self.passname = " パスワードが入力されていません"
+                                        mail = ""
+                                        password = ""
                                     } else {
                                         Auth.auth().signIn(withEmail: self.mail, password: self.password) { authResult, error in
                                             if authResult?.user != nil {
                                                 allview = true
                                             } else {
                                                 errorhandle = true
-                                                mailname = "　　　メールアドレスまたはパスワードが違います"
+                                                mailname = "　メールアドレスまたはパスワードが違います"
+                                                mail = ""
+                                                password = ""
                                             }
                                         }
                                     }
@@ -103,7 +109,7 @@ struct LoginView: View {
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
 
-                                    TextField("　MotoBBS@gmail.com", text: $mail)
+                                    TextField(mailname, text: $mail)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
                                         .background(Color.white)
@@ -116,7 +122,7 @@ struct LoginView: View {
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
                                     // パスワード
-                                    SecureField("　123456", text: $password)
+                                    SecureField(passname, text: $password)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
                                         .background(Color.white)
@@ -125,11 +131,11 @@ struct LoginView: View {
                                         .padding()
                                 }
                                 VStack(alignment: .leading) {
-                                    Text("氏名")
+                                    Text("ユーザーネーム(変更不可)")
                                         .fontWeight(.heavy)
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                                    TextField("　本山太郎", text: $usersname)
+                                    TextField("タロー,モトさん", text: $usersname)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
                                         .background(Color.white)
@@ -199,11 +205,14 @@ struct LoginView: View {
                                 Button(
                                     action: {
                                         if self.mail.isEmpty {
-                                            self.mail = "　　　　　メールアドレスが未入力です。"
+                                            self.mailname = " メールアドレスが未入力です。"
                                         } else if self.password.isEmpty {
-                                            self.errorMessage = "パスワードが入力されていません"
+                                            self.passname = " パスワードが入力されていません"
                                         } else if(self.showconfine != true) {
-                                            errorMessage = "利用規約に同意していません"} else {
+                                            errorMessage = "利用規約に同意していません"} else if self.password.count < 6{
+                                                    passname = "パスワードが６桁未満です"
+                                                }
+                                        else {
                                             Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
                                                 mail = "エラー"
                                                 viewModel.adduser(
