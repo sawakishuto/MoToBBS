@@ -120,6 +120,10 @@ struct RecruitView: View {
                             username: username,
                             participants: participants
                         )
+                        self.viewModel.GetUserInfoAndSet2(userid: userid,
+                                                                             username: username,
+                                                                             usercomment: usercomment,
+                                                                             bikename: bikename)
 
                         // 指定した処理が完了したらメインスレッドでUI更新を行います
                         DispatchQueue.main.async {
