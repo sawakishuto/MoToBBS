@@ -79,8 +79,15 @@ struct RecruitView: View {
                     showingImagePicker = true
                 } label: {
                     VStack {
-                        Text("写真を選択").fontWeight(.bold).padding(EdgeInsets(top: 20, leading: 0, bottom: 2, trailing: 0))
-                        Text("横向きの写真をお勧めします").opacity(0.7)
+                        Text("写真を選択")
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                            .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
+                            .background(Color.red)
+                            .cornerRadius(30)
+                            .padding(EdgeInsets(top: 20, leading: 0, bottom: 2, trailing: 0))
+                        Text("横向きの写真をお勧めします")
+                            .opacity(0.7)
                     }
                 }.sheet(isPresented: $showingImagePicker) {
                     ImagePicker(image: $inputImage)
@@ -90,25 +97,34 @@ struct RecruitView: View {
                    print(eventid)
 //                  imageui =   self.viewModel.convertToUIImage(images: self.image)
                 }
+                if let inputImage {
+                    Image(uiImage: inputImage)
+                        .resizable()
+                        .scaledToFit()
+                }
                 Button(action: {
                     postState = "投稿中"
                     self.viewModel.UploadImage(inputImage: self.inputImage)
-                    self.viewModel.addDocument(
-                        title: title,
-                        detail: detail,
-                        whereis: whereis,
-                        how: how,
-                        selectionDate: selectionDate,
-                        eventid: eventid,
-                        userid: userid,
-                        username: username,
-                        participants: participants
-                    )
-                    self.viewModel.GetUserInfoAndSet2(userid: userid,
-                                                      username: username,
-                                                      usercomment: usercomment,
-                                                      bikename: bikename)
-                    self.presentation.wrappedValue.dismiss()
+                    // 上記の処理が完了した後に次の処理を実行
+                    DispatchQueue.global().async {
+                        self.viewModel.addDocument(
+                            title: title,
+                            detail: detail,
+                            whereis: whereis,
+                            how: how,
+                            selectionDate: selectionDate,
+                            eventid: eventid,
+                            userid: userid,
+                            username: username,
+                            participants: participants
+                        )
+
+                        // 指定した処理が完了したらメインスレッドでUI更新を行います
+                        DispatchQueue.main.async {
+                            self.presentation.wrappedValue.dismiss()
+                        }
+                    }
+
 //                    self.viewModel.uploadPhoto(eventid: self.eventid,image: imageui)
                 }, label: {Text(postState)}).buttonStyle(AnimationButtonStyle())
             }
