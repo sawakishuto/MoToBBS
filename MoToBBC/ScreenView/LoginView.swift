@@ -29,6 +29,8 @@ struct LoginView: View {
     @State private var andSoOn: Bool = false
     @State private var mailnames: String = "MoToBBS@email.com"
     @State private var passnames: String = "123456"
+    @State private var authState:String = ""
+    @State private var progresState:String = "新規登録"
     var body: some View {
         if loginshow == false {
             if allview == false {
@@ -192,25 +194,28 @@ struct LoginView: View {
                                 }
                                 // 認証
 
-                                    HStack {
-                                        Button("利用規約") {
-                                            self.showsheet = true
-                                        }.foregroundColor(.white)
-                                            .sheet(isPresented: $showsheet) {  TermsOfService()}
-                                        Image(systemName: checkname)
-                                            .onTapGesture {
-                                                self.checkms.toggle()
-                                                self.showconfine.toggle()
-                                                if self.checkms == true {
-                                                    self.checkname = "checkmark.circle.fill"
-                                                } else {
-                                                    self.checkname = "checkmark.circle"
-                                                }
+                                HStack {
+                                    Button("利用規約") {
+                                        self.showsheet = true
+                                    }.foregroundColor(.white)
+                                        .sheet(isPresented: $showsheet) {  TermsOfService()}
+                                    Image(systemName: checkname)
+                                        .onTapGesture {
+                                            self.checkms.toggle()
+                                            self.showconfine.toggle()
+                                            if self.checkms == true {
+                                                self.checkname = "checkmark.circle.fill"
+                                            } else {
+                                                self.checkname = "checkmark.circle"
                                             }
-                                    }
+                                        }
+                                }
                                 if checkerror {Text("利用規約に同意してください。")
                                     .foregroundStyle(.white)}
-
+                                if authState != "" {
+                                    Text("入力された情報が不適切です")
+                                        .foregroundStyle(.white)
+                                }
                                 Button(
                                     action: {
                                         if self.mail.isEmpty {
@@ -220,24 +225,28 @@ struct LoginView: View {
                                         } else if(self.showconfine != true) {
                                             checkerror = true
                                             errorMessage = "利用規約に同意していません"} else if self.password.count < 6{
-                                                    passnames = "パスワードが６桁未満です"
+                                                passnames = "パスワードが６桁未満です"
                                                 password = ""
-                                                }
-                                        else {
-                                            Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
-                                                mail = "エラー"
-                                                viewModel.adduser(
-                                                    usersname: usersname,
-                                                    bikename: bikename,
-                                                    usercomment: usercomment,
-                                                    users: authResult?.user.uid
-                                                )
-
                                             }
-                                                allview = true
+                                        else {
+                                            progresState = "新規登録中"
+                                            Auth.auth().createUser(withEmail: self.mail, password: self.password) { authResult, error in
+                                                if let error = error {
+                                                    authState = "新規登録失敗"
+                                                    progresState = "新規登録"
+                                                } else {
+                                                    viewModel.adduser(
+                                                        usersname: usersname,
+                                                        bikename: bikename,
+                                                        usercomment: usercomment,
+                                                        users: authResult?.user.uid
+                                                    )
+                                                    allview = true
+                                                }
+                                            }
                                         }
                                     }, label: {
-                                        Text("新規登録").frame(width: 200, height: 50) .foregroundColor(.black)
+                                        Text(progresState).frame(width: 200, height: 50) .foregroundColor(.black)
                                             .fontWeight(.bold)
                                             .background(Color(.white))
                                             .cornerRadius(10)
