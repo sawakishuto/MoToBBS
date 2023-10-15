@@ -44,7 +44,6 @@ struct Mypageview: View {
         self.usercomment = usercomment
         self.bikename = bikename
         self.userid = userid
-        self.viewModel.getUser()
     }
 
     var body: some View {
@@ -114,6 +113,9 @@ struct Mypageview: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.white) // 背景色を透明に設定
                     }
+                    .refreshable {
+                        viewModel.getUser()
+                    }
                 }
             }
         }
@@ -123,8 +125,10 @@ struct Mypageview: View {
                 DispatchQueue.main.async {
                     fetchusername = fetchedUsername
                     fetchusercomment = fetchedUsercomment
-                    fetchbikename = fetchedBikename                    }
+                    fetchbikename = fetchedBikename                 
+                }
             }
+            viewModel.getUser()
         }
     }
 }

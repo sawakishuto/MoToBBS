@@ -27,6 +27,7 @@ struct RecruitView: View {
     @State private var image: UIImage?
     @State private var imageui: UIImage?
     @State private var inputImage: UIImage?
+    @State private var postState: String = "投稿"
 
     @State private var showingImagePicker = false
     func loadImage() {
@@ -90,6 +91,8 @@ struct RecruitView: View {
 //                  imageui =   self.viewModel.convertToUIImage(images: self.image)
                 }
                 Button(action: {
+                    postState = "投稿中"
+                    self.viewModel.UploadImage(inputImage: self.inputImage)
                     self.viewModel.addDocument(
                         title: title,
                         detail: detail,
@@ -106,9 +109,8 @@ struct RecruitView: View {
                                                       usercomment: usercomment,
                                                       bikename: bikename)
                     self.presentation.wrappedValue.dismiss()
-                    self.viewModel.UploadImage(inputImage: self.inputImage)
 //                    self.viewModel.uploadPhoto(eventid: self.eventid,image: imageui)
-                }, label: {Text("投稿")}).buttonStyle(AnimationButtonStyle())
+                }, label: {Text(postState)}).buttonStyle(AnimationButtonStyle())
             }
             .padding(EdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0))
             .frame(maxWidth: .infinity)
