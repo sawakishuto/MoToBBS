@@ -3,6 +3,7 @@ import FirebaseAuth
 // swiftlint:disable line_length
 struct LoginView: View {
     @ObservedObject private var viewModel = LoginViewModel()
+    @State private var checkerror: Bool = false
     @State var showsheet = false
     @State var showconfine = false
     @State public var usersname: String = ""
@@ -26,6 +27,8 @@ struct LoginView: View {
     @State private var male: Bool = false
     @State private var female: Bool = false
     @State private var andSoOn: Bool = false
+    @State private var mailnames: String = "MoToBBS@email.com"
+    @State private var passnames: String = "123456"
     var body: some View {
         if loginshow == false {
             if allview == false {
@@ -56,15 +59,16 @@ struct LoginView: View {
                                 .background(errorhandle ? Color(red: 0.8, green: 0.8, blue: 0.8): Color.white)
                                 .cornerRadius(10)
                                 .padding()
+                                .keyboardType(.numberPad)
                             // 認証
                             Button(
                                 action: {
                                     if self.mail.isEmpty {
                                         mail = ""
                                         password = ""
-                                        self.mailname = " メールアドレスが入力されていません"
+                                        self.mailname = "メールアドレスが入力されていません"
                                     } else if self.password.isEmpty {
-                                        self.passname = " パスワードが入力されていません"
+                                        self.passname = "パスワードが入力されていません"
                                         mail = ""
                                         password = ""
                                     } else {
@@ -73,7 +77,7 @@ struct LoginView: View {
                                                 allview = true
                                             } else {
                                                 errorhandle = true
-                                                mailname = "　メールアドレスまたはパスワードが違います"
+                                                mailname = "メールアドレスまたはパスワードが違います"
                                                 mail = ""
                                                 password = ""
                                             }
@@ -109,7 +113,7 @@ struct LoginView: View {
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
 
-                                    TextField(mailname, text: $mail)
+                                    TextField(mailnames, text: $mail)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
                                         .background(Color.white)
@@ -121,8 +125,9 @@ struct LoginView: View {
                                         .fontWeight(.heavy)
                                         .foregroundColor(.white)
                                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+
                                     // パスワード
-                                    SecureField(passname, text: $password)
+                                    SecureField(passnames, text: $password)
                                         .frame(height: 60)
                                         .textFieldStyle(PlainTextFieldStyle())
                                         .background(Color.white)
@@ -186,31 +191,36 @@ struct LoginView: View {
                                     }
                                 }
                                 // 認証
-                                HStack {
-                                    Button("利用規約") {
-                                        self.showsheet = true
-                                    }.foregroundColor(.white)
-                                        .sheet(isPresented: $showsheet) {  TermsOfService()}
-                                    Image(systemName: checkname)
-                                        .onTapGesture {
-                                            self.checkms.toggle()
-                                            self.showconfine.toggle()
-                                            if self.checkms == true {
-                                                self.checkname = "checkmark.circle.fill"
-                                            } else {
-                                                self.checkname = "checkmark.circle"
+
+                                    HStack {
+                                        Button("利用規約") {
+                                            self.showsheet = true
+                                        }.foregroundColor(.white)
+                                            .sheet(isPresented: $showsheet) {  TermsOfService()}
+                                        Image(systemName: checkname)
+                                            .onTapGesture {
+                                                self.checkms.toggle()
+                                                self.showconfine.toggle()
+                                                if self.checkms == true {
+                                                    self.checkname = "checkmark.circle.fill"
+                                                } else {
+                                                    self.checkname = "checkmark.circle"
+                                                }
                                             }
-                                        }
-                                }
+                                    }
+                                if checkerror {Text("利用規約に同意してください。")
+                                    .foregroundStyle(.white)}
+
                                 Button(
                                     action: {
                                         if self.mail.isEmpty {
-                                            self.mailname = " メールアドレスが未入力です。"
+                                            self.mailnames = " メールアドレスが未入力です。"
                                         } else if self.password.isEmpty {
-                                            self.passname = " パスワードが入力されていません"
+                                            self.passnames = " パスワードが入力されていません"
                                         } else if(self.showconfine != true) {
+                                            checkerror = true
                                             errorMessage = "利用規約に同意していません"} else if self.password.count < 6{
-                                                    passname = "パスワードが６桁未満です"
+                                                    passnames = "パスワードが６桁未満です"
                                                 password = ""
                                                 }
                                         else {
