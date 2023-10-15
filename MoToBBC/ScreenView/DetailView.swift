@@ -208,6 +208,8 @@ struct Detail: View {
                                                                 bikename: self.bikename,
                                                                 documentinfo: self.documentinfo
                                                               )
+                                                              dismiss()
+
                                                           }
                                                       }
                                                      )

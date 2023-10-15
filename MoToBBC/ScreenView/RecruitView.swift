@@ -10,6 +10,7 @@ import UIKit
 import PhotosUI
 import FirebaseStorage
 struct RecruitView: View {
+    @State private var postAlert:Bool = false
     @State private var selectionDate = Date()
     @Environment(\.presentationMode) var presentation
     @ObservedObject private var viewModel = ViewModel()
@@ -32,7 +33,7 @@ struct RecruitView: View {
     @State private var showingImagePicker = false
     func loadImage() {
         guard inputImage != nil else {return}
-      }
+    }
     // swiftlint:disable line_length
     var body: some View {
         ScrollView {
@@ -94,45 +95,57 @@ struct RecruitView: View {
                 }// inputImageの変化を監視して変化があればloadImage
                 .onChange(of: inputImage) { newValue in
                     loadImage()
-                   print(eventid)
-//                  imageui =   self.viewModel.convertToUIImage(images: self.image)
+                    print(eventid)
+                    //                  imageui =   self.viewModel.convertToUIImage(images: self.image)
                 }
                 if let inputImage {
                     Image(uiImage: inputImage)
                         .resizable()
                         .scaledToFit()
                 }
-                Button(action: {
-                    postState = "投稿中"
-                    if inputImage != nil{
-                        self.viewModel.UploadImage(inputImage: self.inputImage)
-                    }
-                    // 上記の処理が完了した後に次の処理を実行
-                    DispatchQueue.global().async {
-                        self.viewModel.addDocument(
-                            title: title,
-                            detail: detail,
-                            whereis: whereis,
-                            how: how,
-                            selectionDate: selectionDate,
-                            eventid: eventid,
-                            userid: userid,
-                            username: username,
-                            participants: participants
+                Button(action: {postAlert = true}, label: {Text(postState)})
+                    .buttonStyle(AnimationButtonStyle())
+                    .alert(isPresented: $postAlert, content: {
+                        Alert(
+                            title: Text("この内容で募集しますか？"),
+                            message: Text("内容は変更できません"),
+                            primaryButton: .destructive(Text("いいえ"),
+                                                        action: {}),
+                            secondaryButton: .default(Text("はい"),
+                                                      action: {
+                                                          postState = "投稿中"
+                                                          if inputImage != nil {
+                                                              self.viewModel.UploadImage(inputImage: self.inputImage)
+                                                          }
+                                                          // 上記の処理が完了した後に次の処理を実行
+                                                          DispatchQueue.global().async {
+                                                              self.viewModel.addDocument(
+                                                                title: title,
+                                                                detail: detail,
+                                                                whereis: whereis,
+                                                                how: how,
+                                                                selectionDate: selectionDate,
+                                                                eventid: eventid,
+                                                                userid: userid,
+                                                                username: username,
+                                                                participants: participants
+                                                              )
+                                                              self.viewModel.GetUserInfoAndSet2(
+                                                                userid: userid,
+                                                                username: username,
+                                                                usercomment: usercomment,
+                                                                bikename: bikename
+                                                              )
+
+                                                              // 指定した処理が完了したらメインスレッドでUI更新を行います
+                                                              DispatchQueue.main.async {
+                                                                  self.presentation.wrappedValue.dismiss()
+                                                              }
+                                                          }
+                                                      }
+                                                     )
                         )
-                        self.viewModel.GetUserInfoAndSet2(userid: userid,
-                                                                             username: username,
-                                                                             usercomment: usercomment,
-                                                                             bikename: bikename)
-
-                        // 指定した処理が完了したらメインスレッドでUI更新を行います
-                        DispatchQueue.main.async {
-                            self.presentation.wrappedValue.dismiss()
-                        }
-                    }
-
-//                    self.viewModel.uploadPhoto(eventid: self.eventid,image: imageui)
-                }, label: {Text(postState)}).buttonStyle(AnimationButtonStyle())
+                    })
             }
             .padding(EdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0))
             .frame(maxWidth: .infinity)
