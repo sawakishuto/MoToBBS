@@ -1,8 +1,15 @@
 import SwiftUI
 import FirebaseAuth
+import CoreData
 // swiftlint:disable line_length
 struct LoginView: View {
     @ObservedObject private var viewModel = LoginViewModel()
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        entity: LoginInfo.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "pass", ascending: false)],
+        animation: .default
+    ) var fetchedInfo: FetchedResults<LoginInfo>
     @State private var checkerror: Bool = false
     @State var showsheet = false
     @State var showconfine = false
@@ -31,6 +38,8 @@ struct LoginView: View {
     @State private var passnames: String = "123456"
     @State private var authState:String = ""
     @State private var progresState:String = "新規登録"
+
+
     var body: some View {
         if loginshow == false {
             if allview == false {
@@ -48,6 +57,7 @@ struct LoginView: View {
                         // メールアドレス
                         VStack {
                             Image("image 3").padding(EdgeInsets(top: -200, leading: 0, bottom: 5, trailing: 0))
+
                             TextField(mailname, text: $mail)
                                 .frame(height: 60)
                                 .textFieldStyle(PlainTextFieldStyle())
@@ -100,7 +110,12 @@ struct LoginView: View {
                                     logingo = false
                                 }
                         }
+                        .onAppear {
+                            mail = fetchedInfo.first?.mail ?? ""
+                            password = fetchedInfo.first?.pass ?? ""
+                        }
                     }
+
                 }
                 else if(logingo == false) {
                     ZStack {
@@ -241,6 +256,7 @@ struct LoginView: View {
                                                         usercomment: usercomment,
                                                         users: authResult?.user.uid
                                                     )
+                                                    addLoginInfo(mail: mail, pass: password)
                                                     allview = true
                                                 }
                                             }
@@ -266,6 +282,17 @@ struct LoginView: View {
                 HomeView()
             }
         }
+    }
+    private func addLoginInfo(mail: String, pass: String) {
+        let info = LoginInfo(context: viewContext)
+        info.mail = mail
+        info.pass = pass
+        info.createdAt = Date()
+        try? viewContext.save()
+        print("保存成功")
+        print(mail)
+        print(pass)
+
     }
 }
 

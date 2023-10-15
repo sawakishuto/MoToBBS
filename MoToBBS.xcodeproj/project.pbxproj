@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0816E70E2ADBEC3F00E170CA /* LoginInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0816E70C2ADBEC3F00E170CA /* LoginInfo.xcdatamodeld */; };
+		0816E7132ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */; };
+		0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */; };
+		0816E7162ADBEEEE00E170CA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7152ADBEEEE00E170CA /* Persistence.swift */; };
 		0859B87129F01F1D00A0B928 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86929F01F1D00A0B928 /* EventListView.swift */; };
 		0859B87229F01F1D00A0B928 /* MoToBBCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */; };
 		0859B87329F01F1D00A0B928 /* DataViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */; };
@@ -66,6 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0816E70D2ADBEC3F00E170CA /* LoginInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoginInfo.xcdatamodel; sourceTree = "<group>"; };
+		0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0816E7152ADBEEEE00E170CA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0859B86929F01F1D00A0B928 /* EventListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoToBBCApp.swift; sourceTree = "<group>"; };
 		0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewmodel.swift; sourceTree = "<group>"; };
@@ -136,9 +144,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0816E7172ADBF12600E170CA /* Coredata */ = {
+			isa = PBXGroup;
+			children = (
+				0816E70C2ADBEC3F00E170CA /* LoginInfo.xcdatamodeld */,
+				0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */,
+				0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */,
+				0816E7152ADBEEEE00E170CA /* Persistence.swift */,
+			);
+			path = Coredata;
+			sourceTree = "<group>";
+		};
 		0859B86829F01F1D00A0B928 /* MoToBBC */ = {
 			isa = PBXGroup;
 			children = (
+				0816E7172ADBF12600E170CA /* Coredata */,
 				0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */,
 				0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */,
 				089A7EFC2AA7061D00D18D2E /* Models */,
@@ -415,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0816E7132ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift in Sources */,
 				089A7F012AA707A500D18D2E /* JoinListSlide.swift in Sources */,
 				08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */,
 				08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */,
@@ -423,6 +444,7 @@
 				08D1115E29F9783C00561414 /* MypageView.swift in Sources */,
 				0859B87329F01F1D00A0B928 /* DataViewmodel.swift in Sources */,
 				0859B87B29F0DC4400A0B928 /* RowView.swift in Sources */,
+				0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */,
 				08CA67E52A132187006909B8 /* MytoringView.swift in Sources */,
 				0859B87229F01F1D00A0B928 /* MoToBBCApp.swift in Sources */,
 				08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */,
@@ -432,6 +454,8 @@
 				08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */,
 				08D1115C29F91C1400561414 /* RecruitView.swift in Sources */,
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
+				0816E7162ADBEEEE00E170CA /* Persistence.swift in Sources */,
+				0816E70E2ADBEC3F00E170CA /* LoginInfo.xcdatamodeld in Sources */,
 				08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */,
 				0859B87129F01F1D00A0B928 /* EventListView.swift in Sources */,
 				08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */,
@@ -866,6 +890,19 @@
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		0816E70C2ADBEC3F00E170CA /* LoginInfo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0816E70D2ADBEC3F00E170CA /* LoginInfo.xcdatamodel */,
+			);
+			currentVersion = 0816E70D2ADBEC3F00E170CA /* LoginInfo.xcdatamodel */;
+			path = LoginInfo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 086A33D329EF851200CD78BF /* Project object */;
 }
