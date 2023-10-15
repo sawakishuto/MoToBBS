@@ -104,7 +104,9 @@ struct RecruitView: View {
                 }
                 Button(action: {
                     postState = "投稿中"
-                    self.viewModel.UploadImage(inputImage: self.inputImage)
+                    if inputImage != nil{
+                        self.viewModel.UploadImage(inputImage: self.inputImage)
+                    }
                     // 上記の処理が完了した後に次の処理を実行
                     DispatchQueue.global().async {
                         self.viewModel.addDocument(
