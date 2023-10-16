@@ -117,6 +117,11 @@ struct Mypageview: View {
                         viewModel.getUser()
                     }
                 }
+                NavigationLink {
+                    
+                } label: {
+                    Text("アカウント設定")
+                }
             }
         }
         .onAppear {

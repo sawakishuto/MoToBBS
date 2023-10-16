@@ -46,6 +46,7 @@
 		08D1116229FA299E00561414 /* JoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1116129FA299E00561414 /* JoinListView.swift */; };
 		08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D27C692A3225D400BB28BD /* ProfileSetView.swift */; };
 		08D7679A2ADD26F60006A7F6 /* AttendList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D767992ADD26F30006A7F6 /* AttendList+CoreDataProperties.swift */; };
+		08D7679E2ADDEFA00006A7F6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7679D2ADDEFA00006A7F6 /* SettingView.swift */; };
 		08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7998A2AD65D5E000371AE /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MoToBBS-Info.plist"; sourceTree = "<group>"; };
 		08D27C692A3225D400BB28BD /* ProfileSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetView.swift; sourceTree = "<group>"; };
 		08D767992ADD26F30006A7F6 /* AttendList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		08D7679D2ADDEFA00006A7F6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		08D7998A2AD65D5E000371AE /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,6 +228,7 @@
 				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
 				08B494B529F4E03B007EC5DF /* LoginView.swift */,
 				08D1115D29F9783C00561414 /* MypageView.swift */,
+				08D7679D2ADDEFA00006A7F6 /* SettingView.swift */,
 				08B494B329F2A78D007EC5DF /* DetailView.swift */,
 				08D7998A2AD65D5E000371AE /* EmptyView.swift */,
 				08D1115F29F98D0100561414 /* HomeView.swift */,
@@ -447,6 +450,7 @@
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
 				0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */,
 				0816E70E2ADBEC3F00E170CA /* LoginInfo.xcdatamodeld in Sources */,
+				08D7679E2ADDEFA00006A7F6 /* SettingView.swift in Sources */,
 				08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */,
 				0859B87129F01F1D00A0B928 /* EventListView.swift in Sources */,
 				08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */,
