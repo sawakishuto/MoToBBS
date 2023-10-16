@@ -11,7 +11,6 @@ import CoreData
 
 struct PersistenceController {
     static let shared = PersistenceController()
-
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
@@ -19,7 +18,6 @@ struct PersistenceController {
         let newLoginInfo = LoginInfo(context: viewContext)
         newLoginInfo.mail = ""
         newLoginInfo.pass = ""
-        newLoginInfo.attendId = ""
         do {
             try viewContext.save()
         } catch {
@@ -33,7 +31,7 @@ struct PersistenceController {
 
     init(inMemory: Bool = false) {
         // MARK: 下1行はEntityの設定によって違う
-        container = NSPersistentContainer(name: "AttendList")
+        container = NSPersistentContainer(name: "LoginInfo")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

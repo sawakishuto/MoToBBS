@@ -16,7 +16,7 @@ import UIKit
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
 class ViewModel: ObservableObject {
-
+    @Published var attendList: [String] = []
     @Published var image: Image?
     var arrayData: [String] = []
     @Published var images: Image?

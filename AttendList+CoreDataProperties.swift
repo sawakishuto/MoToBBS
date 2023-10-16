@@ -16,7 +16,7 @@ extension AttendList {
         return NSFetchRequest<AttendList>(entityName: "AttendList")
     }
 
-    @NSManaged public var attendList: String?
+    @NSManaged public var attendId: String?
 
 }
 

@@ -8,11 +8,10 @@ import Foundation
 
 import CoreData
 struct PersistenceControllerattend {
-    static let shared = PersistenceController()
-
-    static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
-        let viewContext = result.container.viewContext
+    static let shared = PersistenceControllerattend()
+    static var preview: PersistenceControllerattend = {
+        let result = PersistenceControllerattend(inMemory: true)
+        let viewContext = result.containers.viewContext
         // MARK: 下2行はEntityの設定によって違う
         let newAttendList = AttendList(context: viewContext)
         newAttendList.attendId = ""
@@ -25,19 +24,19 @@ struct PersistenceControllerattend {
         return result
     }()
 
-    let container: NSPersistentContainer
+    let containers: NSPersistentContainer
 
     init(inMemory: Bool = false) {
         // MARK: 下1行はEntityの設定によって違う
-        container = NSPersistentContainer(name: "LoginInfo")
+        containers = NSPersistentContainer(name: "AttendList")
         if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+            containers.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
-        container.loadPersistentStores(completionHandler: { _, error in
+        containers.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        container.viewContext.automaticallyMergesChangesFromParent = true
+        containers.viewContext.automaticallyMergesChangesFromParent = true
     }
 }

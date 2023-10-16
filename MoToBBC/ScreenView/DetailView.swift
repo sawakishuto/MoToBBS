@@ -9,17 +9,17 @@ import SwiftUI
 import FirebaseFirestore
 import Firebase
 import FirebaseAuth
+import CoreData
 
 struct Detail: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
-        entity: LoginInfo.entity(),
+        entity: AttendList.entity(),
         sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
         animation: .default
-    ) var fetchedInfo: FetchedResults<LoginInfo>
+    ) var fetchedInfom: FetchedResults<AttendList>
     // swiftlint:disable line_length
     @Environment(\.dismiss) var dismiss
-    @State var attendList: [String] = []
     @State  var image: UIImage? = nil
     @State private var userInfoArray: [[String]] = []
     @State var isGood = false
@@ -87,7 +87,9 @@ struct Detail: View {
                             .opacity(0.5)
                             .padding(.horizontal, 3)
                             .padding(.bottom, 10)
-
+                        ForEach(fetchedInfom) { events in
+                            Text(events.attendId ?? "nasi")
+                        }
                         Spacer()
                         VStack(alignment: .leading, spacing: 5) {
                             HStack {
@@ -190,7 +192,7 @@ struct Detail: View {
                 .frame(height: 150)
                 .padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing: 0))
                 Spacer()
-                if attendList.contains(eventid) {
+                if viewModel.attendList.contains(eventid) {
                     Text("エントリー済み")
                         .fontWeight(.bold)
                         .frame(width: 190, height: 60)
@@ -216,7 +218,7 @@ struct Detail: View {
                                                               isgo = true
                                                               if isgo == true {
                                                                   messa = "エントリー完了"
-                                                                  addLoginInfo(attendId: eventid)
+                                                                  addAttendId(attendId: eventid)
                                                                   self.viewModel.addAttend(eventid: eventid)
                                                                   self.viewModel.GetUserInfoAndSet(
                                                                     userid: self.userid,
@@ -266,20 +268,26 @@ struct Detail: View {
             fetchedAttendId()
         }
     }
-    private func addLoginInfo(attendId: String) {
-        let info = LoginInfo(context: viewContext)
+    private func addAttendId(attendId: String) {
+        let info = AttendList(context: viewContext)
         info.attendId = eventid
         try? viewContext.save()
         print("保存成功")
 
     }
     private func fetchedAttendId() {
-        for value in fetchedInfo{
-            attendList.append(value.attendId ?? "None")
+        if fetchedInfom.isEmpty {
+            return
+        } else {
+            for value in fetchedInfom{
+                viewModel.attendList.append(value.attendId ?? "None")
+            }
         }
     }
 }
 struct Detail_Previews: PreviewProvider {
     static var previews: some View {
-        Detail(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "", documentinfo: "", username: "", usercomment: "", bikename: "", userid: "")}
+        Detail(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "", documentinfo: "", username: "", usercomment: "", bikename: "", userid: "")
+            .environment(\.managedObjectContext, PersistenceControllerattend.preview.containers.viewContext)
+    }
 }

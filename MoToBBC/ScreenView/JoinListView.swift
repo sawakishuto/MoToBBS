@@ -63,5 +63,6 @@ struct JoinListView: View {
 struct JoinListView_Previews: PreviewProvider {
     static var previews: some View {
         JoinListView()
+           
     }
 }

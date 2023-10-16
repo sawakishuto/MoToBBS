@@ -6,21 +6,21 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct JoinListCard: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var userInfoArray: [[String]] = []
     @FetchRequest(
-        entity: LoginInfo.entity(),
+        entity: AttendList.entity(),
         sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
         animation: .default
-    ) var fetchedInfo: FetchedResults<LoginInfo>
+    ) var fetchedInfom: FetchedResults<AttendList>
     @State private var isShowSelect = false
     @ObservedObject private var viewModel = ViewModel()
     @State var events: [Events] = []
     @State var alerttitle = "タイトル"
     @State var alertmessage = "メッセ"
-    @Binding var attendList: [String]
     var colorState: Color {
         switch (Int(self.how) ?? 0) - self.userInfoArray.count {
         case 0 ... 2:
@@ -35,19 +35,20 @@ struct JoinListCard: View {
     let title: String
     let dateString: String
     let how: String
-    init(eventid: String,
+    init(
+        eventid: String,
          whereis: String,
          detail: String,
          title: String,
          dateStrig: String,
-         how: String) {
+         how: String
+    ){
         self.eventid = eventid
         self.whereis = whereis
         self.detail = detail
         self.title = title
         self.dateString = dateStrig
         self.how = how
-
     }
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -177,6 +178,7 @@ struct JoinListCard: View {
                     alerttitle = "ツーリング終了"
                     alertmessage = "ツーリングを終了します。お疲れ様でした。"
                     isShowSelect.toggle()
+                    deleteAttend(eventid: eventid)
                     self.viewModel.deleteEvent(eventid: eventid)
                     self.viewModel.findAndDeleteAttendee(documentInfo: eventid)
                     self.viewModel.fetchJoinedData { (events) in
@@ -192,6 +194,7 @@ struct JoinListCard: View {
                 .onTapGesture {
                     alerttitle = "キャンセル"
                     alertmessage = "ツーリングをキャンセルしました。"
+                    deleteAttend(eventid: eventid)
                     self.viewModel.findAndDeleteAttendee(documentInfo: eventid)
                     isShowSelect.toggle()
                     self.viewModel.deleteEvent(eventid: eventid)
@@ -210,15 +213,19 @@ struct JoinListCard: View {
         }
     }
     private func deleteAttend(eventid: String) {
-        if attendList.contains(eventid) {
-            let fetchRequest: NSFetchRequest<LoginInfo> = ToDoItem.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "title == %@", "削除したいアイテムのタイトル")
-            try? viewContext.save()
-        } else {
-            return
+        let fetchRequest: NSFetchRequest<AttendList> = AttendList.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "attendId == %@", eventid)
+            do{
+                let items = try viewContext.fetch(fetchRequest)
+                for item in items {
+                            viewContext.delete(item)
+                        }
+                try? viewContext.save()
+            } catch {
+                print("失敗")
+            }
         }
     }
-}
 
 struct JoinListCard_Previews: PreviewProvider {
     static var previews: some View {
@@ -228,6 +235,7 @@ struct JoinListCard_Previews: PreviewProvider {
             detail: "今日は誰でも歓迎ですあああああああああああああああ",
             title: "誰でもツーリング",
             dateStrig: "Date()",
-            how: "11")
+            how: "11"
+        )
     }
 }

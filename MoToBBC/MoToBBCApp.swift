@@ -20,14 +20,19 @@ func application(_ application: UIApplication,
 struct MoToBBCApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @Environment(\.scenePhase) private var scenePhase
-    private let persistence = PersistenceController.shared
+
     init() {
         FirebaseApp.configure()
     }
     var body: some Scene {
         WindowGroup {
          LoginView()
-                .environment(\.managedObjectContext, persistence.container.viewContext)
+                .environment(\.managedObjectContext, PersistenceControllerattend.shared.containers.viewContext)
+                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+
+
+
+
         }
     }
 }
