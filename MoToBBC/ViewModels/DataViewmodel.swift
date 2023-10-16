@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 import SwiftUI
+import FirebaseDatabase
 import UIKit
 // swiftlint:disable type_body_length
 // swiftlint:disable line_length
@@ -534,6 +535,28 @@ class ViewModel: ObservableObject {
                 print("don't install")
             }
         }
+
+    }
+    func deleteAccount(userid: String) {
+        let ref = Database.database().reference()
+        DispatchQueue.global().async {
+            self.db.collection("User").document(self.user!.uid).delete()
+            self.db.collection("Attend").document(self.user!.uid).delete()
+            self.db.collection("AttendList").document(self.user!.uid).delete()
+            self.db.collection("Event").document(self.user!.uid).delete()
+        }
+        DispatchQueue.main.async {
+            if let authUser = self.user {
+                authUser.delete { error in
+                    if let error = error {
+                        print("削除に失敗")
+                    } else {
+                        print("削除完了")
+                    }
+                }
+            }
+        }
+
 
     }
 }
