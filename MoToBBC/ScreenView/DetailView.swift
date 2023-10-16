@@ -11,8 +11,15 @@ import Firebase
 import FirebaseAuth
 
 struct Detail: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        entity: LoginInfo.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
+        animation: .default
+    ) var fetchedInfo: FetchedResults<LoginInfo>
     // swiftlint:disable line_length
     @Environment(\.dismiss) var dismiss
+    @State var attendList: [String] = []
     @State  var image: UIImage? = nil
     @State private var userInfoArray: [[String]] = []
     @State var isGood = false
@@ -183,38 +190,49 @@ struct Detail: View {
                 .frame(height: 150)
                 .padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing: 0))
                 Spacer()
-                Text(messa)
-                    .fontWeight(.bold)
-                    .frame(width: 190, height: 60)
-                    .background(Capsule().fill(Color.red))
-                    .shadow(color: .gray, radius: 3, x: 3, y: 3)
-                    .padding(EdgeInsets(top: 0, leading: 18, bottom: 20, trailing: 0))
-                    .onTapGesture { goodAlert = true }
-                    .alert(isPresented: $goodAlert, content: {
-                        Alert(
-                            title: Text("このイベントに参加しますか？"),
-                            message: Text(""),
-                            primaryButton: .destructive(Text("いいえ"),
-                                                        action: {isgo = false}),
-                            secondaryButton: .default(Text("はい"),
-                                                      action: {isgo = true
-                                                          if isgo == true {
-                                                              messa = "エントリー完了"
-                                                              self.viewModel.addAttend(eventid: eventid)
-                                                              self.viewModel.GetUserInfoAndSet(
-                                                                userid: self.userid,
-                                                                username: self.username,
-                                                                usercomment: self.usercomment,
-                                                                bikename: self.bikename,
-                                                                documentinfo: self.documentinfo
-                                                              )
-                                                              dismiss()
+                if attendList.contains(eventid) {
+                    Text("エントリー済み")
+                        .fontWeight(.bold)
+                        .frame(width: 190, height: 60)
+                        .background(Capsule().fill(Color.gray))
+                        .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                        .padding(EdgeInsets(top: 0, leading: 18, bottom: 20, trailing: 0))
+                } else {
+                    Text(messa)
+                        .fontWeight(.bold)
+                        .frame(width: 190, height: 60)
+                        .background(Capsule().fill(Color.red))
+                        .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                        .padding(EdgeInsets(top: 0, leading: 18, bottom: 20, trailing: 0))
+                        .onTapGesture { goodAlert = true }
+                        .alert(isPresented: $goodAlert, content: {
+                            Alert(
+                                title: Text("このイベントに参加しますか？"),
+                                message: Text(""),
+                                primaryButton: .destructive(Text("いいえ"),
+                                                            action: {isgo = false}),
+                                secondaryButton: .default(Text("はい"),
+                                                          action: {
+                                                              isgo = true
+                                                              if isgo == true {
+                                                                  messa = "エントリー完了"
+                                                                  addLoginInfo(attendId: eventid)
+                                                                  self.viewModel.addAttend(eventid: eventid)
+                                                                  self.viewModel.GetUserInfoAndSet(
+                                                                    userid: self.userid,
+                                                                    username: self.username,
+                                                                    usercomment: self.usercomment,
+                                                                    bikename: self.bikename,
+                                                                    documentinfo: self.documentinfo
+                                                                  )
+                                                                  dismiss()
 
+                                                              }
                                                           }
-                                                      }
-                                                     )
-                        )
-                    })
+                                                         )
+                            )
+                        })
+                }
 
             }
         }
@@ -245,6 +263,19 @@ struct Detail: View {
                     print("画像の取得に失敗しました")
                 }
             }
+            fetchedAttendId()
+        }
+    }
+    private func addLoginInfo(attendId: String) {
+        let info = LoginInfo(context: viewContext)
+        info.attendId = eventid
+        try? viewContext.save()
+        print("保存成功")
+
+    }
+    private func fetchedAttendId() {
+        for value in fetchedInfo{
+            attendList.append(value.attendId ?? "None")
         }
     }
 }

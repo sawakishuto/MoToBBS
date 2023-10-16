@@ -18,7 +18,7 @@ extension LoginInfo {
 
     @NSManaged public var mail: String?
     @NSManaged public var pass: String?
-    @NSManaged public var createdAt: Date?
+    @NSManaged public var attendId: String?
 
 }
 

@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct JoinListCard: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @State private var userInfoArray: [[String]] = []
+    @FetchRequest(
+        entity: LoginInfo.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
+        animation: .default
+    ) var fetchedInfo: FetchedResults<LoginInfo>
     @State private var isShowSelect = false
     @ObservedObject private var viewModel = ViewModel()
     @State var events: [Events] = []
     @State var alerttitle = "タイトル"
     @State var alertmessage = "メッセ"
+    @Binding var attendList: [String]
     var colorState: Color {
         switch (Int(self.how) ?? 0) - self.userInfoArray.count {
         case 0 ... 2:
@@ -200,6 +207,15 @@ struct JoinListCard: View {
         }
         .alert(isPresented: $isShowSelect) {
             Alert(title: Text(alerttitle), message: Text(alertmessage))
+        }
+    }
+    private func deleteAttend(eventid: String) {
+        if attendList.contains(eventid) {
+            let fetchRequest: NSFetchRequest<LoginInfo> = ToDoItem.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "title == %@", "削除したいアイテムのタイトル")
+            try? viewContext.save()
+        } else {
+            return
         }
     }
 }

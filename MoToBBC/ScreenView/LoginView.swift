@@ -250,14 +250,19 @@ struct LoginView: View {
                                                     authState = "新規登録失敗"
                                                     progresState = "新規登録"
                                                 } else {
-                                                    viewModel.adduser(
-                                                        usersname: usersname,
-                                                        bikename: bikename,
-                                                        usercomment: usercomment,
-                                                        users: authResult?.user.uid
-                                                    )
-                                                    addLoginInfo(mail: mail, pass: password)
-                                                    allview = true
+                                                    DispatchQueue.global().async {
+                                                        addLoginInfo(mail: mail, pass: password)
+                                                        viewModel.adduser(
+                                                            usersname: usersname,
+                                                            bikename: bikename,
+                                                            usercomment: usercomment,
+                                                            users: authResult?.user.uid
+                                                        )
+                                                    }
+                                                    DispatchQueue.main.async {
+                                                        allview = true
+                                                    }
+
                                                 }
                                             }
                                         }
@@ -287,7 +292,6 @@ struct LoginView: View {
         let info = LoginInfo(context: viewContext)
         info.mail = mail
         info.pass = pass
-        info.createdAt = Date()
         try? viewContext.save()
         print("保存成功")
         print(mail)
