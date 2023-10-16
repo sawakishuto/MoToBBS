@@ -18,6 +18,8 @@ struct PersistenceController {
         let newLoginInfo = LoginInfo(context: viewContext)
         newLoginInfo.mail = ""
         newLoginInfo.pass = ""
+        let newAttendList = AttendList(context: viewContext)
+        newAttendList.attendId = ""
         do {
             try viewContext.save()
         } catch {

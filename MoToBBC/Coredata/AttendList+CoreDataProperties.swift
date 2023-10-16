@@ -19,7 +19,3 @@ extension AttendList {
     @NSManaged public var attendId: String?
 
 }
-
-extension AttendList : Identifiable {
-
-}

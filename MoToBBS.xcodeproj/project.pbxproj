@@ -11,10 +11,6 @@
 		0816E7132ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */; };
 		0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */; };
 		0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7152ADBEEEE00E170CA /* PersistenceLogin.swift */; };
-		0816E7202ADCF03F00E170CA /* PersistanceAttend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E71F2ADCF03F00E170CA /* PersistanceAttend.swift */; };
-		0816E7252ADD0B4800E170CA /* AttendList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7232ADD0B4800E170CA /* AttendList.xcdatamodeld */; };
-		0816E7282ADD0EB600E170CA /* AttendList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7262ADD0EB600E170CA /* AttendList+CoreDataClass.swift */; };
-		0816E7292ADD0EB600E170CA /* AttendList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7272ADD0EB600E170CA /* AttendList+CoreDataProperties.swift */; };
 		0816E72B2ADD16B100E170CA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0816E72A2ADD16B100E170CA /* FirebaseAuth */; };
 		0816E72D2ADD16B100E170CA /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0816E72C2ADD16B100E170CA /* FirebaseAuthCombine-Community */; };
 		0816E72F2ADD16B100E170CA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0816E72E2ADD16B100E170CA /* FirebaseDatabase */; };
@@ -49,6 +45,7 @@
 		08D1116029F98D0100561414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115F29F98D0100561414 /* HomeView.swift */; };
 		08D1116229FA299E00561414 /* JoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1116129FA299E00561414 /* JoinListView.swift */; };
 		08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D27C692A3225D400BB28BD /* ProfileSetView.swift */; };
+		08D7679A2ADD26F60006A7F6 /* AttendList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D767992ADD26F30006A7F6 /* AttendList+CoreDataProperties.swift */; };
 		08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7998A2AD65D5E000371AE /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,10 +71,6 @@
 		0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0816E7152ADBEEEE00E170CA /* PersistenceLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLogin.swift; sourceTree = "<group>"; };
-		0816E71F2ADCF03F00E170CA /* PersistanceAttend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceAttend.swift; sourceTree = "<group>"; };
-		0816E7242ADD0B4800E170CA /* AttendList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AttendList.xcdatamodel; sourceTree = "<group>"; };
-		0816E7262ADD0EB600E170CA /* AttendList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AttendList+CoreDataClass.swift"; path = "../../AttendList+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0816E7272ADD0EB600E170CA /* AttendList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AttendList+CoreDataProperties.swift"; path = "../../AttendList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0859B86929F01F1D00A0B928 /* EventListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoToBBCApp.swift; sourceTree = "<group>"; };
 		0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewmodel.swift; sourceTree = "<group>"; };
@@ -107,6 +100,7 @@
 		08D1116129FA299E00561414 /* JoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListView.swift; sourceTree = "<group>"; };
 		08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MoToBBS-Info.plist"; sourceTree = "<group>"; };
 		08D27C692A3225D400BB28BD /* ProfileSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetView.swift; sourceTree = "<group>"; };
+		08D767992ADD26F30006A7F6 /* AttendList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		08D7998A2AD65D5E000371AE /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,12 +143,9 @@
 			children = (
 				0816E70C2ADBEC3F00E170CA /* LoginInfo.xcdatamodeld */,
 				0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */,
+				08D767992ADD26F30006A7F6 /* AttendList+CoreDataProperties.swift */,
 				0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */,
 				0816E7152ADBEEEE00E170CA /* PersistenceLogin.swift */,
-				0816E7232ADD0B4800E170CA /* AttendList.xcdatamodeld */,
-				0816E7262ADD0EB600E170CA /* AttendList+CoreDataClass.swift */,
-				0816E7272ADD0EB600E170CA /* AttendList+CoreDataProperties.swift */,
-				0816E71F2ADCF03F00E170CA /* PersistanceAttend.swift */,
 			);
 			path = Coredata;
 			sourceTree = "<group>";
@@ -441,9 +432,6 @@
 				08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */,
 				08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */,
 				08AE7F9F29FC09400073D37E /* Models.swift in Sources */,
-				0816E7292ADD0EB600E170CA /* AttendList+CoreDataProperties.swift in Sources */,
-				0816E7252ADD0B4800E170CA /* AttendList.xcdatamodeld in Sources */,
-				0816E7282ADD0EB600E170CA /* AttendList+CoreDataClass.swift in Sources */,
 				08D1115E29F9783C00561414 /* MypageView.swift in Sources */,
 				0859B87329F01F1D00A0B928 /* DataViewmodel.swift in Sources */,
 				0859B87B29F0DC4400A0B928 /* RowView.swift in Sources */,
@@ -455,11 +443,11 @@
 				08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */,
 				08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */,
 				08D1115C29F91C1400561414 /* RecruitView.swift in Sources */,
+				08D7679A2ADD26F60006A7F6 /* AttendList+CoreDataProperties.swift in Sources */,
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
 				0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */,
 				0816E70E2ADBEC3F00E170CA /* LoginInfo.xcdatamodeld in Sources */,
 				08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */,
-				0816E7202ADCF03F00E170CA /* PersistanceAttend.swift in Sources */,
 				0859B87129F01F1D00A0B928 /* EventListView.swift in Sources */,
 				08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */,
 				08B8E2E02A3B71CD00A0DFA2 /* JoinPersonList.swift in Sources */,
@@ -887,16 +875,6 @@
 			);
 			currentVersion = 0816E70D2ADBEC3F00E170CA /* LoginInfo.xcdatamodel */;
 			path = LoginInfo.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		0816E7232ADD0B4800E170CA /* AttendList.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0816E7242ADD0B4800E170CA /* AttendList.xcdatamodel */,
-			);
-			currentVersion = 0816E7242ADD0B4800E170CA /* AttendList.xcdatamodel */;
-			path = AttendList.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

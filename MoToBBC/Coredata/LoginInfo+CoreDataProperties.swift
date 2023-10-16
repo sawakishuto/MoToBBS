@@ -21,6 +21,3 @@ extension LoginInfo {
 
 }
 
-extension LoginInfo : Identifiable {
-
-}

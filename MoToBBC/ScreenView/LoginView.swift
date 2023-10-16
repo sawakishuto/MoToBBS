@@ -4,12 +4,12 @@ import CoreData
 // swiftlint:disable line_length
 struct LoginView: View {
     @ObservedObject private var viewModel = LoginViewModel()
-//    @Environment(\.managedObjectContext) private var viewContext
-//    @FetchRequest(
-//        entity: LoginInfo.entity(),
-//        sortDescriptors: [NSSortDescriptor(key: "pass", ascending: false)],
-//        animation: .default
-//    ) var fetchedInfo: FetchedResults<LoginInfo>
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        entity: LoginInfo.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "pass", ascending: false)],
+        animation: .default
+    ) var fetchedInfo: FetchedResults<LoginInfo>
     @State private var checkerror: Bool = false
     @State var showsheet = false
     @State var showconfine = false
@@ -111,8 +111,8 @@ struct LoginView: View {
                                 }
                         }
                         .onAppear {
-//                            mail = fetchedInfo.first?.mail ?? ""
-//                            password = fetchedInfo.first?.pass ?? ""
+                            mail = fetchedInfo.first?.mail ?? ""
+                            password = fetchedInfo.first?.pass ?? ""
                         }
                     }
 
@@ -288,16 +288,16 @@ struct LoginView: View {
             }
         }
     }
-//    private func addLoginInfo(mail: String, pass: String) {
-//        let info = LoginInfo(context: viewContext)
-//        info.mail = mail
-//        info.pass = pass
-//        try? viewContext.save()
-//        print("保存成功")
-//        print(mail)
-//        print(pass)
-//
-//    }
+    private func addLoginInfo(mail: String, pass: String) {
+        let info = LoginInfo(context: viewContext)
+        info.mail = mail
+        info.pass = pass
+        try? viewContext.save()
+        print("保存成功")
+        print(mail)
+        print(pass)
+
+    }
 }
 
 struct Loginview_Previews: PreviewProvider {

@@ -13,3 +13,7 @@ import CoreData
 public class LoginInfo: NSManagedObject {
 
 }
+@objc(AttendList)
+public class AttendList: NSManagedObject {
+
+}

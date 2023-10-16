@@ -87,9 +87,6 @@ struct Detail: View {
                             .opacity(0.5)
                             .padding(.horizontal, 3)
                             .padding(.bottom, 10)
-                        ForEach(fetchedInfom) { events in
-                            Text(events.attendId ?? "nasi")
-                        }
                         Spacer()
                         VStack(alignment: .leading, spacing: 5) {
                             HStack {
@@ -279,7 +276,7 @@ struct Detail: View {
         if fetchedInfom.isEmpty {
             return
         } else {
-            for value in fetchedInfom{
+            for value in fetchedInfom {
                 viewModel.attendList.append(value.attendId ?? "None")
             }
         }
@@ -288,6 +285,5 @@ struct Detail: View {
 struct Detail_Previews: PreviewProvider {
     static var previews: some View {
         Detail(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "", documentinfo: "", username: "", usercomment: "", bikename: "", userid: "")
-            .environment(\.managedObjectContext, PersistenceControllerattend.preview.containers.viewContext)
     }
 }
