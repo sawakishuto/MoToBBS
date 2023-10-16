@@ -33,7 +33,7 @@ struct PersistenceController {
 
     init(inMemory: Bool = false) {
         // MARK: 下1行はEntityの設定によって違う
-        container = NSPersistentContainer(name: "LoginInfo")
+        container = NSPersistentContainer(name: "AttendList")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
