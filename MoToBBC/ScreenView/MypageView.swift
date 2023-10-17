@@ -117,10 +117,12 @@ struct Mypageview: View {
                         viewModel.getUser()
                     }
                 }
+                Divider()
                 NavigationLink {
                     SettingView()
                 } label: {
                     Text("アカウント設定")
+                        .padding(.bottom, 30)
                 }
             }
         }

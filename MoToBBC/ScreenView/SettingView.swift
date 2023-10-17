@@ -21,6 +21,11 @@ struct SettingView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Text("アカウント設定")
+                    .foregroundStyle(.red)
+                    .fontWeight(.black)
+                    .font(.system(size: 35))
+                    .padding(.bottom, 200)
                 Divider()
                 NavigationLink {} label: {
                     Text("ブロック一覧")
