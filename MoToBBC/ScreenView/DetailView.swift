@@ -13,12 +13,14 @@ import CoreData
 
 struct Detail: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State var isShowMailView = false
     @FetchRequest(
         entity: AttendList.entity(),
         sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
         animation: .default
     ) var fetchedInfom: FetchedResults<AttendList>
     // swiftlint:disable line_length
+    @State private var pickerInt: Int? = nil
     @Environment(\.dismiss) var dismiss
     @State  var image: UIImage? = nil
     @State private var userInfoArray: [[String]] = []
@@ -160,7 +162,7 @@ struct Detail: View {
                                 .padding(.bottom, 10)
                         }
                         .padding(.leading, 18)
-                            Text(detail)
+                        Text(detail)
                             .padding(.horizontal, 18)
                         Rectangle()
                             .frame(height: 5)
@@ -248,6 +250,31 @@ struct Detail: View {
                     .foregroundColor(.red)
                 }
             }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu(content: {
+                    Button(action: {
+                        isShowMailView = true
+                    }) {
+                        Text("投稿を報告")
+                    }
+                    .sheet(isPresented: $isShowMailView) {
+                        MailView(
+                            address: ["swkshuto0208@icloud.com"],
+                            subject: "【MoToBB】報告",
+                            messageBody: "このメールはそのまま送信してください。\nID：\(eventid)のユーザについて\nこのユーザーの投稿には、の内容が見られたため報告します。"
+                        )
+                        .edgesIgnoringSafeArea(.all)
+                    }
+                    Button {
+                        // ユーザーをブロックする処理
+                    } label: {
+                        Text("このユーザーをブロック")
+                    }
+                }, label: {
+                    Image(systemName: "list.bullet")
+                })
+            }
+
         }
         .onAppear {
             self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
@@ -264,6 +291,8 @@ struct Detail: View {
             }
             fetchedAttendId()
         }
+
+
     }
     private func addAttendId(attendId: String) {
         let info = AttendList(context: viewContext)

@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct SettingView: View {
+    @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject private var viewModel = ViewModel()
     @ObservedObject private var loginViewModel = LoginViewModel()
@@ -48,6 +49,7 @@ struct SettingView: View {
                                 }
                                 DispatchQueue.main.async {
                                     loginViewModel.allview = false
+                                    dismiss()
                                 }
                             } )
                         )
