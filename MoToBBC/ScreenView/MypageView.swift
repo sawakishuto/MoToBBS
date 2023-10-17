@@ -118,7 +118,7 @@ struct Mypageview: View {
                     }
                 }
                 NavigationLink {
-                    
+                    SettingView()
                 } label: {
                     Text("アカウント設定")
                 }

@@ -19,7 +19,6 @@ struct LoginView: View {
     @State var logingo = true
     @State var eventid: String = ""
     @State var loginshow = false
-    @State var allview = false
     @State var userid: String = ""
     @State public var mail: String = ""
     @State public var password: String = ""
@@ -42,7 +41,7 @@ struct LoginView: View {
 
     var body: some View {
         if loginshow == false {
-            if allview == false {
+            if viewModel.allview == false {
                 if logingo == true {
                     ZStack {
                         LinearGradient(
@@ -86,7 +85,7 @@ struct LoginView: View {
                                     } else {
                                         Auth.auth().signIn(withEmail: self.mail, password: self.password) { authResult, error in
                                             if authResult?.user != nil {
-                                                allview = true
+                                                viewModel.allview = true
                                             } else {
                                                 errorhandle = true
                                                 mailname = "メールアドレスまたはパスワードが違います"
@@ -251,7 +250,7 @@ struct LoginView: View {
                                                     progresState = "新規登録"
                                                 } else {
                                                     DispatchQueue.global().async {
-//                                                        addLoginInfo(mail: mail, pass: password)
+                                                        addLoginInfo(mail: mail, pass: password)
                                                         viewModel.adduser(
                                                             usersname: usersname,
                                                             bikename: bikename,
@@ -260,7 +259,7 @@ struct LoginView: View {
                                                         )
                                                     }
                                                     DispatchQueue.main.async {
-                                                        allview = true
+                                                        viewModel.allview = true
                                                     }
 
                                                 }
@@ -283,7 +282,7 @@ struct LoginView: View {
                     }
                 }
             }
-            else if allview == true {
+            else if viewModel.allview == true {
                 HomeView()
             }
         }

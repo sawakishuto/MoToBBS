@@ -212,7 +212,7 @@ struct JoinListCard: View {
             Alert(title: Text(alerttitle), message: Text(alertmessage))
         }
     }
-    private func deleteAttend(eventid: String) {
+    public func deleteAttend(eventid: String) {
         let fetchRequest: NSFetchRequest<AttendList> = AttendList.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "attendId == %@", eventid)
             do{

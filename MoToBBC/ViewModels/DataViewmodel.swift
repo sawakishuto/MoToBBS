@@ -17,6 +17,7 @@ import UIKit
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
 class ViewModel: ObservableObject {
+
     @Published var attendList: [String] = []
     @Published var image: Image?
     var arrayData: [String] = []
@@ -537,7 +538,7 @@ class ViewModel: ObservableObject {
         }
 
     }
-    func deleteAccount(userid: String) {
+    func deleteAccount() {
         let ref = Database.database().reference()
         DispatchQueue.global().async {
             self.db.collection("User").document(self.user!.uid).delete()
@@ -552,6 +553,11 @@ class ViewModel: ObservableObject {
                         print("削除に失敗")
                     } else {
                         print("削除完了")
+                        do{
+                           try? Auth.auth().signOut()
+                        } catch {
+                            print("失敗")
+                        }
                     }
                 }
             }

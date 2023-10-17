@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 // swiftlint:disable identifier_name
 class LoginViewModel: ObservableObject {
+    @Published var allview: Bool = false
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     func adduser(usersname: String, bikename: String, usercomment: String, users: String?) {
