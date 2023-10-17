@@ -12,14 +12,15 @@ import FirebaseAuth
 import CoreData
 
 struct Detail: View {
+
     @Environment(\.managedObjectContext) private var viewContext
-    @State var isShowMailView = false
     @FetchRequest(
         entity: AttendList.entity(),
         sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
         animation: .default
     ) var fetchedInfom: FetchedResults<AttendList>
     // swiftlint:disable line_length
+    @State private var isShowMailView: Bool = false
     @State private var pickerInt: Int? = nil
     @Environment(\.dismiss) var dismiss
     @State  var image: UIImage? = nil
@@ -254,16 +255,12 @@ struct Detail: View {
                 Menu(content: {
                     Button(action: {
                         isShowMailView = true
-                    }) {
+                    }, label: {
                         Text("投稿を報告")
                     }
+                           )
                     .sheet(isPresented: $isShowMailView) {
-                        MailView(
-                            address: ["swkshuto0208@icloud.com"],
-                            subject: "【MoToBB】報告",
-                            messageBody: "このメールはそのまま送信してください。\nID：\(eventid)のユーザについて\nこのユーザーの投稿には、の内容が見られたため報告します。"
-                        )
-                        .edgesIgnoringSafeArea(.all)
+                        ReportDetailView()
                     }
                     Button {
                         // ユーザーをブロックする処理
@@ -274,7 +271,6 @@ struct Detail: View {
                     Image(systemName: "list.bullet")
                 })
             }
-
         }
         .onAppear {
             self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
@@ -291,8 +287,6 @@ struct Detail: View {
             }
             fetchedAttendId()
         }
-
-
     }
     private func addAttendId(attendId: String) {
         let info = AttendList(context: viewContext)
