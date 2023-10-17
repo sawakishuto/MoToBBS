@@ -12,7 +12,6 @@ import FirebaseAuth
 import CoreData
 
 struct Detail: View {
-
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: AttendList.entity(),
@@ -20,7 +19,7 @@ struct Detail: View {
         animation: .default
     ) var fetchedInfom: FetchedResults<AttendList>
     // swiftlint:disable line_length
-    @State private var isShowMailView: Bool = false
+    @State  var isShowMailView: Bool = false
     @State private var pickerInt: Int? = nil
     @Environment(\.dismiss) var dismiss
     @State  var image: UIImage? = nil
@@ -180,7 +179,7 @@ struct Detail: View {
                         }
                     }
                 }
-
+                
                 Text("参加予定者").foregroundColor(.red)
                     .fontWeight(.bold)
                 List(userInfoArray, id: \.self) { userInfo in
@@ -228,14 +227,14 @@ struct Detail: View {
                                                                     documentinfo: self.documentinfo
                                                                   )
                                                                   dismiss()
-
+                                                                  
                                                               }
                                                           }
                                                          )
                             )
                         })
                 }
-
+                
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -253,15 +252,12 @@ struct Detail: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu(content: {
-                    Button(action: {
-                        isShowMailView = true
-                    }, label: {
+                    Button{
+                        self.isShowMailView = true
+                    } label: {
                         Text("投稿を報告")
                     }
-                           )
-                    .sheet(isPresented: $isShowMailView) {
-                        ReportDetailView()
-                    }
+                    
                     Button {
                         // ユーザーをブロックする処理
                     } label: {
@@ -269,7 +265,12 @@ struct Detail: View {
                     }
                 }, label: {
                     Image(systemName: "list.bullet")
-                })
+                }) 
+                .sheet(isPresented: $isShowMailView) {
+                    ReportDetailView()
+                        .zIndex(1000000)
+                }
+                
             }
         }
         .onAppear {
@@ -293,7 +294,7 @@ struct Detail: View {
         info.attendId = eventid
         try? viewContext.save()
         print("保存成功")
-
+        
     }
     private func fetchedAttendId() {
         if fetchedInfom.isEmpty {

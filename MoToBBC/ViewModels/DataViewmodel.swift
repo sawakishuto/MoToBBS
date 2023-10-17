@@ -547,19 +547,17 @@ class ViewModel: ObservableObject {
             self.db.collection("Event").document(self.user!.uid).delete()
         }
         DispatchQueue.main.async {
-            if let authUser = self.user {
-                authUser.delete { error in
+            let user = Auth.auth().currentUser
+                user?.delete { error in
                     if let error = error {
                         print("削除に失敗")
-                    } else {
-                        print("削除完了")
+                    }
+                    print("削除完了")
                         do{
                            try? Auth.auth().signOut()
                         } catch {
                             print("失敗")
                         }
-                    }
-                }
             }
         }
 
