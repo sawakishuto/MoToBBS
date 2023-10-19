@@ -179,7 +179,7 @@ struct Detail: View {
                         }
                     }
                 }
-                
+
                 Text("参加予定者").foregroundColor(.red)
                     .fontWeight(.bold)
                 List(userInfoArray, id: \.self) { userInfo in
@@ -227,14 +227,14 @@ struct Detail: View {
                                                                     documentinfo: self.documentinfo
                                                                   )
                                                                   dismiss()
-                                                                  
+
                                                               }
                                                           }
                                                          )
                             )
                         })
                 }
-                
+
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -257,7 +257,7 @@ struct Detail: View {
                     } label: {
                         Text("投稿を報告")
                     }
-                    
+
                     Button {
                         // ユーザーをブロックする処理
                     } label: {
@@ -265,12 +265,12 @@ struct Detail: View {
                     }
                 }, label: {
                     Image(systemName: "list.bullet")
-                }) 
+                })
                 .sheet(isPresented: $isShowMailView) {
-                    ReportDetailView()
+                    ReportDetailView(eventid: eventid)
                         .zIndex(1000000)
                 }
-                
+
             }
         }
         .onAppear {

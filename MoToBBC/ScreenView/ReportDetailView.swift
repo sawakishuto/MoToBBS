@@ -27,9 +27,9 @@ struct ReportDetailView: View {
                     selectReport = "性的嫌がらせ・出会い目的"
                 }
             Divider()
-            Text("迷惑となる投稿")
+            Text("他人に対して迷惑となる")
                 .onTapGesture {
-                    selectReport = "迷惑となる投稿"
+                    selectReport = "他人に対して迷惑となる"
                 }
             Divider()
             Text("その他")
@@ -39,6 +39,9 @@ struct ReportDetailView: View {
             Divider()
             if selectReport.isEmpty {
                 Text("上記から当てはまるものを選んでください")
+                    .foregroundStyle(.black)
+                    .fontWeight(.black)
+                    .padding(.top, 62)
             } else {
                 Button {
                     isShow = true
@@ -46,14 +49,17 @@ struct ReportDetailView: View {
                     VStack{
                         Text(selectReport + "について報告")
                             .foregroundStyle(.black)
+                            .fontWeight(.black)
+                            .padding(.top, 40)
                         Text("送信")
                             .foregroundStyle(.red)
+                            .fontWeight(.black)
                     }
                 }
                 .sheet(isPresented: $isShow) {
                     MailView(
                         address: ["swkshuto0208@icloud.com"],
-                        subject: "【MoToBB】報告",
+                        subject: "【MoToBBS】報告",
                         messageBody: "このメールはそのまま送信してください。\nID：\(eventid)のユーザについて\nこのユーザーの投稿には、\(selectReport)の内容が見られたため報告します。"
                     )
                     .edgesIgnoringSafeArea(.all)
