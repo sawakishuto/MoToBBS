@@ -8,8 +8,15 @@
 import SwiftUI
 import FirebaseCore
 import AudioToolbox
+import CoreData
 
 struct EventListView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        entity: BlockList.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "blockList", ascending: false)],
+        animation: .default
+    ) var fetchedInfomation: FetchedResults<BlockList>
     // swiftlint:disable line_length
     @State var filterLocation: String = ""
     @State  var image: UIImage? = nil
@@ -122,7 +129,21 @@ struct EventListView: View {
                 .sheet(isPresented: $showsheet) {
                     RecruitView()
                 }
-        }.edgesIgnoringSafeArea(.top)
+        }
+        .onAppear {
+            fetchedBlockList()
+            viewModel.fetchData()
+        }
+        .edgesIgnoringSafeArea(.top)
+    }
+    private func fetchedBlockList() {
+        if fetchedInfomation.isEmpty {
+            return
+        } else {
+            for value in fetchedInfomation {
+                viewModel.blockedList.append(value.blockList ?? "None")
+            }
+        }
     }
 }
 

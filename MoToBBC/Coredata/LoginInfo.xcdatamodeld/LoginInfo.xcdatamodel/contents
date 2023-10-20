@@ -3,6 +3,9 @@
     <entity name="AttendList" representedClassName="AttendList" syncable="YES">
         <attribute name="attendId" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="BlockList" representedClassName="BlockList" syncable="YES">
+        <attribute name="blockList" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="LoginInfo" representedClassName="LoginInfo" syncable="YES">
         <attribute name="mail" optional="YES" attributeType="String"/>
         <attribute name="pass" optional="YES" attributeType="String"/>

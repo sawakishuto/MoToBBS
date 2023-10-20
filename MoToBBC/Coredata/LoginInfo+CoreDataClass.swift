@@ -17,3 +17,9 @@ public class LoginInfo: NSManagedObject {
 public class AttendList: NSManagedObject {
 
 }
+@objc(BlockList)
+public class BlockList: NSManagedObject {
+    
+}
+
+

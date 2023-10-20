@@ -17,7 +17,7 @@ import UIKit
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
 class ViewModel: ObservableObject {
-
+    @Published var blockedList: [String] = []
     @Published var attendList: [String] = []
     @Published var image: Image?
     var arrayData: [String] = []
@@ -95,7 +95,11 @@ class ViewModel: ObservableObject {
                     how: how
                 )
             }
+            self.datamodel = self.datamodel.filter({ value in
+                return !self.blockedList.contains(value.userid)
+            })
         }
+
     }
     //    ログインしているユーザがどのようなイベントを募集しているかを取得
     func getUser() {

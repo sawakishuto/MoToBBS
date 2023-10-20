@@ -12,13 +12,21 @@ import FirebaseAuth
 import CoreData
 
 struct Detail: View {
+
     @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        entity: BlockList.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "blockList", ascending: false)],
+        animation: .default
+    ) var fetchedInfomation: FetchedResults<BlockList>
     @FetchRequest(
         entity: AttendList.entity(),
         sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
         animation: .default
     ) var fetchedInfom: FetchedResults<AttendList>
+
     // swiftlint:disable line_length
+    @State private var isShowAlertBlock: Bool = false
     @State  var isShowMailView: Bool = false
     @State private var pickerInt: Int? = nil
     @Environment(\.dismiss) var dismiss
@@ -259,12 +267,28 @@ struct Detail: View {
                     }
 
                     Button {
+                        isShowAlertBlock  = true
                         // ユーザーをブロックする処理
                     } label: {
                         Text("このユーザーをブロック")
                     }
                 }, label: {
                     Image(systemName: "list.bullet")
+                })
+                .alert(isPresented: $isShowAlertBlock, content: {
+                    Alert(
+                        title: Text("このユーザーをブロックしますか？"),
+                        message: Text(""),
+                        primaryButton: .destructive(Text("いいえ"),
+                                                    action: {self.isShowAlertBlock = false}),
+                        secondaryButton: .default(Text("はい"),
+                                                  action: {
+                                                      addBlockList(userid: eventid)
+                                                      viewModel.fetchData()
+                                                      dismiss()
+                                                  }
+                                                 )
+                    )
                 })
                 .sheet(isPresented: $isShowMailView) {
                     ReportDetailView(eventid: eventid)
@@ -289,6 +313,12 @@ struct Detail: View {
             fetchedAttendId()
         }
     }
+    private func addBlockList(userid: String) {
+        let info = BlockList(context: viewContext)
+        info.blockList = userid
+        try? viewContext.save()
+    }
+
     private func addAttendId(attendId: String) {
         let info = AttendList(context: viewContext)
         info.attendId = eventid

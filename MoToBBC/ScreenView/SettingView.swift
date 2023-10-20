@@ -28,7 +28,9 @@ struct SettingView: View {
                     .font(.system(size: 35))
                     .padding(.bottom, 200)
                 Divider()
-                NavigationLink {} label: {
+                NavigationLink {
+                    BlockListView()
+                } label: {
                     Text("ブロック一覧")
                         .foregroundStyle(.black)
                 }
@@ -48,7 +50,6 @@ struct SettingView: View {
                                     viewModel.deleteAccount()
                                 }
                                 DispatchQueue.main.async {
-                                    loginViewModel.allview = false
                                     dismiss()
                                 }
                             } )

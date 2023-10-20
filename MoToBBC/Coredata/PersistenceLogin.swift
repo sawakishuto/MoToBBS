@@ -20,6 +20,7 @@ struct PersistenceController {
         newLoginInfo.pass = ""
         let newAttendList = AttendList(context: viewContext)
         newAttendList.attendId = ""
+        let newBlockList = BlockList(context: viewContext)
         do {
             try viewContext.save()
         } catch {

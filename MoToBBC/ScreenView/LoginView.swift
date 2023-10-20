@@ -26,6 +26,7 @@ struct LoginView: View {
     @State var profile = false
     @State var check = false
     @State  var checkms = false
+    @State private var allview: Bool = false
     @State private var errorhandle: Bool = false
     @State var checkname = "checkmark.circle"
     @State private var mailname: String = " MoToBBS@gmail.com"
@@ -41,7 +42,7 @@ struct LoginView: View {
 
     var body: some View {
         if loginshow == false {
-            if viewModel.allview == false {
+            if allview == false {
                 if logingo == true {
                     ZStack {
                         LinearGradient(
@@ -85,7 +86,7 @@ struct LoginView: View {
                                     } else {
                                         Auth.auth().signIn(withEmail: self.mail, password: self.password) { authResult, error in
                                             if authResult?.user != nil {
-                                                viewModel.allview = true
+                                                allview = true
                                             } else {
                                                 errorhandle = true
                                                 mailname = "メールアドレスまたはパスワードが違います"
@@ -259,7 +260,7 @@ struct LoginView: View {
                                                         )
                                                     }
                                                     DispatchQueue.main.async {
-                                                        viewModel.allview = true
+                                                        allview = true
                                                     }
 
                                                 }
@@ -282,7 +283,7 @@ struct LoginView: View {
                     }
                 }
             }
-            else if viewModel.allview == true {
+            else if allview == true {
                 HomeView()
             }
         }
