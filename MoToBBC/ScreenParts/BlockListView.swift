@@ -21,6 +21,7 @@ struct BlockListView: View {
             Text("ブロック一覧")
                 .foregroundStyle(.red)
                 .font(.title)
+                .fontWeight(.black)
             List(fetchedInfomation) { value in
                 Text(value.blockList ?? "")
             }
