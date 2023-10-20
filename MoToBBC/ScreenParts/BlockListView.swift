@@ -22,11 +22,16 @@ struct BlockListView: View {
                 .foregroundStyle(.red)
                 .font(.title)
                 .fontWeight(.black)
-            List {
-            ForEach(fetchedInfomation) { value in
-                Text(value.blockList ?? "")
-            }.onDelete(perform: deleteBlock)
-        }
+            if fetchedInfomation.isEmpty {
+                Text("ブロックしているユーザーはいません")
+            } else {
+                List {
+                    ForEach(fetchedInfomation) { value in
+                        Text(value.blockList ?? "")
+                    }
+                    .onDelete(perform: deleteBlock)
+                }
+            }
     }
 }
     private func fetchedBlockList() {
