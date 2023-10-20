@@ -17,7 +17,6 @@ extension BlockList {
     }
 
     @NSManaged public var blockList: String?
-    @NSManaged public var blockName: String?
 
 
 }

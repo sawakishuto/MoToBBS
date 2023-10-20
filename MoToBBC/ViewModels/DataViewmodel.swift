@@ -76,7 +76,6 @@ class ViewModel: ObservableObject {
                 let data = queryDocumentSnapshot.data()
                 //                print(data)
                 //                let id = data["id"] as? String ?? ""
-                let username = data["username"] as? String ?? ""
                 let eventid = data["eventid"] as? String ?? ""
                 let userid = data["userid"] as? String ?? ""
                 let title = data["title"] as? String ?? ""

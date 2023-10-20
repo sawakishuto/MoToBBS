@@ -319,7 +319,6 @@ struct Detail: View {
     private func addBlockList(userid: String, username: String) {
         let info = BlockList(context: viewContext)
         info.blockList = userid
-        info.blockName = username
         try? viewContext.save()
     }
 
