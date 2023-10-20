@@ -5,6 +5,7 @@
     </entity>
     <entity name="BlockList" representedClassName="BlockList" syncable="YES">
         <attribute name="blockList" optional="YES" attributeType="String"/>
+        <attribute name="blockName" optional="YES" attributeType="String"/>
     </entity>
     <entity name="LoginInfo" representedClassName="LoginInfo" syncable="YES">
         <attribute name="mail" optional="YES" attributeType="String"/>

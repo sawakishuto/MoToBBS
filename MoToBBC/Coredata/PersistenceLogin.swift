@@ -21,6 +21,8 @@ struct PersistenceController {
         let newAttendList = AttendList(context: viewContext)
         newAttendList.attendId = ""
         let newBlockList = BlockList(context: viewContext)
+        newBlockList.blockList = ""
+        newBlockList.blockName = ""
         do {
             try viewContext.save()
         } catch {

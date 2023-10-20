@@ -113,8 +113,9 @@ struct EventListView: View {
                 .edgesIgnoringSafeArea(.top)
                 .zIndex(100)
             }
-            .refreshable { self.viewModel.fetchData()
-                UINotificationFeedbackGenerator().notificationOccurred(.success)}
+            .refreshable {
+                fetchedBlockList()
+                self.viewModel.fetchData()}
             //            .navigationBarTitle("現在募集中の掲示板")
             createPostButton
                 .alert(isPresented: $goodAlert, content: {

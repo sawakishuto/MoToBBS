@@ -22,11 +22,13 @@ struct BlockListView: View {
                 .foregroundStyle(.red)
                 .font(.title)
                 .fontWeight(.black)
-            List(fetchedInfomation) { value in
+            List {
+            ForEach(fetchedInfomation) { value in
                 Text(value.blockList ?? "")
-            }
+            }.onDelete(perform: deleteBlock)
         }
     }
+}
     private func fetchedBlockList() {
         if fetchedInfomation.isEmpty {
             return
@@ -36,6 +38,14 @@ struct BlockListView: View {
             }
         }
     }
+    private func deleteBlock(offsets: IndexSet) {
+            offsets.forEach { index in
+                viewContext.delete(fetchedInfomation[index])
+            }
+        // 保存を忘れない
+            try? viewContext.save()
+        }
+
 }
 
 #Preview {

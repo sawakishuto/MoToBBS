@@ -239,12 +239,10 @@
 				08D1115D29F9783C00561414 /* MypageView.swift */,
 				08D7679D2ADDEFA00006A7F6 /* SettingView.swift */,
 				08D767D52ADE41540006A7F6 /* MailView.swift */,
-				08D767D72ADE57DC0006A7F6 /* ReportDetailView.swift */,
 				08B494B329F2A78D007EC5DF /* DetailView.swift */,
 				08D7998A2AD65D5E000371AE /* EmptyView.swift */,
 				08D1115F29F98D0100561414 /* HomeView.swift */,
 				08D1116129FA299E00561414 /* JoinListView.swift */,
-				08CA67E62A2243DB006909B8 /* JoinListCard.swift */,
 				0859B86929F01F1D00A0B928 /* EventListView.swift */,
 				08D27C692A3225D400BB28BD /* ProfileSetView.swift */,
 				08D1115B29F91C1400561414 /* RecruitView.swift */,
@@ -255,12 +253,14 @@
 		089A7EFE2AA706C400D18D2E /* ScreenParts */ = {
 			isa = PBXGroup;
 			children = (
+				08CA67E62A2243DB006909B8 /* JoinListCard.swift */,
 				0824C16E2AE26BCA00B36D57 /* BlockListView.swift */,
 				0859B87A29F0DC4400A0B928 /* RowView.swift */,
 				08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */,
 				089A7F002AA707A400D18D2E /* JoinListSlide.swift */,
 				08CA67E42A132187006909B8 /* MytoringView.swift */,
 				08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */,
+				08D767D72ADE57DC0006A7F6 /* ReportDetailView.swift */,
 			);
 			path = ScreenParts;
 			sourceTree = "<group>";

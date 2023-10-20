@@ -90,6 +90,9 @@ struct Detail: View {
                         Text(title).font(.title)
                             .fontWeight(.bold)
                             .padding(.horizontal, 5)
+                        Text(username)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 5)
                         Rectangle()
                             .frame(height: 5)
                             .foregroundColor(Color.red)
@@ -283,7 +286,7 @@ struct Detail: View {
                                                     action: {self.isShowAlertBlock = false}),
                         secondaryButton: .default(Text("はい"),
                                                   action: {
-                                                      addBlockList(userid: eventid)
+                                                      addBlockList(userid: eventid, username: username)
                                                       viewModel.fetchData()
                                                       dismiss()
                                                   }
@@ -313,9 +316,10 @@ struct Detail: View {
             fetchedAttendId()
         }
     }
-    private func addBlockList(userid: String) {
+    private func addBlockList(userid: String, username: String) {
         let info = BlockList(context: viewContext)
         info.blockList = userid
+        info.blockName = username
         try? viewContext.save()
     }
 

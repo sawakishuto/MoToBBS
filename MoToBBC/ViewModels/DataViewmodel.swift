@@ -76,6 +76,7 @@ class ViewModel: ObservableObject {
                 let data = queryDocumentSnapshot.data()
                 //                print(data)
                 //                let id = data["id"] as? String ?? ""
+                let username = data["username"] as? String ?? ""
                 let eventid = data["eventid"] as? String ?? ""
                 let userid = data["userid"] as? String ?? ""
                 let title = data["title"] as? String ?? ""
@@ -382,8 +383,17 @@ class ViewModel: ObservableObject {
     // 自分が投稿したイベント内容を格納
     func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, eventid: String, userid: String, username: String, participants: String) {
         let documentID = db.collection("User").document(user!.uid).documentID
+        db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
+            if let userError = userError {
+                fatalError("\(userError)")
+            }
+            guard let userData = userSnapshot?.data() else {
+                return
+            }
+            let username = userData["usersname"] as? String ?? ""
+        }
         db.collection("Event").document(user!.uid).setData([
-            "username": documentID,
+            "username": username,
             "detail": detail,
             "title": title,
             "how": how,
