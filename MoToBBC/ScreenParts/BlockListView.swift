@@ -1,10 +1,3 @@
-//
-//  BlockListView.swift
-//  MoToBBS
-//
-//  Created by 澤木柊斗 on 2023/10/20.
-//
-
 import SwiftUI
 import CoreData
 
@@ -16,13 +9,19 @@ struct BlockListView: View {
         sortDescriptors: [NSSortDescriptor(key: "blockList", ascending: false)],
         animation: .default
     ) var fetchedInfomation: FetchedResults<BlockList>
+
+    @State private var dataLoaded = false
+
     var body: some View {
         VStack {
             Text("ブロック一覧")
                 .foregroundStyle(.red)
                 .font(.title)
                 .fontWeight(.black)
-            if fetchedInfomation.isEmpty {
+
+            if !dataLoaded {
+                ProgressView() // データが読み込まれるまでのメッセージ
+            } else if fetchedInfomation.isEmpty {
                 Text("ブロックしているユーザーはいません")
             } else {
                 List {
@@ -32,27 +31,19 @@ struct BlockListView: View {
                     .onDelete(perform: deleteBlock)
                 }
             }
-    }
-}
-    private func fetchedBlockList() {
-        if fetchedInfomation.isEmpty {
-            return
-        } else {
-            for value in fetchedInfomation {
-                viewModel.blockedList.append(value.blockList ?? "None")
+        }
+        .onAppear {
+            DispatchQueue.main.async {
+                self.dataLoaded = true
             }
         }
     }
+
     private func deleteBlock(offsets: IndexSet) {
-            offsets.forEach { index in
-                viewContext.delete(fetchedInfomation[index])
-            }
-        // 保存を忘れない
-            try? viewContext.save()
+        offsets.forEach { index in
+            viewContext.delete(fetchedInfomation[index])
         }
-
-}
-
-#Preview {
-    BlockListView()
+        // 保存を忘れない
+        try? viewContext.save()
+    }
 }
