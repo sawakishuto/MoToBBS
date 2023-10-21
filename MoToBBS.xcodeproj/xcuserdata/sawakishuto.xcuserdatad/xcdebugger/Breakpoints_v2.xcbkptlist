@@ -25,6 +25,7 @@
          <BreakpointContent
             uuid = "E2A336BE-7F17-4469-9F21-6070293E1463"
             shouldBeEnabled = "No"
+            condition = "hnjpoycyi"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoToBBC/ScreenView/EventListView.swift"

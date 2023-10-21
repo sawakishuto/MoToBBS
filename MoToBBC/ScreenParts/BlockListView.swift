@@ -14,11 +14,6 @@ struct BlockListView: View {
 
     var body: some View {
         VStack {
-            Text("ブロック一覧")
-                .foregroundStyle(.red)
-                .font(.title)
-                .fontWeight(.black)
-
             if !dataLoaded {
                 ProgressView() // データが読み込まれるまでのメッセージ
             } else if fetchedInfomation.isEmpty {

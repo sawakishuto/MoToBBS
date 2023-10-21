@@ -13,6 +13,7 @@ struct SettingView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject private var viewModel = ViewModel()
     @ObservedObject private var loginViewModel = LoginViewModel()
+    @State private var showsheet:Bool = false
     @FetchRequest(
         entity: AttendList.entity(),
         sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
@@ -28,11 +29,11 @@ struct SettingView: View {
                     .font(.system(size: 35))
                     .padding(.bottom, 200)
                 Divider()
-                NavigationLink {
-                    BlockListView()
-                } label: {
+                Button{self.showsheet.toggle()}label: {
                     Text("ブロック一覧")
-                        .foregroundStyle(.black)
+                    .foregroundStyle(.black)}
+                .sheet(isPresented: $showsheet){
+                    BlockListView()
                 }
                 Divider()
                 Text("アカウント削除")

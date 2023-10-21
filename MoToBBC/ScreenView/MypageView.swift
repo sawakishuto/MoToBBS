@@ -6,11 +6,19 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Mypageview: View {
     // swiftlint:disable line_length
     @State private var showsheet = false
     @ObservedObject private var viewModel = ViewModel()
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        entity: BlockList.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "blockList", ascending: false)],
+        animation: .default
+    ) var fetchedInfomation: FetchedResults<BlockList>
+
     @State  var image: UIImage? = nil
     @State var fetchusername: String = ""
     @State var fetchusercomment: String = ""
@@ -132,11 +140,18 @@ struct Mypageview: View {
                 DispatchQueue.main.async {
                     fetchusername = fetchedUsername
                     fetchusercomment = fetchedUsercomment
-                    fetchbikename = fetchedBikename                 
+                    fetchbikename = fetchedBikename
                 }
             }
             viewModel.getUser()
         }
+    }
+    private func deleteBlock(offsets: IndexSet) {
+        offsets.forEach { index in
+            viewContext.delete(fetchedInfomation[index])
+        }
+        // 保存を忘れない
+        try? viewContext.save()
     }
 }
 

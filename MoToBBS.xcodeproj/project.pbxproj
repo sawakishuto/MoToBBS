@@ -51,7 +51,6 @@
 		08D7679E2ADDEFA00006A7F6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7679D2ADDEFA00006A7F6 /* SettingView.swift */; };
 		08D767D62ADE41540006A7F6 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D767D52ADE41540006A7F6 /* MailView.swift */; };
 		08D767D82ADE57DC0006A7F6 /* ReportDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D767D72ADE57DC0006A7F6 /* ReportDetailView.swift */; };
-		08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7998A2AD65D5E000371AE /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +110,6 @@
 		08D7679D2ADDEFA00006A7F6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		08D767D52ADE41540006A7F6 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		08D767D72ADE57DC0006A7F6 /* ReportDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailView.swift; sourceTree = "<group>"; };
-		08D7998A2AD65D5E000371AE /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +238,6 @@
 				08D7679D2ADDEFA00006A7F6 /* SettingView.swift */,
 				08D767D52ADE41540006A7F6 /* MailView.swift */,
 				08B494B329F2A78D007EC5DF /* DetailView.swift */,
-				08D7998A2AD65D5E000371AE /* EmptyView.swift */,
 				08D1115F29F98D0100561414 /* HomeView.swift */,
 				08D1116129FA299E00561414 /* JoinListView.swift */,
 				0859B86929F01F1D00A0B928 /* EventListView.swift */,
@@ -469,7 +466,6 @@
 				08D7679E2ADDEFA00006A7F6 /* SettingView.swift in Sources */,
 				08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */,
 				0859B87129F01F1D00A0B928 /* EventListView.swift in Sources */,
-				08D7998B2AD65D5E000371AE /* EmptyView.swift in Sources */,
 				08B8E2E02A3B71CD00A0DFA2 /* JoinPersonList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

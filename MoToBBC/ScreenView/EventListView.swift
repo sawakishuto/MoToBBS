@@ -107,7 +107,7 @@ struct EventListView: View {
                             .edgesIgnoringSafeArea(.top)
                             // 背景色を透明に設定
                         }
-                        
+
                     }
                 }
                 .navigationBarBackButtonHidden(true)
