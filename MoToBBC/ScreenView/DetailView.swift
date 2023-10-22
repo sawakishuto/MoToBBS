@@ -281,7 +281,7 @@ struct Detail: View {
                 .alert(isPresented: $isShowAlertBlock, content: {
                     Alert(
                         title: Text("このユーザーをブロックしますか？"),
-                        message: Text(""),
+                        message: Text("ブロックすると解除しない限りこのユーザの投稿が表示されなくなります"),
                         primaryButton: .destructive(Text("いいえ"),
                                                     action: {self.isShowAlertBlock = false}),
                         secondaryButton: .default(Text("はい"),
