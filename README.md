@@ -17,5 +17,5 @@
 
 ご質問やお問い合わせは、以下の連絡先までお寄せください。
 
-- お問い合わせ先: [swkshuto0208@icloud.com](mailto:swkshuto0208@icloud.com)
+- お問い合わせ先: [swks0208@icloud.com](mailto:swkshuto0208@icloud.com)
 
