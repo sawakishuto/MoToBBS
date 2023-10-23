@@ -16,7 +16,7 @@ import UIKit
 // swiftlint:disable line_length
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
-class ViewModel: ObservableObject {
+final class ViewModel: ObservableObject {
     @Published var blockedList: [String] = []
     @Published var attendList: [String] = []
     @Published var image: Image?
