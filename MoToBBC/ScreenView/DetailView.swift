@@ -12,7 +12,7 @@ import FirebaseAuth
 import CoreData
 
 struct Detail: View {
-
+    
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: BlockList.entity(),
@@ -24,7 +24,7 @@ struct Detail: View {
         sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
         animation: .default
     ) var fetchedInfom: FetchedResults<AttendList>
-
+    
     // swiftlint:disable line_length
     @State private var isShowAlertBlock: Bool = false
     @State  var isShowMailView: Bool = false
@@ -190,7 +190,7 @@ struct Detail: View {
                         }
                     }
                 }
-
+                
                 Text("参加予定者").foregroundColor(.red)
                     .fontWeight(.bold)
                 List(userInfoArray, id: \.self) { userInfo in
@@ -238,14 +238,14 @@ struct Detail: View {
                                                                     documentinfo: self.documentinfo
                                                                   )
                                                                   dismiss()
-
+                                                                  
                                                               }
                                                           }
                                                          )
                             )
                         })
                 }
-
+                
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -268,7 +268,7 @@ struct Detail: View {
                     } label: {
                         Text("投稿を報告")
                     }
-
+                    
                     Button {
                         isShowAlertBlock  = true
                         // ユーザーをブロックする処理
@@ -297,7 +297,7 @@ struct Detail: View {
                     ReportDetailView(eventid: eventid)
                         .zIndex(1000000)
                 }
-
+                
             }
         }
         .onAppear {
@@ -321,7 +321,7 @@ struct Detail: View {
         info.blockList = userid
         try? viewContext.save()
     }
-
+    
     private func addAttendId(attendId: String) {
         let info = AttendList(context: viewContext)
         info.attendId = eventid

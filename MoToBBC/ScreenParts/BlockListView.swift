@@ -9,9 +9,9 @@ struct BlockListView: View {
         sortDescriptors: [NSSortDescriptor(key: "blockList", ascending: false)],
         animation: .default
     ) var fetchedInfomation: FetchedResults<BlockList>
-
+    
     @State private var dataLoaded = false
-
+    
     var body: some View {
         VStack {
             if !dataLoaded {
@@ -33,7 +33,7 @@ struct BlockListView: View {
             }
         }
     }
-
+    
     private func deleteBlock(offsets: IndexSet) {
         offsets.forEach { index in
             viewContext.delete(fetchedInfomation[index])
