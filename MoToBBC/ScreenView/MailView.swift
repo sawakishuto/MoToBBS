@@ -20,7 +20,7 @@ struct MailView: UIViewControllerRepresentable {
     
     var messageBody: String
     
-    class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
+    final class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
         @Binding var presentation: PresentationMode
         
         init(
