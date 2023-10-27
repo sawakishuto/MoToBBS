@@ -251,7 +251,7 @@ struct Detail: View {
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: { dismiss()})
+                Button(action: {dismiss()})
                 {
                     HStack {
                         Image(systemName: "chevron.backward")
