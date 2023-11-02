@@ -40,6 +40,7 @@
 		08B8E2E02A3B71CD00A0DFA2 /* JoinPersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */; };
 		08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */; };
 		08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */; };
+		08C351632AF40EDD00E0FD83 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 08C351622AF40EDD00E0FD83 /* GoogleMobileAds */; };
 		08CA67E52A132187006909B8 /* MytoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E42A132187006909B8 /* MytoringView.swift */; };
 		08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E62A2243DB006909B8 /* JoinListCard.swift */; };
 		08D1115C29F91C1400561414 /* RecruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115B29F91C1400561414 /* RecruitView.swift */; };
@@ -119,6 +120,7 @@
 			files = (
 				0816E7312ADD16B100E170CA /* FirebaseDatabaseSwift in Frameworks */,
 				0816E72F2ADD16B100E170CA /* FirebaseDatabase in Frameworks */,
+				08C351632AF40EDD00E0FD83 /* GoogleMobileAds in Frameworks */,
 				0816E72B2ADD16B100E170CA /* FirebaseAuth in Frameworks */,
 				0816E7372ADD16B100E170CA /* FirebaseFirestoreSwift in Frameworks */,
 				0816E7352ADD16B100E170CA /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -298,6 +300,7 @@
 				0816E7362ADD16B100E170CA /* FirebaseFirestoreSwift */,
 				0816E7382ADD16B100E170CA /* FirebaseStorage */,
 				0816E73A2ADD16B100E170CA /* FirebaseStorageCombine-Community */,
+				08C351622AF40EDD00E0FD83 /* GoogleMobileAds */,
 			);
 			productName = MoToBBC;
 			productReference = 086A33DB29EF851200CD78BF /* MoToBBS.app */;
@@ -373,7 +376,7 @@
 			mainGroup = 086A33D229EF851200CD78BF;
 			packageReferences = (
 				087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				08C351602AF40D0600E0FD83 /* XCRemoteSwiftPackageReference "googleads-mobile-ios" */,
+				08C351612AF40EDD00E0FD83 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 086A33DC29EF851200CD78BF /* Products */;
 			projectDirPath = "";
@@ -836,12 +839,12 @@
 				minimumVersion = 10.16.0;
 			};
 		};
-		08C351602AF40D0600E0FD83 /* XCRemoteSwiftPackageReference "googleads-mobile-ios" */ = {
+		08C351612AF40EDD00E0FD83 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googleads/googleads-mobile-ios";
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 7.22.0;
+				minimumVersion = 10.12.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -891,6 +894,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		08C351622AF40EDD00E0FD83 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08C351612AF40EDD00E0FD83 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 

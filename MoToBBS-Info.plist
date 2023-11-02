@@ -9,5 +9,10 @@
 		<key>UIImageName</key>
 		<string>imagelunch</string>
 	</dict>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict/>
+		<dict/>
+	</array>
 </dict>
 </plist>
