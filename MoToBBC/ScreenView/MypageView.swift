@@ -130,8 +130,10 @@ struct Mypageview: View {
                     SettingView()
                 } label: {
                     Text("アカウント設定")
-                        .padding(.bottom, 30)
+
                 }
+                AdMobBannerView()
+                    .frame(height: 60)
             }
         }
         .onAppear {
