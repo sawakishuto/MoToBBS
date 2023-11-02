@@ -373,6 +373,7 @@
 			mainGroup = 086A33D229EF851200CD78BF;
 			packageReferences = (
 				087CA40E2ADAC84600CCB072 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				08C351602AF40D0600E0FD83 /* XCRemoteSwiftPackageReference "googleads-mobile-ios" */,
 			);
 			productRefGroup = 086A33DC29EF851200CD78BF /* Products */;
 			projectDirPath = "";
@@ -626,7 +627,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MoToBBC/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5285K4Z956;
@@ -645,7 +646,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -665,7 +667,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MoToBBC/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5285K4Z956;
@@ -684,7 +686,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -831,6 +834,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.16.0;
+			};
+		};
+		08C351602AF40D0600E0FD83 /* XCRemoteSwiftPackageReference "googleads-mobile-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/googleads-mobile-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.22.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
