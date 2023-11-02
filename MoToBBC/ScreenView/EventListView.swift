@@ -174,12 +174,11 @@ extension EventListView {
     }
     var mobCard: some View {
         AdMobBannerView()
-            .frame(height: 300)
+            .frame(width: 320, height: 300)
             .cornerRadius(20)
             .shadow(color: .black.opacity(0.8), radius: 10)
             .overlay(RoundedRectangle(cornerRadius: 20)
                 .stroke(Color.red, lineWidth: 4))
-            .padding(.horizontal, 20)
     }
 }
 
