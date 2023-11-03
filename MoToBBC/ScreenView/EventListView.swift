@@ -72,11 +72,7 @@ struct EventListView: View {
                                     .fontWeight(.black)
                                     .frame(maxHeight: .infinity)
                                     .frame(maxWidth: .infinity)
-                                AdMobBannerView()
-                                    .frame(width: 320, height: 300)
-                                    .cornerRadius(20)
-                                    .overlay(RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color.red, lineWidth: 4))
+                                mobCard
                             }
                         } else {
                             VStack {
@@ -114,6 +110,7 @@ struct EventListView: View {
                             .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
                             .edgesIgnoringSafeArea(.top)
                                 mobCard
+                                    .padding(.bottom, 30)
 
                         }
                             // 背景色を透明に設定
@@ -174,7 +171,7 @@ extension EventListView {
     }
     var mobCard: some View {
         AdMobBannerView()
-            .frame(width: 320, height: 300)
+            .frame(width: 350, height: 300)
             .cornerRadius(20)
             .shadow(color: .black.opacity(0.8), radius: 10)
             .overlay(RoundedRectangle(cornerRadius: 20)

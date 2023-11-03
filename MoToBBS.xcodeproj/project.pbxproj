@@ -653,8 +653,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
-				"MARKETING_VERSION[sdk=iphoneos*]" = 1.02;
+				MARKETING_VERSION = 1.03;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.03;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -694,8 +694,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
-				"MARKETING_VERSION[sdk=iphoneos*]" = 1.02;
+				MARKETING_VERSION = 1.03;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.03;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
