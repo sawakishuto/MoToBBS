@@ -76,35 +76,7 @@ struct EventListView: View {
                             }
                         } else {
                             VStack {
-                            ForEach(viewModel.datamodel.filter(
-                                filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)}
-                            )) { data in
-                                NavigationLink(
-                                    destination: Detail(
-                                        eventid: data.eventid,
-                                        whereis: data.whereis,
-                                        detail: data.detail,
-                                        title: data.title,
-                                        dateStrig: data.dateString,
-                                        how: data.how,
-                                        documentinfo: data.eventid,
-                                        username: "",
-                                        usercomment: "",
-                                        bikename: "",
-                                        userid: ""
-                                    ), label: {
-                                        RowView(
-                                            eventid: data.eventid,
-                                            whereis: data.whereis,
-                                            detail: data.detail,
-                                            title: data.title,
-                                            dateStrig: data.dateString,
-                                            how: data.how,
-                                            getimages: self.image
-                                        )
-                                    }
-                                )
-                            }
+                            cardList
                             .frame(maxWidth: .infinity)
                             .background(Color.white)
                             .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
@@ -158,6 +130,37 @@ struct EventListView: View {
 }
 
 extension EventListView {
+    var cardList: some View {
+        ForEach(viewModel.datamodel.filter(
+            filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)}
+        )) { data in
+            NavigationLink(
+                destination: Detail(
+                    eventid: data.eventid,
+                    whereis: data.whereis,
+                    detail: data.detail,
+                    title: data.title,
+                    dateStrig: data.dateString,
+                    how: data.how,
+                    documentinfo: data.eventid,
+                    username: "",
+                    usercomment: "",
+                    bikename: "",
+                    userid: ""
+                ), label: {
+                    RowView(
+                        eventid: data.eventid,
+                        whereis: data.whereis,
+                        detail: data.detail,
+                        title: data.title,
+                        dateStrig: data.dateString,
+                        how: data.how,
+                        getimages: self.image
+                    )
+                }
+            )
+        }
+    }
     var createPostButton: some View {
         Button(action: {self.goodAlert = true}, label: {
             Image(systemName: "square.and.pencil")
