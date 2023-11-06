@@ -35,12 +35,14 @@ struct JoinListCard: View {
     let title: String
     let dateString: String
     let how: String
+    let endTimeString: String
     init(
         eventid: String,
          whereis: String,
          detail: String,
          title: String,
          dateStrig: String,
+        endTimeString: String,
          how: String
     ){
         self.eventid = eventid
@@ -48,6 +50,7 @@ struct JoinListCard: View {
         self.detail = detail
         self.title = title
         self.dateString = dateStrig
+        self.endTimeString = endTimeString
         self.how = how
     }
     var body: some View {
@@ -235,6 +238,7 @@ struct JoinListCard_Previews: PreviewProvider {
             detail: "今日は誰でも歓迎ですあああああああああああああああ",
             title: "誰でもツーリング",
             dateStrig: "Date()",
+            endTimeString: "",
             how: "11"
         )
     }
