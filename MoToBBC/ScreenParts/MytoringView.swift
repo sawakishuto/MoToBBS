@@ -238,7 +238,8 @@ struct MytoringView_Previews: PreviewProvider {
                     detail: "",
                     title: "",
                     dateStrig: "",
-                    how: "")
+                    how: ""
+       )
 
     }
 }
