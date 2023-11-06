@@ -50,7 +50,8 @@ struct HomeView: View {
                        username: "",
                        usercomment: "",
                        bikename: "",
-                       userid: "")
+                       userid: "",
+                       endTimeString: "")
                 .tabItem {
                     VStack {
                     // タブのラベル部分のビュー
