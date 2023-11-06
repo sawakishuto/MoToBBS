@@ -108,6 +108,7 @@ struct Mypageview: View {
                                 detail: datas.detail,
                                 title: datas.title,
                                 dateStrig: datas.dateString,
+                                endTimeString: datas.endTimeString,
                                 how: datas.how
                             ), label: {
                                 RowView(

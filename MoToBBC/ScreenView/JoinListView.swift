@@ -45,6 +45,7 @@ struct JoinListView: View {
                                      detail: event.detail,
                                      title: event.title,
                                      dateStrig: event.dateString,
+                                     endTimeString: event.endTimeString,
                                      how: event.how)
                     }
                     // カードのサイズを設定
