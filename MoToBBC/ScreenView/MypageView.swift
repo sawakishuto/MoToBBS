@@ -67,22 +67,30 @@ struct Mypageview: View {
                             .font(.system(size: 30))
                             .fontWeight(.heavy)
                         Spacer()
-                        Button("車種変更") {
-                            self.showsheet.toggle()
-                        }
-                        .fontWeight(.bold)
-                        .sheet(isPresented: $showsheet) {
-                            ProfileSetView(username: fetchusername, bikename: fetchbikename)
-                        }
+                        Text(fetchusercomment)
+                            .fontWeight(.semibold)
+                            .font(.system(size: 20))
                     }
                     HStack {
                         Text("車種:" + fetchbikename)
                             .fontWeight(.bold)
                             .font(.system(size: 20))
                         Spacer()
-                        Text(fetchusercomment)
+
+                        Button("車種変更") {
+                            self.showsheet.toggle()
+                        }
+                        .foregroundStyle(.white)
+                        .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
+                        .background(Color(red: 1, green: 0, blue: 0))
+                        .cornerRadius(10)
+                        .fontWeight(.bold)
+                        .shadow(radius: 4)
+                        .sheet(isPresented: $showsheet) {
+                            ProfileSetView(username: fetchusername, bikename: fetchbikename)
+                        }
                     }
-                    .font(.system(size: 20))
+
                 }
                 .foregroundColor(Color(red: 0.8, green: 0, blue: 0))
                 .padding(.horizontal, 12)

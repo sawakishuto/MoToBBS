@@ -44,7 +44,7 @@ struct RowView: View {
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 140, trailing: 0))
                 }
                 else {
-                    Text("画像読み込み中")
+                    ProgressView()
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 200, trailing: 0))
                 }
                 Text(title)
@@ -57,13 +57,31 @@ struct RowView: View {
                     .zIndex(200)
                     .padding(EdgeInsets(top: 100, leading: 0, bottom: 140, trailing: 0))
                 Spacer()
-                VStack {
-                    Text("出発地点:" + whereis)
-                        .fontWeight(.bold)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Capsule()
+                            .frame(width: 80, height: 30)
+                            .overlay {
+                                Text("集合場所")
+                                    .foregroundStyle(.white
+                                    )
+                            }
+                        Text(whereis)
+                    }
+                    .fontWeight(.bold)
                     Divider()
                         .background(Color.red)
-                    Text("開催日時:" + dateString + "頃")
-                        .fontWeight(.bold)
+                    HStack {
+                        Capsule()
+                            .frame(width: 80, height: 30)
+                            .overlay {
+                                Text("開催日時")
+                                    .foregroundStyle(.white
+                                    )
+                            }
+                        Text(dateString)
+                    }
+                    .fontWeight(.bold)
                     Divider()
                         .background(Color.red)
                     Text(detail)
