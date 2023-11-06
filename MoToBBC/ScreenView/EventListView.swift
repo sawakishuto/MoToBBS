@@ -147,7 +147,7 @@ extension EventListView {
                     usercomment: "",
                     bikename: "",
                     userid: "",
-                    endTimeString: ""
+                    endTimeString: data.endTimeString
                 ), label: {
                     RowView(
                         eventid: data.eventid,

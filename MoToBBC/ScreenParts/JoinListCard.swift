@@ -101,8 +101,14 @@ struct JoinListCard: View {
                                     .overlay { Text("開催日時")
                                             .foregroundStyle(.white)
                                     }
-                                Text(dateString + "頃")
-                                    .font(.system(size: 14))
+                                VStack {
+                                    Text(dateString + "頃から")
+                                        .font(.system(size: 12))
+                                        .padding(.vertical, 2)
+                                    Text(dateString + "頃まで")
+                                        .font(.system(size: 12))
+                                        .padding(.bottom, 2)
+                                }
                             }
                             .frame(height: 30)
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
@@ -124,6 +130,7 @@ struct JoinListCard: View {
                                         }
 
                                     Text(how + "人程度")
+                                        .font(.system(size: 12))
                                 }
                                 .frame(height: 30)
                                 .fontWeight(.bold)

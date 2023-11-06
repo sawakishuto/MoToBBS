@@ -134,7 +134,9 @@ struct Detail: View {
                                     }
                                 VStack {
                                     Text(dateString + "頃から")
+                                        .padding(.vertical, 2)
                                     Text(endTimeString + "頃まで")
+                                        .padding(.bottom, 2)
                                 }
                             }
                             .frame(height: 20)

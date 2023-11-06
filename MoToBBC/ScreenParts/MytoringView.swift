@@ -102,6 +102,7 @@ struct MytoringView: View {
                                 }
                             VStack {
                                 Text(dateString + "から")
+                                    .padding(.vertical, 4)
                                 Text(endTimeString + "まで")
                             }
                         }
