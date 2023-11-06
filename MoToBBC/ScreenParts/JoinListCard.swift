@@ -143,6 +143,7 @@ struct JoinListCard: View {
                                 Text("現在" + String(userInfoArray.count) + "人")
                                     .foregroundStyle(colorState)
                                     .fontWeight(.bold)
+                                    .font(.system(size: 12))
                             }
                             .padding(.leading, 10)
                             Rectangle()
