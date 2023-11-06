@@ -130,7 +130,8 @@ struct JoinListCard: View {
                                         }
 
                                     Text(how + "人程度")
-                                        .font(.system(size: 12))
+                                        .frame(width: 80)
+
                                 }
                                 .frame(height: 30)
                                 .fontWeight(.bold)
@@ -143,11 +144,12 @@ struct JoinListCard: View {
                                 Text("現在" + String(userInfoArray.count) + "人")
                                     .foregroundStyle(colorState)
                                     .fontWeight(.bold)
-                                    .font(.system(size: 12))
+
                             }
                             .padding(.leading, 10)
                             Rectangle()
                                 .frame(height: 5)
+                                .frame(maxWidth: .infinity)
                                 .foregroundColor(Color.red)
                                 .cornerRadius(40)
                                 .opacity(0.5)
