@@ -100,7 +100,10 @@ struct MytoringView: View {
                                     Text("開催日時")
                                         .foregroundStyle(.white)
                                 }
-                            Text(dateString)
+                            VStack {
+                                Text(dateString + "から")
+                                Text(endTimeString + "まで")
+                            }
                         }
                         .frame(height: 20)
                         .fontWeight(.bold)
@@ -238,6 +241,7 @@ struct MytoringView_Previews: PreviewProvider {
                     detail: "",
                     title: "",
                     dateStrig: "",
+                    endTimeString: "",
                     how: ""
        )
 
