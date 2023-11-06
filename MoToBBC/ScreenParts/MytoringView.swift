@@ -36,18 +36,21 @@ struct MytoringView: View {
     let detail: String
     let title: String
     let dateString: String
+    let endTimeString: String
     let how: String
     init(eventid: String,
          whereis: String,
          detail: String,
          title: String,
          dateStrig: String,
+         endTimeString: String,
          how: String) {
         self.eventid = eventid
         self.whereis = whereis
         self.detail = detail
         self.title = title
         self.dateString = dateStrig
+        self.endTimeString = endTimeString
         self.how = how
     }
     var body: some View {
@@ -230,6 +233,12 @@ struct MytoringView: View {
 
 struct MytoringView_Previews: PreviewProvider {
     static var previews: some View {
-       MytoringView(eventid: "現在募集中のツーリングはありません", whereis: "1", detail: "", title: "", dateStrig: "", how: "")
+       MytoringView(eventid: "現在募集中のツーリングはありません",
+                    whereis: "1",
+                    detail: "",
+                    title: "",
+                    dateStrig: "",
+                    how: "")
+
     }
 }

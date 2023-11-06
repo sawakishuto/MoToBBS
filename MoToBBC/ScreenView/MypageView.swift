@@ -31,6 +31,7 @@ struct Mypageview: View {
     let detail: String
     let title: String
     let dateString: String
+    let endTimeString: String
     let how: String
     init(
         whereis: String,
@@ -41,12 +42,15 @@ struct Mypageview: View {
         username: String,
         usercomment: String,
         bikename: String,
-        userid: String
+        userid: String,
+        endTimeString: String
+
     ) {
         self.whereis = whereis
         self.detail = detail
         self.title = title
         self.dateString = dateStrig
+        self.endTimeString = endTimeString
         self.how = how
         self.username = username
         self.usercomment = usercomment
@@ -168,7 +172,8 @@ struct Mypageview_Previews: PreviewProvider {
             username: "",
             usercomment: "",
             bikename: "",
-            userid: ""
+            userid: "",
+            endTimeString: ""
         )
     }
 }

@@ -58,6 +58,7 @@ struct Detail: View {
     let detail: String
     let title: String
     let dateString: String
+    let endTimeString: String
     let how: String
     init(eventid: String,
          whereis: String,
@@ -69,7 +70,8 @@ struct Detail: View {
          username: String,
          usercomment: String,
          bikename: String,
-         userid: String) {
+         userid: String,
+         endTimeString: String) {
         self.eventid = eventid
         self.whereis = whereis
         self.detail = detail
@@ -81,6 +83,7 @@ struct Detail: View {
         self.bikename = bikename
         self.userid = userid
         self.documentinfo = documentinfo
+        self.endTimeString = endTimeString
     }
     var body: some View {
         ZStack {
@@ -129,7 +132,10 @@ struct Detail: View {
                                         Text("開催日時")
                                             .foregroundStyle(.white)
                                     }
-                                Text(dateString)
+                                VStack {
+                                    Text(dateString + "頃から")
+                                    Text(endTimeString + "頃まで")
+                                }
                             }
                             .frame(height: 20)
                             .fontWeight(.bold)
@@ -341,6 +347,6 @@ struct Detail: View {
 }
 struct Detail_Previews: PreviewProvider {
     static var previews: some View {
-        Detail(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "", documentinfo: "", username: "", usercomment: "", bikename: "", userid: "")
+        Detail(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "", documentinfo: "", username: "", usercomment: "", bikename: "", userid: "", endTimeString: "")
     }
 }
