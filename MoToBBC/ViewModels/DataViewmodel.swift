@@ -84,12 +84,14 @@ final class ViewModel: ObservableObject {
                 let how = data["how"] as? String ?? ""
                 let participants = data["participants"] as? String ?? ""
                 let dateEvent = (data["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
+                let endTime = (data["endTime"] as? Timestamp)?.dateValue() ?? Date()
                 return Events(
                     eventid: eventid,
                     userid: userid,
                     title: title,
                     whereis: whereis,
                     dateEvent: dateEvent,
+                    endTime: endTime,
                     participants: participants,
                     detail: detail,
                     how: how
@@ -121,6 +123,7 @@ final class ViewModel: ObservableObject {
             let detail = datas["detail"] as? String ?? ""
             let how = datas["how"] as? String ?? ""
             let participants = datas["participants"] as? String ?? ""
+            let endTime = (datas["endTime"] as? Timestamp)?.dateValue() ?? Date()
             let dateEvent = (datas["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
             let user = Usersinfo(
                 eventid: eventid,
@@ -128,6 +131,7 @@ final class ViewModel: ObservableObject {
                 title: title,
                 whereis: whereis,
                 dateEvent: dateEvent,
+                endTime: endTime,
                 participants: participants,
                 detail: detail,
                 how: how
@@ -355,13 +359,15 @@ final class ViewModel: ObservableObject {
                                     let detail = data["detail"] as? String ?? ""
                                     let how = data["how"] as? String ?? ""
                                     let participants = data["participants"] as? String ?? ""
+                                    let endTime = (data["endTime"] as? Timestamp)?.dateValue() ?? Date()
                                     let dateEvent = (data["selectionDate"] as? Timestamp)?.dateValue() ?? Date()
                                     let event = Events(
                                         eventid: eventid,
                                         userid: userid,
                                         title: title,
                                         whereis: whereis,
-                                        dateEvent: dateEvent,
+                                        dateEvent: dateEvent, 
+                                        endTime: endTime,
                                         participants: participants,
                                         detail: detail,
                                         how: how
@@ -380,7 +386,7 @@ final class ViewModel: ObservableObject {
         }
     }
     // 自分が投稿したイベント内容を格納
-    func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, eventid: String, userid: String, username: String, participants: String) {
+    func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, endTime: Date, eventid: String, userid: String, username: String, participants: String) {
         let documentID = db.collection("User").document(user!.uid).documentID
         db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
             if let userError = userError {
@@ -398,6 +404,7 @@ final class ViewModel: ObservableObject {
             "how": how,
             "whereis": whereis,
             "selectionDate": selectionDate,
+            "endTime": endTime,
             // ドキュメントIDを保存する
             "eventid": documentID,
             "userid": documentID,

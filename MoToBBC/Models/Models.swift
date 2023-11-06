@@ -27,6 +27,7 @@ struct Events: Identifiable {
     let title: String
     let  whereis: String
     let dateEvent: Date
+    let endTime: Date
     let participants: String
     let detail: String
     let how: String
@@ -34,6 +35,11 @@ struct Events: Identifiable {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年M月d日　H時m分"
         return formatter.string(from: dateEvent)
+    }
+    var endTimeString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年M月d日　H時m分"
+        return formatter.string(from: endTime)
     }
 }
 struct Usersinfo: Identifiable {
@@ -43,6 +49,7 @@ struct Usersinfo: Identifiable {
     let title: String
     let  whereis: String
     let dateEvent: Date
+    let endTime: Date
     let participants: String
     let detail: String
     let how: String
@@ -50,6 +57,11 @@ struct Usersinfo: Identifiable {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年M月d日　H時m分"
         return formatter.string(from: dateEvent)
+    }
+    var endTimeString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年M月d日　H時m分"
+        return formatter.string(from: endTime)
     }
 }
 struct AttendEvents {
