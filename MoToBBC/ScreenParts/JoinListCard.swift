@@ -182,11 +182,13 @@ struct JoinListCard: View {
                 .overlay(RoundedRectangle(cornerRadius: 20)
                     .stroke(Color.red, lineWidth: 4))
             Text("ツーリング終了")
+                .fontWeight(.semibold)
                 .zIndex(3)
                 .frame(width: 120, height: 50)
+                .font(.system(size: 15))
                 .background(Capsule().fill(Color(red: 50, green: 10 / 255, blue: 10 / 255)))
-                .shadow(color: .gray, radius: 3, x: 3, y: 3)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 180))
+                .shadow(color: .gray, radius: 3, x: 3, y: 3)
                 .onTapGesture {
                     alerttitle = "ツーリング終了"
                     alertmessage = "ツーリングを終了します。お疲れ様でした。"
@@ -200,10 +202,11 @@ struct JoinListCard: View {
                 }
             Text("キャンセル")
                 .zIndex(3)
+                .fontWeight(.semibold)
                 .frame(width: 120, height: 50)
                 .background(Capsule().fill(Color.gray))
-                .shadow(color: .gray, radius: 3, x: 3, y: 3)
                 .padding(EdgeInsets(top: 0, leading: 180, bottom: 30, trailing: 0))
+                .shadow(color: .gray, radius: 3, x: 3, y: 3)
                 .onTapGesture {
                     alerttitle = "キャンセル"
                     alertmessage = "ツーリングをキャンセルしました。"

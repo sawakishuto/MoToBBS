@@ -43,10 +43,6 @@ struct RowView: View {
                         .resizable()
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 140, trailing: 0))
                 }
-                else {
-                    ProgressView()
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 200, trailing: 0))
-                }
                 Text(title)
                     .font(.title2)
                     .foregroundColor(.black)

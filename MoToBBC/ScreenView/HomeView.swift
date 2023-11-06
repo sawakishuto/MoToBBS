@@ -60,7 +60,8 @@ struct HomeView: View {
                             .foregroundColor(.white)
                     }
                 }
-                }.accentColor(Color.black)
+                }
+        .accentColor(Color.black)
         }
     }
 
