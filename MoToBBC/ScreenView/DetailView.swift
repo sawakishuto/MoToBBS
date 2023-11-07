@@ -138,6 +138,7 @@ struct Detail: View {
                                     Text(endTimeString + "頃まで")
                                         .padding(.bottom, 2)
                                 }
+                                .font(.system(size: 13))
                             }
                             .frame(height: 20)
                             .fontWeight(.bold)

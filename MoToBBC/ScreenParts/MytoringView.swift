@@ -105,6 +105,7 @@ struct MytoringView: View {
                                     .padding(.vertical, 4)
                                 Text(endTimeString + "まで")
                             }
+                            .font(.system(size: 13))
                         }
                         .frame(height: 20)
                         .fontWeight(.bold)
@@ -177,6 +178,8 @@ struct MytoringView: View {
                     .fontWeight(.bold)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                 Text(messa)
+                    .font(.system(size: 17))
+                    .fontWeight(.semibold)
                     .frame(width: 190, height: 60)
                     .background(Capsule().fill( Color(red: 50, green: 10 / 255, blue: 10 / 255)))
                     .shadow(color: .gray, radius: 3, x: 3, y: 3)

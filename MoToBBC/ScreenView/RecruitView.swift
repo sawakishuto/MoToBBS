@@ -22,7 +22,7 @@ struct RecruitView: View {
     @State var username: String = ""
     @State private var whereis: String = ""
     @State private var endTime = Date()
-    @State private var detail: String = ""
+    @State private var detail: String = "ルート:\n\n高速の有無:\n\nその他詳細:\n問い合わせ先(X,Instagram):\n"
     @State private var title: String = ""
     @State private var how: String = ""
     @State private var participants: String = ""
@@ -73,7 +73,7 @@ struct RecruitView: View {
                             .stroke(Color.red, lineWidth: 1))
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                     if detail.isEmpty {
-                        Text("詳細(ルート,問い合わせ先など)") .foregroundColor(Color(uiColor: .placeholderText))
+                        Text("詳細\nルート\n高速道路の有無\n問い合わせ先(X,Instagram)") .foregroundColor(Color(uiColor: .placeholderText))
                             .padding(EdgeInsets(top: 20, leading: 4, bottom: 0, trailing: 0))
                             .allowsHitTesting(false)
                     }
