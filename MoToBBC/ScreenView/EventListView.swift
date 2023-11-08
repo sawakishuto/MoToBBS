@@ -76,18 +76,18 @@ struct EventListView: View {
                             }
                         } else {
                             VStack {
-                            cardList
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white)
-                            .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
-                            .edgesIgnoringSafeArea(.top)
+                                cardList
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.white)
+                                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                                    .edgesIgnoringSafeArea(.top)
                                 mobCard
                                     .padding(.bottom, 30)
-
-                        }
+                                
+                            }
                             // 背景色を透明に設定
                         }
-
+                        
                     }
                 }
                 .navigationBarBackButtonHidden(true)

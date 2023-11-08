@@ -30,29 +30,29 @@ struct JoinListView: View {
             .fontWeight(.bold)
             .zIndex(10)
             .edgesIgnoringSafeArea(.bottom)
-
+            
             if events.isEmpty {
                 Text("参加予定のイベントはありません。")
                     .fontWeight(.black)
                     .frame(maxHeight: .infinity)
             } else {
-            JoinListSlide {
-                ForEach(events, id: \.eventid) { event in
-
-                    VStack(alignment: .leading) {
-                        JoinListCard(eventid: event.eventid,
-                                     whereis: event.whereis,
-                                     detail: event.detail,
-                                     title: event.title,
-                                     dateStrig: event.dateString,
-                                     endTimeString: event.endTimeString,
-                                     how: event.how)
+                JoinListSlide {
+                    ForEach(events, id: \.eventid) { event in
+                        
+                        VStack(alignment: .leading) {
+                            JoinListCard(eventid: event.eventid,
+                                         whereis: event.whereis,
+                                         detail: event.detail,
+                                         title: event.title,
+                                         dateStrig: event.dateString,
+                                         endTimeString: event.endTimeString,
+                                         how: event.how)
+                        }
+                        // カードのサイズを設定
                     }
-                    // カードのサイズを設定
                 }
+                .background(Color.white)
             }
-            .background(Color.white)
-        }
         }
         .onAppear {
             self.viewModel.fetchJoinedData { (events) in
@@ -64,6 +64,6 @@ struct JoinListView: View {
 struct JoinListView_Previews: PreviewProvider {
     static var previews: some View {
         JoinListView()
-           
+        
     }
 }
