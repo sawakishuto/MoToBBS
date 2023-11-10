@@ -26,7 +26,6 @@ struct NewLoginView: View {
     @State public var usercomment: String = ""
     @Binding var logingo: Bool
     @State var eventid: String = ""
-    @State var loginshow = false
     @State var userid: String = ""
     @State public var mail: String = ""
     @State public var password: String = ""

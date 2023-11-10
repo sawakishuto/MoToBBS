@@ -18,7 +18,6 @@ struct LoginView: View {
     @State public var usercomment: String = ""
     @State var logingo = true
     @State var eventid: String = ""
-    @State var loginshow = false
     @State var userid: String = ""
     @State public var mail: String = ""
     @State public var password: String = ""
@@ -128,8 +127,6 @@ struct LoginView: View {
                             }
 
                         }
-
-
                 }
                 else if(logingo == false) {
                     NewLoginView(logingo: $logingo, allview: $allview)

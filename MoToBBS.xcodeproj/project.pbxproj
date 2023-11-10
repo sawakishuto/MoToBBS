@@ -43,6 +43,7 @@
 		08C351632AF40EDD00E0FD83 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 08C351622AF40EDD00E0FD83 /* GoogleMobileAds */; };
 		08C351652AF4127200E0FD83 /* AdMobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351642AF4127200E0FD83 /* AdMobBannerView.swift */; };
 		08C351672AFE762100E0FD83 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351662AFE762100E0FD83 /* NewLoginView.swift */; };
+		08C351692AFE7B8900E0FD83 /* StartLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351682AFE7B8900E0FD83 /* StartLoginView.swift */; };
 		08CA67E52A132187006909B8 /* MytoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E42A132187006909B8 /* MytoringView.swift */; };
 		08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E62A2243DB006909B8 /* JoinListCard.swift */; };
 		08D1115C29F91C1400561414 /* RecruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115B29F91C1400561414 /* RecruitView.swift */; };
@@ -103,6 +104,7 @@
 		08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ImagePicker.swift"; sourceTree = "<group>"; };
 		08C351642AF4127200E0FD83 /* AdMobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobBannerView.swift; sourceTree = "<group>"; };
 		08C351662AFE762100E0FD83 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
+		08C351682AFE7B8900E0FD83 /* StartLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartLoginView.swift; sourceTree = "<group>"; };
 		08CA67E42A132187006909B8 /* MytoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytoringView.swift; sourceTree = "<group>"; };
 		08CA67E62A2243DB006909B8 /* JoinListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListCard.swift; sourceTree = "<group>"; };
 		08D1115B29F91C1400561414 /* RecruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			children = (
 				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
 				08B494B529F4E03B007EC5DF /* LoginView.swift */,
+				08C351682AFE7B8900E0FD83 /* StartLoginView.swift */,
 				08C351662AFE762100E0FD83 /* NewLoginView.swift */,
 				08D1115D29F9783C00561414 /* MypageView.swift */,
 				08D7679D2ADDEFA00006A7F6 /* SettingView.swift */,
@@ -465,6 +468,7 @@
 				0859B87229F01F1D00A0B928 /* MoToBBCApp.swift in Sources */,
 				08C351652AF4127200E0FD83 /* AdMobBannerView.swift in Sources */,
 				08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */,
+				08C351692AFE7B8900E0FD83 /* StartLoginView.swift in Sources */,
 				08D1116029F98D0100561414 /* HomeView.swift in Sources */,
 				0824C16D2AE268FD00B36D57 /* BlockList+CoreDataProperties.swift in Sources */,
 				08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */,
