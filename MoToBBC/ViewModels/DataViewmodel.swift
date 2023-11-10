@@ -72,7 +72,8 @@ final class ViewModel: ObservableObject {
                 print("No documents")
                 return
             }
-            self.datamodel = documents.map {(queryDocumentSnapshot) -> Events in
+            self.datamodel = documents.map {
+                (queryDocumentSnapshot) -> Events in
                 let data = queryDocumentSnapshot.data()
                 //                print(data)
                 //                let id = data["id"] as? String ?? ""
