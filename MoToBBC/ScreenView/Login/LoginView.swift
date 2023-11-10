@@ -9,15 +9,15 @@ struct LoginView: View {
 
 
     var body: some View {
-            if allview == false {
-                if logingo == true {
+            if !allview {
+                if logingo {
                     StartLoginView(logingo: $logingo, allview: $allview)
                 }
-                else if(logingo == false) {
+                else {
                     NewLoginView(logingo: $logingo, allview: $allview)
                 }
             }
-            else if allview == true {
+            else if allview {
                 HomeView()
             }
         }

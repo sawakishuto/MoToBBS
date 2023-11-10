@@ -241,9 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
-				08B494B529F4E03B007EC5DF /* LoginView.swift */,
-				08C351682AFE7B8900E0FD83 /* StartLoginView.swift */,
-				08C351662AFE762100E0FD83 /* NewLoginView.swift */,
+				08C3516A2AFE802300E0FD83 /* Login */,
 				08D1115D29F9783C00561414 /* MypageView.swift */,
 				08D7679D2ADDEFA00006A7F6 /* SettingView.swift */,
 				08D767D52ADE41540006A7F6 /* MailView.swift */,
@@ -280,6 +278,16 @@
 				0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		08C3516A2AFE802300E0FD83 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				08C351662AFE762100E0FD83 /* NewLoginView.swift */,
+				08B494B529F4E03B007EC5DF /* LoginView.swift */,
+				08C351682AFE7B8900E0FD83 /* StartLoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
