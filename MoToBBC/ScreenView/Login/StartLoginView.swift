@@ -35,11 +35,11 @@ struct StartLoginView: View {
     @State private var mailname: String = " MoToBBS@gmail.com"
     @State private var passname: String = " 123456"
     @State private var authState:String = ""
-
+    
     var body: some View {
         GeometryReader {
             geometory in
-
+            
             ZStack {
                 LinearGradient(
                     gradient: Gradient(colors: [Color.red, Color(
@@ -57,14 +57,14 @@ struct StartLoginView: View {
                         .scaleEffect(0.8)
                         .scaledToFit()
                         .padding(EdgeInsets(top: geometory.size.height * -0.1, leading: 0, bottom: 5, trailing: 0))
-
+                    
                     TextField(mailname, text: $mail)
                         .frame(width: geometory.size.width * 0.96, height: 60)
                         .textFieldStyle(PlainTextFieldStyle())
                         .background(errorhandle ? Color(red: 0.8, green: 0.8, blue: 0.8): Color.white)
                         .cornerRadius(10)
                         .padding(.bottom, 20)
-
+                    
                     // パスワード
                     SecureField(passname, text: $password)
                         .frame(width: geometory.size.width * 0.96, height: 60)
@@ -104,23 +104,23 @@ struct StartLoginView: View {
                                 .cornerRadius(10)
                                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray))
                         })
-                        Text("新規登録")
-                            .foregroundColor(.white)
-                            .padding(.init(top: 20, leading: 0, bottom: 0, trailing: 0))
-                            .onTapGesture {
-                                logingo = false
-                            }
-
-                    }
-                    .padding(.top, -150)
-                    .onAppear {
-                        mail = fetchedInfo.first?.mail ?? ""
-                        password = fetchedInfo.first?.pass ?? ""
-                    }
-
+                    Text("新規登録")
+                        .foregroundColor(.white)
+                        .padding(.init(top: 20, leading: 0, bottom: 0, trailing: 0))
+                        .onTapGesture {
+                            logingo = false
+                        }
+                    
                 }
-
+                .padding(.top, -150)
+                .onAppear {
+                    mail = fetchedInfo.first?.mail ?? ""
+                    password = fetchedInfo.first?.pass ?? ""
+                }
+                
             }
+            
+        }
     }
 }
 
