@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct TutorialView: View {
+    private var PageStr: [String] = ["FirstPage", "SecondPage", "ThirdPage", "ForthPage", "FifthPage"]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        SlideView {
+            ForEach(0..<PageStr.count) {str in
+                Image(PageStr[str])
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+            }
+            .padding(.horizontal, 40)
+        }
     }
 }
 
