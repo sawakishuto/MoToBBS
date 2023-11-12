@@ -36,7 +36,7 @@ struct JoinListView: View {
                     .fontWeight(.black)
                     .frame(maxHeight: .infinity)
             } else {
-                JoinListSlide {
+                SlideView {
                     ForEach(events, id: \.eventid) { event in
                         
                         VStack(alignment: .leading) {

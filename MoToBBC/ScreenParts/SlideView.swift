@@ -1,5 +1,5 @@
 //
-//  PhotosSlide.swift
+//  SlideView.swift
 //  MoToBBS
 //
 //  Created by 澤木柊斗 on 2023/09/05.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct JoinListSlide<T: View>: View {
+struct SlideView<T: View>: View {
     private let content: () -> T
     init(@ViewBuilder content: @escaping () -> T) {
         let currenTintColor = UIColor.black
