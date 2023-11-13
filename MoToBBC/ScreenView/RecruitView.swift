@@ -22,7 +22,7 @@ struct RecruitView: View {
     @State var username: String = ""
     @State private var whereis: String = ""
     @State private var endTime = Date()
-    @State private var detail: String = "ルート:\n\n高速の有無:\n\nその他詳細:\n問い合わせ先(X,Instagram):\n"
+    @State private var detail: String = "ルート:\n\n高速の有無:\n\nその他詳細:\n問い合わせ先(メール, X,Instagram):\n"
     @State private var title: String = ""
     @State private var how: String = ""
     @State private var participants: String = ""
@@ -53,13 +53,15 @@ struct RecruitView: View {
                         .stroke(Color.red, lineWidth: 1))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                     .keyboardType(.numberPad)
-                DatePicker("開始時間", selection: $selectionDate)
+                DatePicker(" 開始時間", selection: $selectionDate)
                     .frame(width: 370, height: 50)
+                    .fontWeight(.bold)
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red, lineWidth: 1))
                     .frame(height: 30)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                DatePicker("終了時間", selection: $endTime)
+                DatePicker(" 終了時間", selection: $endTime)
+                    .fontWeight(.bold)
                     .frame(width: 370, height: 50)
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red, lineWidth: 1))

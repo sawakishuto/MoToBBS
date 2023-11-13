@@ -18,6 +18,7 @@ struct EventListView: View {
         animation: .default
     ) var fetchedInfomation: FetchedResults<BlockList>
     // swiftlint:disable line_length
+    @State var tutorialOpen: Bool = true
     @State var filterLocation: String = ""
     @State  var image: UIImage? = nil
     @State var bikename: String = ""
@@ -111,6 +112,10 @@ struct EventListView: View {
                 .sheet(isPresented: $showsheet) {
                     RecruitView()
                 }
+            if tutorialOpen {
+                TutorialView()
+                    .background(.gray.opacity(0.7))
+            }
         }
         .onAppear {
             fetchedBlockList()

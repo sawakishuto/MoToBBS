@@ -188,7 +188,7 @@ struct NewLoginView: View {
                                             )
                                         }
                                         DispatchQueue.main.async {
-                                            allview = true
+                                            allview.toggle()
                                         }
 
                                     }
