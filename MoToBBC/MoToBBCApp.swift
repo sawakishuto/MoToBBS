@@ -28,7 +28,7 @@ struct MoToBBCApp: App {
     }
     var body: some Scene {
         WindowGroup {
-         LoginView()
+            LoginView()
                 .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
         }
     }

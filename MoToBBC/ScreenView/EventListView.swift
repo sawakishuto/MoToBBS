@@ -17,8 +17,12 @@ struct EventListView: View {
         sortDescriptors: [NSSortDescriptor(key: "blockList", ascending: false)],
         animation: .default
     ) var fetchedInfomation: FetchedResults<BlockList>
+    @FetchRequest(
+        entity: LoginInfo.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "haveAccount", ascending: false)],
+        animation: .default
+    ) var fetchedInfo: FetchedResults<LoginInfo>
     // swiftlint:disable line_length
-    @State var tutorialOpen: Bool = true
     @State var filterLocation: String = ""
     @State  var image: UIImage? = nil
     @State var bikename: String = ""
@@ -112,7 +116,7 @@ struct EventListView: View {
                 .sheet(isPresented: $showsheet) {
                     RecruitView()
                 }
-            if tutorialOpen {
+            if fetchedInfo.first?.haveAccount == false {
                 TutorialView()
                     .background(.gray.opacity(0.7))
             }
@@ -120,7 +124,10 @@ struct EventListView: View {
         .onAppear {
             fetchedBlockList()
             viewModel.fetchData()
-        }
+            print(fetchedInfo.first?.haveAccount)
+           }
+
+
         .edgesIgnoringSafeArea(.top)
     }
     private func fetchedBlockList() {

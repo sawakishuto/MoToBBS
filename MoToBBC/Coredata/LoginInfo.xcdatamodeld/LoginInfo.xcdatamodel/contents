@@ -7,6 +7,7 @@
         <attribute name="blockList" optional="YES" attributeType="String"/>
     </entity>
     <entity name="LoginInfo" representedClassName="LoginInfo" syncable="YES">
+        <attribute name="haveAccount" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="mail" optional="YES" attributeType="String"/>
         <attribute name="pass" optional="YES" attributeType="String"/>
     </entity>

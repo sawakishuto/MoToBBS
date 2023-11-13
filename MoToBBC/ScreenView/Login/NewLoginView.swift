@@ -11,13 +11,13 @@ import CoreData
 
 struct NewLoginView: View {
     @ObservedObject private var viewModel = LoginViewModel()
-
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: LoginInfo.entity(),
         sortDescriptors: [NSSortDescriptor(key: "pass", ascending: false)],
         animation: .default
     ) var fetchedInfo: FetchedResults<LoginInfo>
+    @State var tutorialOpen = false
     @State private var checkerror: Bool = false
     @State var showsheet = false
     @State var showconfine = false

@@ -18,6 +18,7 @@ struct PersistenceController {
         let newLoginInfo = LoginInfo(context: viewContext)
         newLoginInfo.mail = ""
         newLoginInfo.pass = ""
+        newLoginInfo.haveAccount = true
         let newAttendList = AttendList(context: viewContext)
         newAttendList.attendId = ""
         let newBlockList = BlockList(context: viewContext)
