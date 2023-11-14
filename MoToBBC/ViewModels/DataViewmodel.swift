@@ -33,6 +33,8 @@ final class ViewModel: ObservableObject {
     private var db = Firestore.firestore()
     @Published var documentId: String?
     init() { self.dataDesctiption = "今日は" }
+    //   この辺の作業は全部Modelの仕事だった。。。
+    //　今後大量のリファクタリングをして頑張ってMVVMにしたい
     //    ツーリング終了ボタン（投稿者側）が押された時に参加者リストを削除
     func AttendListclear(eventid: String) {
         let docRef = db.collection("AttendList").document(eventid)
@@ -66,6 +68,7 @@ final class ViewModel: ObservableObject {
         }
     }
     //    Eventコレクションからデータを取得
+
     func fetchData() {
         db.collection("Event").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents

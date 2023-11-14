@@ -9,6 +9,10 @@ import SwiftUI
 import UIKit
 import PhotosUI
 import FirebaseStorage
+enum KindsRecruit {
+    case turing
+    case meating
+}
 struct RecruitView: View {
     @State private var postAlert:Bool = false
     @State private var selectionDate = Date()
