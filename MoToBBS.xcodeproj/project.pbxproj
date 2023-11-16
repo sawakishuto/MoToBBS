@@ -32,6 +32,7 @@
 		086A33F029EF851500CD78BF /* MoToBBCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33EF29EF851500CD78BF /* MoToBBCTests.swift */; };
 		086A33FA29EF851500CD78BF /* MoToBBCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33F929EF851500CD78BF /* MoToBBCUITests.swift */; };
 		086A33FC29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33FB29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift */; };
+		087CC3A22B05D38700E63AAC /* JapanesePrefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */; };
 		089A7F012AA707A500D18D2E /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A7F002AA707A400D18D2E /* SlideView.swift */; };
 		08AE7F9F29FC09400073D37E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7F9E29FC09400073D37E /* Models.swift */; };
 		08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */; };
@@ -96,6 +97,7 @@
 		086A33F529EF851500CD78BF /* MoToBBSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoToBBSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		086A33F929EF851500CD78BF /* MoToBBCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoToBBCUITests.swift; sourceTree = "<group>"; };
 		086A33FB29EF851500CD78BF /* MoToBBCUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoToBBCUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanesePrefecture.swift; sourceTree = "<group>"; };
 		089A7F002AA707A400D18D2E /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		08AE7F9E29FC09400073D37E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				08AE7F9E29FC09400073D37E /* Models.swift */,
+				087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0816E7132ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift in Sources */,
+				087CC3A22B05D38700E63AAC /* JapanesePrefecture.swift in Sources */,
 				08C351672AFE762100E0FD83 /* NewLoginView.swift in Sources */,
 				089A7F012AA707A500D18D2E /* SlideView.swift in Sources */,
 				08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */,

@@ -47,7 +47,7 @@ final class ViewModel: ObservableObject {
         }
     }
     //    AttendlistからUser情報を取得
-    func fetchUserInfoFromAttendList(documentinfo: String, completion: @escaping ([[String]]) -> Void) {
+   func fetchUserInfoFromAttendList(documentinfo: String, completion: @escaping ([[String]]) -> Void) {
         let attendListRef = db.collection("AttendList").document(documentinfo)
         attendListRef.getDocument { (snapshot, error) in
             guard let data = snapshot?.data(),
