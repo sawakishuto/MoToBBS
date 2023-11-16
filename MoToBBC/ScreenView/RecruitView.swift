@@ -14,6 +14,7 @@ enum KindsRecruit {
     case meating
 }
 struct RecruitView: View {
+    @State private var selectedPrefecture: Int = 0
     @State private var postAlert:Bool = false
     @State private var selectionDate = Date()
     @Environment(\.presentationMode) var presentation
@@ -44,19 +45,39 @@ struct RecruitView: View {
         ScrollView {
             VStack {
                 Image("recruit").padding(EdgeInsets(top: -150, leading: 0, bottom: 0, trailing: 0))
-                Text("※できるだけ詳細に記入してください").foregroundColor(.red)
+                Text("※できるだけ詳細に記入してください")
+                    .foregroundColor(.red)
                     .fontWeight(.bold)
                 TextField("タイトル", text: $title)
-                    .frame(width: 370, height: 40).textFieldStyle(PlainTextFieldStyle())
+                    .frame(width: 370, height: 40)
+                    .textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red, lineWidth: 1))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                HStack {
+                    Text(" 開催都道府県")
+                        .fontWeight(.bold)
+                    Picker(selection: $selectedPrefecture,
+                           label: Text("都道府県")
+
+                    )
+                    {
+                        ForEach(0..<JapanesePrefecture.all.count, id: \.self) { index in
+                            Text(JapanesePrefecture(rawValue: index)!.nameWithSuffix).tag(index)
+                        }
+                    }
+                }
+                .frame(width: 370, height: 40)
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.red, lineWidth: 1))
                 TextField("募集人数(数字のみ)", text: $how)
-                    .frame(width: 370, height: 40).textFieldStyle(PlainTextFieldStyle())
+                    .frame(width: 370, height: 40)
+                    .textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red, lineWidth: 1))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                     .keyboardType(.numberPad)
+
                 DatePicker(" 開始時間", selection: $selectionDate)
                     .frame(width: 370, height: 50)
                     .fontWeight(.bold)
@@ -64,13 +85,15 @@ struct RecruitView: View {
                         .stroke(Color.red, lineWidth: 1))
                     .frame(height: 30)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+               
                 DatePicker(" 終了時間", selection: $endTime)
                     .fontWeight(.bold)
                     .frame(width: 370, height: 50)
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red, lineWidth: 1))
                     .frame(height: 30)
-                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                   .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+
                 ZStack(alignment: .topLeading) {
                     TextEditor(text: $detail)
                         .frame(width: 370)
@@ -78,12 +101,14 @@ struct RecruitView: View {
                         .overlay(RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.red, lineWidth: 1))
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+
                     if detail.isEmpty {
                         Text("詳細\nルート\n高速道路の有無\n問い合わせ先(X,Instagram)") .foregroundColor(Color(uiColor: .placeholderText))
                             .padding(EdgeInsets(top: 20, leading: 4, bottom: 0, trailing: 0))
                             .allowsHitTesting(false)
                     }
                 }
+
                 TextField("集合場所", text: $whereis)
                     .frame(width: 370, height: 40).textFieldStyle(PlainTextFieldStyle())
                     .overlay(RoundedRectangle(cornerRadius: 10)
@@ -133,7 +158,7 @@ struct RecruitView: View {
                                                           // 上記の処理が完了した後に次の処理を実行
                                                           DispatchQueue.global().async {
                                                               self.viewModel.addDocument(
-                                                                title: title,
+                                                                title: "【\(JapanesePrefecture(rawValue: selectedPrefecture)!.nameWithSuffix)】 \(title)",
                                                                 detail: detail,
                                                                 whereis: whereis,
                                                                 how: how,
