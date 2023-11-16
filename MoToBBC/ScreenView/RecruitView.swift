@@ -55,7 +55,7 @@ struct RecruitView: View {
                         .stroke(Color.red, lineWidth: 1))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 HStack {
-                    Text(" 開催都道府県")
+                    Text(" 開催地")
                         .fontWeight(.bold)
                     Picker(selection: $selectedPrefecture,
                            label: Text("都道府県")
