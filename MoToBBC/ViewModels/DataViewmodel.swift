@@ -17,6 +17,7 @@ import UIKit
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
 final class ViewModel: ObservableObject {
+    @Published var eventExists: Bool = false
     @Published var tutorialOpen: Bool = false
     @Published var blockedList: [String] = []
     @Published var attendList: [String] = []
@@ -305,6 +306,23 @@ final class ViewModel: ObservableObject {
                 }
             }
         }
+    }
+    func comformEvent() -> Bool {
+        let userDocRef = db.collection("Event").document(user!.uid)
+        userDocRef.getDocument { (document, error) in
+            if let error = error {
+                print("\(error)")
+                self.eventExists = false
+                print("naiyo")
+            } else if document!.exists {
+                print("ある")
+                self.eventExists = true
+            } else {
+                self.eventExists = false
+            }
+        }
+
+        return eventExists
     }
     //    自分が参加するボタンを押したイベントを格納
     func addAttend(eventid: String) {

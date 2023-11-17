@@ -23,6 +23,7 @@ struct EventListView: View {
         animation: .default
     ) var fetchedInfo: FetchedResults<LoginInfo>
     // swiftlint:disable line_length
+    @State private var eventExist: Bool = false
     @State var filterLocation: String = ""
     @State  var image: UIImage? = nil
     @State var bikename: String = ""
@@ -124,7 +125,7 @@ struct EventListView: View {
         .onAppear {
             fetchedBlockList()
             viewModel.fetchData()
-            print(fetchedInfo.first?.haveAccount)
+            eventExist = viewModel.comformEvent()
            }
 
 
@@ -175,7 +176,14 @@ extension EventListView {
         }
     }
     var createPostButton: some View {
-        Button(action: {self.goodAlert = true}, label: {
+        Button(action: {
+            eventExist = viewModel.comformEvent()
+            if eventExist {
+                goodAlert = true
+            } else {
+                showsheet = true
+            }
+        }, label: {
             Image(systemName: "square.and.pencil")
                 .foregroundColor(Color(red: 30, green: 10 / 255, blue: 10 / 255))
                 .frame(width: 100, height: 60)
@@ -183,7 +191,8 @@ extension EventListView {
                 .background(Circle().fill(Color(red: 90, green: 90, blue: 90)))
                 .shadow(color: .gray, radius: 3, x: 3, y: 3)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 5.0))
-        })
+        }
+        )
     }
     var mobCard: some View {
         AdMobBannerView()
