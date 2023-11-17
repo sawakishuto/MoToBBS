@@ -141,8 +141,15 @@ struct RecruitView: View {
                         .resizable()
                         .scaledToFit()
                 }
-                Button(action: {postAlert = true}, label: {Text(postState)})
-                    .buttonStyle(AnimationButtonStyle())
+                Button(action: {postAlert = true}, label: {
+                    Text(postState)
+                        .foregroundStyle(.white)
+                        .font(.system(size: 25))
+                        .fontWeight(.black)
+                })
+                    .padding(EdgeInsets(top: 8, leading: 28, bottom: 8, trailing: 28))
+                    .background(.red)
+                    .cornerRadius(24)
                     .alert(isPresented: $postAlert, content: {
                         Alert(
                             title: Text("この内容で募集しますか？"),
@@ -189,19 +196,6 @@ struct RecruitView: View {
             .padding(EdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0))
             .frame(maxWidth: .infinity)
         }
-    }
-}
-
-struct AnimationButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundColor(.black)
-            .padding()
-            .overlay(RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.black))
-            .background(configuration.isPressed ? Color.red : Color.white )
-            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
-            .animation(.easeOut(duration: 0.01), value: configuration.isPressed)
     }
 }
 
