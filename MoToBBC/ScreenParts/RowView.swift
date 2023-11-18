@@ -45,6 +45,7 @@ struct RowView: View {
                 }
                 Text(title)
                     .font(.title2)
+                    .lineLimit(1)
                     .foregroundColor(.black)
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                     .background(.white)

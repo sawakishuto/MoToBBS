@@ -81,9 +81,9 @@ struct Mypageview: View {
                             self.showsheet.toggle()
                         }
                         .foregroundStyle(.white)
-                        .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-                        .background(Color(red: 1, green: 0, blue: 0))
-                        .cornerRadius(10)
+                        .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                        .background(.red)
+                        .cornerRadius(20)
                         .fontWeight(.bold)
                         .shadow(radius: 4)
                         .sheet(isPresented: $showsheet) {
