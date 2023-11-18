@@ -197,6 +197,7 @@ struct Detail: View {
                                 .cornerRadius(40)
                                 .overlay(RoundedRectangle(cornerRadius: 40)
                                     .stroke(Color.red, lineWidth: 3))
+                                .padding(.horizontal, 22)
                         }
                     }
                 }
