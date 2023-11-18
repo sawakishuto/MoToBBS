@@ -191,8 +191,9 @@ struct Detail: View {
                             .opacity(0.5)
                             .padding(.horizontal, 8)
                         if let image = image {
-                            Image(uiImage: image).resizable()
-                                .frame(width: 330, height: 180)
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
                                 .cornerRadius(40)
                                 .overlay(RoundedRectangle(cornerRadius: 40)
                                     .stroke(Color.red, lineWidth: 3))
@@ -200,7 +201,8 @@ struct Detail: View {
                     }
                 }
                 
-                Text("参加予定者").foregroundColor(.red)
+                Text("参加予定者")
+                    .foregroundColor(.red)
                     .fontWeight(.bold)
                 List(userInfoArray, id: \.self) { userInfo in
                     Text("\(userInfo[0])\n車種: \(userInfo[2])\n性別: \(userInfo[1])　")
@@ -222,7 +224,8 @@ struct Detail: View {
                     Text(messa)
                         .fontWeight(.bold)
                         .frame(width: 190, height: 60)
-                        .background(Capsule().fill(Color.red))
+                        .background(Capsule()
+                            .fill(Color.red))
                         .shadow(color: .gray, radius: 3, x: 3, y: 3)
                         .padding(EdgeInsets(top: 0, leading: 18, bottom: 20, trailing: 0))
                         .onTapGesture { goodAlert = true }
