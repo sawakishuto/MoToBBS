@@ -603,7 +603,5 @@ final class ViewModel: ObservableObject {
                         }
             }
         }
-
-
     }
 }

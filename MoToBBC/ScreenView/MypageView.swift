@@ -70,6 +70,7 @@ struct Mypageview: View {
                         Text(fetchusercomment)
                             .fontWeight(.semibold)
                             .font(.system(size: 20))
+                            .padding(.trailing, 20)
                     }
                     HStack {
                         Text("車種:" + fetchbikename)
@@ -81,7 +82,7 @@ struct Mypageview: View {
                             self.showsheet.toggle()
                         }
                         .foregroundStyle(.white)
-                        .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                        .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
                         .background(.red)
                         .cornerRadius(20)
                         .fontWeight(.bold)

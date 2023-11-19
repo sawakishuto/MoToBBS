@@ -46,7 +46,6 @@
 		08C351672AFE762100E0FD83 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351662AFE762100E0FD83 /* NewLoginView.swift */; };
 		08C351692AFE7B8900E0FD83 /* StartLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351682AFE7B8900E0FD83 /* StartLoginView.swift */; };
 		08C3516C2B01032400E0FD83 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C3516B2B01032400E0FD83 /* TutorialView.swift */; };
-		08C3516E2B03647B00E0FD83 /* MeatingRecruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C3516D2B03647B00E0FD83 /* MeatingRecruitView.swift */; };
 		08CA67E52A132187006909B8 /* MytoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E42A132187006909B8 /* MytoringView.swift */; };
 		08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E62A2243DB006909B8 /* JoinListCard.swift */; };
 		08D1115C29F91C1400561414 /* RecruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115B29F91C1400561414 /* RecruitView.swift */; };
@@ -110,7 +109,6 @@
 		08C351662AFE762100E0FD83 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
 		08C351682AFE7B8900E0FD83 /* StartLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartLoginView.swift; sourceTree = "<group>"; };
 		08C3516B2B01032400E0FD83 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
-		08C3516D2B03647B00E0FD83 /* MeatingRecruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeatingRecruitView.swift; sourceTree = "<group>"; };
 		08CA67E42A132187006909B8 /* MytoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytoringView.swift; sourceTree = "<group>"; };
 		08CA67E62A2243DB006909B8 /* JoinListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListCard.swift; sourceTree = "<group>"; };
 		08D1115B29F91C1400561414 /* RecruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitView.swift; sourceTree = "<group>"; };
@@ -176,9 +174,9 @@
 		0859B86829F01F1D00A0B928 /* MoToBBC */ = {
 			isa = PBXGroup;
 			children = (
+				0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */,
 				0816E7172ADBF12600E170CA /* Coredata */,
 				0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */,
-				0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */,
 				089A7EFC2AA7061D00D18D2E /* Models */,
 				089A7EFD2AA7063300D18D2E /* ScreenView */,
 				089A7EFE2AA706C400D18D2E /* ScreenParts */,
@@ -252,7 +250,6 @@
 				08D1115D29F9783C00561414 /* MypageView.swift */,
 				08D7679D2ADDEFA00006A7F6 /* SettingView.swift */,
 				08C3516B2B01032400E0FD83 /* TutorialView.swift */,
-				08C3516D2B03647B00E0FD83 /* MeatingRecruitView.swift */,
 				08D767D52ADE41540006A7F6 /* MailView.swift */,
 				08B494B329F2A78D007EC5DF /* DetailView.swift */,
 				08D1115F29F98D0100561414 /* HomeView.swift */,
@@ -496,7 +493,6 @@
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
 				08D767D82ADE57DC0006A7F6 /* ReportDetailView.swift in Sources */,
 				0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */,
-				08C3516E2B03647B00E0FD83 /* MeatingRecruitView.swift in Sources */,
 				08D767D62ADE41540006A7F6 /* MailView.swift in Sources */,
 				08D7679E2ADDEFA00006A7F6 /* SettingView.swift in Sources */,
 				08C3516C2B01032400E0FD83 /* TutorialView.swift in Sources */,
@@ -662,7 +658,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"MoToBBC/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5285K4Z956;
@@ -681,8 +677,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.20;
-				"MARKETING_VERSION[sdk=iphoneos*]" = 1.20;
+				MARKETING_VERSION = 1.30;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.30;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -703,7 +699,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"MoToBBC/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5285K4Z956;
@@ -722,8 +718,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.20;
-				"MARKETING_VERSION[sdk=iphoneos*]" = 1.20;
+				MARKETING_VERSION = 1.30;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.30;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
