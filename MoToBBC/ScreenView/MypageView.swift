@@ -11,7 +11,7 @@ import CoreData
 struct Mypageview: View {
     // swiftlint:disable line_length
     @State private var showsheet = false
-    @ObservedObject private var viewModel = ViewModel()
+    @ObservedObject private var viewModel = DatasModel()
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: BlockList.entity(),

@@ -18,7 +18,7 @@ struct RecruitView: View {
     @State private var postAlert:Bool = false
     @State private var selectionDate = Date()
     @Environment(\.presentationMode) var presentation
-    @ObservedObject private var viewModel = ViewModel()
+    @ObservedObject private var viewModel = DatasModel()
     @State var usercomment: String = ""
     @State var bikename: String = ""
     @State var documentinfo: String = ""
@@ -180,7 +180,8 @@ struct RecruitView: View {
                                                                 userid: userid,
                                                                 username: username,
                                                                 usercomment: usercomment,
-                                                                bikename: bikename
+                                                                bikename: bikename,
+                                                                endTime: endTime
                                                               )
 
                                                               // 指定した処理が完了したらメインスレッドでUI更新を行います

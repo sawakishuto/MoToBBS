@@ -18,8 +18,8 @@ struct MytoringView: View {
     @State private var showlist = false
     @State private var userInfoArray: [[String]] = []
     @State var messa = "ツーリング終了！"
-    @ObservedObject private var viewModel = ViewModel()
-    @State  var datamodel = ViewModel().datamodel
+    @ObservedObject private var viewModel = DatasModel()
+    @State  var datamodel = DatasModel().datamodel
     @State var isgo = false
     @State var uid: String = ""
     @State var documentId = ""

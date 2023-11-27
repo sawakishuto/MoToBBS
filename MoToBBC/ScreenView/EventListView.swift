@@ -29,7 +29,7 @@ struct EventListView: View {
     @State var bikename: String = ""
     @State var goodAlert = false
     @State private var showsheet = false
-    @ObservedObject private var viewModel = ViewModel()
+    @ObservedObject private var viewModel = DatasModel()
     @State private var filterText: String = ""
     init() {
         viewModel.fetchData()

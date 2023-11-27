@@ -10,7 +10,7 @@ import FirebaseAuth
 import CoreData
 
 struct NewLoginView: View {
-    @ObservedObject private var viewModel = LoginViewModel()
+    @ObservedObject private var loginModel = LoginModel()
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: LoginInfo.entity(),
@@ -180,7 +180,7 @@ struct NewLoginView: View {
                                     } else {
                                         DispatchQueue.global().async {
                                             addLoginInfo(mail: mail, pass: password)
-                                            viewModel.adduser(
+                                            loginModel.adduser(
                                                 usersname: usersname,
                                                 bikename: bikename,
                                                 usercomment: usercomment,

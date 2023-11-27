@@ -24,7 +24,7 @@
 		0824C16F2AE26BCA00B36D57 /* BlockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0824C16E2AE26BCA00B36D57 /* BlockListView.swift */; };
 		0859B87129F01F1D00A0B928 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86929F01F1D00A0B928 /* EventListView.swift */; };
 		0859B87229F01F1D00A0B928 /* MoToBBCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */; };
-		0859B87329F01F1D00A0B928 /* DataViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */; };
+		0859B87329F01F1D00A0B928 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86B29F01F1D00A0B928 /* DataModels.swift */; };
 		0859B87429F01F1D00A0B928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0859B86C29F01F1D00A0B928 /* Assets.xcassets */; };
 		0859B87529F01F1D00A0B928 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0859B86E29F01F1D00A0B928 /* Preview Assets.xcassets */; };
 		0859B87729F01F1D00A0B928 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */; };
@@ -35,7 +35,7 @@
 		087CC3A22B05D38700E63AAC /* JapanesePrefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */; };
 		089A7F012AA707A500D18D2E /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A7F002AA707A400D18D2E /* SlideView.swift */; };
 		08AE7F9F29FC09400073D37E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7F9E29FC09400073D37E /* Models.swift */; };
-		08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */; };
+		08AE7FA229FC09ED0073D37E /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7FA129FC09ED0073D37E /* LoginModel.swift */; };
 		08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B329F2A78D007EC5DF /* DetailView.swift */; };
 		08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B529F4E03B007EC5DF /* LoginView.swift */; };
 		08B8E2E02A3B71CD00A0DFA2 /* JoinPersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */; };
@@ -85,7 +85,7 @@
 		0824C16E2AE26BCA00B36D57 /* BlockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockListView.swift; sourceTree = "<group>"; };
 		0859B86929F01F1D00A0B928 /* EventListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoToBBCApp.swift; sourceTree = "<group>"; };
-		0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewmodel.swift; sourceTree = "<group>"; };
+		0859B86B29F01F1D00A0B928 /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		0859B86C29F01F1D00A0B928 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0859B86E29F01F1D00A0B928 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanesePrefecture.swift; sourceTree = "<group>"; };
 		089A7F002AA707A400D18D2E /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		08AE7F9E29FC09400073D37E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		08AE7FA129FC09ED0073D37E /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		08B494B329F2A78D007EC5DF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		08B494B529F4E03B007EC5DF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPersonList.swift; sourceTree = "<group>"; };
@@ -237,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				08AE7F9E29FC09400073D37E /* Models.swift */,
+				0859B86B29F01F1D00A0B928 /* DataModels.swift */,
 				087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */,
 			);
 			path = Models;
@@ -280,8 +281,7 @@
 		089A7EFF2AA7077C00D18D2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				08AE7FA129FC09ED0073D37E /* LoginViewModel.swift */,
-				0859B86B29F01F1D00A0B928 /* DataViewmodel.swift */,
+				08AE7FA129FC09ED0073D37E /* LoginModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -475,7 +475,7 @@
 				08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */,
 				08AE7F9F29FC09400073D37E /* Models.swift in Sources */,
 				08D1115E29F9783C00561414 /* MypageView.swift in Sources */,
-				0859B87329F01F1D00A0B928 /* DataViewmodel.swift in Sources */,
+				0859B87329F01F1D00A0B928 /* DataModels.swift in Sources */,
 				0859B87B29F0DC4400A0B928 /* RowView.swift in Sources */,
 				0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */,
 				08CA67E52A132187006909B8 /* MytoringView.swift in Sources */,
@@ -486,7 +486,7 @@
 				08C351692AFE7B8900E0FD83 /* StartLoginView.swift in Sources */,
 				08D1116029F98D0100561414 /* HomeView.swift in Sources */,
 				0824C16D2AE268FD00B36D57 /* BlockList+CoreDataProperties.swift in Sources */,
-				08AE7FA229FC09ED0073D37E /* LoginViewModel.swift in Sources */,
+				08AE7FA229FC09ED0073D37E /* LoginModel.swift in Sources */,
 				08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */,
 				08D1115C29F91C1400561414 /* RecruitView.swift in Sources */,
 				08D7679A2ADD26F60006A7F6 /* AttendList+CoreDataProperties.swift in Sources */,

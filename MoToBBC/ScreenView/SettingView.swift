@@ -11,8 +11,8 @@ import CoreData
 struct SettingView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject private var viewModel = ViewModel()
-    @ObservedObject private var loginViewModel = LoginViewModel()
+    @ObservedObject private var dataModel = DatasModel()
+    @ObservedObject private var loginViewModel = LoginModel()
     @State private var showsheet:Bool = false
     @FetchRequest(
         entity: AttendList.entity(),
@@ -48,7 +48,7 @@ struct SettingView: View {
                             primaryButton: .destructive(Text("いいえ"), action: {}),
                             secondaryButton: .default(Text("はい"), action: {
                                 DispatchQueue.global().async {
-                                    viewModel.deleteAccount()
+                                    dataModel.deleteAccount()
                                 }
                                 DispatchQueue.main.async {
                                     dismiss()

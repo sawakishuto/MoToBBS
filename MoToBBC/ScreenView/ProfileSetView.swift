@@ -11,7 +11,7 @@ struct ProfileSetView: View {
     @Environment(\.presentationMode) var presentation
     @State public var  username: String = ""
     @State public var bikename: String = ""
-    @ObservedObject private var viewModel = ViewModel()
+    @ObservedObject private var viewModel = DatasModel()
     init(username: String, bikename: String) {
         self.username = username
         self.bikename = bikename

@@ -16,7 +16,7 @@ import UIKit
 // swiftlint:disable line_length
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
-final class ViewModel: ObservableObject {
+final class DatasModel: ObservableObject {
     @Published var eventExists: Bool = false
     @Published var tutorialOpen: Bool = false
     @Published var blockedList: [String] = []
@@ -236,7 +236,7 @@ final class ViewModel: ObservableObject {
         }
     }
     // 上に同じ関数だが、投稿者は（主催者）という文字を名前に追加して格納する
-    func GetUserInfoAndSet2(userid: String, username: String, usercomment: String, bikename: String) { // db.collection("User").document(user!.uid)からユーザーデータを取得
+    func GetUserInfoAndSet2(userid: String, username: String, usercomment: String, bikename: String, endTime: Date) { // db.collection("User").document(user!.uid)からユーザーデータを取得
         db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
             if let userError = userError {
                 fatalError("\(userError)")
@@ -262,7 +262,8 @@ final class ViewModel: ObservableObject {
                             "userid": "",
                             "username": "\(user.username)(主催者)",
                             "usercomment": user.usercomment,
-                            "bikename": user.bikename
+                            "bikename": user.bikename,
+                            "endTime": endTime
                         ])
                         // 更新されたattendListをdocumentinfoドキュメントに保存する
                         attendListRef.updateData(["attendList": existingAttendList]) { error in

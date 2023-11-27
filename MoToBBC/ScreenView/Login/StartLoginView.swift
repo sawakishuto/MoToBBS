@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 import CoreData
 struct StartLoginView: View {
-    @ObservedObject private var viewModel = LoginViewModel()
+    @ObservedObject private var viewModel = LoginModel()
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: LoginInfo.entity(),
