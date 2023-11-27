@@ -238,6 +238,7 @@
 			children = (
 				08AE7F9E29FC09400073D37E /* Models.swift */,
 				0859B86B29F01F1D00A0B928 /* DataModels.swift */,
+				08AE7FA129FC09ED0073D37E /* LoginModel.swift */,
 				087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */,
 			);
 			path = Models;
@@ -281,7 +282,6 @@
 		089A7EFF2AA7077C00D18D2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				08AE7FA129FC09ED0073D37E /* LoginModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
