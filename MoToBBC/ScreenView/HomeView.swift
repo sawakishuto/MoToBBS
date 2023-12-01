@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 // swiftlint:disable line_length
 struct HomeView: View {
-    @ObservedObject private var viewModel = DatasModel()
+    @ObservedObject private var DataModel = DatasModel()
     init() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
