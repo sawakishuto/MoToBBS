@@ -35,7 +35,7 @@ struct Detail: View {
     @State var isGood = false
     @State var goodAlert = false
     @State var messa = "参加する！"
-    @ObservedObject private var viewModel = DatasModel()
+    @ObservedObject private var DataModel = DatasModel()
     @State  var datamodel = DatasModel().datamodel
     @State var isgo = false
     @State var uid: String = ""
@@ -214,7 +214,7 @@ struct Detail: View {
                 .frame(height: 150)
                 .padding(EdgeInsets(top: 0, leading: 38, bottom: 0, trailing: 0))
                 Spacer()
-                if viewModel.attendList.contains(eventid) {
+                if DataModel.attendList.contains(eventid) {
                     Text("エントリー済み")
                         .fontWeight(.bold)
                         .frame(width: 190, height: 60)
@@ -242,8 +242,8 @@ struct Detail: View {
                                                               if isgo == true {
                                                                   messa = "エントリー完了"
                                                                   addAttendId(attendId: eventid)
-                                                                  self.viewModel.addAttend(eventid: eventid)
-                                                                  self.viewModel.GetUserInfoAndSet(
+                                                                  self.DataModel.addAttend(eventid: eventid)
+                                                                  self.DataModel.GetUserInfoAndSet(
                                                                     userid: self.userid,
                                                                     username: self.username,
                                                                     usercomment: self.usercomment,
@@ -277,9 +277,9 @@ struct Detail: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu(content: {
                     Button{
-
+                        DataModel.shareOnTwitter(title: title, place: whereis, date: dateString, detail: detail)
                     } label: {
-                        Text("投稿を報告")
+                        Text("この投稿を共有")
                     }
                     Button{
                         self.isShowMailView = true
@@ -305,7 +305,7 @@ struct Detail: View {
                         secondaryButton: .default(Text("はい"),
                                                   action: {
                                                       addBlockList(userid: eventid, username: username)
-                                                      viewModel.fetchData()
+                                                      DataModel.fetchData()
                                                       dismiss()
                                                   }
                                                  )
@@ -319,11 +319,11 @@ struct Detail: View {
             }
         }
         .onAppear {
-            self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
+            self.DataModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                 self.userInfoArray = userInfoArray
             }
-            self.viewModel.fetchData()
-            self.viewModel.getImage(eventid: self.eventid) { image in
+            self.DataModel.fetchData()
+            self.DataModel.getImage(eventid: self.eventid) { image in
                 if let image = image {
                     // 取得した画像をStateにセットしてUIに反映する
                     self.image = image
@@ -352,7 +352,7 @@ struct Detail: View {
             return
         } else {
             for value in fetchedInfom {
-                viewModel.attendList.append(value.attendId ?? "None")
+                DataModel.attendList.append(value.attendId ?? "None")
             }
         }
     }

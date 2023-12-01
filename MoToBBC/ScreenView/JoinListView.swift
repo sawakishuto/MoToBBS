@@ -13,7 +13,7 @@
 import SwiftUI
 
 struct JoinListView: View {
-    @ObservedObject private var viewModel = DatasModel()
+    @ObservedObject private var DataModel = DatasModel()
     @State var events: [Events] = []
     
     var body: some View {
@@ -55,7 +55,7 @@ struct JoinListView: View {
             }
         }
         .onAppear {
-            self.viewModel.fetchJoinedData { (events) in
+            self.DataModel.fetchJoinedData { (events) in
                 self.events = events
             }
         }

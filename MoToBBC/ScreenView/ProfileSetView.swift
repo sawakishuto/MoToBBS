@@ -11,7 +11,7 @@ struct ProfileSetView: View {
     @Environment(\.presentationMode) var presentation
     @State public var  username: String = ""
     @State public var bikename: String = ""
-    @ObservedObject private var viewModel = DatasModel()
+    @ObservedObject private var DataModel = DatasModel()
     init(username: String, bikename: String) {
         self.username = username
         self.bikename = bikename
@@ -25,7 +25,7 @@ struct ProfileSetView: View {
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red, lineWidth: 5))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                Button(action: {self.viewModel.profileset( bikename: bikename)
+                Button(action: {self.DataModel.profileset( bikename: bikename)
                     self.presentation.wrappedValue.dismiss()
                 }, label: {
                     Text("変更")
