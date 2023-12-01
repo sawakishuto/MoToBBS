@@ -29,10 +29,10 @@ struct EventListView: View {
     @State var bikename: String = ""
     @State var goodAlert = false
     @State private var showsheet = false
-    @ObservedObject private var viewModel = DatasModel()
+    @ObservedObject private var DataModel = DatasModel()
     @State private var filterText: String = ""
     init() {
-        viewModel.fetchData()
+        DataModel.fetchData()
     }
     var body: some View {
         ZStack(alignment: .bottomTrailing ) {
@@ -70,7 +70,7 @@ struct EventListView: View {
                                     }
                             })
                             .padding(.top, 20)
-                        if viewModel.datamodel.filter({ data in
+                        if DataModel.datamodel.filter({ data in
                             filterText.isEmpty ? data.title != "" : data.title.contains(filterText)
                         }).isEmpty {
                             VStack {
@@ -102,7 +102,7 @@ struct EventListView: View {
             }
             .refreshable {
                 fetchedBlockList()
-                self.viewModel.fetchData()}
+                self.DataModel.fetchData()}
             //            .navigationBarTitle("現在募集中の掲示板")
             createPostButton
                 .alert(isPresented: $goodAlert, content: {
@@ -124,8 +124,8 @@ struct EventListView: View {
         }
         .onAppear {
             fetchedBlockList()
-            viewModel.fetchData()
-            eventExist = viewModel.comformEvent()
+            DataModel.fetchData()
+            eventExist = DataModel.comformEvent()
            }
 
 
@@ -136,7 +136,7 @@ struct EventListView: View {
             return
         } else {
             for value in fetchedInfomation {
-                viewModel.blockedList.append(value.blockList ?? "None")
+                DataModel.blockedList.append(value.blockList ?? "None")
             }
         }
     }
@@ -144,7 +144,7 @@ struct EventListView: View {
 
 extension EventListView {
     var cardList: some View {
-        ForEach(viewModel.datamodel.filter(
+        ForEach(DataModel.datamodel.filter(
             filterText.isEmpty ? {$0.title != ""}: {$0.title.contains(filterText)}
         )) { data in
             NavigationLink(
@@ -177,7 +177,7 @@ extension EventListView {
     }
     var createPostButton: some View {
         Button(action: {
-            eventExist = viewModel.comformEvent()
+            eventExist = DataModel.comformEvent()
             if eventExist {
                 goodAlert = true
             } else {
