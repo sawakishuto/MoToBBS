@@ -277,6 +277,11 @@ struct Detail: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu(content: {
                     Button{
+
+                    } label: {
+                        Text("投稿を報告")
+                    }
+                    Button{
                         self.isShowMailView = true
                     } label: {
                         Text("投稿を報告")

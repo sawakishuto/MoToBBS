@@ -16,7 +16,7 @@ import UIKit
 // swiftlint:disable line_length
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
-final class DatasModel: ObservableObject {
+final class ViewModel: ObservableObject {
     @Published var eventExists: Bool = false
     @Published var tutorialOpen: Bool = false
     @Published var blockedList: [String] = []
@@ -605,20 +605,4 @@ final class DatasModel: ObservableObject {
             }
         }
     }
-    func shareOnTwitter(title: String, place: String, date: String, detail: String) {
-
-            //シェアするテキストを作成
-            let text = "【MoToBBS】\nツーリング募集\n　\(title)\n 集合時間：\(date)\n 集合場所\(place)\n　MoToBBSで詳細を確認！！\nhttps://apps.apple.com/jp/app/motobbs/id6469105461"
-            let hashTag = "#ツーリング募集"
-            let completedText = text + "\n" + hashTag
-
-            //作成したテキストをエンコード
-            let encodedText = completedText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
-            //エンコードしたテキストをURLに繋げ、URLを開いてツイート画面を表示させる
-            if let encodedText = encodedText,
-                let url = URL(string: "https://twitter.com/intent/tweet?text=\(encodedText)") {
-                UIApplication.shared.open(url)
-            }
-        }
 }
