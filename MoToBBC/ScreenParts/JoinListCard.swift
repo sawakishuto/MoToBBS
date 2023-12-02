@@ -17,7 +17,7 @@ struct JoinListCard: View {
         animation: .default
     ) var fetchedInfom: FetchedResults<AttendList>
     @State private var isShowSelect = false
-    @ObservedObject private var viewModel = DatasModel()
+    @ObservedObject private var viewModel = ViewModels()
     @State var events: [Events] = []
     @State var alerttitle = "タイトル"
     @State var alertmessage = "メッセ"

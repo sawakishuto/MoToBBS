@@ -18,7 +18,7 @@ struct RecruitView: View {
     @State private var postAlert:Bool = false
     @State private var selectionDate = Date()
     @Environment(\.presentationMode) var presentation
-    @ObservedObject private var DataModel = DatasModel()
+    @ObservedObject private var viewModel = ViewModels()
     @State var usercomment: String = ""
     @State var bikename: String = ""
     @State var documentinfo: String = ""
@@ -160,11 +160,11 @@ struct RecruitView: View {
                                                       action: {
                                                           postState = "投稿中"
                                                           if inputImage != nil {
-                                                              self.DataModel.UploadImage(inputImage: self.inputImage)
+                                                              self.viewModel.UploadImage(inputImage: self.inputImage)
                                                           }
                                                           // 上記の処理が完了した後に次の処理を実行
                                                           DispatchQueue.global().async {
-                                                              self.DataModel.addDocument(
+                                                              self.viewModel.addDocument(
                                                                 title: "【\(JapanesePrefecture(rawValue: selectedPrefecture)!.nameWithSuffix)】 \(title)",
                                                                 detail: detail,
                                                                 whereis: whereis,
@@ -176,7 +176,7 @@ struct RecruitView: View {
                                                                 username: username,
                                                                 participants: participants
                                                               )
-                                                              self.DataModel.GetUserInfoAndSet2(
+                                                              self.viewModel.GetUserInfoAndSet2(
                                                                 userid: userid,
                                                                 username: username,
                                                                 usercomment: usercomment,

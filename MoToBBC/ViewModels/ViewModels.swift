@@ -16,7 +16,7 @@ import UIKit
 // swiftlint:disable line_length
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
-final class DatasModel: ObservableObject {
+final class ViewModels: ObservableObject {
     @Published var eventExists: Bool = false
     @Published var tutorialOpen: Bool = false
     @Published var blockedList: [String] = []

@@ -11,7 +11,7 @@ import FirebaseStorage
 
 struct RowView: View {
     @State  var image: UIImage? = nil
-    @ObservedObject private var viewModel = DatasModel()
+    @ObservedObject private var viewModel = ViewModels()
     let eventid: String
     let  whereis: String
     let detail: String
