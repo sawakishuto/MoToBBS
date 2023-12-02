@@ -19,7 +19,18 @@ struct Item: Codable, Identifiable {
     var id: String?
     var strings: [String]
 }
+struct Chat: Codable, Identifiable {
+    var id: String = UUID().uuidString
+    let name: String
+    let content: String
+    let timeStampString: Date
+    var dateString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年M月d日　H時m分"
+        return formatter.string(from: timeStampString)
+    }
 
+}
 struct Events: Identifiable {
     let id: String = UUID().uuidString
     let eventid: String
