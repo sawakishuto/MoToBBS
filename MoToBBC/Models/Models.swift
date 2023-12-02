@@ -24,6 +24,7 @@ struct Chat: Codable, Identifiable {
     let name: String
     let content: String
     let timeStampString: Date
+    let qestion: Bool
     var dateString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年M月d日　H時m分"

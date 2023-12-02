@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ChatMessage: View {
-    let content: String = "こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは"
-    let qestion: Bool = false
-    let username: String = "しゅうと"
+    let content: String
+    let qestion: Bool
+    let username: String
+    let timeStamp: String
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment:  qestion ? .trailing: .leading) {
             Text(username)
                 .font(.system(size: 13))
                 .foregroundStyle(Color(red: 0.3, green: 0.3, blue: 0.3))
@@ -22,11 +23,14 @@ struct ChatMessage: View {
                 .background(qestion ? Color(red: 0.9, green: 0.9, blue: 0.9): Color(red: 1.0, green: 0.7, blue: 0.7) )
                 .fontWeight(qestion ? .light: .bold )
                 .cornerRadius(17)
+            Text(timeStamp)
+                .font(.system(size: 8))
+                .foregroundStyle(Color(red: 0.3, green: 0.3, blue: 0.3))
         }
-        .frame(width: 250)
+        .frame(width: 250,alignment: qestion ? .trailing: .leading)
     }
 }
 
 #Preview {
-    ChatMessage()
+    ChatMessage(content: "wwwwwwww", qestion: true, username: "しゅうと", timeStamp: "1221/12/12")
 }
