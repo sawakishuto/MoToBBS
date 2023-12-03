@@ -26,6 +26,7 @@ struct Detail: View {
     ) var fetchedInfom: FetchedResults<AttendList>
     
     // swiftlint:disable line_length
+    @State private var isShowChat: Bool = false
     @State private var isShowAlertBlock: Bool = false
     @State  var isShowMailView: Bool = false
     @State private var pickerInt: Int? = nil
@@ -258,7 +259,15 @@ struct Detail: View {
                             )
                         })
                 }
-                
+                Button {
+                    isShowChat = true
+                } label: {
+                    Text("chat")
+                }
+                .sheet(isPresented: $isShowChat) {
+                    ChatView(eventid: eventid)
+                }
+
             }
         }
         .navigationBarBackButtonHidden(true)

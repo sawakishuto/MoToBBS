@@ -6,34 +6,54 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct ChatView: View {
+    @ObservedObject private var viewModel = ViewModels()
+    var db = Firestore.firestore()
     @State var textField: String = ""
+    let eventid: String
     let messageTest : [Chat] = [
-        Chat(id: "0", name: "しゅうと", content: "今日のご飯は！", timeStampString: Date(), qestion: true)
+        Chat(id: "0", name: "しゅうと", content: "今日のご飯は！今日のご飯は！今日のご飯は！今日のご飯は！今日のご飯は！今日のご飯は！今日のご飯は！", timeStampString: Date(), qestion: true)
         ,Chat(id: "1", name: "ひろむ", content: "ホットドッグ！", timeStampString: Date(), qestion: false)
         ,Chat(id: "2", name: "かぶたん", content: "どこの！", timeStampString: Date(), qestion: true)
-        ,Chat(id: "3", name: "ひろむ", content: "バロー！", timeStampString: Date(), qestion: false)
+        ,Chat(id: "3", name: "ひろむ", content: "バロー！バロー！バロー！バロー！バロー！バロー！バロー！バロー！バロー！バロー！", timeStampString: Date(), qestion: false)
     ]
     let username: String = "しゅうと"
 
     var body: some View {
         GeometryReader {geometory in
             VStack {
-                Text("Q&A")
-                    .font(.system(size: 45))
-                    .fontWeight(.black)
-                    .padding(.bottom, 20)
-                    .foregroundStyle(.red)
+                HStack {
+                    Text("Q")
+                        .font(.system(size: 45))
+                        .fontWeight(.black)
+                        .padding(.bottom, 20)
+                        .foregroundStyle(.red)
+                        .padding(.trailing,0)
+                    Text("&")
+                        .font(.system(size: 25))
+                        .fontWeight(.black)
+                        .padding(.bottom, 20)
+                        .foregroundStyle(.gray)
+                        .padding(.top,18)
+
+                    Text("A")
+                        .font(.system(size: 45))
+                        .fontWeight(.black)
+                        .padding(.bottom, 20)
+                        .foregroundStyle(Color(red: 0.4, green: 0.4, blue: 0.4))
+                }
+
                 ScrollView {
                     ForEach(messageTest) {content in
                         ChatMessage(content: content.content, qestion: content.qestion, username: content.name, timeStamp: content.dateString)
-                            .frame(width: geometory.size.width - 30, alignment: content.qestion ? .trailing: .leading)
+                            .frame(width: geometory.size.width, alignment: content.qestion ? .trailing: .leading)
                             .padding(content.qestion ? .trailing: .leading, 30)
                     }
                 }
                 HStack(spacing: 0) {
-                    TextField("雨天中止ですか？", text: $textField)
+                    TextField("", text: $textField)
                         .font(.title3)
                         .padding(.horizontal, 20)
                         .frame(width: 300, height: 38 )
@@ -42,7 +62,8 @@ struct ChatView: View {
                                 .stroke(Color.gray, lineWidth: 3)
                         )
                     Button(action: {
-                        
+                        viewModel.GetUserInfomationAndChat(eventid: eventid, content: textField)
+
                     }, label: {
                         Image(systemName: "paperplane")
                             .resizable()
@@ -54,11 +75,10 @@ struct ChatView: View {
                 }
                         .padding(.bottom, 30)
             }
-
         }
     }
 }
 
 #Preview {
-    ChatView()
+    ChatView(eventid: "")
 }

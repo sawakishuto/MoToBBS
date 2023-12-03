@@ -48,7 +48,7 @@ final class ViewModels: ObservableObject {
         }
     }
     //    AttendlistからUser情報を取得
-   func fetchUserInfoFromAttendList(documentinfo: String, completion: @escaping ([[String]]) -> Void) {
+    func fetchUserInfoFromAttendList(documentinfo: String, completion: @escaping ([[String]]) -> Void) {
         let attendListRef = db.collection("AttendList").document(documentinfo)
         attendListRef.getDocument { (snapshot, error) in
             guard let data = snapshot?.data(),
@@ -390,7 +390,7 @@ final class ViewModels: ObservableObject {
                                         userid: userid,
                                         title: title,
                                         whereis: whereis,
-                                        dateEvent: dateEvent, 
+                                        dateEvent: dateEvent,
                                         endTime: endTime,
                                         participants: participants,
                                         detail: detail,
@@ -432,9 +432,10 @@ final class ViewModels: ObservableObject {
             // ドキュメントIDを保存する
             "eventid": documentID,
             "userid": documentID,
-            "participants": participants
+            "participants": participants,
+            "chat": []
         ])
-          {
+        {
             err in
             if let err = err {
                 print(err)
@@ -582,6 +583,61 @@ final class ViewModels: ObservableObject {
         }
 
     }
+    func GetUserInfomationAndChat(eventid: String, content: String) {
+        print(eventid)
+        print(content)
+        db.collection("User").document(user!.uid).getDocument { (getuserSnapshot, getError) in
+            if let getError = getError {
+                fatalError("\(getError)")
+            }
+            print("aaaa")
+            guard let userData = getuserSnapshot?.data() else {
+                print("取得できなかった１")
+                return
+            }
+            let userid = userData["userid"] as? String ?? ""
+            let username = userData["username"] as? String ?? ""
+            let usercomment = userData["usercomment"] as? String ?? ""
+            let bikename = userData["bikename"] as? String ?? ""
+            let users = User(userid: userid, username: username, usercomment: usercomment, bikename: bikename)
+            self.db.collection("Event").document(eventid).getDocument { (chatDocument, chatError) in
+                print("🇲🇱")
+                print(users.username)
+                if let chatError = chatError {
+                    fatalError("\(chatError)")
+                }
+
+                guard let chatData = chatDocument?.data() else {
+                    print("取得できな２")
+                    return
+                }
+
+                if var chatList = chatData["chat"] as? [[String: Any]] {
+
+                    // usersインスタンスから値を取り出す
+                    let username = users.username
+                    let usercomment = users.usercomment
+                    let bikename = users.bikename
+
+                    chatList.append([
+                        "userid": users.userid,
+                        "username": username,
+                        "content": content
+                    ])
+                    print(chatList)
+                    self.db.collection("Event").document(eventid).updateData(["chat": chatList]) { error in
+                        if let error = error {
+                            print("更新エラー: \(error)")
+                        } else {
+                            print("attendListが更新されました")
+                        }
+                    }
+                }
+            }
+        }
+        print("nanana")
+    }
+
     func deleteAccount() {
         let ref = Database.database().reference()
         DispatchQueue.global().async {
@@ -592,33 +648,34 @@ final class ViewModels: ObservableObject {
         }
         DispatchQueue.main.async {
             let user = Auth.auth().currentUser
-                user?.delete { error in
-                    if let error = error {
-                        print("削除に失敗")
-                    }
-                    print("削除完了")
-                        do{
-                           try? Auth.auth().signOut()
-                        } catch {
-                            print("失敗")
-                        }
+            user?.delete { error in
+                if let error = error {
+                    print("削除に失敗")
+                }
+                print("削除完了")
+                do{
+                    try? Auth.auth().signOut()
+                } catch {
+                    print("失敗")
+                }
             }
         }
     }
     func shareOnTwitter(title: String, place: String, date: String, detail: String) {
 
-            //シェアするテキストを作成
-            let text = "【MoToBBS】\nツーリング募集\n　\(title)\n 集合時間：\(date)\n 集合場所\(place)\n　MoToBBSで詳細を確認！！\nhttps://apps.apple.com/jp/app/motobbs/id6469105461"
-            let hashTag = "#ツーリング募集"
-            let completedText = text + "\n" + hashTag
+        //シェアするテキストを作成
+        let text = "【MoToBBS】\nツーリング募集\n　\(title)\n 集合時間：\(date)\n 集合場所\(place)\n　MoToBBSで詳細を確認！！\nhttps://apps.apple.com/jp/app/motobbs/id6469105461"
+        let hashTag = "#ツーリング募集"
+        let completedText = text + "\n" + hashTag
 
-            //作成したテキストをエンコード
-            let encodedText = completedText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        //作成したテキストをエンコード
+        let encodedText = completedText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 
-            //エンコードしたテキストをURLに繋げ、URLを開いてツイート画面を表示させる
-            if let encodedText = encodedText,
-                let url = URL(string: "https://twitter.com/intent/tweet?text=\(encodedText)") {
-                UIApplication.shared.open(url)
-            }
+        //エンコードしたテキストをURLに繋げ、URLを開いてツイート画面を表示させる
+        if let encodedText = encodedText,
+           let url = URL(string: "https://twitter.com/intent/tweet?text=\(encodedText)") {
+            UIApplication.shared.open(url)
         }
+    }
+
 }
