@@ -13,6 +13,7 @@ struct ChatView: View {
     var db = Firestore.firestore()
     @State var textField: String = ""
     @State private var ChatList: [Chat] = []
+    @State private var firstText: String = ""
     let eventid: String
     let username: String = "しゅうと"
     var body: some View {
@@ -55,7 +56,7 @@ struct ChatView: View {
                         }
                     }
                     HStack(spacing: 0) {
-                        TextField("", text: $textField)
+                        TextField(firstText, text: $textField)
                             .font(.title3)
                             .padding(.horizontal, 20)
                             .frame(width: 300, height: 38 )
@@ -65,6 +66,7 @@ struct ChatView: View {
                             )
                         Button(action: {
                             viewModel.GetUserInfomationAndChat(eventid: eventid, content: textField)
+                            firstText = ""
                             textField = ""
 
                         }, label: {
