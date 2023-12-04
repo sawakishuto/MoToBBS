@@ -16,6 +16,7 @@ struct JoinListCard: View {
         sortDescriptors: [NSSortDescriptor(key: "attendId", ascending: false)],
         animation: .default
     ) var fetchedInfom: FetchedResults<AttendList>
+    @State private var isShowChat: Bool = false
     @State private var isShowSelect = false
     @ObservedObject private var viewModel = ViewModels()
     @State var events: [Events] = []
@@ -157,6 +158,24 @@ struct JoinListCard: View {
                             .padding(.bottom, 15)
                         Text(detail)
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10 ))
+                    }
+                    Button {
+                        isShowChat = true
+                    } label: {
+                        VStack {
+                            Image(systemName: "bubble.left.and.bubble.right.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 43)
+                            Text("チャットで質問")
+                                .foregroundStyle(.gray)
+                                .opacity(1.0)
+                                .font(.system(size: 10))
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 10))
+                    }
+                    .sheet(isPresented: $isShowChat) {
+                        ChatView(eventid: eventid)
                     }
                     Divider()
                         .background(Color.red)

@@ -13,6 +13,7 @@ import FirebaseAuth
 
 struct MytoringView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var isShowChat: Bool = false
     @State  var image: UIImage? = nil
     @State var goodAlert = false
     @State private var showlist = false
@@ -54,7 +55,8 @@ struct MytoringView: View {
         self.how = how
     }
     var body: some View {
-        VStack(spacing: 8) {
+        ZStack(alignment: .bottomTrailing) {
+            VStack(spacing: 8) {
                 ScrollView {
                     Text(title).font(.title)
                         .fontWeight(.bold)
@@ -160,23 +162,23 @@ struct MytoringView: View {
                             .overlay(RoundedRectangle(cornerRadius: 40)
                                 .stroke(Color.red, lineWidth: 3))
                     }
-                 else {Text("画像を読み込んでいます...")}
+                    else {Text("画像を読み込んでいます...")}
                 }
                 .frame(alignment: .bottom)
                 Spacer()
                 VStack {
                     Button("参加予定者一覧") {  self.showlist.toggle()}
-                           .sheet(isPresented: $showlist) {
-                               JoinPersonList(eventid: self.eventid,
-                                              whereis: self.whereis,
-                                              detail: self.detail,
-                                              title: self.title,
-                                              dateStrig: self.dateString,
-                                              how: self.how)
+                        .sheet(isPresented: $showlist) {
+                            JoinPersonList(eventid: self.eventid,
+                                           whereis: self.whereis,
+                                           detail: self.detail,
+                                           title: self.title,
+                                           dateStrig: self.dateString,
+                                           how: self.how)
                         }
                 }
-                    .fontWeight(.bold)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
+                .fontWeight(.bold)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                 Text(messa)
                     .font(.system(size: 17))
                     .fontWeight(.semibold)
@@ -193,18 +195,19 @@ struct MytoringView: View {
                                 Text("いいえ"),
                                 action: { isgo = false }),
                             secondaryButton: .default(Text("はい"), action: {
-                                                         isgo = true
-                                                         if isgo == true {
-                                                             messa = "お疲れ様でした！"
-                                                             self.viewModel.deleteImage()
-                                                             self.viewModel.deleteDocument()
-                                                             self.viewModel.AttendListclear(eventid: self.eventid)
-                                                             self.viewModel.getUser()
-                                                             dismiss()
-                                                         }
-                                                     })
+                                isgo = true
+                                if isgo == true {
+                                    messa = "お疲れ様でした！"
+                                    self.viewModel.deleteImage()
+                                    self.viewModel.deleteDocument()
+                                    self.viewModel.AttendListclear(eventid: self.eventid)
+                                    self.viewModel.getUser()
+                                    dismiss()
+                                }
+                            })
                         )
                     })
+
             }
             .frame(alignment: .bottom)
             .navigationBarBackButtonHidden(true)
@@ -223,6 +226,25 @@ struct MytoringView: View {
                     }
                 }
             }
+            Button {
+                isShowChat = true
+            } label: {
+                VStack {
+                    Image(systemName: "bubble.left.and.bubble.right.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 43)
+                    Text("質問を返す")
+                        .foregroundStyle(.gray)
+                        .opacity(1.0)
+                        .font(.system(size: 10))
+                }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 20))
+            }
+            .sheet(isPresented: $isShowChat) {
+                ChatView(eventid: eventid)
+            }
+        }
             .onAppear {
                 self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                     self.userInfoArray = userInfoArray
