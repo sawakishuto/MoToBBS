@@ -22,7 +22,7 @@ final class ViewModels: ObservableObject {
     @Published var blockedList: [String] = []
     @Published var attendList: [String] = []
     @Published var image: Image?
-    @Published var ChatList = [Chat]()
+    @Published var ChatList: [Chat] = []
     var arrayData: [String] = []
     @Published var images: Image?
     @Published var eventidinfo = [Eventidmodel]()
@@ -588,6 +588,7 @@ final class ViewModels: ObservableObject {
     func GetUserInfomationAndChat(eventid: String, content: String) {
         print(eventid)
         print(content)
+
         db.collection("User").document(user!.uid).getDocument { (getuserSnapshot, getError) in
             if let getError = getError {
                 fatalError("\(getError)")
@@ -597,47 +598,34 @@ final class ViewModels: ObservableObject {
                 print("取得できなかった１")
                 return
             }
+
             let userid = userData["userid"] as? String ?? ""
-            let username = userData["username"] as? String ?? ""
+            let username = userData["usersname"] as? String ?? ""
             let usercomment = userData["usercomment"] as? String ?? ""
             let bikename = userData["bikename"] as? String ?? ""
             let users = User(userid: userid, username: username, usercomment: usercomment, bikename: bikename)
-            self.db.collection("Event").document(eventid).getDocument { (chatDocument, chatError) in
-                print("🇲🇱")
-                print(users.username)
-                if let chatError = chatError {
-                    fatalError("\(chatError)")
-                }
 
-                guard let chatData = chatDocument?.data() else {
-                    print("取得できな２")
-                    return
-                }
-
-                if var chatList = chatData["chat"] as? [[String: Any]] {
-
-                    // usersインスタンスから値を取り出す
-                    let username = users.username
-
-                    chatList.append([
+            self.db.collection("Event").document(eventid).updateData([
+                "chat": FieldValue.arrayUnion([
+                    [
                         "userid": users.userid,
-                        "username": username,
+                        "username": users.username,
                         "timeStamp": Date(),
                         "content": content
-                    ])
-                    print(chatList)
-                    self.db.collection("Event").document(eventid).updateData(["chat": chatList]) { error in
-                        if let error = error {
-                            print("更新エラー: \(error)")
-                        } else {
-                            print("attendListが更新されました")
-                        }
-                    }
+                    ]
+                ])
+            ]) { error in
+                if let error = error {
+                    print("更新エラー: \(error)")
+                } else {
+                    print("chatが更新されました")
                 }
             }
         }
+
         print("nanana")
     }
+
 
     func deleteAccount() {
         let ref = Database.database().reference()
@@ -662,45 +650,43 @@ final class ViewModels: ObservableObject {
             }
         }
     }
-    func getChatContent(eventid: String) {
-        db.collection("Event").document(eventid).getDocument { (getChatSnapshot, getChatError) in
-            if let getChatError = getChatError {
-                fatalError("\(getChatError)")
+    func getChatContent(eventid: String, completion: @escaping ([Chat]) -> Void) {
+        db.collection("Event").document(eventid).addSnapshotListener { (snapshot, error) in
+            if let error = error {
+                print("Error getting chat content: \(error)")
+                completion([]) // エラー時に空のChatリストを返す
+                return
             }
-            guard let getChatDocument = getChatSnapshot?.data() else {
-                    print("cant fetch data")
-                    return
-                }
-                print("🇲🇱")
-            let chatData: [[String:Any]] = getChatDocument["chat"] as! [[String : Any]]
 
-            self.ChatList = chatData.map { chat in
+            guard let data = snapshot?.data(),
+                  let chatData = data["chat"] as? [[String: Any]] else {
+                print("Unable to fetch chat data")
+                completion([]) // データが取得できない場合も空のChatリストを返す
+                return
+            }
 
+            let chatList: [Chat] = chatData.map { chat in
                 let content = chat["content"] as! String
                 let userId = chat["userid"] as! String
                 let username = chat["username"] as! String
                 let timestamp = (chat["timeStamp"] as? Timestamp)?.dateValue() ?? Date()
-                if userId == eventid {
-                    self.qestion = false
-                } else {
-                    self.qestion = false
-                }
-                print(content)
-                print(username)
-                print(timestamp)
-                print(self.qestion)
+
+                // userId == eventid の場合にtrue、それ以外の場合にfalseを設定
+                let isQuestion = userId != eventid
 
                 return Chat(
                     id: UUID().uuidString,
                     name: username,
                     content: content,
                     timeStampString: timestamp,
-                    qestion: self.qestion
+                    qestion: isQuestion
                 )
             }
-            print(self.ChatList)
+
+            completion(chatList)
         }
     }
+
     func shareOnTwitter(title: String, place: String, date: String, detail: String) {
 
         //シェアするテキストを作成
