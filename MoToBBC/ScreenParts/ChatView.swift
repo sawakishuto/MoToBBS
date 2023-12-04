@@ -21,13 +21,6 @@ struct ChatView: View {
 
                 VStack {
                     HStack {
-                        Button {
-                            proxy.scrollTo(ChatList.count)
-                            print(ChatList.count)
-                        } label: {
-                            Text("一番下へ")
-                        }
-
                         Text("Q")
                             .font(.system(size: 45))
                             .fontWeight(.black)

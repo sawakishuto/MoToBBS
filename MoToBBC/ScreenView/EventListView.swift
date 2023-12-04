@@ -37,86 +37,91 @@ struct EventListView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing ) {
             NavigationStack {
-                VStack(spacing: 0) {
-                    ZStack(alignment: .top) {
-                        Image("Image 1")
-                            .frame(width: 420, height: 0, alignment: .leading)
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
-                    }
-                    .padding(EdgeInsets(top: 70, leading: 40, bottom: 0, trailing: 0))
-                    .background(Color(red: 0.9, green: 0, blue: 0))
-                    .foregroundColor(.white)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .zIndex(10)
-                    .edgesIgnoringSafeArea(.bottom)
-                    ScrollView {
-                        TextField("タイトル検索(アメリカン,SS)", text: $filterText)
-                            .padding(.horizontal, 20)
-                            .frame(width: 330, height: 33)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.gray, lineWidth: 3)
-                            )
-                            .overlay(content: {
-                                Image(systemName: "xmark.circle")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20)
-                                    .foregroundColor(.gray)
-                                    .padding(.leading, 300)
-                                    .onTapGesture {
-                                        filterText = ""
-                                    }
-                            })
-                            .padding(.top, 20)
-                        if viewModel.datamodel.filter({ data in
-                            filterText.isEmpty ? data.title != "" : data.title.contains(filterText)
-                        }).isEmpty {
-                            VStack {
-                                Text("投稿が見つかりません")
-                                    .fontWeight(.black)
-                                    .frame(maxHeight: .infinity)
-                                    .frame(maxWidth: .infinity)
-                                mobCard
-                            }
-                        } else {
-                            VStack {
-                                cardList
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.white)
-                                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
-                                    .edgesIgnoringSafeArea(.top)
-                                mobCard
-                                    .padding(.bottom, 30)
-                                
-                            }
-                            // 背景色を透明に設定
+                ZStack(alignment: .bottomTrailing) {
+                    VStack(spacing: 0) {
+                        ZStack(alignment: .top) {
+                            Image("Image 1")
+                                .frame(width: 420, height: 0, alignment: .leading)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
                         }
-                        
+                        .padding(EdgeInsets(top: 70, leading: 40, bottom: 0, trailing: 0))
+                        .background(Color(red: 0.9, green: 0, blue: 0))
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .zIndex(10)
+                        .edgesIgnoringSafeArea(.bottom)
+                        ScrollView {
+                            TextField("タイトル検索(アメリカン,SS)", text: $filterText)
+                                .padding(.horizontal, 20)
+                                .frame(width: 330, height: 33)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.gray, lineWidth: 3)
+                                )
+                                .overlay(content: {
+                                    Image(systemName: "xmark.circle")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20)
+                                        .foregroundColor(.gray)
+                                        .padding(.leading, 300)
+                                        .onTapGesture {
+                                            filterText = ""
+                                        }
+                                })
+                                .padding(.top, 20)
+                            if viewModel.datamodel.filter({ data in
+                                filterText.isEmpty ? data.title != "" : data.title.contains(filterText)
+                            }).isEmpty {
+                                VStack {
+                                    Text("投稿が見つかりません")
+                                        .fontWeight(.black)
+                                        .frame(maxHeight: .infinity)
+                                        .frame(maxWidth: .infinity)
+                                    mobCard
+                                }
+                            } else {
+                                VStack {
+                                    cardList
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white)
+                                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                                        .edgesIgnoringSafeArea(.top)
+                                    mobCard
+                                        .padding(.bottom, 30)
+
+                                }
+                                // 背景色を透明に設定
+                            }
+
+                        }
                     }
+                    .navigationBarBackButtonHidden(true)
+                    .edgesIgnoringSafeArea(.top)
+                    .zIndex(100)
+                    createPostButton
+                        .zIndex(1000000)
+                        .padding(.trailing, 30)
+                        .alert(isPresented: $goodAlert, content: {
+                            Alert(
+                                title: Text("現在募集中のイベントを終了しましたか？"),
+                                message: Text(""),
+                                primaryButton: .destructive(Text("いいえ"),
+                                                            action: {goodAlert = false}),
+                                secondaryButton: .default(Text("はい"), action: {showsheet = true})
+                            )
+                        })
+                        .sheet(isPresented: $showsheet) {
+                            RecruitView()
+                        }
                 }
-                .navigationBarBackButtonHidden(true)
-                .edgesIgnoringSafeArea(.top)
-                .zIndex(100)
             }
             .refreshable {
                 fetchedBlockList()
                 self.viewModel.fetchData()}
             //            .navigationBarTitle("現在募集中の掲示板")
-            createPostButton
-                .alert(isPresented: $goodAlert, content: {
-                    Alert(
-                        title: Text("現在募集中のイベントを終了しましたか？"),
-                        message: Text(""),
-                        primaryButton: .destructive(Text("いいえ"),
-                                                    action: {goodAlert = false}),
-                        secondaryButton: .default(Text("はい"), action: {showsheet = true})
-                    )
-                })
-                .sheet(isPresented: $showsheet) {
-                    RecruitView()
-                }
+
             if fetchedInfo.first?.haveAccount == false {
                 TutorialView()
                     .background(.gray.opacity(0.7))

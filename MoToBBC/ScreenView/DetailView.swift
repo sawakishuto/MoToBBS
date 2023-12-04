@@ -87,7 +87,7 @@ struct Detail: View {
         self.endTimeString = endTimeString
     }
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottomLeading) {
             VStack {
                 VStack(alignment: .leading) {
                     ScrollView {
@@ -259,15 +259,24 @@ struct Detail: View {
                             )
                         })
                 }
-                Button {
-                    isShowChat = true
-                } label: {
-                    Text("chat")
+            }
+            Button {
+                isShowChat = true
+            } label: {
+                VStack {
+                    Image(systemName: "bubble.left.and.bubble.right.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50)
+                    Text("チャットで質問")
+                        .foregroundStyle(.gray)
+                        .opacity(1.0)
+                        .font(.system(size: 10))
                 }
-                .sheet(isPresented: $isShowChat) {
-                    ChatView(eventid: eventid)
-                }
-
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 0))
+            }
+            .sheet(isPresented: $isShowChat) {
+                ChatView(eventid: eventid)
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -368,6 +377,18 @@ struct Detail: View {
 }
 struct Detail_Previews: PreviewProvider {
     static var previews: some View {
-        Detail(eventid: "", whereis: "", detail: "", title: "", dateStrig: "", how: "", documentinfo: "", username: "", usercomment: "", bikename: "", userid: "", endTimeString: "")
+        Detail(
+            eventid: "",
+            whereis: "",
+            detail: "",
+            title: "",
+            dateStrig: "",
+            how: "",
+            documentinfo: "",
+            username: "",
+            usercomment: "",
+            bikename: "",
+            userid: "",
+            endTimeString: "")
     }
 }
