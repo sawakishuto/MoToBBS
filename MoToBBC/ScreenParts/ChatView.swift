@@ -13,12 +13,6 @@ struct ChatView: View {
     var db = Firestore.firestore()
     @State var textField: String = ""
     let eventid: String
-    let messageTest : [Chat] = [
-        Chat(id: "0", name: "しゅうと", content: "今日のご飯は！今日のご飯は！今日のご飯は！今日のご飯は！今日のご飯は！今日のご飯は！今日のご飯は！", timeStampString: Date(), qestion: true)
-        ,Chat(id: "1", name: "ひろむ", content: "ホットドッグ！", timeStampString: Date(), qestion: false)
-        ,Chat(id: "2", name: "かぶたん", content: "どこの！", timeStampString: Date(), qestion: true)
-        ,Chat(id: "3", name: "ひろむ", content: "バロー！バロー！バロー！バロー！バロー！バロー！バロー！バロー！バロー！バロー！", timeStampString: Date(), qestion: false)
-    ]
     let username: String = "しゅうと"
 
     var body: some View {
@@ -46,9 +40,9 @@ struct ChatView: View {
                 }
 
                 ScrollView {
-                    ForEach(messageTest) {content in
+                    ForEach(viewModel.ChatList) {content in
                         ChatMessage(content: content.content, qestion: content.qestion, username: content.name, timeStamp: content.dateString)
-                            .frame(width: geometory.size.width, alignment: content.qestion ? .trailing: .leading)
+                            .frame(width: geometory.size.width - 30, alignment: content.qestion ? .trailing: .leading)
                             .padding(content.qestion ? .trailing: .leading, 30)
                     }
                 }
@@ -63,6 +57,7 @@ struct ChatView: View {
                         )
                     Button(action: {
                         viewModel.GetUserInfomationAndChat(eventid: eventid, content: textField)
+                        textField = ""
 
                     }, label: {
                         Image(systemName: "paperplane")

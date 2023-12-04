@@ -22,6 +22,7 @@ final class ViewModels: ObservableObject {
     @Published var blockedList: [String] = []
     @Published var attendList: [String] = []
     @Published var image: Image?
+    @Published var ChatList: [Chat] = []
     var arrayData: [String] = []
     @Published var images: Image?
     @Published var eventidinfo = [Eventidmodel]()
