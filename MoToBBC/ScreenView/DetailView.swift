@@ -87,7 +87,7 @@ struct Detail: View {
         self.endTimeString = endTimeString
     }
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
+        ZStack(alignment: .bottomTrailing) {
             VStack {
                 VStack(alignment: .leading) {
                     ScrollView {
@@ -267,13 +267,13 @@ struct Detail: View {
                     Image(systemName: "bubble.left.and.bubble.right.fill")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50)
+                        .frame(width: 43)
                     Text("チャットで質問")
                         .foregroundStyle(.gray)
                         .opacity(1.0)
                         .font(.system(size: 10))
                 }
-                .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 0))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 10))
             }
             .sheet(isPresented: $isShowChat) {
                 ChatView(eventid: eventid)

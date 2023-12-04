@@ -117,9 +117,6 @@ struct EventListView: View {
                         }
                 }
             }
-            .refreshable {
-                fetchedBlockList()
-                self.viewModel.fetchData()}
             //            .navigationBarTitle("現在募集中の掲示板")
 
             if fetchedInfo.first?.haveAccount == false {
