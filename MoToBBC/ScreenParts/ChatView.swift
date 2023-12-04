@@ -41,7 +41,12 @@ struct ChatView: View {
 
                 ScrollView {
                     ForEach(viewModel.ChatList) {content in
-                        ChatMessage(content: content.content, qestion: content.qestion, username: content.name, timeStamp: content.dateString)
+                        ChatMessage(
+                            content: content.content,
+                            qestion: content.qestion,
+                            username: content.name,
+                            timeStamp: content.dateString
+                        )
                             .frame(width: geometory.size.width - 30, alignment: content.qestion ? .trailing: .leading)
                             .padding(content.qestion ? .trailing: .leading, 30)
                     }
@@ -70,7 +75,13 @@ struct ChatView: View {
                 }
                         .padding(.bottom, 30)
             }
+            .onAppear {
+                    viewModel.getChatContent(eventid: eventid)
+                print(viewModel.ChatList)
+            }
         }
+
+
     }
 }
 

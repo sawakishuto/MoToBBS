@@ -22,7 +22,7 @@ final class ViewModels: ObservableObject {
     @Published var blockedList: [String] = []
     @Published var attendList: [String] = []
     @Published var image: Image?
-    @Published var ChatList: [Chat] = []
+    @Published var ChatList = [Chat]()
     var arrayData: [String] = []
     @Published var images: Image?
     @Published var eventidinfo = [Eventidmodel]()
@@ -30,6 +30,7 @@ final class ViewModels: ObservableObject {
     @Published var userInfo = [User]()
     @Published var userInfo2 = [User]()
     let dataDesctiption: String
+    var qestion: Bool = false
     let user = Auth.auth().currentUser
     @Published var datamodel = [Events]()
     private var db = Firestore.firestore()
@@ -617,12 +618,11 @@ final class ViewModels: ObservableObject {
 
                     // usersインスタンスから値を取り出す
                     let username = users.username
-                    let usercomment = users.usercomment
-                    let bikename = users.bikename
 
                     chatList.append([
                         "userid": users.userid,
                         "username": username,
+                        "timeStamp": Date(),
                         "content": content
                     ])
                     print(chatList)
@@ -660,6 +660,45 @@ final class ViewModels: ObservableObject {
                     print("失敗")
                 }
             }
+        }
+    }
+    func getChatContent(eventid: String) {
+        db.collection("Event").document(eventid).getDocument { (getChatSnapshot, getChatError) in
+            if let getChatError = getChatError {
+                fatalError("\(getChatError)")
+            }
+            guard let getChatDocument = getChatSnapshot?.data() else {
+                    print("cant fetch data")
+                    return
+                }
+                print("🇲🇱")
+            let chatData: [[String:Any]] = getChatDocument["chat"] as! [[String : Any]]
+
+            self.ChatList = chatData.map { chat in
+
+                let content = chat["content"] as! String
+                let userId = chat["userid"] as! String
+                let username = chat["username"] as! String
+                let timestamp = (chat["timeStamp"] as? Timestamp)?.dateValue() ?? Date()
+                if userId == eventid {
+                    self.qestion = false
+                } else {
+                    self.qestion = false
+                }
+                print(content)
+                print(username)
+                print(timestamp)
+                print(self.qestion)
+
+                return Chat(
+                    id: UUID().uuidString,
+                    name: username,
+                    content: content,
+                    timeStampString: timestamp,
+                    qestion: self.qestion
+                )
+            }
+            print(self.ChatList)
         }
     }
     func shareOnTwitter(title: String, place: String, date: String, detail: String) {

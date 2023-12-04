@@ -79,8 +79,24 @@
             filePath = "MoToBBC/ViewModels/ViewModels.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "ViewModels"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E3A4E5B-1E2E-4B51-AA05-FA45050B4318"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoToBBC/ViewModels/ViewModels.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "GetUserInfoAndSet(userid:username:usercomment:bikename:documentinfo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -88,17 +104,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5E3A4E5B-1E2E-4B51-AA05-FA45050B4318"
-            shouldBeEnabled = "Yes"
+            uuid = "6461ECA1-EA74-46A8-B6C3-A99B86B907A1"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoToBBC/ViewModels/ViewModels.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "GetUserInfoAndSet(userid:username:usercomment:bikename:documentinfo:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "fetchData()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6461ECA1-EA74-46A8-B6C3-A99B86B907A1 - e763f15538c9f8a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoToBBS.ViewModels.fetchData() -&gt; ()"
+                  moduleName = "MoToBBS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sawakishuto/Desktop/MoToBBC/MoToBBC/ViewModels/ViewModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "6461ECA1-EA74-46A8-B6C3-A99B86B907A1 - e706e2bfd29cb171"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MoToBBS.ViewModels.fetchData() -&gt; ()"
+                  moduleName = "MoToBBS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sawakishuto/Desktop/MoToBBC/MoToBBC/ViewModels/ViewModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "6461ECA1-EA74-46A8-B6C3-A99B86B907A1 - e763f15538c9f8a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoToBBS.ViewModels.fetchData() -&gt; ()"
+                  moduleName = "MoToBBS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sawakishuto/Desktop/MoToBBC/MoToBBC/ViewModels/ViewModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53519BE2-841D-4E4D-A3EB-6FF3A4DC7C60"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoToBBC/ViewModels/ViewModels.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "fetchUserinfo(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "53519BE2-841D-4E4D-A3EB-6FF3A4DC7C60 - c4eeff4b70d9a3a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoToBBS.ViewModels.fetchUserinfo(completion: (Swift.String, Swift.String, Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "MoToBBS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sawakishuto/Desktop/MoToBBC/MoToBBC/ViewModels/ViewModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "53519BE2-841D-4E4D-A3EB-6FF3A4DC7C60 - 9e3487184293f5a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MoToBBS.ViewModels.fetchUserinfo(completion: (Swift.String, Swift.String, Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "MoToBBS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sawakishuto/Desktop/MoToBBC/MoToBBC/ViewModels/ViewModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "53519BE2-841D-4E4D-A3EB-6FF3A4DC7C60 - c4eeff4b70d9a3a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoToBBS.ViewModels.fetchUserinfo(completion: (Swift.String, Swift.String, Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "MoToBBS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sawakishuto/Desktop/MoToBBC/MoToBBC/ViewModels/ViewModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
