@@ -156,13 +156,14 @@ struct MytoringView: View {
                         .opacity(0.5)
                         .padding(.horizontal, 8)
                     if let image = image {
-                        Image(uiImage: image).resizable()
-                            .frame(width: 330, height: 180)
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
                             .cornerRadius(40)
                             .overlay(RoundedRectangle(cornerRadius: 40)
                                 .stroke(Color.red, lineWidth: 3))
+                            .padding(.horizontal, 22)
                     }
-                    else {Text("画像を読み込んでいます...")}
                 }
                 .frame(alignment: .bottom)
                 Spacer()

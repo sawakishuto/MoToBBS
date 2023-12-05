@@ -12,14 +12,13 @@ struct ChatView: View {
     @ObservedObject private var viewModel = ViewModels()
     var db = Firestore.firestore()
     @State var textField: String = ""
-    @State private var ChatList: [Chat] = []
+    @State private var ChatList: [Chat] = [Chat(name: "MoToBBS", content: "わからないことがあればなんでも質問しましょう！", timeStampString: Date(), qestion: true)]
     @State private var firstText: String = ""
     let eventid: String
     let username: String = "しゅうと"
     var body: some View {
         ScrollViewReader { proxy in
             GeometryReader {geometory in
-
                 VStack {
                     HStack {
                         Text("Q")
@@ -50,7 +49,8 @@ struct ChatView: View {
                                 username: content.name,
                                 timeStamp: content.dateString
                             )
-                            .frame(width: geometory.size.width - 30, alignment: content.qestion ? .trailing: .leading)
+                            .frame(width: geometory.size.width - 30
+                                   , alignment: content.qestion ? .trailing: .leading)
                             .padding(content.qestion ? .trailing: .leading, 30)
                             .padding(.bottom, 20)
                         }
@@ -80,6 +80,7 @@ struct ChatView: View {
                     }
                     .padding(.bottom, 30)
                 }
+                .padding(.leading,ChatList.isEmpty ? 21: 0)
                 .onAppear {
                         viewModel.getChatContent(eventid: eventid) { chatList in
                             ChatList.removeAll()
