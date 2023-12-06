@@ -162,6 +162,7 @@ struct Mypageview: View {
             viewModel.getUser()
         }
     }
+    
     private func deleteBlock(offsets: IndexSet) {
         offsets.forEach { index in
             viewContext.delete(fetchedInfomation[index])
