@@ -178,12 +178,6 @@ struct MytoringView: View {
                                            dateStrig: self.dateString,
                                            how: self.how)
                         }
-                    Button {
-                        self.isShowEdit = true
-                    } label: {
-                        Text("編集する")
-                    }
-
                 }
                 .sheet(isPresented: $isShowEdit) {
                     EditView(Edittitle: self.title, Editwhereis: self.whereis, EditHow: self.how, EditDetail: self.detail)
@@ -196,7 +190,7 @@ struct MytoringView: View {
                     .frame(width: 190, height: 60)
                     .background(Capsule().fill( Color(red: 50, green: 10 / 255, blue: 10 / 255)))
                     .shadow(color: .gray, radius: 3, x: 3, y: 3)
-                    .padding(.bottom, 60)
+                    .padding(.bottom, 40)
                     .onTapGesture { goodAlert.toggle() }
                     .alert(isPresented: $goodAlert, content: {
                         Alert(
@@ -218,6 +212,13 @@ struct MytoringView: View {
                             })
                         )
                     })
+                Button {
+                    self.isShowEdit = true
+                } label: {
+                    Text("編集する")
+                        .padding(.bottom, 30)
+                        .fontWeight(.bold)
+                }
 
             }
             .frame(alignment: .bottom)

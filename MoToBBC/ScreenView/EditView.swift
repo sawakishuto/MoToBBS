@@ -28,7 +28,7 @@ struct EditView: View {
     @State private var image: UIImage?
     @State private var imageui: UIImage?
     @State private var inputImage: UIImage?
-    @State private var postState: String = "投稿"
+    @State private var postState: String = "変更"
     @State private var showingImagePicker = false
     let Edittitle: String
     let Editwhereis: String
@@ -41,7 +41,6 @@ struct EditView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image("recruit").padding(EdgeInsets(top: -150, leading: 0, bottom: 0, trailing: 0))
                 Text("※できるだけ詳細に記入してください")
                     .foregroundColor(.red)
                     .fontWeight(.bold)
@@ -124,7 +123,7 @@ struct EditView: View {
                                                         action: {}),
                             secondaryButton: .default(Text("はい"),
                                                       action: {
-                                                          postState = "投稿中"
+                                                          postState = "変更中"
                                                           if inputImage != nil {
                                                               self.viewModel.UploadImage(inputImage: self.inputImage)
                                                           }

@@ -153,7 +153,7 @@ struct RecruitView: View {
                     .alert(isPresented: $postAlert, content: {
                         Alert(
                             title: Text("この内容で募集しますか？"),
-                            message: Text("内容は変更できません"),
+                            message: Text(""),
                             primaryButton: .destructive(Text("いいえ"),
                                                         action: {}),
                             secondaryButton: .default(Text("はい"),
