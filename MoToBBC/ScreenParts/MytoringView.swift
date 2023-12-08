@@ -14,6 +14,7 @@ import FirebaseAuth
 struct MytoringView: View {
     @Environment(\.dismiss) var dismiss
     @State private var isShowChat: Bool = false
+    @State private var isShowEdit: Bool = false
     @State  var image: UIImage? = nil
     @State var goodAlert = false
     @State private var showlist = false
@@ -177,6 +178,15 @@ struct MytoringView: View {
                                            dateStrig: self.dateString,
                                            how: self.how)
                         }
+                    Button {
+                        self.isShowEdit = true
+                    } label: {
+                        Text("編集する")
+                    }
+
+                }
+                .sheet(isPresented: $isShowEdit) {
+                    EditView(Edittitle: self.title, Editwhereis: self.whereis, EditHow: self.how, EditDetail: self.detail)
                 }
                 .fontWeight(.bold)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))

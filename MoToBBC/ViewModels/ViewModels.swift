@@ -411,6 +411,14 @@ final class ViewModels: ObservableObject {
             }
         }
     }
+    func UpdateDocument(title: String, detail: String, whereis: String, how: String) {
+        db.collection("Event").document(user!.uid).updateData([
+            "detail": detail,
+            "title": title,
+            "how": how,
+            "whereis": whereis
+                                                            ])
+    }
     // 自分が投稿したイベント内容を格納
     func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, endTime: Date, eventid: String, userid: String, username: String, participants: String) {
         let documentID = db.collection("User").document(user!.uid).documentID

@@ -160,6 +160,7 @@ struct Mypageview: View {
                 }
             }
             viewModel.getUser()
+            print(viewModel.datamodeluser.count)
         }
     }
     
