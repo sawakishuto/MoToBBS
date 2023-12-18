@@ -154,6 +154,7 @@ struct EditView: View {
             .padding(EdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0))
             .frame(maxWidth: .infinity)
         }
+        .fontWeight(.light)
         .onAppear {
             DispatchQueue.main.async {
             self.viewModel.getImage(eventid: self.eventid) { image in
