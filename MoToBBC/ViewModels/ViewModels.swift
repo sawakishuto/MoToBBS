@@ -698,7 +698,7 @@ final class ViewModels: ObservableObject {
     func shareOnTwitter(title: String, place: String, date: String, detail: String) {
 
         //シェアするテキストを作成
-        let text = "【MoToBBS】\nツーリング募集\n　\(title)\n 集合時間：\(date)\n 集合場所\(place)\n　MoToBBSで詳細を確認！！\nhttps://apps.apple.com/jp/app/motobbs/id6469105461"
+        let text = "【MoToBBS】\nツーリング募集\n\(title)\n【集合時間】\(date)\n【集合場所】\(place)\nMoToBBSで詳細を確認！！\nhttps://apps.apple.com/jp/app/motobbs/id6469105461"
         let hashTag = "#ツーリング募集"
         let completedText = text + "\n" + hashTag
 

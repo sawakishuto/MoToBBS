@@ -180,7 +180,7 @@ struct MytoringView: View {
                         }
                 }
                 .sheet(isPresented: $isShowEdit) {
-                    EditView(Edittitle: self.title, Editwhereis: self.whereis, EditHow: self.how, EditDetail: self.detail)
+                    EditView(dateString: self.dateString, Edittitle: self.title, Editwhereis: self.whereis, EditHow: self.how, EditDetail: self.detail, endTimeString: self.endTimeString)
                 }
                 .fontWeight(.bold)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))

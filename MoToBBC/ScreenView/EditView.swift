@@ -30,13 +30,16 @@ struct EditView: View {
     @State private var inputImage: UIImage?
     @State private var postState: String = "変更"
     @State private var showingImagePicker = false
+    let dateString: String
     let Edittitle: String
     let Editwhereis: String
     let EditHow: String
     let EditDetail: String
+    let endTimeString: String
     func loadImage() {
         guard inputImage != nil else {return}
     }
+
     // swiftlint:disable line_length
     var body: some View {
         ScrollView {
@@ -168,11 +171,24 @@ struct EditView: View {
             self.whereis = Editwhereis
             self.how = EditHow
             self.detail = EditDetail
-        }
 
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy年M月d日 H時m分"
+            if let date = formatter.date(from: dateString) {
+              formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+              formatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+                let selectionDate = formatter.string(from: date)
+            }
+            if let endDate = formatter.date(from: endTimeString) {
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                formatter.timeZone = TimeZone(secondsFromGMT: 0)
+                  let endTime = formatter.string(from: endDate)
+            }
+        }
     }
 }
 
 #Preview {
-    EditView(Edittitle: "", Editwhereis: "", EditHow: "", EditDetail: "")
+    EditView(dateString: "", Edittitle: "", Editwhereis: "", EditHow: "", EditDetail: "", endTimeString: "")
 }
