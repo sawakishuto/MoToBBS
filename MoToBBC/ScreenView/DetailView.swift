@@ -245,10 +245,6 @@ struct Detail: View {
                                                                   addAttendId(attendId: eventid)
                                                                   self.viewModel.addAttend(eventid: eventid)
                                                                   self.viewModel.GetUserInfoAndSet(
-                                                                    userid: self.userid,
-                                                                    username: self.username,
-                                                                    usercomment: self.usercomment,
-                                                                    bikename: self.bikename,
                                                                     documentinfo: self.documentinfo
                                                                   )
                                                                   dismiss()
@@ -323,7 +319,7 @@ struct Detail: View {
                         secondaryButton: .default(Text("はい"),
                                                   action: {
                                                       addBlockList(userid: eventid, username: username)
-                                                      viewModel.fetchData()
+                                                      viewModel.fetchEvntList()
                                                       dismiss()
                                                   }
                                                  )
@@ -340,7 +336,7 @@ struct Detail: View {
             self.viewModel.fetchUserInfoFromAttendList(documentinfo: self.eventid) { userInfoArray in
                 self.userInfoArray = userInfoArray
             }
-            self.viewModel.fetchData()
+            self.viewModel.fetchEvntList()
             self.viewModel.getImage(eventid: self.eventid) { image in
                 if let image = image {
                     // 取得した画像をStateにセットしてUIに反映する
