@@ -14,6 +14,7 @@ enum KindsRecruit {
     case meating
 }
 struct RecruitView: View {
+    let eventid: String
     @State private var selectedPrefecture: Int = 0
     @State private var postAlert:Bool = false
     @State private var selectionDate = Date()
@@ -23,7 +24,6 @@ struct RecruitView: View {
     @State var bikename: String = ""
     @State var documentinfo: String = ""
     @State var userid: String = ""
-    @State var eventid: String = ""
     @State var username: String = ""
     @State private var whereis: String = ""
     @State private var endTime = Date()
@@ -39,6 +39,9 @@ struct RecruitView: View {
     @State private var showingImagePicker = false
     func loadImage() {
         guard inputImage != nil else {return}
+    }
+    init(eventid: String) {
+        self.eventid = eventid
     }
     // swiftlint:disable line_length
     var body: some View {
@@ -202,6 +205,6 @@ struct RecruitView: View {
 
 struct RecruitView_Previews: PreviewProvider {
     static var previews: some View {
-        RecruitView()
+        RecruitView(eventid: "")
     }
 }
