@@ -600,6 +600,7 @@ import Observation
             }
         }
     }
+
     func getChatContent(eventid: String, completion: @escaping ([Chat]) -> Void) {
         db.collection("Event").document(eventid).addSnapshotListener { (snapshot, error) in
             if let error = error {
