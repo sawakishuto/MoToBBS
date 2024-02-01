@@ -73,7 +73,7 @@ import Observation
     }
     //    Eventコレクションからデータを取得
 
-    func fetchData() {
+    func fetchEvntList() {
         db.collection("Event").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents
             else {

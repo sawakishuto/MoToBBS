@@ -32,7 +32,7 @@ struct EventListView: View {
     @ObservedObject private var viewModel = ViewModels()
     @State private var filterText: String = ""
     init() {
-        viewModel.fetchData()
+        viewModel.fetchEvntList()
     }
     var body: some View {
         ZStack(alignment: .bottomTrailing ) {
@@ -126,7 +126,7 @@ struct EventListView: View {
         }
         .onAppear {
             fetchedBlockList()
-            viewModel.fetchData()
+            viewModel.fetchEvntList()
             eventExist = viewModel.comformEvent()
            }
 
