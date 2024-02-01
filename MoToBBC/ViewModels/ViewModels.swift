@@ -222,74 +222,30 @@ import Observation
                 } else {
                     // documentinfoドキュメントが存在しない場合、新たに作成してuserInfoを格納する
                     let newAttendList = [[
+    }
+    func setUserInfoInAttendList(documentinfo: String, user: User) {
+        // AttendListドキュメントにアクセス
+        let attendListRef = self.db.collection("AttendList").document(documentinfo)
+        attendListRef.getDocument { (attendListSnapshot, attendListError) in
+            if let attendListError = attendListError {
+                fatalError("\(attendListError)")
+            }
+            if let attendListData = attendListSnapshot?.data() {
+                // documentinfoドキュメントが存在する場合
+                if var existingAttendList = attendListData["attendList"] as? [[String: Any]] {
+                    // attendListフィールドが既に存在する場合、userInfoを追加する
+                    existingAttendList.append([
                         "userid": user.userid,
-                        "username": user.username,
+                        "username": "\( user.username)",
                         "usercomment": user.usercomment,
                         "bikename": user.bikename
-                    ]]
-                    attendListRef.setData(["attendList": newAttendList]) { error in
+                    ])
+                    // 更新されたattendListをdocumentinfoドキュメントに保存する
+                    attendListRef.updateData(["attendList": existingAttendList]) { error in
                         if let error = error {
-                            print("作成エラー: \(error)")
+                            print("更新エラー: \(error)")
                         } else {
-                            print("attendListが作成されました")
-                        }
-                    }
-                }
-            }
-        }
-    }
-    // 上に同じ関数だが、投稿者は（主催者）という文字を名前に追加して格納する
-    func GetUserInfoAndSet2(userid: String, username: String, usercomment: String, bikename: String, endTime: Date) { // db.collection("User").document(user!.uid)からユーザーデータを取得
-        db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
-            if let userError = userError {
-                fatalError("\(userError)")
-            }
-            guard let userData = userSnapshot?.data() else {
-                return
-            }
-            let username = userData["usersname"] as? String ?? ""
-            let usercomment = userData["usercomment"] as? String ?? ""
-            let bikename = userData["bikename"] as? String ?? ""
-            let user = User(userid: "user!.uid", username: username, usercomment: usercomment, bikename: bikename)
-            // AttendListドキュメントにアクセス
-            let attendListRef = self.db.collection("AttendList").document(self.user!.uid)
-            attendListRef.getDocument { (attendListSnapshot, attendListError) in
-                if let attendListError = attendListError {
-                    fatalError("\(attendListError)")
-                }
-                if let attendListData = attendListSnapshot?.data() {
-                    // documentinfoドキュメントが存在する場合
-                    if var existingAttendList = attendListData["attendList"] as? [[String: Any]] {
-                        // attendListフィールドが既に存在する場合、userInfoを追加する
-                        existingAttendList.append([
-                            "userid": "",
-                            "username": "\(user.username)(主催者)",
-                            "usercomment": user.usercomment,
-                            "bikename": user.bikename,
-                            "endTime": endTime
-                        ])
-                        // 更新されたattendListをdocumentinfoドキュメントに保存する
-                        attendListRef.updateData(["attendList": existingAttendList]) { error in
-                            if let error = error {
-                                print("更新エラー: \(error)")
-                            } else {
-                                print("attendListが更新されました")
-                            }
-                        }
-                    } else {
-                        // attendListフィールドが存在しない場合、新たに作成してuserInfoを格納する
-                        let newAttendList = [[
-                            "userid": "",
-                            "username": "\(user.username)(主催者)",
-                            "usercomment": user.usercomment,
-                            "bikename": user.bikename
-                        ]]
-                        attendListRef.updateData(["attendList": newAttendList]) { error in
-                            if let error = error {
-                                print("作成エラー: \(error)")
-                            } else {
-                                print("attendListが作成されました")
-                            }
+                            print("attendListが更新されました")
                         }
                     }
                 } else {
