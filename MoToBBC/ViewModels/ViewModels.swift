@@ -11,7 +11,6 @@ import FirebaseAuth
 import FirebaseStorage
 import SwiftUI
 import FirebaseDatabase
-import UIKit
 import Observation
 // swiftlint:disable type_body_length
 // swiftlint:disable line_length
@@ -39,6 +38,7 @@ import Observation
     init() { self.dataDesctiption = "今日は" }
     //   この辺の作業は全部Modelの仕事だった。。。
     //　今後大量のリファクタリングをして頑張ってMVVMにしたい
+
     //    ツーリング終了ボタン（投稿者側）が押された時に参加者リストを削除
     func AttendListclear(eventid: String) {
         let docRef = db.collection("AttendList").document(eventid)
