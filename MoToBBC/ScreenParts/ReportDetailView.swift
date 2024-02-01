@@ -60,7 +60,7 @@ struct ReportDetailView: View {
                     MailView(
                         address: ["swkshuto0208@icloud.com"],
                         subject: "【MoToBBS】報告",
-                        messageBody: "このメールはそのまま送信してください。\nID：\(eventid)のユーザについて\nこのユーザーの投稿には、\(selectReport)の内容が見られたため報告します。"
+                        messageBody:  "このメールはそのまま送信してください。\nID：\(eventid)のユーザについて\nこのユーザーの投稿には、\(selectReport)の内容が見られたため報告します。\nその他を選択した場合理由を以下に追記してください。"
                     )
                     .edgesIgnoringSafeArea(.all)
                 }
