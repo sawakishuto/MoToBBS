@@ -132,17 +132,12 @@ struct EditView: View {
                                                           }
                                                           // 上記の処理が完了した後に次の処理を実行
                                                           DispatchQueue.global().async {
-                                                              self.viewModel.addDocument(
-                                                                title: "\(title)",
+                                                              self.viewModel.UpdateDocument(
+                                                                title: title,
                                                                 detail: detail,
                                                                 whereis: whereis,
-                                                                how: how,
-                                                                selectionDate: selectionDate,
-                                                                endTime: endTime,
-                                                                eventid: eventid,
-                                                                userid: userid,
-                                                                username: username,
-                                                                participants: participants
+                                                                how: how
+
                                                               )
                                                               // 指定した処理が完了したらメインスレッドでUI更新を行います
                                                               DispatchQueue.main.async {
@@ -171,20 +166,6 @@ struct EditView: View {
             self.whereis = Editwhereis
             self.how = EditHow
             self.detail = EditDetail
-
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy年M月d日 H時m分"
-            if let date = formatter.date(from: dateString) {
-              formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-              formatter.timeZone = TimeZone(secondsFromGMT: 0)
-
-                let selectionDate = formatter.string(from: date)
-            }
-            if let endDate = formatter.date(from: endTimeString) {
-                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-                formatter.timeZone = TimeZone(secondsFromGMT: 0)
-                  let endTime = formatter.string(from: endDate)
-            }
         }
     }
 }
