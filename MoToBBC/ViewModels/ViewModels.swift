@@ -12,29 +12,30 @@ import FirebaseStorage
 import SwiftUI
 import FirebaseDatabase
 import UIKit
+import Observation
 // swiftlint:disable type_body_length
 // swiftlint:disable line_length
 // swiftlint:disable identifier_name
 // swiftlint:disable function_parameter_count
-final class ViewModels: ObservableObject {
-    @Published var eventExists: Bool = false
-    @Published var tutorialOpen: Bool = false
-    @Published var blockedList: [String] = []
-    @Published var attendList: [String] = []
-    @Published var image: Image?
-    @Published var ChatList: [Chat] = []
-    var arrayData: [String] = []
-    @Published var images: Image?
-    @Published var eventidinfo = [Eventidmodel]()
-    @Published var datamodeluser = [Usersinfo]()
-    @Published var userInfo = [User]()
-    @Published var userInfo2 = [User]()
-    let dataDesctiption: String
-    var qestion: Bool = false
-    let user = Auth.auth().currentUser
-    @Published var datamodel = [Events]()
+@Observable final class ViewModels: ObservableObject {
+     var eventExists: Bool = false
+     var tutorialOpen: Bool = false
+     var blockedList: [String] = []
+     var attendList: [String] = []
+     var image: Image?
+     var ChatList: [Chat] = []
+     var arrayData: [String] = []
+     var images: Image?
+     var eventidinfo = [Eventidmodel]()
+     var datamodeluser = [Usersinfo]()
+     var userInfo = [User]()
+     var userInfo2 = [User]()
+     let dataDesctiption: String
+     var qestion: Bool = false
+     let user = Auth.auth().currentUser
+     var datamodel = [Events]()
     private var db = Firestore.firestore()
-    @Published var documentId: String?
+     var documentId: String?
     init() { self.dataDesctiption = "今日は" }
     //   この辺の作業は全部Modelの仕事だった。。。
     //　今後大量のリファクタリングをして頑張ってMVVMにしたい
