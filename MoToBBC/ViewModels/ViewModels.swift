@@ -33,6 +33,7 @@ import Observation
      var qestion: Bool = false
      let user = Auth.auth().currentUser
      var datamodel = [Events]()
+     var userInfoList: [[String?]] = [[]]
     private var db = Firestore.firestore()
      var documentId: String?
     init() { self.dataDesctiption = "今日は" }
@@ -73,7 +74,8 @@ import Observation
             }
             var userInfoArray: [[String]] = []
             for userInfo in attendList {
-                if let username = userInfo["username"] as? String,
+                if let userid = userInfo["userid"] as? String,
+                    let username = userInfo["username"] as? String,
                    let usercomment = userInfo["usercomment"] as? String,
                    let bikename = userInfo["bikename"] as? String {
                     let userInfoArrayElement = [username, usercomment, bikename]
@@ -189,7 +191,7 @@ import Observation
             guard let userData = userSnapshot?.data() else {
                 return
             }
-            let userid = loginUserCollectionDocId
+            let userid = userData["userid"] as? String ?? ""
             let username = userData["usersname"] as? String ?? ""
             let usercomment = userData["usercomment"] as? String ?? ""
             let bikename = userData["bikename"] as? String ?? ""
