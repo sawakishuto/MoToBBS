@@ -130,7 +130,8 @@ import Observation
         guard self.datamodeluser.isEmpty else {
             return
         }
-        db.collection("Event").document(user!.uid).getDocument { (_snapshot, error) in
+        let loginUserEventCollectionDocRef = getLoginUserEventCollectionDocRef()
+        loginUserEventCollectionDocRef.getDocument { (_snapshot, error) in
             if let error = error {
                 fatalError("\(error)")
             }
@@ -162,7 +163,8 @@ import Observation
     }
     //    ログインしているユーザの情報を取得
     func fetchUserinfo( completion: @escaping (String, String, String) -> Void) {
-        db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
+        let loginUserCollectionDocRef = getLoginUserCollectionDocRef()
+        loginUserCollectionDocRef.getDocument { (userSnapshot, userError) in
             if let userError = userError {
                 fatalError("\(userError)")
             }
@@ -177,16 +179,17 @@ import Observation
     }
     // 参加するボタンを押した時、押したユーザのUser情報を取得してAttendlistコレクションに情報を格納
     func GetUserInfoAndSet(documentinfo: String) {
-        let documentID = db.collection("User").document(user!.uid).documentID
+        let loginUserCollectionDocId = getLoginUserCollectionDocId()
+        let loginUserCollectionDocRef = getLoginUserCollectionDocRef()
         // db.collection("User").document(user!.uid)からユーザーデータを取得
-        db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
+        loginUserCollectionDocRef.getDocument { (userSnapshot, userError) in
             if let userError = userError {
                 fatalError("\(userError)")
             }
             guard let userData = userSnapshot?.data() else {
                 return
             }
-            let userid = documentID
+            let userid = loginUserCollectionDocId
             let username = userData["usersname"] as? String ?? ""
             let usercomment = userData["usercomment"] as? String ?? ""
             let bikename = userData["bikename"] as? String ?? ""
@@ -259,10 +262,10 @@ import Observation
             }
         }
     }
-    // 上に同じ関数だが、投稿者は（主催者）という文字を名前に追加して格納する
+// ユーザーが現在募集中のイベントがないか確認する
     func comformEvent() -> Bool {
-        let userDocRef = db.collection("Event").document(user!.uid)
-        userDocRef.getDocument { (document, error) in
+        let loginUserEventCollectionDocRef = getLoginUserEventCollectionDocRef()
+        loginUserEventCollectionDocRef.getDocument { (document, error) in
             if let error = error {
                 print("\(error)")
                 self.eventExists = false
@@ -282,14 +285,14 @@ import Observation
         let event: [String: Any] = [
             "eventid": FieldValue.arrayUnion([eventid])
         ]
-        let userDocRef = db.collection("Attend").document(user!.uid)
+        let loginUserAttendCollectionDocRef = db.collection("Attend").document(user!.uid)
 
-        userDocRef.getDocument { (document, error) in
+        loginUserAttendCollectionDocRef.getDocument { (document, error) in
             if let error = error {
                 print("Error fetching document: \(error)")
             } else if document!.exists {
                 // UIDに対応するドキュメントが存在する場合、既存のドキュメントを更新
-                userDocRef.updateData(event) { error in
+                loginUserAttendCollectionDocRef.updateData(event) { error in
                     if let error = error {
                         print("Error updating document: \(error)")
                     } else {
@@ -298,7 +301,7 @@ import Observation
                 }
             } else {
                 // UIDに対応するドキュメントが存在しない場合、空のドキュメントを作成
-                userDocRef.setData(event) { error in
+                loginUserAttendCollectionDocRef.setData(event) { error in
                     if let error = error {
                         print("Error creating document: \(error)")
                     } else {
@@ -362,20 +365,18 @@ import Observation
         }
     }
     func UpdateDocument(title: String, detail: String, whereis: String, how: String)  {
-             db.collection("Event").document(user!.uid).updateData([
+        let loginUserEventCollectionDocRef = getLoginUserEventCollectionDocRef()
+             loginUserEventCollectionDocRef.updateData([
                 "detail": detail,
                 "title": title,
                 "how": how,
                 "whereis": whereis
             ])
     }
-    func getUserDocumentId() -> String {
-        let documentID = db.collection("User").document(user!.uid).documentID
-        return documentID
-    }
+
     // 自分が投稿したイベント内容を格納
     func addDocument(title: String, detail: String, whereis: String, how: String, selectionDate: Date, endTime: Date, eventid: String, userid: String, username: String, participants: String) {
-        let documentID = db.collection("User").document(user!.uid).documentID
+        let loginUserCollectionDocId = getLoginUserCollectionDocId()
         db.collection("User").document(user!.uid).getDocument { (userSnapshot, userError) in
             if let userError = userError {
                 fatalError("\(userError)")
@@ -394,8 +395,8 @@ import Observation
             "selectionDate": selectionDate,
             "endTime": endTime,
             // ドキュメントIDを保存する
-            "eventid": documentID,
-            "userid": documentID,
+            "eventid": loginUserCollectionDocId,
+            "userid": loginUserCollectionDocId,
             "participants": participants,
             "chat": []
         ])
@@ -442,7 +443,7 @@ import Observation
     }
     //    参加をキャンセルしたときまたは終了時Attendlistから自分のUser情報を削除
     func findAndDeleteAttendee( documentInfo: String) {
-        let userID = db.collection("User").document(user!.uid).documentID
+        let loginUserCollctionDocId = getLoginUserCollectionDocId()
         let docRef = db.collection("AttendList").document(documentInfo)
         docRef.getDocument { (document, error) in
             if let error = error {
@@ -453,7 +454,7 @@ import Observation
                        var attendList = data["attendList"] as? [[String: Any]] {
                         // 一致するuserIDを持つ要素を検索し、削除する
                         for (index, attendee) in attendList.enumerated() {
-                            if let attendeeID = attendee["userid"] as? String, attendeeID == userID {
+                            if let attendeeID = attendee["userid"] as? String, attendeeID == loginUserCollctionDocId {
                                 attendList.remove(at: index)
                                 break
                             }
@@ -476,9 +477,9 @@ import Observation
         }
     }
     func UploadImage(inputImage: UIImage?) {
-        let documentRef = db.collection("User").document(user!.uid)
+        let loginUserCollectionDocRef = getLoginUserCollectionDocRef()
         // Retrieve the document data
-        documentRef.getDocument { (document, error) in
+        loginUserCollectionDocRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 if let userid = document.data()?["userid"] as? String {
                     print("Your String Field: \(userid)")
@@ -496,9 +497,9 @@ import Observation
     }
     func deleteImage() {
         print("今から削除")
-        let documentRef = db.collection("User").document(user!.uid)
+        let loginUserCollectionDocRef = getLoginUserCollectionDocRef()
         // Retrieve the document data
-        documentRef.getDocument { (document, error) in
+        loginUserCollectionDocRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 if let userid = document.data()?["userid"] as? String {
                     print("Your String Field: \(userid)")
@@ -550,8 +551,8 @@ import Observation
     func GetUserInfomationAndChat(eventid: String, content: String) {
         print(eventid)
         print(content)
-
-        db.collection("User").document(user!.uid).getDocument { (getuserSnapshot, getError) in
+        let loginUserCollectionDocRef = getLoginUserCollectionDocRef()
+        loginUserCollectionDocRef.getDocument { (getuserSnapshot, getError) in
             if let getError = getError {
                 fatalError("\(getError)")
             }
