@@ -40,11 +40,17 @@ import Observation
     //　今後大量のリファクタリングをして頑張ってMVVMにしたい
 
     //    ツーリング終了ボタン（投稿者側）が押された時に参加者リストを削除
-    func getUserCollectionUid() -> String {
+    func getLoginUserCollectionDocId() -> String {
         return db.collection("User").document(user!.uid).documentID
     }
-    func getEventCollectionUid() -> String {
+    func getLoginUserEventCollectionDocId() -> String {
         return db.collection("Event").document(user!.uid).documentID
+    }
+    func getLoginUserCollectionDocRef() -> DocumentReference {
+        return db.collection("User").document(user!.uid)
+    }
+    func getLoginUserEventCollectionDocRef() -> DocumentReference {
+        return db.collection("Event").document(user!.uid)
     }
     func AttendListclear(eventid: String) {
         let docRef = db.collection("AttendList").document(eventid)
