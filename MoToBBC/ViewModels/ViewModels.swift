@@ -32,9 +32,9 @@ import Observation
      var qestion: Bool = false
      let user = Auth.auth().currentUser
      var datamodel = [Events]()
-     var userInfoList: [[String?]] = [[]]
     private var db = Firestore.firestore()
      var documentId: String?
+
     //   この辺の作業は全部Modelの仕事だった。。。
     //　今後大量のリファクタリングをして頑張ってMVVMにしたい
 
