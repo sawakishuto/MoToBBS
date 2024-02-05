@@ -29,14 +29,12 @@ import Observation
      var datamodeluser = [Usersinfo]()
      var userInfo = [User]()
      var userInfo2 = [User]()
-     let dataDesctiption: String
      var qestion: Bool = false
      let user = Auth.auth().currentUser
      var datamodel = [Events]()
      var userInfoList: [[String?]] = [[]]
     private var db = Firestore.firestore()
      var documentId: String?
-    init() { self.dataDesctiption = "今日は" }
     //   この辺の作業は全部Modelの仕事だった。。。
     //　今後大量のリファクタリングをして頑張ってMVVMにしたい
 
