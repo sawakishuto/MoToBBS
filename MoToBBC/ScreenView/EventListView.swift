@@ -113,7 +113,7 @@ struct EventListView: View {
                             )
                         })
                         .sheet(isPresented: $showsheet) {
-                            RecruitView(eventid: viewModel.getUserDocumentId())
+                            RecruitView(eventid: viewModel.getLoginUserCollectionDocId())
                         }
                 }
             }

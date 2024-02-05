@@ -15,10 +15,6 @@ struct User: Identifiable {
     let bikename: String
 }
 
-struct Item: Codable, Identifiable {
-    var id: String?
-    var strings: [String]
-}
 struct Chat: Codable, Identifiable {
     var id: String = UUID().uuidString
     let name: String
