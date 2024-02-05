@@ -11,7 +11,6 @@ import AudioToolbox
 import CoreData
 
 struct EventListView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: BlockList.entity(),
         sortDescriptors: [NSSortDescriptor(key: "blockList", ascending: false)],
@@ -24,7 +23,6 @@ struct EventListView: View {
     ) var fetchedInfo: FetchedResults<LoginInfo>
     // swiftlint:disable line_length
     @State private var eventExist: Bool = false
-    @State var filterLocation: String = ""
     @State  var image: UIImage? = nil
     @State var bikename: String = ""
     @State var goodAlert = false

@@ -9,10 +9,7 @@ import SwiftUI
 import UIKit
 import PhotosUI
 import FirebaseStorage
-enum KindsRecruit {
-    case turing
-    case meating
-}
+
 struct RecruitView: View {
     let eventid: String
     @State private var selectedPrefecture: Int = 0
@@ -32,7 +29,6 @@ struct RecruitView: View {
     @State private var how: String = ""
     @State private var participants: String = ""
     @State private var image: UIImage?
-    @State private var imageui: UIImage?
     @State private var inputImage: UIImage?
     @State private var postState: String = "投稿"
 

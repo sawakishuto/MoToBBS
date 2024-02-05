@@ -10,9 +10,7 @@ import CoreData
 
 struct SettingView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject private var viewModel = ViewModels()
-    @ObservedObject private var loginViewModel = LoginModel()
     @State private var showsheet:Bool = false
     @FetchRequest(
         entity: AttendList.entity(),

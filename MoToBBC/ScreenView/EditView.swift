@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct EditView: View {
-    @State private var selectedPrefecture: Int = 0
     @State private var postAlert:Bool = false
-    @State private var selectionDate = Date()
     @Environment(\.presentationMode) var presentation
     @ObservedObject private var viewModel = ViewModels()
     @State var usercomment: String = ""
@@ -20,13 +18,10 @@ struct EditView: View {
     @State var eventid: String = ""
     @State var username: String = ""
     @State private var whereis: String = ""
-    @State private var endTime = Date()
     @State private var detail: String = "ルート:\n\n高速の有無:\n\nその他詳細:\n問い合わせ先(メール, X,Instagram):\n"
     @State private var title: String = ""
     @State private var how: String = ""
-    @State private var participants: String = ""
     @State private var image: UIImage?
-    @State private var imageui: UIImage?
     @State private var inputImage: UIImage?
     @State private var postState: String = "変更"
     @State private var showingImagePicker = false

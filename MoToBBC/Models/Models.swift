@@ -28,6 +28,7 @@ struct Chat: Codable, Identifiable {
     }
 
 }
+
 struct Events: Identifiable {
     let id: String = UUID().uuidString
     let eventid: String

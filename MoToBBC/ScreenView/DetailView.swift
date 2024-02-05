@@ -29,11 +29,9 @@ struct Detail: View {
     @State private var isShowChat: Bool = false
     @State private var isShowAlertBlock: Bool = false
     @State  var isShowMailView: Bool = false
-    @State private var pickerInt: Int? = nil
     @Environment(\.dismiss) var dismiss
     @State  var image: UIImage? = nil
     @State private var userInfoArray: [[String]] = []
-    @State var isGood = false
     @State var goodAlert = false
     @State var messa = "参加する！"
     @ObservedObject private var viewModel = ViewModels()

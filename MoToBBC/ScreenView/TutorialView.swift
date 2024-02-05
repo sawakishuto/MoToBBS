@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct TutorialView: View {
-    @State var turtorialOpen: DarwinBoolean = false
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: LoginInfo.entity(),
@@ -28,7 +27,7 @@ struct TutorialView: View {
                             .shadow(radius: 10)
                         if str == 5 {
                             Button {
-                                addHaveAccount()
+                                toggleHaveAccount()
                             } label: {
                                 Text("はじめる")
                                     .font(.system(size: 28))
@@ -48,7 +47,7 @@ struct TutorialView: View {
             }
 
         }
-    private func addHaveAccount() {
+    private func toggleHaveAccount() {
         let info = LoginInfo(context: viewContext)
         info.haveAccount = true
         try? viewContext.save()
