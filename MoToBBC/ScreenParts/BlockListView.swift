@@ -2,7 +2,6 @@ import SwiftUI
 import CoreData
 
 struct BlockListView: View {
-    @ObservedObject private var viewModel = ViewModels()
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: BlockList.entity(),
