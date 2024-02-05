@@ -31,13 +31,9 @@ struct NewLoginView: View {
     @State public var password: String = ""
     @State public var errorMessage: String = ""
     @State var profile = false
-    @State var check = false
     @State  var checkms = false
     @Binding var allview: Bool
-    @State private var errorhandle: Bool = false
     @State var checkname = "checkmark.circle"
-    @State private var mailname: String = " MoToBBS@gmail.com"
-    @State private var passname: String = " 123456"
     @State private var male: Bool = false
     @State private var female: Bool = false
     @State private var andSoOn: Bool = false

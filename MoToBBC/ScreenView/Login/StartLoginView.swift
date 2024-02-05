@@ -9,14 +9,11 @@ import SwiftUI
 import FirebaseAuth
 import CoreData
 struct StartLoginView: View {
-    @ObservedObject private var viewModel = LoginModel()
-    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: LoginInfo.entity(),
         sortDescriptors: [NSSortDescriptor(key: "pass", ascending: false)],
         animation: .default
     ) var fetchedInfo: FetchedResults<LoginInfo>
-    @State private var checkerror: Bool = false
     @State var showsheet = false
     @State var showconfine = false
     @State public var usersname: String = ""
@@ -34,7 +31,6 @@ struct StartLoginView: View {
     @State private var errorhandle: Bool = false
     @State private var mailname: String = " MoToBBS@gmail.com"
     @State private var passname: String = " 123456"
-    @State private var authState:String = ""
     
     var body: some View {
         GeometryReader {
