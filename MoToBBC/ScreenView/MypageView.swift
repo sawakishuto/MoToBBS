@@ -164,13 +164,7 @@ struct Mypageview: View {
         }
     }
     
-    private func deleteBlock(offsets: IndexSet) {
-        offsets.forEach { index in
-            viewContext.delete(fetchedInfomation[index])
-        }
-        // 保存を忘れない
-        try? viewContext.save()
-    }
+
 }
 
 struct Mypageview_Previews: PreviewProvider {
