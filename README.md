@@ -1,3 +1,31 @@
+# MoToBBS
+このアプリは **「誰かとツーリング」** というイベントをより手軽に、身近なものにしたい人のためのアプリです。
+
+誰でもツーリングの募集・参加が気軽にできます。
+## 概要
+
+### 画面概要と使い方
+<img src ="https://github.com/sawakishuto/MoToBBS/assets/116183565/9fdf9b2c-fc61-41cb-b354-4a4659e1d38a" width = 30%>
+<img src ="https://github.com/sawakishuto/MoToBBS/assets/116183565/934ca6cd-92f6-4c7d-ac15-eeb238507eb8" width = 30%>
+<img src ="https://github.com/sawakishuto/MoToBBS/assets/116183565/d58f4677-a35b-45df-8a8e-bcfdcf9337fd" width = 30%>
+<img src ="https://github.com/sawakishuto/MoToBBS/assets/116183565/387c3ff5-4128-490e-8f1c-d188c07c19f6" width = 30%>
+<img src ="https://github.com/sawakishuto/MoToBBS/assets/116183565/e3301129-c62e-44ff-99f4-5284b78335eb" width = 30%>
+
+
+## アーキテクチャ
+アーキテクチャはMVVMを適応する(リファクタ中)
+
+## Viewについて
+- Viewは基本SwiftUIを使用している
+- SwiftUIでは実装できない面は一部UIKitを使用
+## ダウンロード
+ダウンロードリンク(AppStoreのみ)
+https://apps.apple.com/jp/app/motobbs/id6469105461
+
+## 使用技術
+<img alt="使用技術" src="https://skillicons.dev/icons?theme=light&perline=8&i=swift,python,firebase,github" />
+<img src = "https://github.com/sawakishuto/MoToBBS/assets/116183565/cacd0ebd-e92d-476a-9644-5b37316704b4" width = 15%>
+
 # プライバシーポリシー
 
 ## 1. ユーザー情報の収集と使用
