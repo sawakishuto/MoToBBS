@@ -173,6 +173,7 @@ struct NewLoginView: View {
                                     if let error = error {
                                         authState = "新規登録失敗"
                                         progresState = "新規登録"
+                                        print(error)
                                     } else {
                                         DispatchQueue.global().async {
                                             addLoginInfo(mail: mail, pass: password)

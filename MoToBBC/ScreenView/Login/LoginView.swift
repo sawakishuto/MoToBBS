@@ -3,15 +3,23 @@ import FirebaseAuth
 import CoreData
 // swiftlint:disable line_length
 struct LoginView: View {
+    @FetchRequest(
+        entity: LoginInfo.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "haveAccount", ascending: false)],
+        animation: .default
+    ) var loginInfo: FetchedResults<LoginInfo>
     @State var logingo = true
     @State private var allview: Bool = false
-
-
 
     var body: some View {
         if !allview {
             if logingo {
                 StartLoginView(logingo: $logingo, allview: $allview)
+                    .onAppear {
+                        if ((loginInfo.first?.haveAccount) == nil) {
+                               logingo = false
+                           }
+                       }
             }
             else {
                 NewLoginView(logingo: $logingo, allview: $allview)
@@ -20,6 +28,7 @@ struct LoginView: View {
         else if allview {
             HomeView()
         }
+        
     }
 }
 
