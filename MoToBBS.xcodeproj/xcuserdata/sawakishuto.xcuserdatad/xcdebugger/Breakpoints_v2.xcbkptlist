@@ -79,8 +79,8 @@
             filePath = "MoToBBC/ViewModels/ViewModels.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "ViewModels"
             landmarkType = "3">
          </BreakpointContent>
@@ -95,8 +95,8 @@
             filePath = "MoToBBC/ViewModels/ViewModels.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "fetchEvntList()"
             landmarkType = "7">
             <Locations>
@@ -158,8 +158,8 @@
             filePath = "MoToBBC/ViewModels/ViewModels.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "fetchUserinfo(completion:)"
             landmarkType = "7">
             <Locations>

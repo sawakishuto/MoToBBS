@@ -26,7 +26,6 @@
 		0859B87229F01F1D00A0B928 /* MoToBBCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */; };
 		0859B87329F01F1D00A0B928 /* ViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B86B29F01F1D00A0B928 /* ViewModels.swift */; };
 		0859B87429F01F1D00A0B928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0859B86C29F01F1D00A0B928 /* Assets.xcassets */; };
-		0859B87529F01F1D00A0B928 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0859B86E29F01F1D00A0B928 /* Preview Assets.xcassets */; };
 		0859B87729F01F1D00A0B928 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */; };
 		0859B87B29F0DC4400A0B928 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859B87A29F0DC4400A0B928 /* RowView.swift */; };
 		086A33F029EF851500CD78BF /* MoToBBCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A33EF29EF851500CD78BF /* MoToBBCTests.swift */; };
@@ -50,6 +49,8 @@
 		08C3516C2B01032400E0FD83 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C3516B2B01032400E0FD83 /* TutorialView.swift */; };
 		08CA67E52A132187006909B8 /* MytoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E42A132187006909B8 /* MytoringView.swift */; };
 		08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E62A2243DB006909B8 /* JoinListCard.swift */; };
+		08CB695B2BDA132A00E5940C /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB695A2BDA132A00E5940C /* LoginType.swift */; };
+		08CB695F2BDA13B900E5940C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB695E2BDA13B900E5940C /* LoadingView.swift */; };
 		08D1115C29F91C1400561414 /* RecruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115B29F91C1400561414 /* RecruitView.swift */; };
 		08D1115E29F9783C00561414 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115D29F9783C00561414 /* MypageView.swift */; };
 		08D1116029F98D0100561414 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D1115F29F98D0100561414 /* HomeView.swift */; };
@@ -90,7 +91,6 @@
 		0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoToBBCApp.swift; sourceTree = "<group>"; };
 		0859B86B29F01F1D00A0B928 /* ViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModels.swift; sourceTree = "<group>"; };
 		0859B86C29F01F1D00A0B928 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0859B86E29F01F1D00A0B928 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0859B87A29F0DC4400A0B928 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		086A33DB29EF851200CD78BF /* MoToBBS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoToBBS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +102,7 @@
 		087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanesePrefecture.swift; sourceTree = "<group>"; };
 		088048F82B1ADECA0090FFD1 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		088048FA2B1ADFDF0090FFD1 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		0896DD3C2BDA189900FE077A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		089A7F002AA707A400D18D2E /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		08AE7F9E29FC09400073D37E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		08AE7FA129FC09ED0073D37E /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -116,6 +117,12 @@
 		08C3516B2B01032400E0FD83 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		08CA67E42A132187006909B8 /* MytoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytoringView.swift; sourceTree = "<group>"; };
 		08CA67E62A2243DB006909B8 /* JoinListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListCard.swift; sourceTree = "<group>"; };
+		08CB69532BD8300400E5940C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08CB69542BD8300D00E5940C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "MoToBBC/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08CB69562BD8305600E5940C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "MoToBBC/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08CB69592BD9FD1A00E5940C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		08CB695A2BDA132A00E5940C /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
+		08CB695E2BDA13B900E5940C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		08D1115B29F91C1400561414 /* RecruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitView.swift; sourceTree = "<group>"; };
 		08D1115D29F9783C00561414 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		08D1115F29F98D0100561414 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -180,32 +187,27 @@
 		0859B86829F01F1D00A0B928 /* MoToBBC */ = {
 			isa = PBXGroup;
 			children = (
-				0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */,
+				08CB694E2BD82E1100E5940C /* App */,
+				08CB694F2BD82E5700E5940C /* Entity */,
+				08CB69552BD8302700E5940C /* Views */,
+				08CB69502BD82E8900E5940C /* Resources */,
 				0816E7172ADBF12600E170CA /* Coredata */,
-				0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */,
 				089A7EFC2AA7061D00D18D2E /* Models */,
-				089A7EFD2AA7063300D18D2E /* ScreenView */,
-				089A7EFE2AA706C400D18D2E /* ScreenParts */,
 				089A7EFF2AA7077C00D18D2E /* ViewModels */,
-				0859B86C29F01F1D00A0B928 /* Assets.xcassets */,
-				0859B86D29F01F1D00A0B928 /* Preview Content */,
+				0859B87029F01F1D00A0B928 /* GoogleService-Info.plist */,
 			);
 			path = MoToBBC;
-			sourceTree = "<group>";
-		};
-		0859B86D29F01F1D00A0B928 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0859B86E29F01F1D00A0B928 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		086A33D229EF851200CD78BF = {
 			isa = PBXGroup;
 			children = (
+				0896DD3C2BDA189900FE077A /* PrivacyInfo.xcprivacy */,
 				08D27C642A31FA7400BB28BD /* MoToBBS-Info.plist */,
 				0859B86829F01F1D00A0B928 /* MoToBBC */,
+				08CB69532BD8300400E5940C /* GoogleService-Info.plist */,
+				08CB69542BD8300D00E5940C /* GoogleService-Info.plist */,
+				08CB69562BD8305600E5940C /* GoogleService-Info.plist */,
 				086A33EE29EF851500CD78BF /* MoToBBCTests */,
 				086A33F829EF851500CD78BF /* MoToBBCUITests */,
 				086A33DC29EF851200CD78BF /* Products */,
@@ -244,7 +246,6 @@
 			children = (
 				08AE7F9E29FC09400073D37E /* Models.swift */,
 				08AE7FA129FC09ED0073D37E /* LoginModel.swift */,
-				087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,19 +253,11 @@
 		089A7EFD2AA7063300D18D2E /* ScreenView */ = {
 			isa = PBXGroup;
 			children = (
-				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
 				08C3516A2AFE802300E0FD83 /* Login */,
-				08D1115D29F9783C00561414 /* MypageView.swift */,
-				08D7679D2ADDEFA00006A7F6 /* SettingView.swift */,
-				08D678912B2358AF001154A4 /* EditView.swift */,
-				08C3516B2B01032400E0FD83 /* TutorialView.swift */,
-				08D767D52ADE41540006A7F6 /* MailView.swift */,
-				08B494B329F2A78D007EC5DF /* DetailView.swift */,
+				08CB69522BD82F6B00E5940C /* BBS */,
+				08CB69512BD82F1700E5940C /* MyPage */,
 				08D1115F29F98D0100561414 /* HomeView.swift */,
 				08D1116129FA299E00561414 /* JoinListView.swift */,
-				0859B86929F01F1D00A0B928 /* EventListView.swift */,
-				08D27C692A3225D400BB28BD /* ProfileSetView.swift */,
-				08D1115B29F91C1400561414 /* RecruitView.swift */,
 			);
 			path = ScreenView;
 			sourceTree = "<group>";
@@ -283,6 +276,7 @@
 				08CA67E42A132187006909B8 /* MytoringView.swift */,
 				08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */,
 				08D767D72ADE57DC0006A7F6 /* ReportDetailView.swift */,
+				08CB695E2BDA13B900E5940C /* LoadingView.swift */,
 			);
 			path = ScreenParts;
 			sourceTree = "<group>";
@@ -298,11 +292,70 @@
 		08C3516A2AFE802300E0FD83 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
 				08C351662AFE762100E0FD83 /* NewLoginView.swift */,
 				08B494B529F4E03B007EC5DF /* LoginView.swift */,
 				08C351682AFE7B8900E0FD83 /* StartLoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		08CB694E2BD82E1100E5940C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0859B86A29F01F1D00A0B928 /* MoToBBCApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		08CB694F2BD82E5700E5940C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				087CC3A12B05D38700E63AAC /* JapanesePrefecture.swift */,
+				08CB695A2BDA132A00E5940C /* LoginType.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		08CB69502BD82E8900E5940C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				08CB69592BD9FD1A00E5940C /* Preview Assets.xcassets */,
+				0859B86C29F01F1D00A0B928 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08CB69512BD82F1700E5940C /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				08D27C692A3225D400BB28BD /* ProfileSetView.swift */,
+				08D678912B2358AF001154A4 /* EditView.swift */,
+				08D7679D2ADDEFA00006A7F6 /* SettingView.swift */,
+				08D1115D29F9783C00561414 /* MypageView.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		08CB69522BD82F6B00E5940C /* BBS */ = {
+			isa = PBXGroup;
+			children = (
+				08D767D52ADE41540006A7F6 /* MailView.swift */,
+				08C3516B2B01032400E0FD83 /* TutorialView.swift */,
+				0859B86929F01F1D00A0B928 /* EventListView.swift */,
+				08B494B329F2A78D007EC5DF /* DetailView.swift */,
+				08D1115B29F91C1400561414 /* RecruitView.swift */,
+			);
+			path = BBS;
+			sourceTree = "<group>";
+		};
+		08CB69552BD8302700E5940C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				089A7EFE2AA706C400D18D2E /* ScreenParts */,
+				089A7EFD2AA7063300D18D2E /* ScreenView */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +479,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0859B87529F01F1D00A0B928 /* Preview Assets.xcassets in Resources */,
 				0859B87729F01F1D00A0B928 /* GoogleService-Info.plist in Resources */,
 				0859B87429F01F1D00A0B928 /* Assets.xcassets in Resources */,
 			);
@@ -485,6 +537,7 @@
 				08AE7F9F29FC09400073D37E /* Models.swift in Sources */,
 				088048FB2B1ADFDF0090FFD1 /* ChatMessage.swift in Sources */,
 				08D1115E29F9783C00561414 /* MypageView.swift in Sources */,
+				08CB695F2BDA13B900E5940C /* LoadingView.swift in Sources */,
 				0859B87329F01F1D00A0B928 /* ViewModels.swift in Sources */,
 				0859B87B29F0DC4400A0B928 /* RowView.swift in Sources */,
 				0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */,
@@ -499,6 +552,7 @@
 				08AE7FA229FC09ED0073D37E /* LoginModel.swift in Sources */,
 				08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */,
 				08D1115C29F91C1400561414 /* RecruitView.swift in Sources */,
+				08CB695B2BDA132A00E5940C /* LoginType.swift in Sources */,
 				08D7679A2ADD26F60006A7F6 /* AttendList+CoreDataProperties.swift in Sources */,
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
 				08D767D82ADE57DC0006A7F6 /* ReportDetailView.swift in Sources */,
@@ -670,7 +724,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_ASSET_PATHS = "\"MoToBBC/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"/Users/sawakishuto/Desktop/MoToBBC/Preview Assets.xcassets\"";
 				DEVELOPMENT_TEAM = 5285K4Z956;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -707,7 +761,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_ASSET_PATHS = "\"MoToBBC/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"/Users/sawakishuto/Desktop/MoToBBC/Preview Assets.xcassets\"";
 				DEVELOPMENT_TEAM = 5285K4Z956;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
