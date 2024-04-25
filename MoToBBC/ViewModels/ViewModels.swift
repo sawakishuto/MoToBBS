@@ -32,6 +32,7 @@ import Observation
      var qestion: Bool = false
      let user = Auth.auth().currentUser
      var datamodel = [Events]()
+     var isLogin = false
     private var db = Firestore.firestore()
      var documentId: String?
 
