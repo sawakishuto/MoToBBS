@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import Combine
+
+protocol OwnPostedRepositoryProtocol: AnyObject {
+    func getOwnPosted(uid: String) -> AnyPublisher<[Events], Error>
+
+    func addOwnPosted(uid: String, eventId: String)
+
+    func deleteOwnPosted(uid: String, eventId: String)
+
+    
+}
