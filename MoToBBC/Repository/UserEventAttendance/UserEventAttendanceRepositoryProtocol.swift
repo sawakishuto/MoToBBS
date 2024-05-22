@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import Combine
+
+protocol UserEventAttendanceRepositoryProtocol: AnyObject {
+    func getUserEvent(uid: String) -> AnyPublisher<[Events], Error>
+
+    func addAttendEvents(uid: String, eventId: String)
+
+    func deleteAttendEvents(uid: String, eventId: String)
+}

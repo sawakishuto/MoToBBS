@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import Combine
+
+protocol UserRepositoryProtocol: AnyObject {
+    func addUser(uid: String, user: User)
+
+    func getUser(uid: String) -> AnyPublisher<User, Error>
+
+    func getUsers() -> AnyPublisher<[User], Error>
+    
+}
