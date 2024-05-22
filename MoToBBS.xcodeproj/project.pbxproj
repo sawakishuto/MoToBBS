@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		08142F2E2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F2D2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift */; };
 		08142F302BFE0441007CCF1B /* AttendListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F2F2BFE0441007CCF1B /* AttendListRepository.swift */; };
-		08142F322BFE0457007CCF1B /* AttendRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F312BFE0457007CCF1B /* AttendRepositoryProtocol.swift */; };
-		08142F342BFE0465007CCF1B /* AttendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F332BFE0465007CCF1B /* AttendRepository.swift */; };
 		08142F362BFE0489007CCF1B /* ChatRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F352BFE0489007CCF1B /* ChatRepositoryProtocol.swift */; };
 		08142F382BFE0494007CCF1B /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F372BFE0494007CCF1B /* ChatRepository.swift */; };
 		08142F3A2BFE04B4007CCF1B /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F392BFE04B4007CCF1B /* EventRepository.swift */; };
@@ -100,8 +98,6 @@
 /* Begin PBXFileReference section */
 		08142F2D2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendListRepositoryProtocol.swift; sourceTree = "<group>"; };
 		08142F2F2BFE0441007CCF1B /* AttendListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendListRepository.swift; sourceTree = "<group>"; };
-		08142F312BFE0457007CCF1B /* AttendRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendRepositoryProtocol.swift; sourceTree = "<group>"; };
-		08142F332BFE0465007CCF1B /* AttendRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendRepository.swift; sourceTree = "<group>"; };
 		08142F352BFE0489007CCF1B /* ChatRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepositoryProtocol.swift; sourceTree = "<group>"; };
 		08142F372BFE0494007CCF1B /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		08142F392BFE04B4007CCF1B /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
@@ -223,15 +219,6 @@
 			path = AttendList;
 			sourceTree = "<group>";
 		};
-		08142F4A2BFE069F007CCF1B /* Attend */ = {
-			isa = PBXGroup;
-			children = (
-				08142F312BFE0457007CCF1B /* AttendRepositoryProtocol.swift */,
-				08142F332BFE0465007CCF1B /* AttendRepository.swift */,
-			);
-			path = Attend;
-			sourceTree = "<group>";
-		};
 		08142F4B2BFE06AE007CCF1B /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,8 +240,8 @@
 		08142F4D2BFE06BE007CCF1B /* OwnPosted */ = {
 			isa = PBXGroup;
 			children = (
-				08142F3D2BFE04DE007CCF1B /* OwnPostedRepository.swift */,
 				08142F3F2BFE04FC007CCF1B /* OwnPostedRepositoryProtocol.swift */,
+				08142F3D2BFE04DE007CCF1B /* OwnPostedRepository.swift */,
 			);
 			path = OwnPosted;
 			sourceTree = "<group>";
@@ -294,8 +281,8 @@
 		0859B86829F01F1D00A0B928 /* MoToBBC */ = {
 			isa = PBXGroup;
 			children = (
-				08E2A13F2BF6684000F1C78D /* Repository */,
 				08CB694E2BD82E1100E5940C /* App */,
+				08E2A13F2BF6684000F1C78D /* Repository */,
 				08CB694F2BD82E5700E5940C /* Entity */,
 				08CB69552BD8302700E5940C /* Views */,
 				08CB69502BD82E8900E5940C /* Resources */,
@@ -472,7 +459,6 @@
 				08E2A1402BF6687B00F1C78D /* FBRepositoryProtocol.swift */,
 				08142F472BFE05F4007CCF1B /* Auth */,
 				08142F492BFE0692007CCF1B /* AttendList */,
-				08142F4A2BFE069F007CCF1B /* Attend */,
 				08142F4B2BFE06AE007CCF1B /* Chat */,
 				08142F4C2BFE06B7007CCF1B /* Event */,
 				08142F4D2BFE06BE007CCF1B /* OwnPosted */,
@@ -673,7 +659,6 @@
 				0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */,
 				08142F2E2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift in Sources */,
 				08142F302BFE0441007CCF1B /* AttendListRepository.swift in Sources */,
-				08142F342BFE0465007CCF1B /* AttendRepository.swift in Sources */,
 				08CA67E52A132187006909B8 /* MytoringView.swift in Sources */,
 				0824C16F2AE26BCA00B36D57 /* BlockListView.swift in Sources */,
 				08142F462BFE05B2007CCF1B /* AuthRepository.swift in Sources */,
@@ -696,7 +681,6 @@
 				0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */,
 				08142F502BFE0710007CCF1B /* UserRepository.swift in Sources */,
 				08D767D62ADE41540006A7F6 /* MailView.swift in Sources */,
-				08142F322BFE0457007CCF1B /* AttendRepositoryProtocol.swift in Sources */,
 				08D7679E2ADDEFA00006A7F6 /* SettingView.swift in Sources */,
 				08142F422BFE0537007CCF1B /* UserEventAttendanceRepository.swift in Sources */,
 				08C3516C2B01032400E0FD83 /* TutorialView.swift in Sources */,
