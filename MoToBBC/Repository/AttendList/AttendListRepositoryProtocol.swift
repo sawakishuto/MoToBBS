@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import Combine
+
+protocol AttendListRepositoryProtocol: AnyObject {
+    func getAttendReservationEvents(uid: String) -> AnyPublisher<[Events], Error>
+    func addUserToAttendList(eventId: String, uid: String, user: User)
+
+    func deleteUserFromAttendList(userId: String, eventId: String)
+
+    func deleteAllUser(eventId: String)
+
+}
