@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import Combine
+
+protocol EventRepository: AnyObject {
+    func getEvents() -> AnyPublisher<[Events], Error>
+
+    func addEvent(eventId: String, uid: String, event: Events)
+
+    func deleteEvent(eventid: String, uid: String)
+
+}
