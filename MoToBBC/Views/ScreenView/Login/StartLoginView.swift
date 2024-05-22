@@ -114,17 +114,6 @@ struct StartLoginView: View {
                         mail = fetchedInfo.first?.mail ?? ""
                         password = fetchedInfo.first?.pass ?? ""
 
-                        Auth.auth().signIn(withEmail: self.mail, password: self.password) { authResult, error in
-                            if authResult?.user != nil {
-                                allview = true
-                            } else {
-                                errorhandle = true
-                                mailname = "メールアドレスまたはパスワードが違います"
-                                mail = ""
-                                password = ""
-                            }
-                        }
-
                     }
 
                 }
@@ -141,10 +130,8 @@ struct StartLoginView: View {
                             isLoading = false
                             allview = true
                         } else {
-                            errorhandle = true
-                            mailname = "メールアドレスまたはパスワードが違います"
-                            mail = ""
-                            password = ""
+                            isLoading = false
+
                         }
                     }
                 }

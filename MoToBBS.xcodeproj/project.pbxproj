@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08142F2E2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F2D2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift */; };
+		08142F302BFE0441007CCF1B /* AttendListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F2F2BFE0441007CCF1B /* AttendListRepository.swift */; };
+		08142F322BFE0457007CCF1B /* AttendRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F312BFE0457007CCF1B /* AttendRepositoryProtocol.swift */; };
+		08142F342BFE0465007CCF1B /* AttendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F332BFE0465007CCF1B /* AttendRepository.swift */; };
+		08142F362BFE0489007CCF1B /* ChatRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F352BFE0489007CCF1B /* ChatRepositoryProtocol.swift */; };
+		08142F382BFE0494007CCF1B /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F372BFE0494007CCF1B /* ChatRepository.swift */; };
+		08142F3A2BFE04B4007CCF1B /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F392BFE04B4007CCF1B /* EventRepository.swift */; };
+		08142F3C2BFE04C5007CCF1B /* EventRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F3B2BFE04C5007CCF1B /* EventRepositoryProtocol.swift */; };
+		08142F3E2BFE04DE007CCF1B /* OwnPostedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F3D2BFE04DE007CCF1B /* OwnPostedRepository.swift */; };
+		08142F402BFE04FC007CCF1B /* OwnPostedRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F3F2BFE04FC007CCF1B /* OwnPostedRepositoryProtocol.swift */; };
+		08142F422BFE0537007CCF1B /* UserEventAttendanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F412BFE0537007CCF1B /* UserEventAttendanceRepository.swift */; };
+		08142F442BFE0550007CCF1B /* UserEventAttendanceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F432BFE0550007CCF1B /* UserEventAttendanceRepositoryProtocol.swift */; };
+		08142F462BFE05B2007CCF1B /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F452BFE05B2007CCF1B /* AuthRepository.swift */; };
+		08142F502BFE0710007CCF1B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F4F2BFE0710007CCF1B /* UserRepository.swift */; };
+		08142F522BFE0723007CCF1B /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F512BFE0723007CCF1B /* UserRepositoryProtocol.swift */; };
 		0816E7132ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */; };
 		0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */; };
 		0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7152ADBEEEE00E170CA /* PersistenceLogin.swift */; };
@@ -61,6 +76,8 @@
 		08D7679E2ADDEFA00006A7F6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7679D2ADDEFA00006A7F6 /* SettingView.swift */; };
 		08D767D62ADE41540006A7F6 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D767D52ADE41540006A7F6 /* MailView.swift */; };
 		08D767D82ADE57DC0006A7F6 /* ReportDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D767D72ADE57DC0006A7F6 /* ReportDetailView.swift */; };
+		08E2A1412BF6687B00F1C78D /* FBRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E2A1402BF6687B00F1C78D /* FBRepositoryProtocol.swift */; };
+		08E2A1432BFBB77F00F1C78D /* AuthRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E2A1422BFBB77F00F1C78D /* AuthRepositoryProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +98,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08142F2D2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendListRepositoryProtocol.swift; sourceTree = "<group>"; };
+		08142F2F2BFE0441007CCF1B /* AttendListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendListRepository.swift; sourceTree = "<group>"; };
+		08142F312BFE0457007CCF1B /* AttendRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendRepositoryProtocol.swift; sourceTree = "<group>"; };
+		08142F332BFE0465007CCF1B /* AttendRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendRepository.swift; sourceTree = "<group>"; };
+		08142F352BFE0489007CCF1B /* ChatRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepositoryProtocol.swift; sourceTree = "<group>"; };
+		08142F372BFE0494007CCF1B /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		08142F392BFE04B4007CCF1B /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
+		08142F3B2BFE04C5007CCF1B /* EventRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepositoryProtocol.swift; sourceTree = "<group>"; };
+		08142F3D2BFE04DE007CCF1B /* OwnPostedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPostedRepository.swift; sourceTree = "<group>"; };
+		08142F3F2BFE04FC007CCF1B /* OwnPostedRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPostedRepositoryProtocol.swift; sourceTree = "<group>"; };
+		08142F412BFE0537007CCF1B /* UserEventAttendanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEventAttendanceRepository.swift; sourceTree = "<group>"; };
+		08142F432BFE0550007CCF1B /* UserEventAttendanceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEventAttendanceRepositoryProtocol.swift; sourceTree = "<group>"; };
+		08142F452BFE05B2007CCF1B /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		08142F4F2BFE0710007CCF1B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		08142F512BFE0723007CCF1B /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0816E7152ADBEEEE00E170CA /* PersistenceLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLogin.swift; sourceTree = "<group>"; };
@@ -134,6 +166,8 @@
 		08D7679D2ADDEFA00006A7F6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		08D767D52ADE41540006A7F6 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		08D767D72ADE57DC0006A7F6 /* ReportDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailView.swift; sourceTree = "<group>"; };
+		08E2A1402BF6687B00F1C78D /* FBRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBRepositoryProtocol.swift; sourceTree = "<group>"; };
+		08E2A1422BFBB77F00F1C78D /* AuthRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +205,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08142F472BFE05F4007CCF1B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				08E2A1422BFBB77F00F1C78D /* AuthRepositoryProtocol.swift */,
+				08142F452BFE05B2007CCF1B /* AuthRepository.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		08142F492BFE0692007CCF1B /* AttendList */ = {
+			isa = PBXGroup;
+			children = (
+				08142F2D2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift */,
+				08142F2F2BFE0441007CCF1B /* AttendListRepository.swift */,
+			);
+			path = AttendList;
+			sourceTree = "<group>";
+		};
+		08142F4A2BFE069F007CCF1B /* Attend */ = {
+			isa = PBXGroup;
+			children = (
+				08142F312BFE0457007CCF1B /* AttendRepositoryProtocol.swift */,
+				08142F332BFE0465007CCF1B /* AttendRepository.swift */,
+			);
+			path = Attend;
+			sourceTree = "<group>";
+		};
+		08142F4B2BFE06AE007CCF1B /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				08142F352BFE0489007CCF1B /* ChatRepositoryProtocol.swift */,
+				08142F372BFE0494007CCF1B /* ChatRepository.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		08142F4C2BFE06B7007CCF1B /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				08142F392BFE04B4007CCF1B /* EventRepository.swift */,
+				08142F3B2BFE04C5007CCF1B /* EventRepositoryProtocol.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		08142F4D2BFE06BE007CCF1B /* OwnPosted */ = {
+			isa = PBXGroup;
+			children = (
+				08142F3D2BFE04DE007CCF1B /* OwnPostedRepository.swift */,
+				08142F3F2BFE04FC007CCF1B /* OwnPostedRepositoryProtocol.swift */,
+			);
+			path = OwnPosted;
+			sourceTree = "<group>";
+		};
+		08142F4E2BFE06CA007CCF1B /* UserEventAttendance */ = {
+			isa = PBXGroup;
+			children = (
+				08142F412BFE0537007CCF1B /* UserEventAttendanceRepository.swift */,
+				08142F432BFE0550007CCF1B /* UserEventAttendanceRepositoryProtocol.swift */,
+			);
+			path = UserEventAttendance;
+			sourceTree = "<group>";
+		};
+		08142F532BFE0733007CCF1B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				08142F4F2BFE0710007CCF1B /* UserRepository.swift */,
+				08142F512BFE0723007CCF1B /* UserRepositoryProtocol.swift */,
+			);
+			name = User;
+			path = UserEventAttendance/User;
+			sourceTree = "<group>";
+		};
 		0816E7172ADBF12600E170CA /* Coredata */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +294,7 @@
 		0859B86829F01F1D00A0B928 /* MoToBBC */ = {
 			isa = PBXGroup;
 			children = (
+				08E2A13F2BF6684000F1C78D /* Repository */,
 				08CB694E2BD82E1100E5940C /* App */,
 				08CB694F2BD82E5700E5940C /* Entity */,
 				08CB69552BD8302700E5940C /* Views */,
@@ -358,6 +466,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		08E2A13F2BF6684000F1C78D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				08E2A1402BF6687B00F1C78D /* FBRepositoryProtocol.swift */,
+				08142F472BFE05F4007CCF1B /* Auth */,
+				08142F492BFE0692007CCF1B /* AttendList */,
+				08142F4A2BFE069F007CCF1B /* Attend */,
+				08142F4B2BFE06AE007CCF1B /* Chat */,
+				08142F4C2BFE06B7007CCF1B /* Event */,
+				08142F4D2BFE06BE007CCF1B /* OwnPosted */,
+				08142F532BFE0733007CCF1B /* User */,
+				08142F4E2BFE06CA007CCF1B /* UserEventAttendance */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -526,23 +650,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08142F522BFE0723007CCF1B /* UserRepositoryProtocol.swift in Sources */,
 				0816E7132ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift in Sources */,
 				087CC3A22B05D38700E63AAC /* JapanesePrefecture.swift in Sources */,
 				08C351672AFE762100E0FD83 /* NewLoginView.swift in Sources */,
 				089A7F012AA707A500D18D2E /* SlideView.swift in Sources */,
+				08142F402BFE04FC007CCF1B /* OwnPostedRepositoryProtocol.swift in Sources */,
 				08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */,
 				0824C16B2AE2687900B36D57 /* LoginInfo.xcdatamodeld in Sources */,
 				08D27C6A2A3225D400BB28BD /* ProfileSetView.swift in Sources */,
+				08142F3E2BFE04DE007CCF1B /* OwnPostedRepository.swift in Sources */,
 				08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */,
 				08AE7F9F29FC09400073D37E /* Models.swift in Sources */,
+				08142F362BFE0489007CCF1B /* ChatRepositoryProtocol.swift in Sources */,
 				088048FB2B1ADFDF0090FFD1 /* ChatMessage.swift in Sources */,
 				08D1115E29F9783C00561414 /* MypageView.swift in Sources */,
 				08CB695F2BDA13B900E5940C /* LoadingView.swift in Sources */,
 				0859B87329F01F1D00A0B928 /* ViewModels.swift in Sources */,
+				08142F3A2BFE04B4007CCF1B /* EventRepository.swift in Sources */,
 				0859B87B29F0DC4400A0B928 /* RowView.swift in Sources */,
+				08142F382BFE0494007CCF1B /* ChatRepository.swift in Sources */,
 				0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */,
+				08142F2E2BFE0430007CCF1B /* AttendListRepositoryProtocol.swift in Sources */,
+				08142F302BFE0441007CCF1B /* AttendListRepository.swift in Sources */,
+				08142F342BFE0465007CCF1B /* AttendRepository.swift in Sources */,
 				08CA67E52A132187006909B8 /* MytoringView.swift in Sources */,
 				0824C16F2AE26BCA00B36D57 /* BlockListView.swift in Sources */,
+				08142F462BFE05B2007CCF1B /* AuthRepository.swift in Sources */,
 				0859B87229F01F1D00A0B928 /* MoToBBCApp.swift in Sources */,
 				08C351652AF4127200E0FD83 /* AdMobBannerView.swift in Sources */,
 				08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */,
@@ -550,16 +684,23 @@
 				08D1116029F98D0100561414 /* HomeView.swift in Sources */,
 				0824C16D2AE268FD00B36D57 /* BlockList+CoreDataProperties.swift in Sources */,
 				08AE7FA229FC09ED0073D37E /* LoginModel.swift in Sources */,
+				08142F3C2BFE04C5007CCF1B /* EventRepositoryProtocol.swift in Sources */,
 				08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */,
+				08E2A1432BFBB77F00F1C78D /* AuthRepositoryProtocol.swift in Sources */,
 				08D1115C29F91C1400561414 /* RecruitView.swift in Sources */,
+				08E2A1412BF6687B00F1C78D /* FBRepositoryProtocol.swift in Sources */,
 				08CB695B2BDA132A00E5940C /* LoginType.swift in Sources */,
 				08D7679A2ADD26F60006A7F6 /* AttendList+CoreDataProperties.swift in Sources */,
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
 				08D767D82ADE57DC0006A7F6 /* ReportDetailView.swift in Sources */,
 				0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */,
+				08142F502BFE0710007CCF1B /* UserRepository.swift in Sources */,
 				08D767D62ADE41540006A7F6 /* MailView.swift in Sources */,
+				08142F322BFE0457007CCF1B /* AttendRepositoryProtocol.swift in Sources */,
 				08D7679E2ADDEFA00006A7F6 /* SettingView.swift in Sources */,
+				08142F422BFE0537007CCF1B /* UserEventAttendanceRepository.swift in Sources */,
 				08C3516C2B01032400E0FD83 /* TutorialView.swift in Sources */,
+				08142F442BFE0550007CCF1B /* UserEventAttendanceRepositoryProtocol.swift in Sources */,
 				08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */,
 				088048F92B1ADECA0090FFD1 /* ChatView.swift in Sources */,
 				08D678922B2358AF001154A4 /* EditView.swift in Sources */,
@@ -723,7 +864,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoToBBS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"/Users/sawakishuto/Desktop/MoToBBC/Preview Assets.xcassets\"";
 				DEVELOPMENT_TEAM = 5285K4Z956;
 				ENABLE_PREVIEWS = YES;
@@ -741,7 +882,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.40;
+				MARKETING_VERSION = 1.41;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -760,7 +901,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoToBBS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"/Users/sawakishuto/Desktop/MoToBBC/Preview Assets.xcassets\"";
 				DEVELOPMENT_TEAM = 5285K4Z956;
 				ENABLE_PREVIEWS = YES;
@@ -778,7 +919,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.40;
+				MARKETING_VERSION = 1.41;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoToBBSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

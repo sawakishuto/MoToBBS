@@ -15,11 +15,6 @@ struct LoginView: View {
         if !allview {
             if logingo {
                 StartLoginView(logingo: $logingo, allview: $allview)
-                    .onAppear {
-                        if ((loginInfo.first?.haveAccount) == nil) {
-                               logingo = false
-                           }
-                       }
             }
             else {
                 NewLoginView(logingo: $logingo, allview: $allview)
