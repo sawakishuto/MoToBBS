@@ -15,4 +15,6 @@ protocol AuthRepositoryProtocol {
 
     func resetPassword(mailAdress: String)
 
+    func deleteAccount(uid: String)
+
 }
