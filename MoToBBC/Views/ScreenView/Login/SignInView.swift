@@ -8,7 +8,8 @@
 import SwiftUI
 import FirebaseAuth
 import CoreData
-struct StartLoginView: View {
+struct SignInView: View {
+    let repository = AuthRepository()
     @FetchRequest(
         entity: LoginInfo.entity(),
         sortDescriptors: [NSSortDescriptor(key: "pass", ascending: false)],
@@ -32,6 +33,8 @@ struct StartLoginView: View {
     @State private var mailname: String = " MoToBBS@gmail.com"
     @State private var passname: String = " 123456"
     @State private var isLoading = true
+    @ObservedObject var authVM: AuthViewModel
+
     var body: some View {
         if !isLoading {
             GeometryReader  {
@@ -139,6 +142,4 @@ struct StartLoginView: View {
     }
 }
 
-#Preview {
-    StartLoginView(logingo: .constant(true), allview: .constant(false))
-}
+

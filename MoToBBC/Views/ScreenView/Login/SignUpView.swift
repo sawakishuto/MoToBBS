@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 import CoreData
 
-struct NewLoginView: View {
+struct SignUpView: View {
     @ObservedObject private var loginModel = LoginModel()
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
@@ -220,5 +220,5 @@ struct NewLoginView: View {
 }
 
 #Preview {
-    NewLoginView(logingo: .constant(true), allview: .constant(false))
+    SignUpView(logingo: .constant(true), allview: .constant(false))
 }

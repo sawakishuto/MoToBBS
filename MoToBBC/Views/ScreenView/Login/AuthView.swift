@@ -2,7 +2,7 @@ import SwiftUI
 import FirebaseAuth
 import CoreData
 // swiftlint:disable line_length
-struct LoginView: View {
+struct AuthView: View {
     @FetchRequest(
         entity: LoginInfo.entity(),
         sortDescriptors: [NSSortDescriptor(key: "haveAccount", ascending: false)],
@@ -14,10 +14,10 @@ struct LoginView: View {
     var body: some View {
         if !allview {
             if logingo {
-                StartLoginView(logingo: $logingo, allview: $allview)
+                SignInView(logingo: $logingo, allview: $allview)
             }
             else {
-                NewLoginView(logingo: $logingo, allview: $allview)
+                SignUpView(logingo: $logingo, allview: $allview)
             }
         }
         else if allview {
@@ -29,7 +29,7 @@ struct LoginView: View {
 
 struct Loginview_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        AuthView()
     }
 }
 
