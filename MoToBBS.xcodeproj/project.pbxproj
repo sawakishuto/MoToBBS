@@ -20,6 +20,7 @@
 		08142F462BFE05B2007CCF1B /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F452BFE05B2007CCF1B /* AuthRepository.swift */; };
 		08142F502BFE0710007CCF1B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F4F2BFE0710007CCF1B /* UserRepository.swift */; };
 		08142F522BFE0723007CCF1B /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F512BFE0723007CCF1B /* UserRepositoryProtocol.swift */; };
+		08142F562BFE5997007CCF1B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08142F552BFE5997007CCF1B /* AuthViewModel.swift */; };
 		0816E7132ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */; };
 		0816E7142ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */; };
 		0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816E7152ADBEEEE00E170CA /* PersistenceLogin.swift */; };
@@ -51,14 +52,14 @@
 		08AE7F9F29FC09400073D37E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7F9E29FC09400073D37E /* Models.swift */; };
 		08AE7FA229FC09ED0073D37E /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE7FA129FC09ED0073D37E /* LoginModel.swift */; };
 		08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B329F2A78D007EC5DF /* DetailView.swift */; };
-		08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B529F4E03B007EC5DF /* LoginView.swift */; };
+		08B494B629F4E03B007EC5DF /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B494B529F4E03B007EC5DF /* AuthView.swift */; };
 		08B8E2E02A3B71CD00A0DFA2 /* JoinPersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */; };
 		08BB93442A60ECEB00FEAA56 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */; };
 		08BB93462A71F2F600FEAA56 /*  ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */; };
 		08C351632AF40EDD00E0FD83 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 08C351622AF40EDD00E0FD83 /* GoogleMobileAds */; };
 		08C351652AF4127200E0FD83 /* AdMobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351642AF4127200E0FD83 /* AdMobBannerView.swift */; };
-		08C351672AFE762100E0FD83 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351662AFE762100E0FD83 /* NewLoginView.swift */; };
-		08C351692AFE7B8900E0FD83 /* StartLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351682AFE7B8900E0FD83 /* StartLoginView.swift */; };
+		08C351672AFE762100E0FD83 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351662AFE762100E0FD83 /* SignUpView.swift */; };
+		08C351692AFE7B8900E0FD83 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C351682AFE7B8900E0FD83 /* SignInView.swift */; };
 		08C3516C2B01032400E0FD83 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C3516B2B01032400E0FD83 /* TutorialView.swift */; };
 		08CA67E52A132187006909B8 /* MytoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E42A132187006909B8 /* MytoringView.swift */; };
 		08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA67E62A2243DB006909B8 /* JoinListCard.swift */; };
@@ -109,6 +110,7 @@
 		08142F452BFE05B2007CCF1B /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		08142F4F2BFE0710007CCF1B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		08142F512BFE0723007CCF1B /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		08142F552BFE5997007CCF1B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		0816E7112ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0816E7122ADBEE5100E170CA /* LoginInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0816E7152ADBEEEE00E170CA /* PersistenceLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLogin.swift; sourceTree = "<group>"; };
@@ -135,13 +137,13 @@
 		08AE7F9E29FC09400073D37E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		08AE7FA129FC09ED0073D37E /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		08B494B329F2A78D007EC5DF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		08B494B529F4E03B007EC5DF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		08B494B529F4E03B007EC5DF /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		08B8E2DF2A3B71CD00A0DFA2 /* JoinPersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPersonList.swift; sourceTree = "<group>"; };
 		08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
 		08BB93452A71F2F600FEAA56 /*  ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ImagePicker.swift"; sourceTree = "<group>"; };
 		08C351642AF4127200E0FD83 /* AdMobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobBannerView.swift; sourceTree = "<group>"; };
-		08C351662AFE762100E0FD83 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
-		08C351682AFE7B8900E0FD83 /* StartLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartLoginView.swift; sourceTree = "<group>"; };
+		08C351662AFE762100E0FD83 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		08C351682AFE7B8900E0FD83 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		08C3516B2B01032400E0FD83 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		08CA67E42A132187006909B8 /* MytoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytoringView.swift; sourceTree = "<group>"; };
 		08CA67E62A2243DB006909B8 /* JoinListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinListCard.swift; sourceTree = "<group>"; };
@@ -352,7 +354,6 @@
 				08CB69522BD82F6B00E5940C /* BBS */,
 				08CB69512BD82F1700E5940C /* MyPage */,
 				08D1115F29F98D0100561414 /* HomeView.swift */,
-				08D1116129FA299E00561414 /* JoinListView.swift */,
 			);
 			path = ScreenView;
 			sourceTree = "<group>";
@@ -360,6 +361,7 @@
 		089A7EFE2AA706C400D18D2E /* ScreenParts */ = {
 			isa = PBXGroup;
 			children = (
+				08D1116129FA299E00561414 /* JoinListView.swift */,
 				08C351642AF4127200E0FD83 /* AdMobBannerView.swift */,
 				08CA67E62A2243DB006909B8 /* JoinListCard.swift */,
 				0824C16E2AE26BCA00B36D57 /* BlockListView.swift */,
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				0859B86B29F01F1D00A0B928 /* ViewModels.swift */,
+				08142F552BFE5997007CCF1B /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -388,9 +391,9 @@
 			isa = PBXGroup;
 			children = (
 				08BB93432A60ECEB00FEAA56 /* TermsOfServiceView.swift */,
-				08C351662AFE762100E0FD83 /* NewLoginView.swift */,
-				08B494B529F4E03B007EC5DF /* LoginView.swift */,
-				08C351682AFE7B8900E0FD83 /* StartLoginView.swift */,
+				08C351662AFE762100E0FD83 /* SignUpView.swift */,
+				08B494B529F4E03B007EC5DF /* AuthView.swift */,
+				08C351682AFE7B8900E0FD83 /* SignInView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -639,7 +642,7 @@
 				08142F522BFE0723007CCF1B /* UserRepositoryProtocol.swift in Sources */,
 				0816E7132ADBEE5100E170CA /* LoginInfo+CoreDataClass.swift in Sources */,
 				087CC3A22B05D38700E63AAC /* JapanesePrefecture.swift in Sources */,
-				08C351672AFE762100E0FD83 /* NewLoginView.swift in Sources */,
+				08C351672AFE762100E0FD83 /* SignUpView.swift in Sources */,
 				089A7F012AA707A500D18D2E /* SlideView.swift in Sources */,
 				08142F402BFE04FC007CCF1B /* OwnPostedRepositoryProtocol.swift in Sources */,
 				08B494B429F2A78D007EC5DF /* DetailView.swift in Sources */,
@@ -665,7 +668,7 @@
 				0859B87229F01F1D00A0B928 /* MoToBBCApp.swift in Sources */,
 				08C351652AF4127200E0FD83 /* AdMobBannerView.swift in Sources */,
 				08CA67E72A2243DB006909B8 /* JoinListCard.swift in Sources */,
-				08C351692AFE7B8900E0FD83 /* StartLoginView.swift in Sources */,
+				08C351692AFE7B8900E0FD83 /* SignInView.swift in Sources */,
 				08D1116029F98D0100561414 /* HomeView.swift in Sources */,
 				0824C16D2AE268FD00B36D57 /* BlockList+CoreDataProperties.swift in Sources */,
 				08AE7FA229FC09ED0073D37E /* LoginModel.swift in Sources */,
@@ -676,6 +679,7 @@
 				08E2A1412BF6687B00F1C78D /* FBRepositoryProtocol.swift in Sources */,
 				08CB695B2BDA132A00E5940C /* LoginType.swift in Sources */,
 				08D7679A2ADD26F60006A7F6 /* AttendList+CoreDataProperties.swift in Sources */,
+				08142F562BFE5997007CCF1B /* AuthViewModel.swift in Sources */,
 				08D1116229FA299E00561414 /* JoinListView.swift in Sources */,
 				08D767D82ADE57DC0006A7F6 /* ReportDetailView.swift in Sources */,
 				0816E7162ADBEEEE00E170CA /* PersistenceLogin.swift in Sources */,
@@ -685,7 +689,7 @@
 				08142F422BFE0537007CCF1B /* UserEventAttendanceRepository.swift in Sources */,
 				08C3516C2B01032400E0FD83 /* TutorialView.swift in Sources */,
 				08142F442BFE0550007CCF1B /* UserEventAttendanceRepositoryProtocol.swift in Sources */,
-				08B494B629F4E03B007EC5DF /* LoginView.swift in Sources */,
+				08B494B629F4E03B007EC5DF /* AuthView.swift in Sources */,
 				088048F92B1ADECA0090FFD1 /* ChatView.swift in Sources */,
 				08D678922B2358AF001154A4 /* EditView.swift in Sources */,
 				0859B87129F01F1D00A0B928 /* EventListView.swift in Sources */,
